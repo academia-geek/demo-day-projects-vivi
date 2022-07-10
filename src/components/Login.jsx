@@ -10,7 +10,7 @@ import facebook from "../assets/facebook.png";
 
 export const Login = () => {
   return (
-    <DivForm>
+    <DivForm className="login">
       <h2>
         El sitio que esperabas para planear tu próxima experiencia inolvidable
       </h2>

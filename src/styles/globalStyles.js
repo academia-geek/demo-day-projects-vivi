@@ -6,10 +6,13 @@ export const DivForm = styled.div`
   flex-direction: row-reverse;
   width: 100%;
   height: 100vh;
-  background-image: url(${town});
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  &.login {
+    background-image: url(${town});
+  }
 
   & > h2 {
     color: #fff;
@@ -71,17 +74,28 @@ export const FormOption = styled.div`
   & > button {
     font-size: 12px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 300px;
+    transition: 0.3s;
 
-    &.google:hover {
-      background-color: #fffff5;
+    &:active {
+      transform: scale(1.01);
+    }
+
+    &.google {
+      background-color: #f5f5f5;
+      &:hover {
+        background-color: #d5d5d5;
+      }
     }
 
     &.fb {
       background-color: #3a559f !important;
 
       &:hover {
-        background-color: #3a5590 !important;
+        background-color: #3a557a !important;
       }
     }
 

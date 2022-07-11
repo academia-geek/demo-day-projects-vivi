@@ -2,11 +2,15 @@ import React from 'react'
 import { Chatbot } from '../components/Chatbot'
 import { Footer } from '../components/Footer'
 import { SectionHero } from '../styles/globalStyles'
-
+import { AlertVivi } from '../components/Alert'
+import { NavbarLanding } from '../components/Navbar'
 
 export const LandingPage = () => {
     return (
         <>
+            <NavbarLanding />
+            <img src='https://res.cloudinary.com/estudiante-geek/image/upload/v1657497223/Vivi/Publicaci%C3%B3n2_ndnaec.jpg' style={{ width: "100vw" }} />
+            <AlertVivi />
             <SectionHero className='d-flex align-items-center gap-4'>
                 <div style={{ width: "40%" }}>
                     <h1>Bienvenido a ViVi</h1>

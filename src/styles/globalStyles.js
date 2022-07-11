@@ -17,6 +17,7 @@ export const DivForm = styled.div`
 
   &.register {
     background-image: url(${town_2});
+    background-position: center -220px;
   }
 
   & > h2 {
@@ -25,7 +26,11 @@ export const DivForm = styled.div`
     text-shadow: 1px 1px 1px #000;
     font-size: 3rem;
     font-weight: bold;
-    margin: 100px 60px;
+    margin: 60px;
+  }
+
+  &.register > h2 {
+    padding: 0;
   }
 `;
 
@@ -38,11 +43,15 @@ export const FormStyled = styled.form`
   border: 1px solid #000;
   border-radius: 20px;
   padding: 30px;
-  margin: 60px;
+  margin: 20px 60px 60px;
 
   & > h4 {
     text-align: center;
     width: 80%;
+
+    &.register {
+      width: 100%;
+    }
   }
 `;
 
@@ -107,5 +116,9 @@ export const FormOption = styled.div`
     & > img {
       margin-right: 10px;
     }
+  }
+
+  &.register {
+    margin-top: 20px;
   }
 `;

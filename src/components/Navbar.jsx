@@ -16,8 +16,8 @@ export function NavbarLanding() {
         
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="justify-content-end">
-            <Nav.Link href="#home">Ingresar</Nav.Link>
-            <Nav.Link href="#link">Registrarse</Nav.Link>
+            <Nav.Link href="/login">Ingresar</Nav.Link>
+            <Nav.Link href="/register">Registrarse</Nav.Link>
             <Form.Select aria-label="Default select example">
             <option >Es</option>
             <option >En</option>

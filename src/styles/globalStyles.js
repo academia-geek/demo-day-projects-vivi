@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import town from "../assets/town.png";
+import town from "../assets/town1.png";
+import town_2 from "../assets/town2.png";
 
 export const DivForm = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ export const DivForm = styled.div`
 
   &.login {
     background-image: url(${town});
+  }
+
+  &.register {
+    background-image: url(${town_2});
   }
 
   & > h2 {
@@ -49,7 +54,7 @@ export const InputStyled = styled.input`
   padding: 10px;
   margin: 10px 0;
   font-weight: bold;
-  color: #000;
+  color: #494949;
 
   &:focus {
     outline: none;

@@ -1,17 +1,12 @@
 import { Button } from "react-bootstrap";
-import {
-  DivForm,
-  FormOption,
-  FormStyled,
-  InputStyled,
-} from "../styles/globalStyles";
+import { DivForm, FormOption, FormStyled, InputStyled } from "../styles/globalStyles";
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const Register = () => {
   return (
-    <DivForm className="login">
+    <DivForm>
       <h2>
         El sitio que esperabas para planear tu próxima experiencia inolvidable
       </h2>
@@ -29,7 +24,7 @@ export const Login = () => {
         </Button>
         <FormOption>
           <span>¿Eres nuevo usuario?</span>
-          <Link to="/signin">Regístrate</Link>
+          <a href="#">Regístrate</a>
           <Button variant="light" className="mt-3 px-5 google">
             <img src={google} alt="google" />
             Iniciar sesión con Google
@@ -40,6 +35,6 @@ export const Login = () => {
           </Button>
         </FormOption>
       </FormStyled>
-    </DivForm>
+    </DivFO>
   );
 };

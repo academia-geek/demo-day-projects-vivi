@@ -86,6 +86,11 @@ export const InputStyled = styled.input`
   &:focus {
     outline: none;
   }
+
+  &::placeholder {
+    color: #494949;
+    font-weight: 500;
+  }
 `;
 
 export const FormOption = styled.div`
@@ -119,7 +124,7 @@ export const FormOption = styled.div`
     &.google {
       border: 2px solid transparent;
       &:hover {
-        border-color: #c9c9c9;
+        border-color: #515151;
       }
     }
 
@@ -127,7 +132,7 @@ export const FormOption = styled.div`
       background-color: #3a559f !important;
 
       &:hover {
-        background-color: #3a557a !important;
+        background-color: #3a557f !important;
       }
     }
 

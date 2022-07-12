@@ -37,7 +37,7 @@ export const Login = () => {
         }}
         validationSchema={LoginSchema}
         onSubmit={(values) => {
-          console.log(values);
+          dispatch(loginUserAsync(values));
         }}
       >
         {({ values, errors, touched, handleChange, handleSubmit }) => (
@@ -75,8 +75,8 @@ export const Login = () => {
                 <img src={google} alt="google" />
                 Iniciar sesión con Google
               </Button>
-              <Button className="mt-3 px-5 fb">
-                <img src={facebook} alt="facebook" onClick={() => dispatch(loginFacebook())}/>
+              <Button className="mt-3 px-5 fb" onClick={() => dispatch(loginFacebook())}>
+                <img src={facebook} alt="facebook"/>
                 Iniciar sesión con Facebook
               </Button>
             </FormOption>

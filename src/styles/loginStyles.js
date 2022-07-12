@@ -129,10 +129,11 @@ export const FormOption = styled.div`
     }
 
     &.fb {
-      background-color: #3a559f !important;
+      background-color: #3a559f;
 
       &:hover {
-        background-color: #3a557f !important;
+        background-color: #fff;
+        color: #3a559f;
       }
     }
 

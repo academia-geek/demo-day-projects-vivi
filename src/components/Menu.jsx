@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -9,15 +7,17 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
+import { BoxStyled } from "../styles/homeStyles";
 
-export const Menu = ({ toggleDrawer, sidebar }) => {
+export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const list = (anchor) => (
-    <Box
+    <BoxStyled
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 350 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      <Avatar src={profile?.photoURL} alt={profile?.displayName} />
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -43,7 +43,7 @@ export const Menu = ({ toggleDrawer, sidebar }) => {
           </ListItem>
         ))}
       </List>
-    </Box>
+    </BoxStyled>
   );
 
   return (

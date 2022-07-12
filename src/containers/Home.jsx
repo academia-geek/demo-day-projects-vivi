@@ -1,12 +1,14 @@
 import { Avatar, Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Menu } from "../components/Menu";
+import { auth } from "../firebase/firebaseConfig";
 import { logoutUserAsync } from "../redux/actions/loginActions";
 import { DivMenu } from "../styles/homeStyles";
 
 export const Home = () => {
   const dispatch = useDispatch();
+  const [profile, setProfile] = useState(null);
   const [sidebar, setSidebar] = useState({
     left: false,
   });
@@ -22,17 +24,26 @@ export const Home = () => {
 
     setSidebar({ ...sidebar, [anchor]: open });
   };
+
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      setProfile(user);
+    }
+  }, []);
+
+  console.log(profile);
+
   return (
     <div>
-      <h1>Home</h1>
       <button onClick={() => dispatch(logoutUserAsync())}>Cerrar sesión</button>
       <DivMenu>
         <Button onClick={toggleDrawer("left", true)}>
-          <Avatar alt="k" />
+          <Avatar src={profile?.photoURL} alt={profile?.displayName} />
         </Button>
-        <span>Hola, usuario</span>
+        <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
-      <Menu toggleDrawer={toggleDrawer} sidebar={sidebar} />
+      <Menu toggleDrawer={toggleDrawer} sidebar={sidebar} profile={profile} />
     </div>
   );
 };

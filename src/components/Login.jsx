@@ -4,7 +4,7 @@ import {
   FormOption,
   FormStyled,
   InputStyled,
-} from "../styles/globalStyles";
+} from "../styles/loginStyles";
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import { Link } from "react-router-dom";

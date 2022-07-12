@@ -7,7 +7,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
-import { BoxStyled } from "../styles/homeStyles";
+import { BoxStyled, DivMenu } from "../styles/homeStyles";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const list = (anchor) => (
@@ -17,7 +17,10 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Avatar src={profile?.photoURL} alt={profile?.displayName} />
+      <DivMenu className="pb-4">
+        <Avatar src={profile?.photoURL} alt={profile?.displayName} />
+        <span>{profile?.displayName}</span>
+      </DivMenu>
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>

@@ -19,4 +19,9 @@ export const BoxStyled = styled(Box)`
   padding: 20px;
   background-color: #565252;
   color: #fff;
+  height: 100vh;
+
+  hr {
+    border-color: #fff !important;
+  }
 `;

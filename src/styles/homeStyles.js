@@ -24,4 +24,9 @@ export const BoxStyled = styled(Box)`
   hr {
     border-color: #fff !important;
   }
+
+  .icon {
+    width: 25px;
+    filter: invert(100%);
+  }
 `;

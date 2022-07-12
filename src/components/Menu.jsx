@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import React, { ReactComponent } from "react";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -7,7 +7,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
-import { BoxStyled, DivMenu } from "../styles/homeStyles";
+import { BoxStyled } from "../styles/homeStyles";
+import { ReactComponent as Home } from "../assets/home.svg";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const list = (anchor) => (
@@ -17,21 +18,30 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <DivMenu className="pb-4">
+      <div className="py-4 d-flex gap-3 align-items-center">
         <Avatar src={profile?.photoURL} alt={profile?.displayName} />
-        <span>{profile?.displayName}</span>
-      </DivMenu>
+        <span className="fs-5">{profile?.displayName}</span>
+      </div>
+      <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? "<InboxIcon />" : "<MailIcon />"}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2">
+            <Home className="icon" />
+            <ListItemText className="pt-2" primary={"Inicio"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2">
+            <Home className="icon" />
+            <ListItemText className="pt-2" primary={"Inicio"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2">
+            <Home className="icon" />
+            <ListItemText className="pt-2" primary={"Inicio"} />
+          </ListItemButton>
+        </ListItem>
       </List>
       <Divider />
       <List>

@@ -53,6 +53,13 @@ export const FormStyled = styled.form`
       width: 100%;
     }
   }
+
+  & > div > div.error {
+    font-size: 12px !important;
+    font-weight: 800;
+    color: #ff0000 !important;
+    margin-left: 10px !important;
+  }
 `;
 
 export const InputStyled = styled.input`

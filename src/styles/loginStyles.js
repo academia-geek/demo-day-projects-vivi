@@ -32,18 +32,25 @@ export const DivForm = styled.div`
   &.register > h2 {
     padding: 0;
   }
+
+  button.btn {
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
 `;
 
 export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 800px;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 20px;
   padding: 30px;
   margin: 20px 60px 60px;
+  height: fit-content;
 
   & > h4 {
     text-align: center;
@@ -54,11 +61,15 @@ export const FormStyled = styled.form`
     }
   }
 
-  & > div > div.error {
-    font-size: 12px !important;
-    font-weight: 800;
-    color: #ff0000 !important;
-    margin-left: 10px !important;
+  & > div {
+    margin: 0;
+    width: 100%;
+    & > div.error {
+      font-size: 12px !important;
+      font-weight: 800;
+      color: #ff0000 !important;
+      margin-left: 10px !important;
+    }
   }
 `;
 
@@ -84,7 +95,7 @@ export const FormOption = styled.div`
   justify-content: center;
   text-align: center;
   width: 100%;
-  margin-top: 80px;
+  padding-top: 20%;
 
   & > span,
   & > a {
@@ -126,6 +137,6 @@ export const FormOption = styled.div`
   }
 
   &.register {
-    margin-top: 20px;
+    padding-top: 10%;
   }
 `;

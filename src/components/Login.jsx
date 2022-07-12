@@ -64,7 +64,7 @@ export const Login = () => {
                 <div className="error">{errors.password}</div>
               ) : null}
             </div>
-            <Button variant="success" className="mt-3 px-4 py-1" type="submit">
+            <Button variant="success" className="mt-3 px-4 py-1" type="submit" onClick={handleSubmit}>
               Ingresar
             </Button>
             <FormOption>

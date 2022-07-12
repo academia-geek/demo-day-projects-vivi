@@ -1,4 +1,8 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
@@ -29,7 +33,39 @@ export const registerUserAsync = (name, email, password, location) => {
         if (error.code === "auth/email-already-in-use") {
           alert("El correo electrónico ya está en uso");
         } else {
-          console.warn(error);
+          console.warn("No se ha podido registrar el usuario", error);
+        }
+      });
+  };
+};
+
+export const loginGoogle = () => {
+  return (dispatch) => {
+    signInWithPopup(auth, google)
+      .then(async ({ user }) => {
+        dispatch(registerUserSync(user.displayName, user.email));
+      })
+      .catch((error) => {
+        if (error.code === "auth/account-exists-with-different-credential") {
+          alert("El correo electrónico ya está en uso");
+        } else {
+          console.warn("No se ha podido registrar el usuario", error);
+        }
+      });
+  };
+};
+
+export const loginFacebook = () => {
+  return (dispatch) => {
+    signInWithPopup(auth, facebook)
+      .then(({ user }) => {
+        dispatch(registerUserSync(user.displayName, user.email));
+      })
+      .catch((error) => {
+        if (error.code === "auth/account-exists-with-different-credential") {
+          alert("El correo electrónico ya está en uso");
+        } else {
+          console.warn("No se ha podido registrar el usuario", error);
         }
       });
   };

@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { loginUserAsync } from "../redux/actions/loginActions";
+import { loginGoogle } from "../redux/actions/registerActions";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Correo inválido").required("Correo requerido"),
@@ -70,7 +71,7 @@ export const Login = () => {
             <FormOption>
               <span>¿Eres nuevo usuario?</span>
               <Link to="/signin">Regístrate</Link>
-              <Button variant="light" className="mt-3 px-5 google">
+              <Button variant="light" className="mt-3 px-5 google" onClick={() => dispatch(loginGoogle())}>
                 <img src={google} alt="google" />
                 Iniciar sesión con Google
               </Button>

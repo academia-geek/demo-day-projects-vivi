@@ -3,7 +3,7 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
 const registerUserSync = (name, email, password, location) => {

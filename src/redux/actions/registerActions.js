@@ -48,6 +48,8 @@ export const loginGoogle = () => {
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("El correo electrónico ya está en uso");
+        } else if (error.code === "auth/popup-closed-by-user") {
+          return;
         } else {
           console.warn("No se ha podido registrar el usuario", error);
         }
@@ -64,6 +66,8 @@ export const loginFacebook = () => {
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("El correo electrónico ya está en uso");
+        } else if (error.code === "auth/popup-closed-by-user") {
+          return;
         } else {
           console.warn("No se ha podido registrar el usuario", error);
         }

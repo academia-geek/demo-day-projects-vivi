@@ -6,6 +6,8 @@ import { Register } from "../components/Register";
 import { auth } from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { PublicRoutes } from "./Public";
+import { PrivateRoutes } from "./Private";
+import { Dashboard } from "./Dashboard";
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -33,8 +35,30 @@ export const AppRoutes = () => {
             </PublicRoutes>
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <Login />
+            </PublicRoutes>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <Register />
+            </PublicRoutes>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <PrivateRoutes isAuthenticated={isLogged}>
+              <Dashboard />
+            </PrivateRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

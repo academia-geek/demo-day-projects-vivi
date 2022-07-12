@@ -27,6 +27,5 @@ export const BoxStyled = styled(Box)`
 
   .icon {
     width: 25px;
-    filter: invert(100%);
   }
 `;

@@ -9,6 +9,11 @@ import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
 import { BoxStyled } from "../styles/homeStyles";
 import { ReactComponent as Home } from "../assets/home.svg";
+import { ReactComponent as Edit } from "../assets/edit.svg";
+import { ReactComponent as Heart } from "../assets/heart.svg";
+import { ReactComponent as Logout } from "../assets/logout.svg";
+import { ReactComponent as Contact } from "../assets/phone.svg";
+import { ReactComponent as Help } from "../assets/help.svg";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const list = (anchor) => (
@@ -32,29 +37,31 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
-            <Home className="icon" />
-            <ListItemText className="pt-2" primary={"Inicio"} />
+            <Edit className="icon" />
+            <ListItemText className="pt-2" primary={"Tu perfil"} />
           </ListItemButton>
         </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2">
+            <Heart className="icon" />
+            <ListItemText primary={"Tus eventos guardados"} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
             <Home className="icon" />
             <ListItemText className="pt-2" primary={"Inicio"} />
           </ListItemButton>
         </ListItem>
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? "<InboxIcon />" : "<MailIcon />"}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2">
+            <Edit className="icon" />
+            <ListItemText className="pt-2" primary={"Tu perfil"} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </BoxStyled>
   );

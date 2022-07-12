@@ -4,7 +4,6 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Avatar } from "@mui/material";
 import { BoxStyled } from "../styles/homeStyles";
@@ -14,8 +13,11 @@ import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Logout } from "../assets/logout.svg";
 import { ReactComponent as Contact } from "../assets/phone.svg";
 import { ReactComponent as Help } from "../assets/help.svg";
+import { useDispatch } from "react-redux";
+import { logoutUserAsync } from "../redux/actions/loginAction";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
+  const dispatch = useDispatch();
   const list = (anchor) => (
     <BoxStyled
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 350 }}
@@ -52,14 +54,23 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       <List>
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
-            <Home className="icon" />
-            <ListItemText className="pt-2" primary={"Inicio"} />
+            <Contact className="icon" />
+            <ListItemText className="pt-2" primary={"Contáctanos"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
-            <Edit className="icon" />
-            <ListItemText className="pt-2" primary={"Tu perfil"} />
+            <Help className="icon" />
+            <ListItemText className="pt-2" primary={"Ayuda"} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2" onClick={() => dispatch(logoutUserAsync())}>
+            <Logout className="icon" />
+            <ListItemText className="pt-2" primary={"Cerrar sesión"} />
           </ListItemButton>
         </ListItem>
       </List>

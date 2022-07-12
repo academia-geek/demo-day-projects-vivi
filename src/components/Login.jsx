@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { loginUserAsync } from "../redux/actions/loginActions";
-import { loginFacebook, loginGoogle } from "../redux/actions/registerActions";
+import { loginUserAsync } from "../redux/actions/loginAction";
+import { loginFacebook, loginGoogle } from "../redux/actions/registerAction";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Correo inválido").required("Correo requerido"),

@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
-import { logoutUserAsync } from "../redux/actions/loginActions";
 import { DivMenu } from "../styles/homeStyles";
 
 export const Home = () => {
-  const dispatch = useDispatch();
   const [profile, setProfile] = useState(null);
   const [sidebar, setSidebar] = useState({
     left: false,
@@ -32,11 +30,8 @@ export const Home = () => {
     }
   }, []);
 
-  console.log(profile);
-
   return (
     <div>
-      <button onClick={() => dispatch(logoutUserAsync())}>Cerrar sesión</button>
       <DivMenu>
         <Button onClick={toggleDrawer("left", true)}>
           <Avatar src={profile?.photoURL} alt={profile?.displayName} />

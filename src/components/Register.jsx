@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { loginFacebook, loginGoogle, registerUserAsync } from "../redux/actions/registerActions";
+import { loginFacebook, loginGoogle, registerUserAsync } from "../redux/actions/registerAction";
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string()

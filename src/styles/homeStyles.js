@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 export const DivMenu = styled.div`
   display: flex;
   gap: 10px;
-  padding: 0 20px;
+  padding: 5px 20px;
   align-items: center;
   background-color: #565252;
   color: #fff;

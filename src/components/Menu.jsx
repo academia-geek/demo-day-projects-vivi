@@ -25,7 +25,7 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <div className="py-4 d-flex gap-3 align-items-center">
+      <div className="pb-4 d-flex gap-3 align-items-center">
         <Avatar src={profile?.photoURL} alt={profile?.displayName} />
         <span className="fs-5">{profile?.displayName}</span>
       </div>

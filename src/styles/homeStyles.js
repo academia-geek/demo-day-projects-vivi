@@ -16,7 +16,7 @@ export const DivMenu = styled.div`
 `;
 
 export const BoxStyled = styled(Box)`
-  padding: 20px;
+  padding: 20px 0;
   background-color: #565252;
   color: #fff;
   height: 100vh;
@@ -27,5 +27,10 @@ export const BoxStyled = styled(Box)`
 
   .icon {
     width: 25px;
+  }
+
+  & > div,
+  & > ul {
+    padding-left: 20px;
   }
 `;

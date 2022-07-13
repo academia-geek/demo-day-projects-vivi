@@ -8,13 +8,13 @@ import { NavLink } from 'react-router-dom'
 import logo from '../assets/Logo.png'
 const { Option } = Select;
 
-export function NavbarLanding() {
+export function NavbarLanding({ fixed }) {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
      };
  
   return (
-    <Navbar  expand="lg" fixed="top" style={{backgroundColor:"rgba(255, 189, 41, 1)"}}>
+    <Navbar  expand="lg" fixed={fixed} style={{backgroundColor:"rgba(255, 189, 41, 1)"}}>
       <Container>
         <Navbar.Brand href="/" style={{color:"white"}}>
             <img src={logo} style={{width:"40px",color:"white"}}/>

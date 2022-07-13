@@ -65,7 +65,7 @@ export const CarouselStyled = styled.div`
     background-color: #0d1319;
 
     &.active {
-      background-color: #000;
+      background-color: #fff;
       max-width: 10px;
       height: 10px;
     }
@@ -76,4 +76,19 @@ export const CarouselStyled = styled.div`
       color: #fff;
     }
   }
+`;
+
+export const AsideStyled = styled.aside`
+  width: 100%;
+  background-color: #565252;
+  padding: 20px;
+  height: 100vh;
+`;
+
+export const ButtonAside = styled.button`
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #ffbd29;
 `;

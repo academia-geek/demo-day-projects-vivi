@@ -1,5 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Aside } from "../components/Aside";
 import { CarouselEvents } from "../components/CarouselEvents";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
@@ -38,8 +39,17 @@ export const Home = () => {
         </Button>
         <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
-      <CarouselEvents />
-      <Menu toggleDrawer={toggleDrawer} sidebar={sidebar} profile={profile} />
+      <div className="d-flex">
+        <div>
+          <CarouselEvents />
+          <Menu
+            toggleDrawer={toggleDrawer}
+            sidebar={sidebar}
+            profile={profile}
+          />
+        </div>
+        <Aside />
+      </div>
     </div>
   );
 };

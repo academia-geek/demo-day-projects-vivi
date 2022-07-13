@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../assets/Logo.png'
 import { CONTAINER, FOOTER, SECTION1 } from '../styles/globalStyles';
+import { Contact } from './Contact';
 
 export const Footer = () => {
     return (
@@ -12,7 +13,9 @@ export const Footer = () => {
                 <div>
                     <ul style={{listStyle: "none"}}>
                         <li>Ayuda</li>
-                        <li>Contacto</li>
+                        <Contact />
+                        <li>Sobre Nosotros</li>
+                        <li>Términos y condiciones</li>
                     </ul>
                 </div>
             </CONTAINER>

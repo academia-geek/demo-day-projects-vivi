@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 import carousel1 from "../assets/carousel1.png";
 import carousel2 from "../assets/carousel2.png";
 import carousel3 from "../assets/carousel3.png";
@@ -14,22 +14,14 @@ export const CarouselEvents = () => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} as={CarouselStyled}>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={carousel1}
-          alt="First slide"
-        />
+        <img className="d-block w-100" src={carousel1} alt="First slide" />
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={carousel2}
-          alt="Second slide"
-        />
+        <img className="d-block w-100" src={carousel2} alt="Second slide" />
 
         <Carousel.Caption>
           <h3>Second slide label</h3>
@@ -37,11 +29,7 @@ export const CarouselEvents = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={carousel3}
-          alt="Third slide"
-        />
+        <img className="d-block w-100" src={carousel3} alt="Third slide" />
 
         <Carousel.Caption>
           <h3>Third slide label</h3>

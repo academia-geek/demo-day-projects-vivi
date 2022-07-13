@@ -70,4 +70,10 @@ export const CarouselStyled = styled.div`
       height: 10px;
     }
   }
+
+  .carousel-caption {
+    & > h3 {
+      color: #fff;
+    }
+  }
 `;

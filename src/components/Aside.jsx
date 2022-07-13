@@ -1,4 +1,6 @@
-import { AsideEvents, AsideStyled, ButtonAside } from "../styles/homeStyles";
+import { AsideEvents, AsideStyled, ButtonAside, CardStyled } from "../styles/homeStyles";
+import event from "../assets/carousel1.png";
+import { Card } from "react-bootstrap";
 
 export const Aside = () => {
   return (
@@ -6,14 +8,30 @@ export const Aside = () => {
       <ButtonAside className="mb-3">Calendario</ButtonAside>
       <AsideEvents>
         <h5>Próximos eventos</h5>
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Evento 1</h5>
-            <p className="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-        </div>
+        <CardStyled>
+          <img src={event} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyled>
+        <CardStyled>
+          <img src={event} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyled>
+        <CardStyled>
+          <img src={event} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyled>
+        <CardStyled>
+          <img src={event} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyled>
       </AsideEvents>
     </AsideStyled>
   );

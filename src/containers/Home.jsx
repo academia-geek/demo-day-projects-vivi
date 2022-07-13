@@ -41,7 +41,7 @@ export const Home = () => {
         <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
       <Row>
-        <Col lg={9}>
+        <Col sm={9}>
           <CarouselEvents />
           <Menu
             toggleDrawer={toggleDrawer}
@@ -49,7 +49,7 @@ export const Home = () => {
             profile={profile}
           />
         </Col>
-        <Col lg={3}>
+        <Col sm={3}>
           <Aside />
         </Col>
       </Row>

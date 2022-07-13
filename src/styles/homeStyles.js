@@ -82,7 +82,6 @@ export const CarouselStyled = styled.div`
 export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
-  position: absolute;
   height: 100%;
 `;
 

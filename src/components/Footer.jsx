@@ -9,7 +9,7 @@ export const Footer = () => {
                 <SECTION1>
                     <p><img alt="Logo" src={logo} /> ViVi</p>
                 </SECTION1>
-                <div>
+                <div id='contact'>
                     <ul style={{listStyle: "none"}}>
                         <li>Ayuda</li>
                         <li>Contacto</li>

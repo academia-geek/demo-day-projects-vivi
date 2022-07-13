@@ -1,3 +1,12 @@
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { LandingPage } from '../containers/LandingPage'
+import { Login } from '../components/Login'
+import { Register } from '../components/Register'
+import { Business } from '../containers/Business'
+import { RegisterAdmi } from '../containers/RegisterAdmi'
+import { LandingPageEn } from '../containers/LandingPageEn'
+
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage } from "../containers/LandingPage";
@@ -34,7 +43,7 @@ export const AppRoutes = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes>         
         <Route
           path="/"
           element={
@@ -56,6 +65,32 @@ export const AppRoutes = () => {
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <Register />
+            </PublicRoutes>
+          }
+        />
+         <Route
+          path="/En"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <LandingPageEn />
+          </PublicRoutes>
+          }
+        />
+       
+        <Route
+          path="/bienvenido"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <RegisterAdmi />
+          </PublicRoutes>
+          }
+        />
+         
+         <Route
+          path="/business"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+            <Business />
             </PublicRoutes>
           }
         />

@@ -32,6 +32,8 @@ const RegisterSchema = Yup.object().shape({
 export const Register = () => {
   const dispatch = useDispatch();
   return (
+    <div>
+    <NavbarLanding/>
     <DivForm className="register">
       <h2>
         Prepárate para conocer un mundo de fantasía en esta única tierra llena
@@ -120,5 +122,6 @@ export const Register = () => {
         )}
       </Formik>
     </DivForm>
+    </div>
   );
 };

@@ -5,6 +5,7 @@ import { CarouselEvents } from "../components/CarouselEvents";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
+import { Row, Col } from "react-bootstrap";
 
 export const Home = () => {
   const [profile, setProfile] = useState(null);
@@ -39,17 +40,19 @@ export const Home = () => {
         </Button>
         <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
-      <div className="d-flex">
-        <div>
+      <Row>
+        <Col lg={9}>
           <CarouselEvents />
           <Menu
             toggleDrawer={toggleDrawer}
             sidebar={sidebar}
             profile={profile}
           />
-        </div>
-        <Aside />
-      </div>
+        </Col>
+        <Col lg={3}>
+          <Aside />
+        </Col>
+      </Row>
     </div>
   );
 };

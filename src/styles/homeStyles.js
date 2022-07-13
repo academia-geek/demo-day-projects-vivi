@@ -8,7 +8,7 @@ export const DivMenu = styled.div`
   align-items: center;
   background-color: #565252;
   color: #fff;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid #a0a0a0;
 
   & > span {
     font-size: 18px;
@@ -36,7 +36,6 @@ export const BoxStyled = styled(Box)`
 `;
 
 export const CarouselStyled = styled.div`
-  width: 1031px;
   height: 541px;
   padding: 10px;
 
@@ -79,7 +78,6 @@ export const CarouselStyled = styled.div`
 `;
 
 export const AsideStyled = styled.aside`
-  width: 100%;
   background-color: #565252;
   padding: 20px;
   height: 100vh;
@@ -88,7 +86,29 @@ export const AsideStyled = styled.aside`
 export const ButtonAside = styled.button`
   width: 100%;
   text-align: center;
-  color: #fff;
   text-transform: uppercase;
   background-color: #ffbd29;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #ffc947;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const AsideEvents = styled.div`
+  background-color: #ffbd29;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  padding: 20px;
+  height: 90%;
 `;

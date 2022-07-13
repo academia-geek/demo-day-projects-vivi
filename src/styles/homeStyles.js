@@ -40,7 +40,7 @@ export const CarouselStyled = styled.div`
   padding: 10px;
 
   .carousel-item > img {
-    width: 1200px;
+    width: 1031px;
     height: 541px;
     border: 1px solid transparent;
     border-radius: 37px;

@@ -49,12 +49,12 @@ export const Home = () => {
             sidebar={sidebar}
             profile={profile}
           />
+          <Timeline />
         </Col>
         <Col sm={3}>
           <Aside />
         </Col>
       </Row>
-      <Timeline />
     </div>
   );
 };

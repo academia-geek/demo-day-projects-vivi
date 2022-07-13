@@ -5,7 +5,7 @@ import { CarouselEvents } from "../components/CarouselEvents";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
-import { Row, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { Timeline } from "../components/Timeline";
 
 export const Home = () => {

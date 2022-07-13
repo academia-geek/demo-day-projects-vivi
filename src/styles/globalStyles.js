@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import town from "../assets/town1.png";
-import town_2 from "../assets/town2.png";
 
 
 export const SectionHero = styled.section`
@@ -179,3 +177,4 @@ export const FormOption = styled.div`
     margin-top: 20px;
   }
 `;
+

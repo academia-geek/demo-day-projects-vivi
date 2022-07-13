@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import { Card } from "react-bootstrap";
+import Calendar from "react-calendar";
 
 export const DivMenu = styled.div`
   display: flex;
@@ -85,7 +86,7 @@ export const ButtonAside = styled.button`
   background-color: #ffbd29;
   border: none;
   outline: none;
-  padding: 40px 5px;
+  padding: 10px 5px;
   font-size: 25px;
   font-weight: 500;
   transition: 0.3s;
@@ -98,6 +99,12 @@ export const ButtonAside = styled.button`
   &:focus {
     outline: none;
   }
+`;
+
+export const SideCalendar = styled.div`
+  border: 1px solid #f0f0f0;
+  border-radius: 30px;
+  background-color: #fff;
 `;
 
 export const AsideEvents = styled.div`
@@ -132,4 +139,21 @@ export const CardStyled = styled(Card)`
     text-align: center;
   }
 }
+`;
+
+export const CalendarStyled = styled(Calendar)`
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px;
+
+  .react-calendar__month-view__weekdays {
+    text-decoration: underline;
+    & > div > abbr[title] {
+      cursor: default;
+    }
+  }
+  
+  button {
+    cursor: default !important;
+  }
 `;

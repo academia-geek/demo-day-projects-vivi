@@ -8,8 +8,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { PublicRoutes } from "./Public";
 import { PrivateRoutes } from "./Private";
 import { Dashboard } from "./Dashboard";
+import { Spin } from "../components/Spin";
 
 export const AppRoutes = () => {
+  const [checking, setChecking] = useState(true);
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
@@ -24,6 +26,11 @@ export const AppRoutes = () => {
       }
     });
   }, []);
+
+  if (checking) {
+    return <Spin height={"100vh"} />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>

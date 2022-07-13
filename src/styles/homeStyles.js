@@ -152,7 +152,7 @@ export const CalendarStyled = styled(Calendar)`
       cursor: default;
     }
   }
-  
+
   button {
     cursor: default !important;
   }

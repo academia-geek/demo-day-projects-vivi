@@ -2,6 +2,7 @@ import styled from "styled-components";
 import town from "../assets/town1.png";
 import town_2 from "../assets/town2.png";
 
+
 export const SectionHero = styled.section`
     margin: 2rem;
     h1{
@@ -75,7 +76,7 @@ export const DivForm = styled.div`
     background-image: url(${town_2});
     background-position: center -220px;
   }
-
+ 
   & > h2 {
     color: #fff;
     -webkit-text-stroke: 0.5px #000;

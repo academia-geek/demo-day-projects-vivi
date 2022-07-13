@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2? family=Merriweather&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,4 +19,52 @@ a {
 
 ul {
   list-style: none;
+}
+
+.btnRegistro {
+ 
+ margin-top: 4px;
+ margin-left: 20px ;
+}
+.optionNavbar {
+  color: white;
+  margin-left: 20px;
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+.optionNavbar:hover{
+    color:white;
+    height:40px;
+}
+.optionSelect{
+width: 65px;
+color:white;
+margin-top:2px;
+font-family: "Raleway", sans-serif;
+
+
+}
+
+.titlleBusi{
+  color:white;
+  -webkit-text-stroke: 0.5px  black;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-top:20vw;
+  width:80vw;
+  text-align:center;
+  margin-right:10vw;
+   font-family: 'Merriweather', serif;
+}
+.contBusi{
+  color:black;
+  font-size: 2rem;
+  font-family: 'Merriweather', serif;
+  margin-top:20px;
+  margin-left: 30px;
+   width:60vw;
+  text-align:start;
+  font-weight: bold;
+
 }

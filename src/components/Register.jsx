@@ -3,9 +3,12 @@ import { DivForm, FormOption, FormStyled, InputStyled } from "../styles/globalSt
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import { Link } from "react-router-dom";
+import { NavbarLanding } from "./Navbar";
 
 export const Register = () => {
   return (
+    <div>
+    <NavbarLanding/>
     <DivForm className="register">
       <h2>
         Prepárate para conocer un mundo de fantasía en esta única tierra llena de personas y paisajes inolvidables.
@@ -41,5 +44,6 @@ export const Register = () => {
         </FormOption>
       </FormStyled>
     </DivForm>
+    </div>
   );
 };

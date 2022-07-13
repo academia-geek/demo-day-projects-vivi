@@ -83,6 +83,7 @@ export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
   position: absolute;
+  height: 100%;
 `;
 
 export const ButtonAside = styled.button`

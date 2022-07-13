@@ -54,7 +54,21 @@ export const SECTION1 = styled.div`
         margin-bottom: 10px;
     }
 `
-
+export const Chatlog1 = styled.div`
+  border-radius: 10px;
+  padding: 8px 12px;
+  background-color: rgb(245,248,250);
+  font-size: 14px;
+  max-width: 232px;
+`
+export const Chatlog2 = styled.div`
+  border-radius: 10px;
+  padding: 8px 12px;
+  background-color: #FFBD29;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  max-width: 232px;
+`
 
 
 export const DivForm = styled.div`

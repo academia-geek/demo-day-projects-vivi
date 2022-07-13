@@ -19,8 +19,8 @@ export const Aside = () => {
         <h4 className="text-uppercase text-white text-center">Calendario</h4>
         <CalendarStyled value={value} />
       </div>
+        <h4 className="text-uppercase text-white text-center">Próximos eventos</h4>
       <AsideEvents>
-        <h5>Próximos eventos</h5>
         <CardStyled>
           <img src={event} />
           <Card.Body>

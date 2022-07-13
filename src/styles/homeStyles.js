@@ -108,9 +108,7 @@ export const SideCalendar = styled.div`
 `;
 
 export const AsideEvents = styled.div`
-  background-color: #ffbd29;
-  border: 1px solid #000000;
-  border-radius: 25px;
+  background-color: #fff;
   padding: 15px;
 
   & > h5 {
@@ -125,6 +123,9 @@ export const CardStyled = styled(Card)`
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  border: none;
+  border-radius: 0px;
 
   & > img {
     width: 108px;

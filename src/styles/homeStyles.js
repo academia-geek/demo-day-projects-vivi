@@ -146,14 +146,24 @@ export const CalendarStyled = styled(Calendar)`
   border-radius: 20px;
   padding: 10px;
 
-  .react-calendar__month-view__weekdays {
-    text-decoration: underline;
-    & > div > abbr[title] {
-      cursor: default;
-    }
+  .react-calendar__month-view__weekdays > div > abbr[title] {
+    cursor: default;
+    text-decoration: none;
   }
 
-  button {
+  .react-calendar__month-view__days > button {
     cursor: default !important;
+  }
+
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover,
+  .react-calendar__tile--active:enabled:hover {
+    background: #ffbd29 !important;
+  }
+
+  .react-calendar__tile:not(--active):enabled:hover,
+  .react-calendar__tile:not(--active):focus,
+  .react-calendar__tile:not(--active):enabled:hover:active {
+    background: #fff;
   }
 `;

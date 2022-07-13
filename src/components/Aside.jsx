@@ -16,14 +16,8 @@ export const Aside = () => {
   return (
     <AsideStyled>
       <div>
-        <h4 className="text-uppercase text-white">Calendario</h4>
-        <CalendarStyled
-          onChange={onChange}
-          value={value}
-          tileDisabled={() =>
-            ({ activeStartDate, date, view }) =>
-              date.getDay() === 0}
-        />
+        <h4 className="text-uppercase text-white text-center">Calendario</h4>
+        <CalendarStyled value={value} />
       </div>
       <AsideEvents>
         <h5>Próximos eventos</h5>

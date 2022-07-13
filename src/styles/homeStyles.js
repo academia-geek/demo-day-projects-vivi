@@ -46,4 +46,28 @@ export const CarouselStyled = styled.div`
     border: 1px solid transparent;
     border-radius: 37px;
   }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(13, 19, 25, 0.7);
+    background-size: 50%;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .carousel-indicators > button {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    background-color: #0d1319;
+
+    &.active {
+      background-color: #000;
+      max-width: 10px;
+      height: 10px;
+    }
+  }
 `;

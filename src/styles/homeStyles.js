@@ -70,13 +70,6 @@ export const CarouselStyled = styled.div`
       height: 10px;
     }
   }
-
-  .carousel-caption {
-    margin-bottom: 30px;
-    & > h3 {
-      color: #fff;
-    }
-  }
 `;
 
 export const AsideStyled = styled.aside`
@@ -92,7 +85,7 @@ export const ButtonAside = styled.button`
   background-color: #ffbd29;
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 40px 5px;
   font-size: 25px;
   font-weight: 500;
   transition: 0.3s;

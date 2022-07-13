@@ -1,17 +1,11 @@
-import React from 'react'
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LandingPage } from '../containers/LandingPage'
 import { Login } from '../components/Login'
 import { Register } from '../components/Register'
 import { Business } from '../containers/Business'
 import { RegisterAdmi } from '../containers/RegisterAdmi'
 import { LandingPageEn } from '../containers/LandingPageEn'
-
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage } from "../containers/LandingPage";
-import { Login } from "../components/Login";
-import { Register } from "../components/Register";
 import { auth } from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { PublicRoutes } from "./Public";

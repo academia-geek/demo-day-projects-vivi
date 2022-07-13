@@ -41,7 +41,7 @@ export const Home = () => {
         </Button>
         <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
-      <Row>
+      <div className="d-flex">
         <Col sm={9}>
           <CarouselEvents />
           <Menu
@@ -54,7 +54,7 @@ export const Home = () => {
         <Col sm={3}>
           <Aside />
         </Col>
-      </Row>
+      </div>
     </div>
   );
 };

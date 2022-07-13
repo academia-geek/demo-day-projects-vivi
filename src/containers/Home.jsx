@@ -1,6 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { CarouselEvents } from "../components/CarouselEvents";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
@@ -38,6 +38,7 @@ export const Home = () => {
         </Button>
         <span>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
+      <CarouselEvents />
       <Menu toggleDrawer={toggleDrawer} sidebar={sidebar} profile={profile} />
     </div>
   );

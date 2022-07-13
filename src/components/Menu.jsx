@@ -1,4 +1,4 @@
-import React, { ReactComponent } from "react";
+import React from "react";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";

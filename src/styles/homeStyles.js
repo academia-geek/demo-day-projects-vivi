@@ -34,3 +34,16 @@ export const BoxStyled = styled(Box)`
     padding-left: 20px;
   }
 `;
+
+export const CarouselStyled = styled.div`
+  width: 1031px;
+  height: 541px;
+  padding: 10px;
+
+  .carousel-item > img {
+    width: 1031px;
+    height: 541px;
+    border: 1px solid transparent;
+    border-radius: 37px;
+  }
+`;

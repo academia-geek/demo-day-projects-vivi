@@ -24,6 +24,7 @@ export const AppRoutes = () => {
       } else {
         setIsLogged(false);
       }
+      setChecking(false);
     });
   }, []);
 

@@ -36,7 +36,7 @@ export const Home = () => {
   return (
     <div>
       <DivMenu>
-        <Button onClick={toggleDrawer("left", true)}>
+        <Button onClick={toggleDrawer("left", true)} style={{ cursor: "pointer" }}>
           <Avatar src={profile?.photoURL} alt={profile?.displayName} />
         </Button>
         <span>Bienvenido, {profile?.displayName}</span>

@@ -6,7 +6,7 @@ import post from "../assets/carousel2.png";
 import { useState } from "react";
 
 export const Timeline = () => {
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState(5);
   return (
     <DivPosting>
       <Userbar>

@@ -6,6 +6,7 @@ import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
 import { Row, Col } from "react-bootstrap";
+import { Timeline } from "../components/Timeline";
 
 export const Home = () => {
   const [profile, setProfile] = useState(null);
@@ -53,6 +54,7 @@ export const Home = () => {
           <Aside />
         </Col>
       </Row>
+      <Timeline />
     </div>
   );
 };

@@ -17,7 +17,7 @@ export const SiderCalendar = () => {
         overflow: 'auto',
         height: '85vh',
         position: 'fixed',
-        left: '81.35vw',
+        left: '79vw',
         top:'5vw',
         bottom: 0,
         background:'rgba(255, 189, 41,1)',
@@ -26,7 +26,7 @@ export const SiderCalendar = () => {
       }}
     >
      
-      <h3 style={{color:"white",textAlign:"center"}}>Lugares Turisticos imperdibles</h3>
+      
       <CardStyledCalendar>
           <img src={place} />
           <Card.Body>
@@ -50,6 +50,21 @@ export const SiderCalendar = () => {
         <LineStyle/>
         <CardStyledCalendar>
           <img src={place1} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        
+        </CardStyledCalendar>
+        <LineStyle/>
+        <CardStyledCalendar>
+          <img src={place1} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyledCalendar>
+        <LineStyle/>
+        <CardStyledCalendar>
+          <img src={place2} />
           <Card.Body>
             <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
           </Card.Body>

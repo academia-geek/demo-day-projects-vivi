@@ -4,7 +4,12 @@ const { RangePicker } = DatePicker;
 
 const onChange = (value, dateString) => {
     console.log('Rango de fecha: ', dateString);
-   
+    const date1= dateString[0]
+    const date2=dateString[1]
+    const fechaInicio = new Date(date1).getTime();
+    const fechaFin    = new Date(date2).getTime();
+    const diff = fechaFin - fechaInicio;
+    gconsole.log(diff/(1000*60*60*24) ); 
 };
 const onFinish = (values) => {
     console.log('Success:', values);

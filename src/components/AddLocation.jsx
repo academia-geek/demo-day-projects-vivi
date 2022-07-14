@@ -11,7 +11,6 @@ import { Mapped } from "./Mapped";
 export const AddLocation = () => {
   return (
     <>
-      <NavUser />
       <DivLocation>
         <div>
           <InputLocation

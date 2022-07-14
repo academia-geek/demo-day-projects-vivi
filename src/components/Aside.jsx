@@ -10,7 +10,7 @@ import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 
 export const Aside = () => {
-  const [value] = useState(new Date());
+  const [value, onChange] = useState(new Date());
   return (
     <AsideStyled>
       <div>

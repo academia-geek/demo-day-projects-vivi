@@ -8,13 +8,17 @@ const onChange = (value, dateString) => {
     const date2=dateString[1]
     const fechaInicio = new Date(date1).getTime();
     const fechaFin    = new Date(date2).getTime();
-    const diff = fechaFin - fechaInicio;
-    const fechaIniciosiguiente= Number(fechaInicio)+Number(86400000*2)
-    const fechaInicio1=new Date(fechaIniciosiguiente)
-    const dias=diff/(86400000)
-    console.log(fechaInicio)
-    console.log(fechaIniciosiguiente)
-    console.log(fechaInicio1)
+    const diff = ((fechaFin - fechaInicio)/(86400000))+1; // tengo numero de días
+
+   
+     for(let i=1;i<=diff;i++){
+      const fecha=fechaInicio+(86400000*i)
+      const fechaIniciosiguiente= new Date(fecha)
+      console.log(fechaIniciosiguiente)
+     }  
+ 
+   
+  
 };
 const onFinish = (values) => {
     console.log('Success:', values);
@@ -48,7 +52,7 @@ export const EventForm = () => (
       </Form.Item>
   <Space direction="vertical" size={12}>
     <RangePicker
-      
+     
       format="YYYY-MM-DD"
       onChange={onChange}
       

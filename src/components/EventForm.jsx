@@ -1,4 +1,4 @@
-import { DatePicker, Form, Input, Space } from 'antd';
+import { Button, DatePicker, Form, Input, Space } from 'antd';
 import React from 'react';
 const { RangePicker } = DatePicker;
 
@@ -6,6 +6,14 @@ const onChange = (value, dateString) => {
     console.log('Rango de fecha: ', dateString);
    
 };
+const onFinish = (values) => {
+    console.log('Success:', values);
+    localStorage.setItem('EventData',JSON.stringify(values))
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 export const EventForm = () => (
     <Form
     name="basic"
@@ -17,11 +25,16 @@ export const EventForm = () => (
     autoComplete="off"
   >
     <Form.Item
-        label="Username"
         name="username"
         rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
       >
         <Input placeholder="Nombre del evento" allowClear  />
+      </Form.Item>
+      <Form.Item
+       name="Description"
+        rules={[{ required: true, message: 'Por Favor introduce la descripción del evento !' }]}
+      >
+        <Input placeholder="Descripcion de la festividad" allowClear  />
       </Form.Item>
   <Space direction="vertical" size={12}>
     <RangePicker
@@ -31,8 +44,8 @@ export const EventForm = () => (
       
     />
   </Space>
-  <Button type="primary" htmlType="submit">
-          Submit
+  <Button type="primary" htmlType="submit" >
+          Agregar
         </Button>
   </Form>
 );

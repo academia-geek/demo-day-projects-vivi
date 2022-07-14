@@ -9,7 +9,12 @@ const onChange = (value, dateString) => {
     const fechaInicio = new Date(date1).getTime();
     const fechaFin    = new Date(date2).getTime();
     const diff = fechaFin - fechaInicio;
-    gconsole.log(diff/(1000*60*60*24) ); 
+    const fechaIniciosiguiente= Number(fechaInicio)+Number(86400000*2)
+    const fechaInicio1=new Date(fechaIniciosiguiente)
+    const dias=diff/(86400000)
+    console.log(fechaInicio)
+    console.log(fechaIniciosiguiente)
+    console.log(fechaInicio1)
 };
 const onFinish = (values) => {
     console.log('Success:', values);

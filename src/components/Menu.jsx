@@ -13,6 +13,7 @@ import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Logout } from "../assets/logout.svg";
 import { ReactComponent as Contact } from "../assets/phone.svg";
 import { ReactComponent as Help } from "../assets/help.svg";
+import { ReactComponent as Calendar } from "../assets/calendar.svg";
 import { useDispatch } from "react-redux";
 import { logoutUserAsync } from "../redux/actions/loginAction";
 import { Link } from "react-router-dom";
@@ -33,21 +34,27 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2">
+          <ListItemButton className="gap-2 text-white" as={Link} to="/home">
             <Home className="icon" />
             <ListItemText className="pt-2" primary={"Inicio"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2">
+          <ListItemButton className="gap-2 text-white" as={Link} to="/">
             <Edit className="icon" />
             <Link to="/profile"><ListItemText className="pt-2" primary={"Tu perfil"} /></Link>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2">
+          <ListItemButton className="gap-2 text-white" as={Link} to="/">
             <Heart className="icon" />
             <ListItemText primary={"Tus eventos guardados"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton className="gap-2 text-white" as={Link} to="/calendar">
+            <Calendar className="icon" />
+            <ListItemText primary={"Calendario"} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -69,7 +76,10 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2" onClick={() => dispatch(logoutUserAsync())}>
+          <ListItemButton
+            className="gap-2"
+            onClick={() => dispatch(logoutUserAsync())}
+          >
             <Logout className="icon" />
             <ListItemText className="pt-2" primary={"Cerrar sesión"} />
           </ListItemButton>

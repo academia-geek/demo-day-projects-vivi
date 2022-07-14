@@ -74,6 +74,6 @@ font-family: "Raleway", sans-serif;
   border: 1px solid rgba(255, 189, 41, 1);
   border-radius: 2px;
   scroll-behavior: auto;
-  margin-top: 5vw;
-  margin-left:5vw;
+  margin-left:15vw;
+  margin-top: 30px;
 }

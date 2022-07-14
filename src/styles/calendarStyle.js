@@ -29,3 +29,8 @@ export const LineStyle=styled.hr`
 width:150px;
 margin-left:15px
 `
+;
+export const textStyle=styled.h6`
+font-size:9px;
+color:red;
+`

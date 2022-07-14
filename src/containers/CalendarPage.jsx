@@ -1,19 +1,13 @@
 import React from 'react'
 import  { MainCalendar } from '../components/Calendar'
 import {  Col } from "react-bootstrap";
-import { NavbarHome } from '../components/NavbarHome'
 import { SiderCalendar } from '../components/Sider';
-import { Aside } from "../components/Aside";
-import { CarouselEvents } from '../components/CarouselEvents';
 
 export const CalendarPage = () => {
   return (
     <div>
-        <NavbarHome />
-        
         <div className="d-flex">
         <Col sm={9}>
-        
         <MainCalendar/>
         </Col>
         <Col sm={3}>

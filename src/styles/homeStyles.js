@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Box from "@mui/material/Box";
 import { Card } from "react-bootstrap";
+import Calendar from "react-calendar";
 
 export const DivMenu = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const BoxStyled = styled(Box)`
 
   .icon {
     width: 25px;
+    fill: #fff;
   }
 
   & > div,
@@ -38,6 +40,7 @@ export const BoxStyled = styled(Box)`
 
 export const CarouselStyled = styled.div`
   padding: 10px;
+  margin-top: 70px;
 
   .carousel-item > img {
     width: 1031px;
@@ -76,6 +79,7 @@ export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
   height: 100%;
+  padding-top: 80px;
 `;
 
 export const ButtonAside = styled.button`
@@ -85,7 +89,7 @@ export const ButtonAside = styled.button`
   background-color: #ffbd29;
   border: none;
   outline: none;
-  padding: 40px 5px;
+  padding: 10px 5px;
   font-size: 25px;
   font-weight: 500;
   transition: 0.3s;
@@ -100,10 +104,14 @@ export const ButtonAside = styled.button`
   }
 `;
 
+export const SideCalendar = styled.div`
+  border: 1px solid #f0f0f0;
+  border-radius: 30px;
+  background-color: #fff;
+`;
+
 export const AsideEvents = styled.div`
-  background-color: #ffbd29;
-  border: 1px solid #000000;
-  border-radius: 25px;
+  background-color: #fff;
   padding: 15px;
 
   & > h5 {
@@ -118,8 +126,10 @@ export const CardStyled = styled(Card)`
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-  width:160px;
-  margin-left:15px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
 
   & > img {
     width: 90px;
@@ -134,4 +144,31 @@ export const CardStyled = styled(Card)`
     text-align: center;
   }
 }
+`;
+
+export const CalendarStyled = styled(Calendar)`
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px;
+
+  .react-calendar__month-view__weekdays > div > abbr[title] {
+    cursor: default;
+    text-decoration: none;
+  }
+
+  .react-calendar__month-view__days > button {
+    cursor: default !important;
+  }
+
+  .react-calendar__tile--active,
+  .react-calendar__tile--active:hover,
+  .react-calendar__tile--active:enabled:hover {
+    background: #ffbd29 !important;
+  }
+
+  .react-calendar__tile:not(--active):enabled:hover,
+  .react-calendar__tile:not(--active):focus,
+  .react-calendar__tile:not(--active):enabled:hover:active {
+    background: #fff;
+  }
 `;

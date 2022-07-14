@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 import place from "../assets/prueba/image.png";
 import place1 from "../assets/prueba/image1.png";
 import place2 from "../assets/prueba/image2.png";
-import { CardStyledCalendar, LineStyle,textStyle } from '../styles/calendarStyle';
+import { CardStyledCalendar, LineStyle } from '../styles/calendarStyle';
 const { Sider } = Layout;
 
 export const SiderCalendar = () => {

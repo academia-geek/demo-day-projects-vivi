@@ -17,7 +17,7 @@ export function NavbarLanding({ fixed }) {
     <Navbar  expand="lg" fixed={fixed} style={{backgroundColor:"rgba(255, 189, 41, 1)"}}>
       <Container>
         <Navbar.Brand href="/" style={{color:"white"}}>
-            <img src={logo} style={{width:"40px",color:"white"}}/>
+            <img src={logo} style={{width:"60px",color:"white"}}/>
             ViVi
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
@@ -38,11 +38,11 @@ export function NavbarLanding({ fixed }) {
               defaultValue="ES"
               className='optionSelect'
               bordered={false}
-              style={{color:"white",background:"rgba(255, 189, 41, 1)"}}
+              style={{background:"rgba(255, 189, 41, 1)"}}
             
             >
                <Option value="EN" > <NavLink  style={{color:"white"}} to="/En">EN</NavLink></Option>
-               <Option value="ES"><NavLink style={{color:"white"}} to="/">ES</NavLink></Option>
+               <Option value="ES" ><NavLink style={{color:"white"}} to="/">ES</NavLink></Option>
              
             </Select>
                   

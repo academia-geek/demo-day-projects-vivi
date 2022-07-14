@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+ 
 }
 
 body {
@@ -67,4 +68,12 @@ font-family: "Raleway", sans-serif;
   text-align:start;
   font-weight: bold;
 
+}
+.site-calendar-demo-card{
+  width: 50vw;
+  border: 1px solid rgba(255, 189, 41, 1);
+  border-radius: 2px;
+  scroll-behavior: auto;
+  margin-top: 5vw;
+  margin-left:5vw;
 }

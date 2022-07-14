@@ -11,7 +11,7 @@ export const AlertVivi = () => (
           <div style={{ textAlign: "center" }}>
             <Title style={{ color: "white" }}>VIVI EMPRESARIAL</Title>
             <h6 style={{ color: "white" }}>Conoce la mejor forma de promover el turismo de tu región,unete a la familia ViVi.</h6>
-            <Button type="ghost" style={{ color: "white" }}>CONOCE MÁS</Button>
+            <Button type="ghost" style={{ color: "white" }} href="/business">CONOCE MÁS</Button>
           </div>
           <img src={carro} style={{ width: "10vw" }} />
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import chat from '../assets/Chatbot.png'
-import { Chatlog1, Chatlog2 } from '../styles/globalStyles';
+import chat from '../../assets/Chatbot.png'
+import { Chatlog1, Chatlog2 } from '../../styles/globalStyles';
 
 export const ChatbotEn = () => {
     const [show, setShow] = useState("none")

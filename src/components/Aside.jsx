@@ -15,7 +15,7 @@ export const Aside = () => {
     <AsideStyled>
       <div>
         <h4 className="text-uppercase text-white text-center">Calendario</h4>
-        <CalendarStyled value={value} />
+        <CalendarStyled value={value} onChange={onChange} />
       </div>
       <h4 className="text-uppercase text-white text-center">
         Próximos eventos

@@ -78,8 +78,14 @@ export const CarouselStyled = styled.div`
 export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
-  height: 100%;
+  height: 100vh;
+  width: 100%;
   padding-top: 80px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 export const ButtonAside = styled.button`

@@ -11,20 +11,20 @@ import {
     VideoCameraOutlined,
   } from '@ant-design/icons';
 const { Sider } = Layout;
-const items = [
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-    BarChartOutlined,
-    CloudOutlined,
-    AppstoreOutlined,
-    TeamOutlined,
-    ShopOutlined,
-  ].map((icon, index) => ({
-    key: String(index + 1),
-    icon: React.createElement(icon),
-    label: `nav ${index + 1}`,
-  }));
+// const items = [
+//     UserOutlined,
+//     VideoCameraOutlined,
+//     UploadOutlined,
+//     BarChartOutlined,
+//     CloudOutlined,
+//     AppstoreOutlined,
+//     TeamOutlined,
+//     ShopOutlined,
+//   ].map((icon, index) => ({
+//     key: String(index + 1),
+//     icon: React.createElement(icon),
+//     label: `nav ${index + 1}`,
+//   }));
 export const SiderCalendar = () => {
   return (
     <Layout hasSider>
@@ -38,9 +38,9 @@ export const SiderCalendar = () => {
         bottom: 0,
       }}
     >
-      <div className="logo" />
-      
-      <Menu  mode="inline" defaultSelectedKeys={['10']} />
+      {/* <div className="logo" /> */}
+      <h1>Hola</h1>
+      {/* <Menu  mode="inline" defaultSelectedKeys={['10']} /> */}
       {/* <h1>Anuncios</h1> */}
       <br />
           ...

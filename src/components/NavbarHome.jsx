@@ -33,7 +33,7 @@ export const NavbarHome= () => {
     }
   }, []);
   return (
-        <div>
+        <div >
             <DivMenu>
                 <Button onClick={toggleDrawer("left", true)}>
                     <Avatar src={profile?.photoURL} alt={profile?.displayName} />

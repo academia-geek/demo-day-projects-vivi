@@ -3,6 +3,7 @@ import  { MainCalendar } from '../components/Calendar'
 import {  Col } from "react-bootstrap";
 import { NavbarHome } from '../components/NavbarHome'
 import { SiderCalendar } from '../components/Sider';
+import { Aside } from "../components/Aside";
 
 export const CalendarPage = () => {
   return (
@@ -37,8 +38,9 @@ export const CalendarPage = () => {
           <br /> 
         </Col>
         <Col sm={3}>
-          {/* <Aside />
-          <ListAnun/> */}
+         <div style={{height:"100vw",background:" #565252",marginTop:"-10px",width:'20vw',marginLeft:"4.7vw"}}>
+          
+          </div>        
           <SiderCalendar/>
         </Col>
         </div>

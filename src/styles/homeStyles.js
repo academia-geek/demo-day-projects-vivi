@@ -118,12 +118,14 @@ export const CardStyled = styled(Card)`
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  width:160px;
+  margin-left:15px;
 
   & > img {
-    width: 108px;
+    width: 90px;
     height: 80px;
     max-width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
   }
 
   & > div > div {

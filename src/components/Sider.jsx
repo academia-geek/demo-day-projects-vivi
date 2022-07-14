@@ -1,101 +1,60 @@
 import React from 'react'
-import { Layout, Menu } from 'antd';
-import {
-    AppstoreOutlined,
-    BarChartOutlined,
-    CloudOutlined,
-    ShopOutlined,
-    TeamOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-  } from '@ant-design/icons';
+import { Layout } from 'antd';
+import { CardStyled } from '../styles/homeStyles';
+import { Card } from 'react-bootstrap';
+import place from "../assets/prueba/image.png";
+import place1 from "../assets/prueba/image1.png";
+import place2 from "../assets/prueba/image2.png";
+import { CardStyledCalendar, LineStyle } from '../styles/calendarStyle';
 const { Sider } = Layout;
-// const items = [
-//     UserOutlined,
-//     VideoCameraOutlined,
-//     UploadOutlined,
-//     BarChartOutlined,
-//     CloudOutlined,
-//     AppstoreOutlined,
-//     TeamOutlined,
-//     ShopOutlined,
-//   ].map((icon, index) => ({
-//     key: String(index + 1),
-//     icon: React.createElement(icon),
-//     label: `nav ${index + 1}`,
-//   }));
+
 export const SiderCalendar = () => {
   return (
-    <Layout hasSider>
+   
     <Sider
       style={{
+        width:"2000px",
         overflow: 'auto',
-        height: '90vh',
+        height: '85vh',
         position: 'fixed',
-        left: '83.1vw',
-        top:'4.8vw',
+        left: '81.35vw',
+        top:'5vw',
         bottom: 0,
+        background:'rgba(255, 189, 41,1)',
+        
+        
       }}
     >
-      {/* <div className="logo" /> */}
-      <h1>Hola</h1>
-      {/* <Menu  mode="inline" defaultSelectedKeys={['10']} /> */}
-      {/* <h1>Anuncios</h1> */}
-      <br />
-          ...
-          <br />
-          ...
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
-          ...
-          <br />
-          ...
-          <br /> 
-          <br />
+     
+      <h3 style={{color:"white",textAlign:"center"}}>Lugares Turisticos imperdibles</h3>
+      <CardStyledCalendar>
+          <img src={place} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyledCalendar>
+        <LineStyle/>
+        <CardStyledCalendar>
+          <img src={place1} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyledCalendar>
+        <LineStyle/>
+        <CardStyledCalendar>
+          <img src={place2} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyledCalendar>
+        <LineStyle/>
+        <CardStyledCalendar>
+          <img src={place1} />
+          <Card.Body>
+            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
+          </Card.Body>
+        </CardStyledCalendar>
     </Sider>
-    </Layout>
+  
   )
 }

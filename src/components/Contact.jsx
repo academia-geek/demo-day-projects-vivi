@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,7 +6,6 @@ import useForm from '../hooks/useForm';
 
 export const Contact = () => {
     const [show, setShow] = useState(false);
-    const navigate = useNavigate()
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -23,7 +21,6 @@ export const Contact = () => {
     const handleSubmit= (e) =>{
         e.preventDefault()
         window.location.href=(`mailto:sebas1997321@gmail.com?subject= Nombre: ${nombres} Correo: ${email}&body=${message}`)
-        alert("enviando correo")
     }
 
     return (

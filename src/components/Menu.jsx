@@ -15,6 +15,7 @@ import { ReactComponent as Contact } from "../assets/phone.svg";
 import { ReactComponent as Help } from "../assets/help.svg";
 import { useDispatch } from "react-redux";
 import { logoutUserAsync } from "../redux/actions/loginAction";
+import { Link } from "react-router-dom";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
             <Edit className="icon" />
-            <ListItemText className="pt-2" primary={"Tu perfil"} />
+            <Link to="/profile"><ListItemText className="pt-2" primary={"Tu perfil"} /></Link>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>

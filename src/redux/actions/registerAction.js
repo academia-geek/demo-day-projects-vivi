@@ -25,7 +25,7 @@ export const registerUserAsync = (name, email, password, location) => {
         await updateProfile(auth.currentUser, {
           displayName: name,
           photoURL:
-            "https://res.cloudinary.com/divjxvhtz/image/upload/v1654795718/CRUD-heroku/images_fvkv1s.png",
+            "https://res.cloudinary.com/dd5yolnde/image/upload/v1657788433/user_l2s3mu.png",
         });
         dispatch(registerUserSync(name, email, password, location));
       })

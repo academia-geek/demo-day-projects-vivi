@@ -1,25 +1,25 @@
 import {
   AsideEvents,
   AsideStyled,
-  ButtonAside,
   CalendarStyled,
   CardStyled,
 } from "../styles/homeStyles";
 import event from "../assets/carousel1.png";
 import { Card } from "react-bootstrap";
-import Calendar from "react-calendar";
 import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 
 export const Aside = () => {
-  const [value, onChange] = useState(new Date());
+  const [value] = useState(new Date());
   return (
     <AsideStyled>
       <div>
         <h4 className="text-uppercase text-white text-center">Calendario</h4>
         <CalendarStyled value={value} />
       </div>
-        <h4 className="text-uppercase text-white text-center">Próximos eventos</h4>
+      <h4 className="text-uppercase text-white text-center">
+        Próximos eventos
+      </h4>
       <AsideEvents>
         <CardStyled>
           <img src={event} />

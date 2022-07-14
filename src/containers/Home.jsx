@@ -39,7 +39,7 @@ export const Home = () => {
         <Button onClick={toggleDrawer("left", true)} style={{ cursor: "pointer" }}>
           <Avatar src={profile?.photoURL} alt={profile?.displayName} />
         </Button>
-        <span>Bienvenido, {profile?.displayName}</span>
+        <span style={{ userSelect: "none" }}>Bienvenido, {profile?.displayName}</span>
       </DivMenu>
       <div className="d-flex">
         <Col sm={9}>

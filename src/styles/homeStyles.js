@@ -58,7 +58,7 @@ export const CarouselStyled = styled.div`
 
   .carousel-indicators {
     margin: 0;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.7);
     height: 1.5rem;
     width: 100px;
     bottom: 10%;
@@ -75,6 +75,10 @@ export const CarouselStyled = styled.div`
       margin-left: 10px;
       background-color: #0d1319;
       margin-bottom: 30px;
+
+      &:last-child {
+        margin-right: 10px;
+      }
 
       &.active {
         background-color: #fff;

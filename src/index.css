@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url('https://fonts.googleapis.com/css2? family=Merriweather&display=swap');
+@import url("https://fonts.googleapis.com/css2? family=Merriweather&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -22,9 +21,8 @@ ul {
 }
 
 .btnRegistro {
- 
- margin-top: 4px;
- margin-left: 20px ;
+  margin-top: 4px;
+  margin-left: 20px;
 }
 .optionNavbar {
   color: white;
@@ -33,38 +31,43 @@ ul {
   font-family: "Raleway", sans-serif;
   font-size: 15px;
 }
-.optionNavbar:hover{
-    color:white;
-    height:40px;
+.optionNavbar:hover {
+  color: white;
+  height: 40px;
 }
-.optionSelect{
-width: 65px;
-color:white;
-margin-top:2px;
-font-family: "Raleway", sans-serif;
-
-
+.optionSelect {
+  width: 65px;
+  color: white;
+  margin-top: 2px;
+  font-family: "Raleway", sans-serif;
 }
 
-.titlleBusi{
-  color:white;
-  -webkit-text-stroke: 0.5px  black;
+.titlleBusi {
+  color: white;
+  -webkit-text-stroke: 0.5px black;
   font-size: 4rem;
   font-weight: bold;
-  margin-top:20vw;
-  width:80vw;
-  text-align:center;
-  margin-right:10vw;
-   font-family: 'Merriweather', serif;
+  margin-top: 20vw;
+  width: 80vw;
+  text-align: center;
+  margin-right: 10vw;
+  font-family: "Merriweather", serif;
 }
-.contBusi{
-  color:black;
+.contBusi {
+  color: black;
   font-size: 2rem;
-  font-family: 'Merriweather', serif;
-  margin-top:20px;
+  font-family: "Merriweather", serif;
+  margin-top: 20px;
   margin-left: 30px;
-   width:60vw;
-  text-align:start;
+  width: 60vw;
+  text-align: start;
   font-weight: bold;
-
+}
+.site-calendar-demo-card {
+  width: 50vw;
+  border: 1px solid rgba(255, 189, 41, 1);
+  border-radius: 2px;
+  scroll-behavior: auto;
+  margin-left: 15vw;
+  margin-top: 100px;
 }

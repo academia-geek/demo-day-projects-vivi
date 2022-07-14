@@ -13,6 +13,7 @@ import { ReactComponent as Heart } from "../assets/heart.svg";
 import { ReactComponent as Logout } from "../assets/logout.svg";
 import { ReactComponent as Contact } from "../assets/phone.svg";
 import { ReactComponent as Help } from "../assets/help.svg";
+import { ReactComponent as Calendar } from "../assets/calendar.svg";
 import { useDispatch } from "react-redux";
 import { logoutUserAsync } from "../redux/actions/loginAction";
 import { Link } from "react-router-dom";
@@ -51,9 +52,9 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2 text-white" as={Link} to="/locations">
-            <Heart className="icon" />
-            <ListItemText primary={"Locación (sólo para mostrar)"} />
+          <ListItemButton className="gap-2 text-white" as={Link} to="/calendar">
+            <Calendar className="icon" />
+            <ListItemText primary={"Calendario"} />
           </ListItemButton>
         </ListItem>
       </List>

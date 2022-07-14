@@ -4,7 +4,7 @@ import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
 import { Menu } from "./Menu";
 
-export const NavUser = () => {
+export const NavUser = ({ fixed }) => {
   const [profile, setProfile] = useState(null);
   const [sidebar, setSidebar] = useState({
     left: false,
@@ -30,7 +30,7 @@ export const NavUser = () => {
   }, []);
   return (
     <>
-      <DivMenu>
+      <DivMenu style={{ width: "100vw", position: fixed, zIndex: "99"}}>
         <Button
           onClick={toggleDrawer("left", true)}
           style={{ cursor: "pointer" }}

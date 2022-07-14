@@ -1,5 +1,4 @@
 import React from "react";
-import { NavUser } from "./NavUser";
 import { ReactComponent as Location } from "../assets/location.svg";
 import {
   ButtonLocation,

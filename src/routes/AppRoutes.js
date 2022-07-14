@@ -12,6 +12,7 @@ import { PublicRoutes } from "./Public";
 import { PrivateRoutes } from "./Private";
 import { Dashboard } from "./Dashboard";
 import { Spin } from "../components/Spin";
+import { CalendarPage } from "../containers/CalendarPage";
 
 export const AppRoutes = () => {
   const [checking, setChecking] = useState(true);
@@ -61,6 +62,7 @@ export const AppRoutes = () => {
               <Register />
             </PublicRoutes>
           }
+        
         />
          <Route
           path="/En"
@@ -70,6 +72,7 @@ export const AppRoutes = () => {
           </PublicRoutes>
           }
         />
+       
        
         <Route
           path="/bienvenido"

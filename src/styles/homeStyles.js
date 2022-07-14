@@ -29,6 +29,7 @@ export const BoxStyled = styled(Box)`
 
   .icon {
     width: 25px;
+    fill: #fff;
   }
 
   & > div,
@@ -39,6 +40,7 @@ export const BoxStyled = styled(Box)`
 
 export const CarouselStyled = styled.div`
   padding: 10px;
+  margin-top: 70px;
 
   .carousel-item > img {
     width: 1031px;
@@ -77,6 +79,7 @@ export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
   height: 100%;
+  padding-top: 80px;
 `;
 
 export const ButtonAside = styled.button`
@@ -129,10 +132,10 @@ export const CardStyled = styled(Card)`
   cursor: pointer;
 
   & > img {
-    width: 108px;
+    width: 90px;
     height: 80px;
     max-width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
   }
 
   & > div > div {

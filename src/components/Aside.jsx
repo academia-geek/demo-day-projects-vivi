@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 export const Aside = () => {
   return (
     <AsideStyled>
-      <ButtonAside className="mb-3">Calendario</ButtonAside>
+      <ButtonAside className="mb-3"  >Calendario</ButtonAside>
       <AsideEvents>
         <h5>Próximos eventos</h5>
         <CardStyled>

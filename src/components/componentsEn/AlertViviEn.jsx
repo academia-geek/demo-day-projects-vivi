@@ -9,7 +9,7 @@ export const AlertViviEn = () => (
       message={
         <div style={{ marginLeft: "25vw", display: 'flex' }}>
           <div style={{ textAlign: "center" }}>
-            <Title style={{ color: "white" }}>BUSINESS VIVIL</Title>
+            <Title style={{ color: "white" }}>BUSINESS VIVI</Title>
             <h6 style={{ color: "white" }}>Know the best way to promote tourism in your region, join the ViVi family.</h6>
             <Button type="ghost" style={{ color: "white" }}>LEARN MORE</Button>
           </div>

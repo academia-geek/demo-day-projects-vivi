@@ -2,12 +2,13 @@ import { MapDiv } from "../styles/mapStyles";
 import { MapContainer } from "react-leaflet/MapContainer";
 import { Marker, Popup, TileLayer } from "react-leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
+import { getWeather } from "../helpers/getWeather";
 
-function LocationMarker() {
+function LocationMarker({ location }) {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     click() {
@@ -15,23 +16,41 @@ function LocationMarker() {
     },
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
+      map.flyTo(location, 10);
     },
   });
 
   return position === null ? null : (
     <Marker position={position}>
-      <Popup>You are here</Popup>
+      <Popup>Tú estás aquí</Popup>
     </Marker>
   );
 }
 
-export const Mapped = ({ dW, dH, py, op }) => {
+export const Mapped = ({ dW, dH, py, op, weather }) => {
   const navigate = useNavigate();
 
   const back = () => {
     navigate(-1);
   };
+
+  const [location, setLocation] = useState({
+    lat: 0,
+    lng: 0,
+  });
+
+  useEffect(() => {
+    if (weather) {
+      getWeather(weather).then((data) => {
+        const { lat, lon } = data.location;
+        setLocation({
+          lat: lat,
+          lng: lon,
+        });
+      });
+    }
+  }, [weather]);
+
   return (
     <MapDiv style={{ padding: py }}>
       <Back
@@ -40,7 +59,7 @@ export const Mapped = ({ dW, dH, py, op }) => {
         onClick={back}
       />
       <MapContainer
-        center={{ lat: 4.6, lng: -74.08 }}
+        center={[4.609722, -74.081667]}
         zoom={10}
         scrollWheelZoom={false}
         dragging={true}
@@ -54,7 +73,7 @@ export const Mapped = ({ dW, dH, py, op }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker />
+        <LocationMarker location={location} />
       </MapContainer>
     </MapDiv>
   );

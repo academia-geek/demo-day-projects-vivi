@@ -7,7 +7,7 @@ export const DivLocation = styled.div`
   flex-direction: column;
   padding: 100px 0;
 
-  & > div {
+  & > form {
     position: relative;
     display: flex;
     justify-content: center;

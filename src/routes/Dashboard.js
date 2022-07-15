@@ -9,17 +9,33 @@ import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 
 export const Dashboard = () => {
+  const dimensions = {
+    width: "100vw",
+    height: "90vh",
+    padding: "65px 0 0 0",
+    opacity: "1",
+  };
   return (
     <>
-    <NavUser />
+      <NavUser />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/locations" element={<AddLocation />} />
-        <Route path="/map" element={<Mapped />} />
+        <Route
+          path="/map"
+          element={
+            <Mapped
+              dW={dimensions.width}
+              dH={dimensions.height}
+              py={dimensions.padding}
+              op={dimensions.opacity}
+            />
+          }
+        />
         <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/addEvent" element={<AddEvent/>} />
-        <Route path="/Schedule" element={<EventSchedule/>} />
+        <Route path="/addEvent" element={<AddEvent />} />
+        <Route path="/Schedule" element={<EventSchedule />} />
       </Routes>
     </>
   );

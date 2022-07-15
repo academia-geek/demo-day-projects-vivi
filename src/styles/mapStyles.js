@@ -5,7 +5,7 @@ export const DivLocation = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 30px 0;
+  padding: 100px 0;
 
   & > div {
     position: relative;
@@ -63,4 +63,29 @@ export const ButtonLocation = styled.button`
 
 export const MapDiv = styled.div`
   padding: 30px 0;
+  position: relative;
+  .back {
+    left: 3%;
+    top: 11%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #fff;
+
+    & > path {
+      fill: #000;
+    }
+
+    &:hover {
+      background-color: #f4f4f4;
+    }
+  }
+
+  .leaflet-left {
+    left: 90%;
+  }
 `;

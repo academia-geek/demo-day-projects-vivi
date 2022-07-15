@@ -28,3 +28,9 @@ export const typesPosts = {
   list_post: 'list',
   delete_post: 'eliminar',
 }
+export const typesEvents = {
+  add: 'agregar',
+  list: 'list',
+  delete: 'eliminar',
+  edit : 'edit',
+}

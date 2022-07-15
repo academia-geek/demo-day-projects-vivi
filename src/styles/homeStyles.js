@@ -43,10 +43,8 @@ export const CarouselStyled = styled.div`
   margin-top: 70px;
 
   .carousel-item > img {
-    width: 1031px;
     height: 541px;
     border: 1px solid transparent;
-    border-radius: 37px;
   }
 
   .carousel-control-prev-icon,
@@ -58,19 +56,35 @@ export const CarouselStyled = styled.div`
     width: 3rem;
   }
 
-  .carousel-indicators > button {
-    border: 2px solid #fff;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    margin-left: 10px;
-    background-color: #0d1319;
-    margin-bottom: 30px;
-
-    &.active {
-      background-color: #fff;
-      max-width: 10px;
+  .carousel-indicators {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 1.5rem;
+    width: 100px;
+    bottom: 10%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    padding-top: 5px;
+    border-radius: 20px;
+    & > button {
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: 10px;
       height: 10px;
+      margin-left: 10px;
+      background-color: #0d1319;
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-right: 10px;
+      }
+
+      &.active {
+        background-color: #fff;
+        max-width: 10px;
+        height: 10px;
+      }
     }
   }
 `;
@@ -78,8 +92,14 @@ export const CarouselStyled = styled.div`
 export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
-  height: 100%;
+  height: 100vh;
+  width: 100%;
   padding-top: 80px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 export const ButtonAside = styled.button`

@@ -20,7 +20,7 @@ export const listPlaces = () => {
 
 export const listSync = (lista) => {
     return {
-        type: typesVisitados.list,
+        type: typesVisitados.list_visit,
         payload: lista
     }
 }
@@ -41,7 +41,7 @@ export const addPlaces = (value) => {
 
 export const addSync = (value) => {
     return {
-        type: typesVisitados.add,
+        type: typesVisitados.add_visit,
         payload: value
     }
 }
@@ -62,7 +62,7 @@ export const deletePlaces = (id) => {
 
 export const deleteSync = (id) => {
     return {
-        type: typesVisitados.delete,
+        type: typesVisitados.delete_visit,
         payload: id
     }
 }

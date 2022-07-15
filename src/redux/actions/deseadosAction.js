@@ -22,7 +22,7 @@ export const listLiked = () => {
 
 export const listSync = (datos) => {
     return {
-        type: typesDeseados.list,
+        type: typesDeseados.list_deseado,
         payload: datos
     }
 }
@@ -43,7 +43,7 @@ export const addLiked = (value) => {
 
 export const addSync = (value) => {
     return {
-        type: typesDeseados.add,
+        type: typesDeseados.add_deseado,
         payload: value
     }
 }
@@ -64,7 +64,7 @@ export const deleteLiked = (id) => {
 
 export const deleteSync = (id) => {
     return {
-        type: typesDeseados.delete,
+        type: typesDeseados.delete_deseado,
         payload: id
     }
 }

@@ -20,7 +20,7 @@ export const listPosts = () => {
 
 export const listSync = (datos) => {
     return {
-        type: typesPosts.list,
+        type: typesPosts.list_post,
         payload: datos
     }
 }
@@ -41,7 +41,7 @@ export const addPost = (value) => {
 
 export const addSync = (value) => {
     return {
-        type: typesPosts.add,
+        type: typesPosts.add_post,
         payload: value
     }
 }
@@ -62,7 +62,7 @@ export const deletePost = (id) => {
 
 export const deleteSync = (id) => {
     return {
-        type: typesPosts.delete,
+        type: typesPosts.delete_post,
         payload: id
     }
 }

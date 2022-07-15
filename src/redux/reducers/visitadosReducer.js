@@ -6,15 +6,15 @@ const initialState = {
 
 export const visitadosReducers = (state = initialState, action) => {
     switch (action.type) {
-        case typesVisitados.add:
+        case typesVisitados.add_visit:
             return {
                 listaPlaces: [...state.listaPlaces, action.payload]
             }
-        case typesVisitados.delete:
+        case typesVisitados.delete_visit:
             return {
                 listaPlaces: state.listaPlaces.filter(c => c.id !== action.payload)
             }
-        case typesVisitados.list:
+        case typesVisitados.list_visit:
             return {
                 listaPlaces: [...action.payload]
             }

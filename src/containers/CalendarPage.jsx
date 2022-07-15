@@ -2,6 +2,7 @@ import React from 'react'
 import  { MainCalendar } from '../components/Calendar'
 import {  Col } from "react-bootstrap";
 import { SiderCalendar } from '../components/Sider';
+import { CardEvent } from '../components/CardEvent';
 
 export const CalendarPage = () => {
   return (
@@ -9,6 +10,7 @@ export const CalendarPage = () => {
         <div className="d-flex">
         <Col sm={9}>
         <MainCalendar/>
+        <CardEvent/>
         </Col>
         <Col sm={3}>
          <div style={{height:"100vw",background:" #565252",marginTop:"-10px",width:'20vw',marginLeft:"4.7vw"}}>
@@ -18,6 +20,7 @@ export const CalendarPage = () => {
           </div>       
           <SiderCalendar/>
         </Col>
+
         </div>
     </div>
   )

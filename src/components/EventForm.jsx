@@ -14,7 +14,7 @@ export const EventForm = () =>{
     const date2=dateString[1]
     const fechaInicio = new Date(date1).getTime();
     const fechaFin  = new Date(date2).getTime();
-    const diff = ((fechaFin - fechaInicio)/(86400000))+1; // tengo numero de días
+    const diff = ((fechaFin - fechaInicio)/(86400000))+1; 
     for(let i=1;i<=diff;i++){
       const fecha=fechaInicio+(86400000*i)
       const fechaIniciosiguiente= new Date(fecha)

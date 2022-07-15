@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 import place from "../assets/prueba/image.png";
 import place1 from "../assets/prueba/image1.png";
 import place2 from "../assets/prueba/image2.png";
-import { CardStyledCalendar, LineStyle } from '../styles/calendarStyle';
+import { CardStyledCalendar, LineStyle, SiderStyle } from '../styles/calendarStyle';
 const { Sider } = Layout;
 
 export const SiderCalendar = () => {
@@ -45,19 +45,8 @@ export const SiderCalendar = () => {
     ]
   return (
    
-    <Sider
-      style={{
-        width:"2000px",
-        overflow: 'auto',
-        height: '89.5vh',
-        position: 'fixed',
-        left: '79vw',
-        top:'4.9vw',
-        bottom: 0,
-        background:'rgba(255, 189, 41,1)',
-        
-        
-      }}
+    <SiderStyle
+    className="siderStyle"
     >
      {
     data.map((p) => (
@@ -71,7 +60,7 @@ export const SiderCalendar = () => {
        <LineStyle/>
        </div>        
     ))}
-    </Sider>
+    </SiderStyle>
   
   )
 }

@@ -26,3 +26,9 @@ export const typesDeseados = {
   delete: 'eliminar',
   edit : 'edit',
 }
+export const typesEvents = {
+  add: 'agregar',
+  list: 'list',
+  delete: 'eliminar',
+  edit : 'edit',
+}

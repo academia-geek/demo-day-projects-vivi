@@ -8,23 +8,25 @@ export const typesLogin = {
 };
 
 export const typesGustos = {
-  add: 'agregar',
-  list: 'list',
-  delete: 'eliminar',
-  edit : 'edit',
+  add_gustos: 'agregar',
+  list_gustos: 'list',
+  delete_gustos: 'eliminar',
 }
 
-export const typesVistiados = {
-  add: 'agregar',
-  list: 'list',
-  delete: 'eliminar',
-  edit : 'edit',
+export const typesVisitados = {
+  add_visit: 'agregar',
+  list_visit: 'list',
+  delete_visit: 'eliminar',
 }
 export const typesDeseados = {
-  add: 'agregar',
-  list: 'list',
-  delete: 'eliminar',
-  edit : 'edit',
+  add_deseado: 'agregar',
+  list_deseado: 'list',
+  delete_deseado: 'eliminar',
+}
+export const typesPosts = {
+  add_post: 'agregar',
+  list_post: 'list',
+  delete_post: 'eliminar',
 }
 export const typesEvents = {
   add: 'agregar',

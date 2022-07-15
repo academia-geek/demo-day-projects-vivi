@@ -1,26 +1,22 @@
 import { typesDeseados } from "../types/types"
 
 const initialState = {
-    lista: []
+    listaLiked: []
 }
 
 export const deseadosReducers = (state = initialState, action) => {
     switch (action.type) {
-        case typesDeseados.add:
+        case typesDeseados.add_deseado:
             return {
-                lista: [...state.lista, action.payload]
+                listaLiked: [...state.listaLiked, action.payload]
             }
-        case typesDeseados.delete:
+        case typesDeseados.delete_deseado:
             return {
-                lista: state.lista.filter(c => c.id !== action.payload)
+                listaLiked: state.listaLiked.filter(c => c.id !== action.payload)
             }
-        case typesDeseados.list:
+        case typesDeseados.list_deseado:
             return {
-                lista: [...action.payload]
-            }
-        case typesDeseados.edit:
-            return {
-                ...state
+                listaLiked: [...action.payload]
             }
         default:
             return state

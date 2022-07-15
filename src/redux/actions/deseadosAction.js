@@ -1,37 +1,39 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore"
 import { db } from "../../firebase/firebaseConfig"
-import { typesGustos } from "../types/types"
+import { typesDeseados } from "../types/types"
 
 //Listar
-export const listLikes = () => {
+export const listLiked = () => {
     return async (dispatch) => {
         const datos = []
-        const Gustos = await getDocs(collection(db, "Gustos"))
-        Gustos.forEach(obj => {
+        const Deseados = await getDocs(collection(db, "Deseados"))
+        Deseados.forEach(obj => {
             datos.push(
                 {
                     ...obj.data()
                 }
             )
         })
+        console.log(Deseados)
+        console.log(datos)
         dispatch(listSync(datos))
     }
 }
 
-export const listSync = (lista) => {
+export const listSync = (datos) => {
     return {
-        type: typesGustos.list_gustos,
-        payload: lista
+        type: typesDeseados.list_deseado,
+        payload: datos
     }
 }
 
 //Agregar
-export const addLikes = (value) => {
+export const addLiked = (value) => {
     return (dispatch) => {
-        addDoc(collection(db, "Gustos"), value)
+        addDoc(collection(db, "Deseados"), value)
             .then(resp => {
                 dispatch(addSync(value))
-                // dispatch(listLikes())
+                dispatch(listLiked())
             })
             .catch(error => {
                 console.warn(error, 'Datos no guardados')
@@ -41,20 +43,20 @@ export const addLikes = (value) => {
 
 export const addSync = (value) => {
     return {
-        type: typesGustos.add_gustos,
+        type: typesDeseados.add_deseado,
         payload: value
     }
 }
 
 //Eliminar
-export const deleteLikes = (id) => {
+export const deleteLiked = (id) => {
     return async (dispatch) => {
-        const Gustos = collection(db, "Gustos")
-        const q = query(Gustos, where("id", "==", id))
+        const Deseados = collection(db, "Deseados")
+        const q = query(Deseados, where("id", "==", id))
         const datos = await getDocs(q)
 
         datos.forEach(obj => {
-            deleteDoc(doc(db, "Gustos", obj.id))
+            deleteDoc(doc(db, "Deseados", obj.id))
         })
         dispatch(deleteSync(id))
     }
@@ -62,7 +64,7 @@ export const deleteLikes = (id) => {
 
 export const deleteSync = (id) => {
     return {
-        type: typesGustos.delete_gustos,
+        type: typesDeseados.delete_deseado,
         payload: id
     }
 }

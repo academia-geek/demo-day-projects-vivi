@@ -4,8 +4,7 @@ import { Aside } from "../components/Aside";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
 import { DivMenu } from "../styles/homeStyles";
-import { Row, Col } from "react-bootstrap";
-import { Timeline } from "../components/Timeline";
+import { Col } from "react-bootstrap";
 import { User } from "../components/User";
 import { Posts } from "../components/Posts";
 
@@ -36,12 +35,6 @@ export const Profile = () => {
 
     return (
         <div>
-            <DivMenu>
-                <Button onClick={toggleDrawer("left", true)}>
-                    <Avatar src={profile?.photoURL} alt={profile?.displayName} />
-                </Button>
-                <span>Bienvenido, {profile?.displayName}</span>
-            </DivMenu>
             <div className="d-flex">
                 <Col sm={9}>
                     <Menu

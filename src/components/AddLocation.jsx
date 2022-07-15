@@ -12,6 +12,7 @@ export const AddLocation = () => {
     width: "650px",
     height: "450px",
     padding: "30px 0",
+    opacity: "0",
   };
   return (
     <>
@@ -29,6 +30,7 @@ export const AddLocation = () => {
           dW={dimensions.width}
           dH={dimensions.height}
           py={dimensions.padding}
+          op={dimensions.opacity}
         />
         <ButtonLocation>Añadir ubicación</ButtonLocation>
       </DivLocation>

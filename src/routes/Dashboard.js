@@ -9,8 +9,10 @@ import { Home } from "../containers/Home";
 
 export const Dashboard = () => {
   const dimensions = {
-    width: "90vw",
+    width: "100vw",
     height: "90vh",
+    padding: "65px 0 0 0",
+    opacity: "1",
   };
   return (
     <>
@@ -20,7 +22,14 @@ export const Dashboard = () => {
         <Route path="/locations" element={<AddLocation />} />
         <Route
           path="/map"
-          element={<Mapped dW={dimensions.width} dH={dimensions.height} />}
+          element={
+            <Mapped
+              dW={dimensions.width}
+              dH={dimensions.height}
+              py={dimensions.padding}
+              op={dimensions.opacity}
+            />
+          }
         />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/addEvent" element={<AddEvent />} />

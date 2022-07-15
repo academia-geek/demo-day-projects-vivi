@@ -4,6 +4,8 @@ import { Marker, Popup, TileLayer } from "react-leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import { useState } from "react";
 import "leaflet/dist/leaflet.css";
+import { ReactComponent as Back } from "../assets/back.svg";
+import { useNavigate } from "react-router-dom";
 
 function LocationMarker() {
   const [position, setPosition] = useState(null);
@@ -24,9 +26,19 @@ function LocationMarker() {
   );
 }
 
-export const Mapped = ({ dW, dH, py }) => {
+export const Mapped = ({ dW, dH, py, op }) => {
+  const navigate = useNavigate();
+
+  const back = () => {
+    navigate(-1);
+  };
   return (
     <MapDiv style={{ padding: py }}>
+      <Back
+        className="back leaflet-bar leaflet-control"
+        opacity={op}
+        onClick={back}
+      />
       <MapContainer
         center={{ lat: 51.505, lng: -0.09 }}
         zoom={10}

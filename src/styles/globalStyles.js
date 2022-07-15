@@ -68,3 +68,20 @@ export const Chatlog2 = styled.div`
   margin-bottom: 0.5rem;
   max-width: 232px;
 `;
+export const UserData = styled.div`
+  background-color: #D9D9D9;
+  border-radius: 13px;
+  width: 266px;
+  min-height: 2rem;
+`
+
+export const UserImg = styled.img`
+  width: 330px;
+  height: 330px;
+  border-radius: 100%;
+`
+export const EditIcon = styled.img`
+  position: absolute;
+  transform: translate(-128px,241px);
+  border-radius: 8px;
+`

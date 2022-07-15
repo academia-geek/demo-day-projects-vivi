@@ -1,3 +1,4 @@
+import Sider from "antd/lib/layout/Sider";
 import styled from "styled-components";
 
 export const CardStyledCalendar = styled.div`
@@ -33,4 +34,25 @@ margin-left:15px
 export const textStyle=styled.h6`
 font-size:9px;
 color:red;
+`
+;
+export const SiderStyle=styled(Sider)`
+width:2000px;
+overflow: auto;
+overflow-X:hidden;
+height: 89.5vh;
+position:fixed;
+left:81vw;
+top:7vw;
+bottom: 0;
+background:rgba(255, 189, 41,1);
+::-webkit-scrollbar {
+  display: none;
+  }
+`
+export const TittleStyle=styled.h4`
+  margin-Left:10px;
+  position: fixed;
+  color: white;
+  font-family: "Merriweather", serif;
 `

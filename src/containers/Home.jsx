@@ -11,7 +11,7 @@ export const Home = () => {
           <CarouselEvents />
           <Timeline />
         </Col>
-        <Col sm={3}>
+        <Col sm={3} className="position-fixed end-0">
           <Aside />
         </Col>
       </div>

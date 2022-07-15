@@ -20,6 +20,12 @@ function LocationMarker({ location }) {
     },
   });
 
+  useEffect(() => {
+    if (location) {
+      map.flyTo(location, 10);
+    }
+  }, [location]);
+
   return position === null ? null : (
     <Marker position={position}>
       <Popup>Tú estás aquí</Popup>
@@ -50,6 +56,8 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
       });
     }
   }, [weather]);
+
+  console.log(location);
 
   return (
     <MapDiv style={{ padding: py }}>

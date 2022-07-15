@@ -1,10 +1,10 @@
 
 import { listEventAsync } from '../redux/actions/eventsAction'
-
-import {  List } from 'antd'
+import { HeartOutlined } from '@ant-design/icons';
+import {  Button, List } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch,useSelector} from 'react-redux';
-
+import image from '../assets/prueba/image3.png'
 
 export const CardEvent = ({m}) => {
     const dispatch=useDispatch()
@@ -29,12 +29,18 @@ export const CardEvent = ({m}) => {
     dataSource={filtro}
     renderItem={(item) => (
       <List.Item>
-        <List.Item.Meta
-        //  avatar={<Avatar src={item.image} />} 
-        title={<a href="https://ant.design">{item.name}</a>}
-        description={<article>{item.description}</article>}
-        />
-       
+      <div style={{display:"flex"}}>
+        <div style={{width:"40vw",marginLeft:"10px"}}>
+          <h2>{item.name}</h2>
+          <article>{item.description}</article>
+          <h6>Ubicación</h6>
+          <div style={{marginTop:"5vw",marginLeft:"20px"}}>
+          <HeartOutlined />
+          <Button style={{marginLeft:"20px"}}>Programación</Button>
+          </div>
+          </div>
+       <img src={image} alt="Cargando..." style={{width:"300px",marginLeft:"3px"}} />
+       </div>
       </List.Item>
       )}
       />

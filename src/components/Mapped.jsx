@@ -8,7 +8,7 @@ import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate } from "react-router-dom";
 import { getWeather } from "../helpers/getWeather";
 
-function LocationMarker({ location }) {
+function Location({ location }) {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     click() {
@@ -41,8 +41,8 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
   };
 
   const [location, setLocation] = useState({
-    lat: 0,
-    lng: 0,
+    lat: 4.6,
+    lng: -74.08,
   });
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
         onClick={back}
       />
       <MapContainer
-        center={[4.609722, -74.081667]}
+        center={[location.lat, location.lng]}
         zoom={10}
         scrollWheelZoom={false}
         dragging={true}
@@ -81,7 +81,7 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker location={location} />
+        <Location location={location} />
       </MapContainer>
     </MapDiv>
   );

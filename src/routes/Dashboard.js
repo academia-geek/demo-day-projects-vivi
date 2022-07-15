@@ -8,16 +8,23 @@ import { EventSchedule } from "../containers/EventSchedule";
 import { Home } from "../containers/Home";
 
 export const Dashboard = () => {
+  const dimensions = {
+    width: "90vw",
+    height: "90vh",
+  };
   return (
     <>
-    <NavUser />
+      <NavUser />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/locations" element={<AddLocation />} />
-        <Route path="/map" element={<Mapped />} />
+        <Route
+          path="/map"
+          element={<Mapped dW={dimensions.width} dH={dimensions.height} />}
+        />
         <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/addEvent" element={<AddEvent/>} />
-        <Route path="/Schedule" element={<EventSchedule/>} />
+        <Route path="/addEvent" element={<AddEvent />} />
+        <Route path="/Schedule" element={<EventSchedule />} />
       </Routes>
     </>
   );

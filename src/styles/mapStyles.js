@@ -5,7 +5,7 @@ export const DivLocation = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 30px 0;
+  padding: 100px 0;
 
   & > div {
     position: relative;

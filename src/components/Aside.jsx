@@ -10,12 +10,12 @@ import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 
 export const Aside = () => {
-  const [value, onChange] = useState(new Date());
+  const [value] = useState(new Date());
   return (
     <AsideStyled>
       <div>
         <h4 className="text-uppercase text-white text-center">Calendario</h4>
-        <CalendarStyled value={value} onChange={onChange} />
+        <CalendarStyled value={value} />
       </div>
       <h4 className="text-uppercase text-white text-center">
         Próximos eventos

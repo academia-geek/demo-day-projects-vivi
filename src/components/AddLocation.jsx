@@ -8,6 +8,11 @@ import {
 import { Mapped } from "./Mapped";
 
 export const AddLocation = () => {
+  const dimensions = {
+    width: "650px",
+    height: "450px",
+    padding: "30px 0",
+  };
   return (
     <>
       <DivLocation>
@@ -20,7 +25,11 @@ export const AddLocation = () => {
             <Location />
           </span>
         </div>
-        <Mapped />
+        <Mapped
+          dW={dimensions.width}
+          dH={dimensions.height}
+          py={dimensions.padding}
+        />
         <ButtonLocation>Añadir ubicación</ButtonLocation>
       </DivLocation>
     </>

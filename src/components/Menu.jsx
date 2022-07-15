@@ -36,40 +36,40 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
         <ListItem disablePadding>
           <ListItemButton className="gap-2 text-white" as={Link} to="/home">
             <Home className="icon" />
-            <ListItemText className="pt-2" primary={"Inicio"} />
+            <ListItemText className="pt-2 text-white" primary={"Inicio"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2 text-white" as={Link} to="/">
+          <ListItemButton className="gap-2 text-white" as={Link} to="/profile">
             <Edit className="icon" />
-            <Link to="/profile"><ListItemText className="pt-2" primary={"Tu perfil"} /></Link>
+            <Link to="/profile"><ListItemText className="pt-2 text-white" primary={"Tu perfil"} /></Link>
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton className="gap-2 text-white" as={Link} to="/">
             <Heart className="icon" />
-            <ListItemText primary={"Tus eventos guardados"} />
+            <ListItemText className="text-white" primary={"Tus eventos guardados"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton className="gap-2 text-white" as={Link} to="/calendar">
             <Calendar className="icon" />
-            <ListItemText primary={"Calendario"} />
+            <ListItemText className="text-white" primary={"Calendario"} />
           </ListItemButton>
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2">
+          <ListItemButton className="gap-2 text-white">
             <Contact className="icon" />
-            <ListItemText className="pt-2" primary={"Contáctanos"} />
+            <ListItemText className="pt-2 text-white" primary={"Contáctanos"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton className="gap-2">
+          <ListItemButton className="gap-2 text-white">
             <Help className="icon" />
-            <ListItemText className="pt-2" primary={"Ayuda"} />
+            <ListItemText className="pt-2 text-white" primary={"Ayuda"} />
           </ListItemButton>
         </ListItem>
       </List>

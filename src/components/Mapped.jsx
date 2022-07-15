@@ -40,7 +40,7 @@ export const Mapped = ({ dW, dH, py, op }) => {
         onClick={back}
       />
       <MapContainer
-        center={{ lat: 51.505, lng: -0.09 }}
+        center={{ lat: 4.6, lng: -74.08 }}
         zoom={10}
         scrollWheelZoom={false}
         dragging={true}

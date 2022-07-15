@@ -11,18 +11,20 @@ export const typesGustos = {
   add: 'agregar',
   list: 'list',
   delete: 'eliminar',
-  edit : 'edit',
 }
 
-export const typesVistiados = {
+export const typesVisitados = {
   add: 'agregar',
   list: 'list',
   delete: 'eliminar',
-  edit : 'edit',
 }
 export const typesDeseados = {
   add: 'agregar',
   list: 'list',
   delete: 'eliminar',
-  edit : 'edit',
+}
+export const typesPosts = {
+  add: 'agregar',
+  list: 'list',
+  delete: 'eliminar',
 }

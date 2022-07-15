@@ -85,3 +85,17 @@ export const EditIcon = styled.img`
   transform: translate(-128px,241px);
   border-radius: 8px;
 `
+export const CONT = styled.div`
+    display: flex; flex-wrap: wrap;
+    gap: 8px;
+`
+export const TAG = styled.section`
+    display: flex;
+    align-items: center;
+    background-color: #D9D9D9;
+    padding: 0 8px;
+    border-radius: 10px;
+    h6{
+      margin: 0;
+    }
+`

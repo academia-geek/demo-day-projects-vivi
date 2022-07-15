@@ -1,26 +1,22 @@
 import { typesGustos } from "../types/types"
 
 const initialState = {
-    lista: []
+    listaLikes: []
 }
 
 export const gustosReducers = (state = initialState, action) => {
     switch (action.type) {
         case typesGustos.add:
             return {
-                lista: [...state.lista, action.payload]
+                listaLikes: [...state.listaLikes, action.payload]
             }
         case typesGustos.delete:
             return {
-                lista: state.lista.filter(c => c.id !== action.payload)
+                listaLikes: state.listaLikes.filter(c => c.id !== action.payload)
             }
         case typesGustos.list:
             return {
-                lista: [...action.payload]
-            }
-        case typesGustos.edit:
-            return {
-                ...state
+                listaLikes: [...action.payload]
             }
         default:
             return state

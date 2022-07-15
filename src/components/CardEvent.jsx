@@ -6,20 +6,15 @@ import React, { useEffect } from 'react'
 import { useDispatch,useSelector} from 'react-redux';
 
 
-export const CardEvent = () => {
+export const CardEvent = ({m}) => {
     const dispatch=useDispatch()
- 
- 
+     console.log(m)
       const {EventsList} = useSelector(store => store.eventos)
       console.log(EventsList)
-    //   const datadates=EventsList.map((m)=>{
-    //   return m.date
-    //    })
-    // console.log(datadates)
-    const filtro = EventsList.filter((ev) => {
+        const filtro = EventsList.filter((ev) => {
         return ev.date.map((date) => { 
           return date.seconds;
-        }).includes(1659052800);
+        }).includes((m/1000));
       });
     console.log(filtro)
       useEffect(()=>{
@@ -28,14 +23,15 @@ export const CardEvent = () => {
    
   return (
     <div>
-                <List
+    <List
+    style={{marginTop:"80px",marginLeft:"80px",border:'1px solid rgba(255, 189, 41, 1)'}}
     itemLayout="horizontal"
     dataSource={filtro}
     renderItem={(item) => (
       <List.Item>
         <List.Item.Meta
-          
-          title={<a href="https://ant.design">{item.name}</a>}
+        //  avatar={<Avatar src={item.image} />} 
+        title={<a href="https://ant.design">{item.name}</a>}
         description={<article>{item.description}</article>}
         />
        

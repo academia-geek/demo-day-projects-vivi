@@ -70,4 +70,11 @@ ul {
   scroll-behavior: auto;
   margin-left: 15vw;
   margin-top: 100px;
+  color:white
+}
+.l{
+  text-align: center;
+  position: fixed;
+  color: white;
+  font-family: "Merriweather", serif;
 }

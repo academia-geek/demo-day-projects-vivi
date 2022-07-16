@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import post from "../assets/carousel2.png";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Timeline = () => {
   const [value, setValue] = useState(5);
@@ -37,7 +37,7 @@ export const Timeline = () => {
             en especial una señora que me llevó a conocer la ciudad y degustar
             comidas exquisitas.
           </p>
-          <Link to={`/map/cartagena`}>{place}</Link>
+          <Link to={`/map/${place}`}>{place}</Link>
         </div>
       </DivPost>
     </DivPosting>

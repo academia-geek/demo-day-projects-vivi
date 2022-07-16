@@ -4,8 +4,6 @@ import { Marker, Popup, TileLayer } from "react-leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
-import { ReactComponent as Back } from "../assets/back.svg";
-import { useNavigate } from "react-router-dom";
 
 function Location({ location }) {
   const [position, setPosition] = useState(null);
@@ -33,12 +31,6 @@ function Location({ location }) {
 }
 
 export const Mapped = ({ weather }) => {
-  const navigate = useNavigate();
-
-  const back = () => {
-    navigate(-1);
-  };
-
   const [location, setLocation] = useState({
     lat: 4.6,
     lng: -74.08,

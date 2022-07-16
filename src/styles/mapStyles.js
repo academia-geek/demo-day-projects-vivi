@@ -85,6 +85,12 @@ export const MapDiv = styled.div`
     }
   }
 
+  .check {
+    top: 11%;
+    left: 7%;
+    position: absolute;
+  }
+
   .leaflet-left {
     left: 90%;
   }

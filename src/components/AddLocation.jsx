@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ReactComponent as Location } from "../assets/location.svg";
 import { getWeather } from "../helpers/getWeather";
 import {
@@ -9,15 +9,20 @@ import {
 import { Mapped } from "./Mapped";
 
 export const AddLocation = () => {
-  const [location, setLocation] = useState("");
   const [weather, setWeather] = useState({});
 
   const handleChange = (e) => {
     if (e.target.value.length >= 4) {
-      setLocation(e.target.value);
+      getWeather(e.target.value).then((data) => {
+        if (data.code === "ERR_BAD_REQUEST") {
+          setWeather({});
+        } else {
+          setWeather(data);
+        }
+      });
     }
   };
-
+  
   const dimensions = {
     width: "650px",
     height: "450px",
@@ -43,7 +48,7 @@ export const AddLocation = () => {
           dH={dimensions.height}
           py={dimensions.padding}
           op={dimensions.opacity}
-          weather={location}
+          weather={weather}
         />
         <ButtonLocation>Añadir ubicación</ButtonLocation>
       </DivLocation>

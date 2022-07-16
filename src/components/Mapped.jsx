@@ -46,18 +46,13 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
   });
 
   useEffect(() => {
-    if (weather) {
-      getWeather(weather).then((data) => {
-        const { lat, lon } = data.location;
-        setLocation({
-          lat: lat,
-          lng: lon,
-        });
+    if (weather.location) {
+      setLocation({
+        lat: weather.location.lat,
+        lng: weather.location.lon,
       });
     }
-  }, [weather]);
-
-  console.log(location);
+  }, [weather.location]);
 
   return (
     <MapDiv style={{ padding: py }}>
@@ -78,7 +73,7 @@ export const Mapped = ({ dW, dH, py, op, weather }) => {
         style={{ width: dW, height: dH, zIndex: "1" }}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and ViVi'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Location location={location} />

@@ -5,7 +5,8 @@ import { useMapEvents } from "react-leaflet/hooks";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { ReactComponent as Back } from "../assets/back.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getWeather } from "../helpers/getWeather";
 
 function Location({ location }) {
   const [position, setPosition] = useState(null);
@@ -32,8 +33,10 @@ function Location({ location }) {
   );
 }
 
-export const Mapped = ({ weather }) => {
+export const Map = () => {
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   const back = () => {
     navigate(-1);
@@ -45,16 +48,35 @@ export const Mapped = ({ weather }) => {
   });
 
   useEffect(() => {
-    if (weather.location) {
+    if (id !== undefined) {
+      getWeather(id).then((data) => {
+        if (data.code === "ERR_BAD_REQUEST") {
+          setLocation({
+            lat: 4.6,
+            lng: -74.08,
+          });
+        } else {
+          setLocation({
+            lat: data.location.lat,
+            lng: data.location.lon,
+          });
+        }
+      });
+    } else {
       setLocation({
-        lat: weather.location.lat,
-        lng: weather.location.lon,
+        lat: 4.6,
+        lng: -74.08,
       });
     }
-  }, [weather.location]);
+  }, [id]);
 
   return (
-    <MapDiv style={{ padding: "30px 0" }}>
+    <MapDiv style={{ padding: "65px 0 0 0" }}>
+      <Back
+        className="back leaflet-bar leaflet-control"
+        opacity={1}
+        onClick={back}
+      />
       <MapContainer
         center={[location.lat, location.lng]}
         zoom={10}
@@ -64,7 +86,7 @@ export const Mapped = ({ weather }) => {
         boxZoom={true}
         zoomControl={true}
         attributionControl={true}
-        style={{ width: "650px", height: "450px", zIndex: "1" }}
+        style={{ width: "100vw", height: "90vh", zIndex: "1" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and ViVi'

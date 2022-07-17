@@ -28,18 +28,18 @@ export const SiderCalendar = () => {
         },
         {
             img:place,
-            title:"Mina de sal de Nemocón",
+            title:"Mina de sal de Nemocón g",
             text:"En las minas de sal que están abiertas al público, se puede apreciar los increíbles espejos de agua adecuados con una hermosa iluminación."
          },
          
         {
             img:place1,
-            title:"Cerro azul",
+            title:"Cerro azul f",
             text:"A 47 Km de San José del Guaviare ,es una montaña que sobresale entre la selva, en ella se observan una serie de pinturas rupestres que conforman un hermoso mural de color rojizo."
         },
         {
             img:place2,
-            title:"Parque Nacional Natural el Turrapo",
+            title:"Parque Nacional Natural el Turrapo b",
             text:" Es una reserva natural  en el departamento de Vichada que ofrece al visitante hermosos ríos, la posibilidad de ver jaguares, tapires y animales de la región." 
         }
     ]
@@ -50,8 +50,8 @@ export const SiderCalendar = () => {
     >
      {
     data.map((p) => (
-      <div>
-      <CardStyledCalendar key={p.title}>
+      <div key={p.title}>
+      <CardStyledCalendar >
           <img src={p.img} />
           <Card.Body>
             <Card.Title>{p.title}</Card.Title>

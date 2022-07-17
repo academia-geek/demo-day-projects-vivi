@@ -8,10 +8,13 @@ import { TittleStyle } from '../styles/calendarStyle';
 export const CalendarPage = () => {
   const [date, setdate] = useState();
   const onSelect=(value)=> {
-  const date =value.format('YYYY-MM-DD')
+    console.log(value)
+    const date =value.format('YYYY-MM-DD')
+    
+    
   setdate(new Date(date).getTime())
    };
-
+   
  
   return (
     <div>

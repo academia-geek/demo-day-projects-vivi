@@ -1,20 +1,28 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addScheduleAsync } from '../redux/actions/scheduleAction';
 const { RangePicker } = DatePicker;
 
 export const FormSchedule = () =>{ 
+  const[date, SetDate]=useState()
+  const[dates, SetDates]=useState()
   const dispatch=useDispatch()
   const onChange = (value, dateString) => {
-
+   SetDate(dateString)
+   console.log(value)
     console.log('dia y hora del evento ', dateString);
+    const date =value.format('YYYY-MM-DD')
+       
+    SetDates(new Date(date).getTime())
   };
   const onFinish = (values) => {
       console.log('Success:', values);
       const id = localStorage.getItem("id")
       const formValue = {
         id: id,
+        date:date,
+        dates:dates,
         name: values.name,
         organizer: values.Organizer,
         place: values.Place,

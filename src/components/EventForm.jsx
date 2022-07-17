@@ -19,9 +19,7 @@ export const EventForm = () => {
       const fecha = fechaInicio + (86400000 * i)
       const fechaIniciosiguiente = new Date(fecha)
       const count = datadate.push(fechaIniciosiguiente)
-
     }
-
   };
 
   const onFinish = (values) => {
@@ -69,8 +67,6 @@ export const EventForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
-
-
     >
       <Form.Item
 

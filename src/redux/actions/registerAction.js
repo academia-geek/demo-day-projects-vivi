@@ -3,7 +3,7 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
@@ -29,9 +29,6 @@ export const registerUserAsync = (name, email, password, location) => {
             "https://res.cloudinary.com/dd5yolnde/image/upload/v1657788433/user_l2s3mu.png",
         });
         dispatch(registerUserSync(name, email, password, location));
-
-        const usuario = auth.currentUser;
-        console.log(usuario)
         const usuarioID = user?.uid
 
         setDoc(doc(db, "Info", usuarioID), {
@@ -56,12 +53,11 @@ export const loginGoogle = () => {
   return (dispatch) => {
     signInWithPopup(auth, google)
       .then(async ({ user }) => {
-        const usuario = auth.currentUser;
-        console.log(usuario)
         const usuarioID = user?.uid
         const docRef = doc(db, "Info", usuarioID);
+        const docSnap = await getDoc(docRef);
 
-        if (!docRef){
+        if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
             "Gustos": [{}],
@@ -70,7 +66,7 @@ export const loginGoogle = () => {
             "Posts": [{}]
           });
         }
-        
+
         dispatch(registerUserSync(user.displayName, user.email));
       })
       .catch((error) => {
@@ -88,13 +84,12 @@ export const loginGoogle = () => {
 export const loginFacebook = () => {
   return (dispatch) => {
     signInWithPopup(auth, facebook)
-      .then(({ user }) => {
-        const usuario = auth.currentUser;
-        console.log(usuario)
+      .then(async ({ user }) => {
         const usuarioID = user?.uid
         const docRef = doc(db, "Info", usuarioID);
+        const docSnap = await getDoc(docRef);
 
-        if (!docRef){
+        if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
             "Gustos": [{}],

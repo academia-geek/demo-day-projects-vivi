@@ -1,23 +1,28 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
-import React, { useEffect } from 'react';
+import React from 'react';
 const { RangePicker } = DatePicker;
 
-const onChange = (value, dateString) => {
-
-  console.log('dia y hora del evento ', dateString);
-};
-const onFinish = (values) => {
-    console.log('Success:', values);
-    localStorage.setItem('EventData',JSON.stringify(values))
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
-
 export const FormSchedule = () =>{ 
-  const id = localStorage.getItem("id")
+  const onChange = (value, dateString) => {
+
+    console.log('dia y hora del evento ', dateString);
+  };
+  const onFinish = (values) => {
+      console.log('Success:', values);
+      const id = localStorage.getItem("id")
+      const formValue = {
+        id: id,
+        name: values.name,
+        organizer: values.Organizer,
+        place: values.Place,
+        date: datadate
+      }
+    };
+  
+    const onFinishFailed = (errorInfo) => {
+      console.log('Failed:', errorInfo);
+    };
+  
   return (
     <Form
     name="basic"
@@ -29,7 +34,7 @@ export const FormSchedule = () =>{
     autoComplete="off"
   >
     <Form.Item
-        name="username"
+        name="name"
         rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
       >
         <Input placeholder="Nombre de la actividad" allowClear  />

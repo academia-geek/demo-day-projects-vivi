@@ -8,105 +8,100 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
-import { addLikes, deleteLikes, listLikes } from "../redux/actions/gustosAction";
-import { addPlaces, deletePlaces, listPlaces } from "../redux/actions/visitadosAction";
-import { addLiked, deleteLiked, listLiked } from "../redux/actions/deseadosAction";
+import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync } from "../redux/actions/infoAction";
 
-export const User = () => {
+export const User = ({userID}) => {
     const dispatch = useDispatch()
-    const { listaLikes } = useSelector(store => store.gustos)
-    const { listaPlaces } = useSelector(store => store.visitados)
-    const { listaLiked } = useSelector(store => store.deseados)
+    const { listaInfo } = useSelector(store => store.info)
+    const userData = listaInfo[0]
     const [profile, setProfile] = useState(null);
-    const [userID, setUID] = useState("");
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [formValue, handleChange, reset] = useForm({ age: '' })
     const [valueLike, handleChangeLike, resetLike] = useForm({ id: crypto.randomUUID(), like: '' })
-    const { id, like } = valueLike
-    const formLikes = { id, like, userID }
-
     const [valuePlace, handleChangePlace, resetPlace] = useForm({ id: crypto.randomUUID(), place: '' })
-    const { id:idp, place } = valuePlace
-    const formPlaces = { id, place, userID }
-
     const [valueLiked, handleChangeLiked, resetLiked] = useForm({ id: crypto.randomUUID(), liked: '' })
-    const { id:idl, liked } = valueLiked
-    const formLiked = { id, liked, userID }
 
-    console.log(listaPlaces)
-    console.log(listaLikes)
-    console.log(listaLiked)
-    
-
-
+    const handleAge = (e) => {
+        dispatch(addAge(formValue.age, userID))
+        reset()
+        handleClose()
+    } 
     const handleSubmitLikes = (e) => {
         e.preventDefault()
-        console.log("entre a gustos")
-        dispatch(addLikes(formLikes))
+        dispatch(addLike(valueLike, userID))
         resetLike()
     } 
-    const handleDeleteLikes = (id) => { dispatch(deleteLikes(id)) }
+    const handleDeleteLikes = (id) => { dispatch(deleteLike(id, userID)) }
 
     const handleSubmitPlaces = (e) => {
         e.preventDefault()
-        console.log("entre a visitados")
-        dispatch(addPlaces(formPlaces))
+        dispatch(addPlace(valuePlace, userID))
         resetPlace()
     } 
-    const handleDeletePlaces = (id) => { dispatch(deletePlaces(id)) }
+    const handleDeletePlaces = (id) => { dispatch(deletePlace(id, userID)) }
 
     const handleSubmitLiked = (e) => {
         e.preventDefault()
-        console.log("entre a deseados")
-        dispatch(addLiked(formLiked))
+        dispatch(addLiked(valueLiked, userID))
         resetLiked()
     } 
-    const handleDeleteLiked = (id) => { dispatch(deleteLiked(id)) }
+    const handleDeleteLiked = (id) => { dispatch(deleteLiked(id, userID)) }
     
     useEffect(() => {
-        // dispatch(listLikes())
+        dispatch(listAsync())
         const user = auth.currentUser;
         if (user) {
             setProfile(user);
-            setUID(user.uid)
         }
-    }, []);
+    }, [dispatch]);
 
     return (
         <>
-            <div className='d-flex p-5 justify-content-around'>
+            <div className='d-flex px-5 justify-content-between align-items-center' style={{paddingTop: "111px"}}>
                 <UserImg src={profile?.photoURL} alt={profile?.displayName} />
                 <EditIcon src={edit} alt="" />
                 <div>
                     <div className="d-flex justify-content-between align-items-center">
                         <h2>Tu Información</h2>
-                        <img src={edit} alt="" onClick={handleShow} />
+                        <img src={edit} alt="" onClick={handleShow} style={{cursor: "pointer"}}/>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Edad:</h5>
                         <UserData>
-
+                            <TAG>{userData?.edad}</TAG>
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Gustos:</h5>
-                        <UserData>
-
+                        <UserData>{
+                            userData?.Gustos.filter(i => i.id).map(i => (
+                                <TAG key={i.id}>
+                                    <h6>{i.like}</h6>
+                                </TAG>
+                            ))}
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Sitios visitados:</h5>
-                        <UserData>
-
+                        <UserData>{
+                            userData?.Visitados.filter(i => i.id).map(i => (
+                                <TAG key={i.id}>
+                                    <h6>{i.place}</h6>
+                                </TAG>
+                            ))}
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Sitios a los que me gustaría ir:</h5>
-                        <UserData>
-
+                        <UserData>{
+                            userData?.Deseados.filter(i => i.id).map(i => (
+                                <TAG key={i.id}>
+                                    <h6>{i.place}</h6>
+                                </TAG>
+                            ))}
                         </UserData>
                     </div>
                 </div>
@@ -116,19 +111,19 @@ export const User = () => {
                     <Modal.Title>Tu Información</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {/* <Form>
+                    <Form onSubmit={(e) => {e.prevent.Default()}}>
                         <Form.Group className="mb-3">
                             <Form.Label>Edad</Form.Label>
                             <Form.Control name="age" type="number" placeholder="Escribe tu edad" value={formValue.age} onChange={handleChange} />
                         </Form.Group>
-                    </Form> */}
+                    </Form>
                     <Form onSubmit={handleSubmitLikes}>
                         <Form.Group className="mb-3">
                             <Form.Label>Gustos</Form.Label>
                             <Form.Control name="like" type="text" placeholder="Ingresa una actividad" value={valueLike.like} onChange={handleChangeLike} />
                        </Form.Group>
                         <CONT>{
-                            listaLikes.map(i => (
+                            userData?.Gustos.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
                                     <h6>{i.like}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeleteLikes(i.id)} alt="" />
                                 </TAG>
@@ -141,7 +136,7 @@ export const User = () => {
                             <Form.Control name="place" type="text" placeholder="Ingresa un lugar" value={valuePlace.place} onChange={handleChangePlace} />
                         </Form.Group>
                         <CONT>{
-                            listaPlaces.map(i => (
+                            userData?.Visitados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
                                     <h6>{i.place}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeletePlaces(i.id)} alt="" />
                                 </TAG>
@@ -154,17 +149,15 @@ export const User = () => {
                             <Form.Control name="liked" type="text" placeholder="Ingresa un lugar" value={valueLiked.liked} onChange={handleChangeLiked} />
                         </Form.Group>
                         <CONT>{
-                            listaLiked.map(i => (
+                            userData?.Deseados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
                                     <h6>{i.liked}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeleteLiked(i.id)} alt="" />
                                 </TAG>
                             ))}
                         </CONT>
                     </Form>
+                    <Button variant="success" className="d-flex mx-auto mt-3" onClick={handleAge}>Guardar Cambios</Button>
                 </Modal.Body>
-                <Modal.Footer>
-
-                </Modal.Footer>
             </Modal>
         </>
     )

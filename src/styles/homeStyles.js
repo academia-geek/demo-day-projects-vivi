@@ -92,7 +92,6 @@ export const CarouselStyled = styled.div`
 export const AsideStyled = styled.aside`
   background-color: #565252;
   padding: 20px;
-  height: 100vh;
   width: 100%;
   padding-top: 80px;
   overflow-y: auto;
@@ -163,7 +162,6 @@ export const CardStyled = styled(Card)`
     font-weight: bold;
     text-align: center;
   }
-}
 `;
 
 export const CalendarStyled = styled(Calendar)`

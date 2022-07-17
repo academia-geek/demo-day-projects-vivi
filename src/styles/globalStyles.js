@@ -16,7 +16,6 @@ export const SectionHero = styled.section`
 export const FOOTER = styled.footer`
   text-align: center;
   width: 100%;
-  margin: 60px 0 0;
   padding: 20px 0;
   font-size: 14px;
   color: #aaa;
@@ -73,17 +72,20 @@ export const UserData = styled.div`
   border-radius: 13px;
   width: 266px;
   min-height: 2rem;
+  display: flex; flex-wrap: wrap;
 `
 
 export const UserImg = styled.img`
-  width: 330px;
-  height: 330px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
 `
 export const EditIcon = styled.img`
   position: absolute;
-  transform: translate(-128px,241px);
+  transform: translate(116px,44px);
+  width: 2rem;
   border-radius: 8px;
+  cursor: pointer;
 `
 export const CONT = styled.div`
     display: flex; flex-wrap: wrap;

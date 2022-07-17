@@ -9,7 +9,8 @@ import { TittleProgramming } from '../components/calendar _and_programming/Tittl
 import {  Col } from "react-bootstrap";
 import { TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
-import image from '../assets/prueba/image3'
+import image from '../assets/prueba/image3.png'
+import { Paper } from '@mui/material'
 
 
 
@@ -36,14 +37,16 @@ export const Programming = () => {
       <div className="d-flex">
         <Col sm={9}>
         {
-            EventsList?.map(item=>(
-             <div style={{display:"flex",marginTop:"20px"}}>
-                <img src={image} alt="publicidad"  />
-                <div>
-
+            data?.map(item=>(
+             <Paper elevación={12} style={{display:"flex",marginTop:"90px",marginLeft:'50px'}}>
+                <img src={image} alt="publicidad" style={{width:"300px",borderRadius:"10px",marginLeft:"30px"}} />
+                <div style={{textAlign:"center"}}>
+                  <h4>{item.name}</h4>
+                  <article>{item.description}</article>
+                  <a>{item.location}</a>
                 </div>
 
-             </div>
+             </Paper>
             ))
         }       
         <div className="site-calendar-demo-card" >

@@ -11,13 +11,17 @@ export const CardActivite = ({k}) => {
     
    
   return (
-    <>
+    < div>
    
      {  
         dataFinal.map(m=>(
-            <h1>{m.name}</h1>
+          <div style={{display:"block"}}>
+            <h3>{m.name}</h3>
+            <h6 style={{color:"rgba(211, 205, 208, 0.8)"}}>{m.organizer}</h6>
+          </div>
+           
         )) 
      }
-    </>
+    </div >
   )
 }

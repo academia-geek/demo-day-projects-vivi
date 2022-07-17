@@ -61,7 +61,7 @@ export const FormSchedule = () =>{
       <Button type="primary" htmlType="submit" >
           Agregar 
         </Button>
-        <Button type="primary" htmlType="submit" href='/' >
+        <Button type="primary"  href='/' >
           Finalizar
         </Button>
         </div>

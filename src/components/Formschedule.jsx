@@ -16,8 +16,8 @@ const onFinish = (values) => {
   };
 
 
-export const FormSchedule = ({m}) =>{ 
-  console.log(m)
+export const FormSchedule = () =>{ 
+  const id = localStorage.getItem("id")
   return (
     <Form
     name="basic"

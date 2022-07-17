@@ -1,5 +1,5 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addEventAsync } from '../redux/actions/eventsAction';
@@ -8,7 +8,6 @@ const { RangePicker } = DatePicker;
 
 const datadate=[]
 export const EventForm = () =>{ 
-  const [date, setdate] = useState();
   const dispatch=useDispatch()
   
   const onChange = (value, dateString) => {
@@ -26,8 +25,8 @@ export const EventForm = () =>{
      }  
     
 };
+
 const onFinish = (values) => {
-  
   console.log('Success:', values);
   const formValue={
     id:Math.random(),
@@ -36,23 +35,14 @@ const onFinish = (values) => {
     location:values.Location,
     date:datadate
     }
-   setdate(formValue.id)
-  console.log(formValue.date)
+  localStorage.setItem("id",formValue.id)
   dispatch(addEventAsync(formValue))
 };
+
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
-
-  // const handlerMore=()=>{
-  
-  //     const d=<FormSchedule m={date}/>    
-  //     window.location.href="./Schedule"
-   
-    
-   
-  // }
   const [loadings, setLoadings] = useState([]);
 
   const enterLoading = (index) => {
@@ -66,11 +56,11 @@ const onFinishFailed = (errorInfo) => {
       setLoadings((prevLoadings) => {
         const newLoadings = [...prevLoadings];
         newLoadings[index] = false;
-        const d=<FormSchedule m={date}/>    
+         
         window.location.href="./Schedule"
         return newLoadings;
       });
-    }, 1000);
+    }, 3000);
   };
 
   return(
@@ -82,6 +72,7 @@ const onFinishFailed = (errorInfo) => {
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
     autoComplete="off"
+    
     
   >
     <Form.Item
@@ -115,6 +106,7 @@ const onFinishFailed = (errorInfo) => {
   <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={()=>
   
     enterLoading(2)
+    
     } >
           Agregar
         </Button>

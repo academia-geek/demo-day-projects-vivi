@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
 import {  useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
+import { CardActivite } from '../components/CardActivite'
 const dataActivities=[]
 export const Programming = () => {
     const { id } = useParams()
@@ -32,13 +33,13 @@ export const Programming = () => {
                
           <List
     itemLayout="horizontal"
-    dataSource={dataAct}
+    dataSource={date?.date}
     renderItem={(item) => (
       <List.Item>
         <List.Item.Meta
-        title={<h6 style={{textAlign:"end",marginTop:"80px"}}>{(item.date)}</h6>}
-               
+        title={<h6 style={{textAlign:"right",marginTop:"80px"}}>{item.seconds}</h6>}     
         />
+        <CardActivite k={item.seconds}/>
         {/* <h6>{item.organizer}</h6>
         <h6>{item.name}</h6>
         <h6>{item.placee}</h6> */}

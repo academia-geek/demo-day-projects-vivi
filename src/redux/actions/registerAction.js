@@ -3,7 +3,8 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { auth, facebook, google } from "../../firebase/firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
 const registerUserSync = (name, email, password, location) => {
@@ -28,6 +29,18 @@ export const registerUserAsync = (name, email, password, location) => {
             "https://res.cloudinary.com/dd5yolnde/image/upload/v1657788433/user_l2s3mu.png",
         });
         dispatch(registerUserSync(name, email, password, location));
+
+        const usuario = auth.currentUser;
+        console.log(usuario)
+        const usuarioID = user?.uid
+
+        setDoc(doc(db, "Info", usuarioID), {
+          edad: "",
+          "Gustos": [{}],
+          "Visitados": [{}],
+          "Deseados": [{}],
+          "Posts": [{}]
+        });
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {
@@ -43,6 +56,21 @@ export const loginGoogle = () => {
   return (dispatch) => {
     signInWithPopup(auth, google)
       .then(async ({ user }) => {
+        const usuario = auth.currentUser;
+        console.log(usuario)
+        const usuarioID = user?.uid
+        const docRef = doc(db, "Info", usuarioID);
+
+        if (!docRef){
+          setDoc(doc(db, "Info", usuarioID), {
+            edad: "",
+            "Gustos": [{}],
+            "Visitados": [{}],
+            "Deseados": [{}],
+            "Posts": [{}]
+          });
+        }
+        
         dispatch(registerUserSync(user.displayName, user.email));
       })
       .catch((error) => {
@@ -61,6 +89,20 @@ export const loginFacebook = () => {
   return (dispatch) => {
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
+        const usuario = auth.currentUser;
+        console.log(usuario)
+        const usuarioID = user?.uid
+        const docRef = doc(db, "Info", usuarioID);
+
+        if (!docRef){
+          setDoc(doc(db, "Info", usuarioID), {
+            edad: "",
+            "Gustos": [{}],
+            "Visitados": [{}],
+            "Deseados": [{}],
+            "Posts": [{}]
+          });
+        }
         dispatch(registerUserSync(user.displayName, user.email));
       })
       .catch((error) => {

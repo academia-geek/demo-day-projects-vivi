@@ -1,12 +1,11 @@
-import { Avatar, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Aside } from "../components/Aside";
 import { Menu } from "../components/Menu";
 import { auth } from "../firebase/firebaseConfig";
-import { DivMenu } from "../styles/homeStyles";
 import { Col } from "react-bootstrap";
 import { User } from "../components/User";
 import { Posts } from "../components/Posts";
+import { Footer } from "../components/Footer";
 
 export const Profile = () => {
     const [profile, setProfile] = useState(null);
@@ -42,13 +41,18 @@ export const Profile = () => {
                         sidebar={sidebar}
                         profile={profile}
                     />
-                    <User />
-                    <Posts />
+                    <User 
+                        userID = {profile?.uid}
+                    />
+                    <Posts 
+                        userID = {profile?.uid}
+                    />
                 </Col>
                 <Col sm={3}>
                     <Aside />
                 </Col>
             </div>
+            <Footer />
         </div>
     );
 };

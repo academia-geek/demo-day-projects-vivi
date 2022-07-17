@@ -9,18 +9,18 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
 import { imgUpload } from '../helpers/imgUpload';
-import { addPost, deletePost, listPosts } from '../redux/actions/postsAction';
 import { CONT } from '../styles/globalStyles';
 import { DivPost, DivPosting, Userbar } from '../styles/postingStyles';
+import { addPost, deletePost, listAsync } from '../redux/actions/infoAction';
 
-export const Posts = () => {
+export const Posts = ({userID}) => {
     const [profile, setProfile] = useState(null);
-    const [value, setValue] = useState(5);
     const [show, setShow] = useState(false);
     const [pic, setPic] = useState("")
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
-    const { listaPosts } = useSelector(store => store.posts)
+    const { listaInfo } = useSelector(store => store.info)
+    const userData = listaInfo[0]
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -30,7 +30,6 @@ export const Posts = () => {
         imgUpload(file)
             .then((resp) => {
                 setPic(resp)
-                console.log(pic)
             })
             .catch((error) => { console.warn(error) });
     }
@@ -52,16 +51,16 @@ export const Posts = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
-        dispatch(addPost(Infopost))
+        dispatch(addPost(Infopost, userID))
         reset()
     }
 
     const handleDelete = (id) => {
-        dispatch(deletePost(id))
+        dispatch(deletePost(id, userID))
     }
 
     useEffect(() => {
-        dispatch(listPosts())
+        dispatch(listAsync())
         const user = auth.currentUser;
         if (user) {
             setProfile(user);
@@ -76,7 +75,7 @@ export const Posts = () => {
             </div>
 
             <CONT>{
-                listaPosts.map(i => (
+                userData?.Posts.filter(i => i.id).map(i => (
                     <DivPosting>
                         <Userbar>
                             <div>

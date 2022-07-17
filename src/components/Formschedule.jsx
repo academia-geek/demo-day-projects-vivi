@@ -1,5 +1,5 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
-import React from 'react';
+import React, { useEffect } from 'react';
 const { RangePicker } = DatePicker;
 
 const onChange = (value, dateString) => {
@@ -16,7 +16,9 @@ const onFinish = (values) => {
   };
 
 
-export const FormSchedule = () => (
+export const FormSchedule = ({m}) =>{ 
+  console.log(m)
+  return (
     <Form
     name="basic"
     labelCol={{ span: 8 }}
@@ -52,4 +54,4 @@ export const FormSchedule = () => (
         </Button>
    </Form>
 );
-
+  }

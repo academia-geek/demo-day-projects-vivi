@@ -1,13 +1,16 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addEventAsync } from '../redux/actions/eventsAction';
+import { FormSchedule } from './Formschedule';
 const { RangePicker } = DatePicker;
 
-
+const datadate=[]
 export const EventForm = () =>{ 
+  const [date, setdate] = useState();
   const dispatch=useDispatch()
-  const datadate=[]
+  
   const onChange = (value, dateString) => {
     console.log('Rango de fecha: ', dateString);
     const date1= dateString[0]
@@ -18,20 +21,22 @@ export const EventForm = () =>{
     for(let i=1;i<=diff;i++){
       const fecha=fechaInicio+(86400000*i)
       const fechaIniciosiguiente= new Date(fecha)
-      
       const count = datadate.push(fechaIniciosiguiente)
      
      }  
     
 };
 const onFinish = (values) => {
+  
   console.log('Success:', values);
   const formValue={
     id:Math.random(),
     name:values.Eventname,
     description:values.Description,
+    location:values.Location,
     date:datadate
     }
+   setdate(formValue.id)
   console.log(formValue.date)
   dispatch(addEventAsync(formValue))
 };
@@ -39,6 +44,35 @@ const onFinish = (values) => {
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
+
+  // const handlerMore=()=>{
+  
+  //     const d=<FormSchedule m={date}/>    
+  //     window.location.href="./Schedule"
+   
+    
+   
+  // }
+  const [loadings, setLoadings] = useState([]);
+
+  const enterLoading = (index) => {
+    setLoadings((prevLoadings) => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+     
+      return newLoadings;
+    });
+    setTimeout(() => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = false;
+        const d=<FormSchedule m={date}/>    
+        window.location.href="./Schedule"
+        return newLoadings;
+      });
+    }, 1000);
+  };
+
   return(
     <Form
     name="basic"
@@ -48,18 +82,26 @@ const onFinishFailed = (errorInfo) => {
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
     autoComplete="off"
+    
   >
     <Form.Item
+      
         name="Eventname"
         rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
       >
-        <Input placeholder="Nombre del evento" allowClear  />
+        <Input    style={{marginTop:"100px"}} placeholder="Nombre del evento" allowClear  />
       </Form.Item>
       <Form.Item
        name="Description"
         rules={[{ required: true, message: 'Por Favor introduce la descripción del evento !' }]}
       >
         <Input placeholder="Descripcion de la festividad" allowClear  />
+      </Form.Item>
+      <Form.Item
+       name="Location"
+        rules={[{ required: true, message: 'Por Favor introduce la ciudad!' }]}
+      >
+        <Input placeholder="Ubicación" allowClear  />
       </Form.Item>
   <Space direction="vertical" size={12}>
     <RangePicker
@@ -69,9 +111,14 @@ const onFinishFailed = (errorInfo) => {
       
     />
   </Space>
-  <Button type="primary" htmlType="submit" >
+ 
+  <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={()=>
+  
+    enterLoading(2)
+    } >
           Agregar
         </Button>
+      
   </Form>
 );
 }

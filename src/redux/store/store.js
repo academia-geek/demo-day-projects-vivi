@@ -11,12 +11,12 @@ import { eventsReducers } from "../reducers/eventsReducer";
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const reducers = combineReducers({
+  deseados: deseadosReducers,
   eventos:eventsReducers,
   register: registerReducer,
   login: loginReducer,
   gustos: gustosReducers,
   visitados: visitadosReducers,
-  deseados: deseadosReducers,
   posts: postsReducers
   
 });

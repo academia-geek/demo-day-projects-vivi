@@ -4,7 +4,7 @@ import { EventForm } from '../components/EventForm'
 export const AddEvent = () => {
   return (
     <>
-    <EventForm/>
+    < EventForm />
     </>
   )
 }

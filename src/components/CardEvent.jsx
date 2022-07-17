@@ -33,7 +33,7 @@ export const CardEvent = ({m}) => {
         <div style={{width:"40vw",marginLeft:"10px"}}>
           <h2>{item.name}</h2>
           <article>{item.description}</article>
-          <h6>Ubicación</h6>
+          <h6>{item.location}</h6>
           <div style={{marginTop:"5vw",marginLeft:"20px"}}>
           <HeartOutlined />
           <Button style={{marginLeft:"20px"}}>Programación</Button>

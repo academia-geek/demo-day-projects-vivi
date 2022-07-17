@@ -1,11 +1,11 @@
 
-import { listEventAsync } from '../redux/actions/eventsAction'
+import { listEventAsync } from '../../redux/actions/eventsAction'
 import { HeartOutlined } from '@ant-design/icons';
 import {  Button, List } from 'antd'
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch,useSelector} from 'react-redux';
-import image from '../assets/prueba/image3.png'
+import image from '../../assets/prueba/image3.png'
 
 
 export const CardEvent = ({m}) => {

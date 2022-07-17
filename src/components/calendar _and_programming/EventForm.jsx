@@ -1,7 +1,8 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addEventAsync } from '../redux/actions/eventsAction';
+import { addEventAsync } from '../../redux/actions/eventsAction';
+
 const { RangePicker } = DatePicker;
 
 const datadate = []

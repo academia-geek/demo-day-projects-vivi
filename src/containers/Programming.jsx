@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
 import {  useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
-import { CardActivite } from '../components/CardActivite'
-import { TittleProgramming } from '../components/TittleProgramming'
+import { CardActivite } from '../components/calendar _and_programming/CardActivite'
+import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
+
 const dataActivities=[]
 export const Programming = () => {
     const { id } = useParams()
@@ -23,12 +24,7 @@ export const Programming = () => {
  console.log(Activities)
  const dataAct=Activities.filter(m=>m.id==id)
  console.log(dataAct)
-//    date.map((m)=>{
-//     const datej=(m.seconds).format('YYYY-MM-DD')
-//     console.log(datej)
-//     const count = dataActivities.push(datej)
-//    })
-//    console.log(dataActivities)
+
   return (
     <div>
                

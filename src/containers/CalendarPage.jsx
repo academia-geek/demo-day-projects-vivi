@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import {  Col } from "react-bootstrap";
-import { SiderCalendar } from '../components/Sider';
-import { CardEvent } from '../components/CardEvent';
 import { Calendar } from 'antd';
 import { TittleStyle } from '../styles/calendarStyle';
+import { SiderCalendar } from '../components/calendar _and_programming/Sider';
+import { CardEvent } from '../components/calendar _and_programming/CardEvent';
 
 export const CalendarPage = () => {
   const [date, setdate] = useState();
@@ -29,7 +29,7 @@ export const CalendarPage = () => {
           <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
           </div>
-          <SiderCalendar />
+          <SiderCalendar/>
         </Col>
       </div>
     </div>

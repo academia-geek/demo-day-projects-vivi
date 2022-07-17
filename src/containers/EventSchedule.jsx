@@ -1,6 +1,7 @@
 import { Button } from 'antd'
 import React from 'react'
-import { FormSchedule } from '../components/Formschedule'
+import { FormSchedule } from '../components/calendar _and_programming/Formschedule'
+
 
 export const EventSchedule = () => {
   return (

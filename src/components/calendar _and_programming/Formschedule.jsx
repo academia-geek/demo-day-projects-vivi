@@ -1,7 +1,7 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addScheduleAsync } from '../redux/actions/scheduleAction';
+import { addScheduleAsync } from '../../redux/actions/scheduleAction';
 const { RangePicker } = DatePicker;
 
 export const FormSchedule = () =>{ 

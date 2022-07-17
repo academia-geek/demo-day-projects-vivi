@@ -15,8 +15,7 @@ export const FormSchedule = () =>{
         name: values.name,
         organizer: values.Organizer,
         place: values.Place,
-        date: datadate
-      }
+             }
     };
   
     const onFinishFailed = (errorInfo) => {

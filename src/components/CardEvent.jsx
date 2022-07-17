@@ -3,8 +3,10 @@ import { listEventAsync } from '../redux/actions/eventsAction'
 import { HeartOutlined } from '@ant-design/icons';
 import {  Button, List } from 'antd'
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { useDispatch,useSelector} from 'react-redux';
 import image from '../assets/prueba/image3.png'
+import { Programming } from '../containers/Programming';
 
 export const CardEvent = ({m}) => {
     const dispatch=useDispatch()
@@ -20,6 +22,11 @@ export const CardEvent = ({m}) => {
       useEffect(()=>{
         dispatch(listEventAsync())
     },[dispatch])
+    const handleSubmit =({id})=>{
+      <Programming m={id}/>
+      alert("este es el id",id)
+      window.location.href='/programming'
+    }
    
   return (
     <div>
@@ -36,7 +43,9 @@ export const CardEvent = ({m}) => {
           <h6>{item.location}</h6>
           <div style={{marginTop:"5vw",marginLeft:"20px"}}>
           <HeartOutlined />
-          <Button style={{marginLeft:"20px"}}>Programación</Button>
+          <Link>
+          <Button style={{marginLeft:"20px"}} >Programación</Button>
+          </Link>
           </div>
           </div>
        <img src={image} alt="Cargando..." style={{width:"300px",marginLeft:"3px"}} />

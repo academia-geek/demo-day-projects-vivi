@@ -18,7 +18,7 @@ export const Dashboard = () => {
   };
   return (
     <>
-      <NavUser />
+     <NavUser/>
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />

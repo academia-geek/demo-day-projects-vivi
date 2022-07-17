@@ -8,13 +8,15 @@ export const CardActivite = ({k}) => {
     const a=k*1000
     console.log(a)
     const dataFinal=dataAct.filter(m=>m.dates ==a)
-    console.log(dataFinal)
+    
+   
   return (
     <>
-     {
+   
+     {  
         dataFinal.map(m=>(
             <h1>{m.name}</h1>
-        ))
+        )) 
      }
     </>
   )

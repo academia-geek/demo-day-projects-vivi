@@ -6,41 +6,74 @@ import {  useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
+import {  Col } from "react-bootstrap";
+import { TittleStyle } from '../styles/calendarStyle';
+import { SiderCalendar } from '../components/calendar _and_programming/Sider';
+import image from '../assets/prueba/image3'
 
-const dataActivities=[]
+
+
+const dataActivities = []
 export const Programming = () => {
     const { id } = useParams()
-   
-    const dispatch=useDispatch()
-    useEffect(()=>{
+
+    const dispatch = useDispatch()
+    useEffect(() => {
         dispatch(listEventAsync())
         dispatch(listScheduleAsync())
-    },[dispatch])
-    const {EventsList} = useSelector(store => store.eventos)
+    }, [dispatch])
+    const { EventsList } = useSelector(store => store.eventos)
     console.log(EventsList)
-    const data =EventsList.filter(m=>m.id==id)
-    const[date]=data
- const{Activities}=useSelector(store=>store.schedule)   
- console.log(Activities)
- const dataAct=Activities.filter(m=>m.id==id)
- console.log(dataAct)
+    const data = EventsList.filter(m => m.id == id)
+    const [date] = data
+    const { Activities } = useSelector(store => store.schedule)
+    console.log(Activities)
+    const dataAct = Activities.filter(m => m.id == id)
+    console.log(dataAct)
 
-  return (
-    <div>
-               
-          <List
-    itemLayout="horizontal"
-    dataSource={date?.date}
-    renderItem={(item) => (
-      <List.Item>
-        <List.Item.Meta
-        title={<h6 style={{textAlign:"right",marginTop:"80px"}}>{item.seconds}</h6>}     
-        />
-        <TittleProgramming k={item.seconds}/>
-        <CardActivite k={item.seconds}/>
-      </List.Item>
-    )}
-  />
+    return (
+        <div>
+      <div className="d-flex">
+        <Col sm={9}>
+        {
+            EventsList?.map(item=>(
+             <div style={{display:"flex",marginTop:"20px"}}>
+                <img src={image} alt="publicidad"  />
+                <div>
+
+                </div>
+
+             </div>
+            ))
+        }       
+        <div className="site-calendar-demo-card" >
+        <List
+                itemLayout="horizontal"
+                dataSource={date?.date}
+                renderItem={(item) => (
+                 
+                       <List.Item  >
+                        <TittleProgramming k={item.seconds}  />
+                        <CardActivite k={item.seconds} />
+                    </List.Item>
+                    
+                )}
+            />
+          </div>
+         
+        </Col>
+        <Col sm={3}>
+          <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
+            <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+          </div>
+          <SiderCalendar/>
+        </Col>
+      </div>
     </div>
-  )
+       
+          
+            
+            
+       
+    )
 }

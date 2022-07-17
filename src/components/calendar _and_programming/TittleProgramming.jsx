@@ -8,7 +8,7 @@ let month = date.getMonth() + 1;
 let fullYear = date.getFullYear();
 let fecha = `${day}/${month}/${fullYear}`;
   return (
-    <div>
+    <div style={{textAlign:"right",color:"red",width:"100vw"}}>
      {fecha}
     </div>
   )

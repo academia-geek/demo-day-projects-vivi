@@ -1,4 +1,4 @@
-import { List } from 'antd'
+import { Divider, List } from 'antd'
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
@@ -40,7 +40,7 @@ export const Programming = () => {
             data?.map(item=>(
              <Paper elevación={12} style={{display:"flex",marginTop:"90px",marginLeft:'50px'}}>
                 <img src={image} alt="publicidad" style={{width:"300px",borderRadius:"10px",marginLeft:"30px"}} />
-                <div style={{textAlign:"center"}}>
+                <div style={{textAlign:"center",marginLeft:"200px",marginTop:"20px"}}>
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
                   <a>{item.location}</a>
@@ -49,20 +49,23 @@ export const Programming = () => {
              </Paper>
             ))
         }       
-        <div className="site-calendar-demo-card" >
+        
         <List
-                itemLayout="horizontal"
+               style={{marginTop:"80px",marginLeft:"80px"}}
+               itemLayout="horizontal"
                 dataSource={date?.date}
                 renderItem={(item) => (
-                 
-                       <List.Item  >
-                        <TittleProgramming k={item.seconds}  />
-                        <CardActivite k={item.seconds} />
+                    <>
+                    <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
+                    <List.Item  >
+                                                          
+                            <CardActivite k={item.seconds} />
+                       
                     </List.Item>
-                    
+                    </>
                 )}
             />
-          </div>
+         
          
         </Col>
         <Col sm={3}>

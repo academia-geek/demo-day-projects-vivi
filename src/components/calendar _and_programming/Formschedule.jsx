@@ -7,6 +7,7 @@ const { RangePicker } = DatePicker;
 export const FormSchedule = () =>{ 
   const[date, SetDate]=useState()
   const[dates, SetDates]=useState()
+  const [loadings, setLoadings] = useState([]);
   const dispatch=useDispatch()
   const onChange = (value, dateString) => {
    SetDate(dateString)
@@ -31,7 +32,23 @@ export const FormSchedule = () =>{
     };
   
     const onFinishFailed = (errorInfo) => {
-      console.log('Failed:', errorInfo);
+      alert("La Información no se gurado correctamente")
+    };
+    const enterLoading = (index) => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = true;
+  
+        return newLoadings;
+      });
+      setTimeout(() => {
+        setLoadings((prevLoadings) => {
+          const newLoadings = [...prevLoadings];
+          newLoadings[index] = false;
+          window.location.href = "./Schedule"
+          return newLoadings;
+        });
+      }, 3000);
     };
   
   return (
@@ -66,7 +83,7 @@ export const FormSchedule = () =>{
     <DatePicker showTime onChange={onChange}  />
       </Space>
       <div>
-      <Button type="primary" htmlType="submit" >
+      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)}>
           Agregar 
         </Button>
         <Button type="primary"  href='/' >

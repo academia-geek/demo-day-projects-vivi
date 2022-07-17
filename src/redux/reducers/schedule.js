@@ -1,11 +1,11 @@
-import { typesEvents, typesSchedule } from "../types/types"
+import {  typesSchedule } from "../types/types"
 
 
 const initialState = {
     Activities: []
 }
 
-export const eventsReducers = (state = initialState, action) => {
+export const scheduleReducers = (state = initialState, action) => {
     switch (action.type) {
         case typesSchedule.add_Schedule:
             return {

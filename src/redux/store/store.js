@@ -7,6 +7,7 @@ import { visitadosReducers } from "../reducers/visitadosReducer";
 import { deseadosReducers } from "../reducers/deseadosReducer";
 import { postsReducers } from "../reducers/postsReducer";
 import { eventsReducers } from "../reducers/eventsReducer";
+import { scheduleReducers } from "../reducers/schedule";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -17,7 +18,8 @@ const reducers = combineReducers({
   login: loginReducer,
   gustos: gustosReducers,
   visitados: visitadosReducers,
-  posts: postsReducers
+  posts: postsReducers,
+  schedule:scheduleReducers
   
 });
 

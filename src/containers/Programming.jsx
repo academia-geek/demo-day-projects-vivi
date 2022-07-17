@@ -5,6 +5,7 @@ import { listEventAsync } from '../redux/actions/eventsAction'
 import {  useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/CardActivite'
+import { TittleProgramming } from '../components/TittleProgramming'
 const dataActivities=[]
 export const Programming = () => {
     const { id } = useParams()
@@ -39,10 +40,8 @@ export const Programming = () => {
         <List.Item.Meta
         title={<h6 style={{textAlign:"right",marginTop:"80px"}}>{item.seconds}</h6>}     
         />
+        <TittleProgramming k={item.seconds}/>
         <CardActivite k={item.seconds}/>
-        {/* <h6>{item.organizer}</h6>
-        <h6>{item.name}</h6>
-        <h6>{item.placee}</h6> */}
       </List.Item>
     )}
   />

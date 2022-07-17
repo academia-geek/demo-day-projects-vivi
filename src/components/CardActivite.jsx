@@ -10,6 +10,12 @@ export const CardActivite = ({k}) => {
     const dataFinal=dataAct.filter(m=>m.dates ==a)
     console.log(dataFinal)
   return (
-    <div>{id}</div>
+    <>
+     {
+        dataFinal.map(m=>(
+            <h1>{m.name}</h1>
+        ))
+     }
+    </>
   )
 }

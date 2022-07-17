@@ -4,9 +4,11 @@ import { Avatar } from "@mui/material";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import post from "../assets/carousel2.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Timeline = () => {
   const [value, setValue] = useState(5);
+  const place = "Plaza San Pedro Claver, Cartagena de Indias";
   return (
     <DivPosting>
       <Userbar>
@@ -35,7 +37,7 @@ export const Timeline = () => {
             en especial una señora que me llevó a conocer la ciudad y degustar
             comidas exquisitas.
           </p>
-          <a>Plaza San Pedro Claver, Cartagena de Indias</a>
+          <Link to={`/map/${place}`}>{place}</Link>
         </div>
       </DivPost>
     </DivPosting>

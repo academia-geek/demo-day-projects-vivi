@@ -7,7 +7,7 @@ export const DivLocation = styled.div`
   flex-direction: column;
   padding: 100px 0;
 
-  & > div {
+  & > form {
     position: relative;
     display: flex;
     justify-content: center;
@@ -83,6 +83,12 @@ export const MapDiv = styled.div`
     &:hover {
       background-color: #f4f4f4;
     }
+  }
+
+  .check {
+    top: 11%;
+    left: 7%;
+    position: absolute;
   }
 
   .leaflet-left {

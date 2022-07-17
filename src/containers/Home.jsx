@@ -8,7 +8,7 @@ export const Home = () => {
     <div>
       <div className="d-flex">
         <Col sm={9}>
-          <CarouselEvents />
+        <CarouselEvents />
           <Timeline />
         </Col>
         <Col sm={3} className="position-fixed end-0">

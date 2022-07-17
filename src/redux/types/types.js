@@ -8,29 +8,35 @@ export const typesLogin = {
 };
 
 export const typesGustos = {
-  add_gustos: 'agregar',
-  list_gustos: 'list',
-  delete_gustos: 'eliminar',
+  add_gustos: '[likes]agregar',
+  list_gustos: '[likes]list',
+  delete_gustos: '[likes] liminar',
 }
 
 export const typesVisitados = {
-  add_visit: 'agregar',
-  list_visit: 'list',
-  delete_visit: 'eliminar',
+  add_visit: '[Visit]agregar',
+  list_visit: '[Visit]list',
+  delete_visit: '[Visit]eliminar',
 }
 export const typesDeseados = {
-  add_deseado: 'agregar',
-  list_deseado: 'list',
-  delete_deseado: 'eliminar',
+  add_deseado: '[wish]agregar',
+  list_deseado: '[wish]list',
+  delete_deseado: '[wish]eliminar',
 }
 export const typesPosts = {
-  add_post: 'agregar',
-  list_post: 'list',
-  delete_post: 'eliminar',
+  add_post: '[Posts]agregar',
+  list_post: '[Posts]list',
+  delete_post: '[Posts]eliminar',
 }
 export const typesEvents = {
-  add: 'agregar',
-  list: 'list',
-  delete: 'eliminar',
-  edit : 'edit',
+  add: '[Events]agregar',
+  list: '[Events]list',
+  delete: '[Events]eliminar',
+  edit : '[Events]edit',
+}
+export const typesSchedule = {
+  add_Schedule: '[Schedule]Add',
+  list_Schedule: '[Schedule]list',
+  delete_Schedule: '[Schedule]delete',
+  edit_Schedule : '[Schedule]edit',
 }

@@ -1,8 +1,11 @@
 import { Button, DatePicker, Form, Input, Space } from 'antd';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addScheduleAsync } from '../redux/actions/scheduleAction';
 const { RangePicker } = DatePicker;
 
 export const FormSchedule = () =>{ 
+  const dispatch=useDispatch()
   const onChange = (value, dateString) => {
 
     console.log('dia y hora del evento ', dateString);
@@ -16,6 +19,7 @@ export const FormSchedule = () =>{
         organizer: values.Organizer,
         place: values.Place,
              }
+             dispatch(addScheduleAsync(formValue))
     };
   
     const onFinishFailed = (errorInfo) => {
@@ -53,9 +57,14 @@ export const FormSchedule = () =>{
   <Space direction="vertical" size={12}>
     <DatePicker showTime onChange={onChange}  />
       </Space>
+      <div>
       <Button type="primary" htmlType="submit" >
-          Agregar
+          Agregar 
         </Button>
+        <Button type="primary" htmlType="submit" href='/' >
+          Finalizar
+        </Button>
+        </div>
    </Form>
 );
   }

@@ -78,13 +78,3 @@ ul {
   color: white;
   font-family: "Merriweather", serif;
 }
-.site-calendar-programming {
-  display: block;
-  width: 60vw;
-  border: 1px solid rgba(255, 189, 41, 1);
-  border-radius: 2px;
-  scroll-behavior: auto;
- margin-left: 50px;
-  margin-top: 100px;
-  color:white
-}

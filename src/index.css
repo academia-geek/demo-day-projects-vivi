@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2? family=Merriweather&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #ffbd29;
+  --background-color: #565252;
+  --neutral-color: #022fd0;
 }
 
 body {
@@ -70,9 +78,9 @@ ul {
   scroll-behavior: auto;
   margin-left: 15vw;
   margin-top: 100px;
-  color:white
+  color: white;
 }
-.l{
+.l {
   text-align: center;
   position: fixed;
   color: white;

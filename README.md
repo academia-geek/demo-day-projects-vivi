@@ -108,7 +108,7 @@ npm run start
 
 ## Feedback 💬
 
-If you have any feedback, please reach out to us at [<a href="mailto:melisamendozamogollon@gmail.com">Melisa Mendoza</a>]
+If you have any feedback, please reach out to us at [<a href="mailto:melisamendozamogollon@gmail.com">melisamendozamogollon@gmail.com</a>]
 
 ## 🔗 Authors
 

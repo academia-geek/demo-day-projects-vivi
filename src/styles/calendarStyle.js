@@ -38,6 +38,7 @@ color:red;
 ;
 export const SiderStyle=styled(Sider)`
 width:2000px;
+margin-top:15px;
 overflow: auto;
 overflow-X:hidden;
 height: 89.5vh;
@@ -55,4 +56,5 @@ export const TittleStyle=styled.h4`
   position: fixed;
   color: white;
   font-family: "Merriweather", serif;
+  margin-top:19px;
 `

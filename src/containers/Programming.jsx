@@ -66,7 +66,7 @@ export const Programming = () => {
          
         </Col>
         <Col sm={3}>
-          <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
+          <div style={{ height: "200vw", background: " #565252", marginTop: "50px", width: '20vw', marginLeft: "4.9vw" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
           </div>
           <SiderCalendar/>

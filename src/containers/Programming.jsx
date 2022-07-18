@@ -48,7 +48,7 @@ export const Programming = () => {
         }       
         
         <List
-               style={{marginTop:"80px",marginLeft:"80px"}}
+               style={{marginTop:"50px",marginLeft:"80px"}}
                itemLayout="horizontal"
                 dataSource={date?.date}
                 renderItem={(item) => (

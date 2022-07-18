@@ -8,14 +8,14 @@ import { CardEvent } from '../components/calendar _and_programming/CardEvent';
 export const CalendarPage = () => {
   const [date, setdate] = useState();
   const onSelect=(value)=> {
-    console.log(value)
-    const date =value.format('YYYY-MM-DD')
-    
-    
-  setdate(new Date(date).getTime())
+    const d= new Date(value)
+    console.log(d)
+    const datel =value.format('YYYY-MM-DD')  
+    console.log(datel)
+   setdate(new Date(datel).getTime())
+  // console.log(datel)
    };
-   
- 
+ console.log(date)
   return (
     <div>
       <div className="d-flex">

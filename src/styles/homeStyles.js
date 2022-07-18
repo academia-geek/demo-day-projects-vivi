@@ -94,7 +94,8 @@ export const AsideStyled = styled.aside`
   padding: 20px;
   width: 100%;
   padding-top: 80px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  height: 100vh;
 
   &::-webkit-scrollbar {
     width: 0px;

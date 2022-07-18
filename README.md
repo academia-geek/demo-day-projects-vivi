@@ -8,16 +8,16 @@
 
 <div align="center">
   <a target="_blank" href="https://reactjs.org/">
-    <img title="React" alt="React badge" src="https://img.shields.io/badge/^18.2.0-React-61DAFB?style&logo=react" />
+    <img title="React" alt="React badge" src="https://img.shields.io/badge/18.2.0-React-61DAFB?style&logo=react" />
   </a>
   <a target="_blank" href="https://reactjs.org/">
-    <img title="Create React App" alt="Create React App badge" src="https://img.shields.io/badge/^18.2.0-Create%20React%20App-09D3AC?style&logo=create-react-app" />
+    <img title="Create React App" alt="Create React App badge" src="https://img.shields.io/badge/18.2.0-Create%20React%20App-09D3AC?style&logo=create-react-app" />
   </a>
   <a target="_blank" href="https://reactrouter.com/">
-    <img title="React Router" alt="React Router badge" src="https://img.shields.io/badge/^6.3.0-React%20Router-CA4245?style&logo=react-router" />
+    <img title="React Router" alt="React Router badge" src="https://img.shields.io/badge/6.3.0-React%20Router-CA4245?style&logo=react-router" />
   </a>
   <a target="_blank" href="https://redux.js.org/">
-    <img title="Redux" alt="Redux badge" src="https://img.shields.io/badge/^8.0.2-Redux-764ABC?style&logo=redux" />
+    <img title="Redux" alt="Redux badge" src="https://img.shields.io/badge/8.0.2-Redux-764ABC?style&logo=redux" />
   </a>
   <a target="_blank" href="https://getbootstrap.com/">
     <img title="Bootstrap" alt="Bootstrap badge" src="https://img.shields.io/badge/v.5.1-Bootstrap-7952B3?style&logo=bootstrap" />
@@ -26,19 +26,19 @@
     <img title="Ant Design" alt="Ant Design badge" src="https://img.shields.io/badge/4.21.5-Ant%20Design-0170FE?style&logo=ant-design" />
   </a>
   <a target="_blank" href="https://styled-components.com/">
-    <img title="Styled Components" alt="Styled Components badge" src="https://img.shields.io/badge/^5.3.5-Styled%20Components-DB7093?style&logo=styled-components" />
+    <img title="Styled Components" alt="Styled Components badge" src="https://img.shields.io/badge/5.3.5-Styled%20Components-DB7093?style&logo=styled-components" />
   </a>
   <a target="_blank" href="https://mui.com/">
-    <img title="Material UI" alt="MUI badge" src="https://img.shields.io/badge/^5.3.5-MUI-007FFF?style&logo=mui" />
+    <img title="Material UI" alt="MUI badge" src="https://img.shields.io/badge/5.3.5-MUI-007FFF?style&logo=mui" />
   </a>
   <a target="_blank" href="https://leafletjs.com/">
     <img title="Leaflet" alt="Leaflet badge" src="https://img.shields.io/badge/4.0.1-Leaflet-199900?style&logo=leaflet" />
   </a>
   <a target="_blank" href="https://jestjs.io/">
-    <img title="Jest" alt="Jest badge" src="https://img.shields.io/badge/^5.16.4-Jest-C21325?style&logo=jest" />
+    <img title="Jest" alt="Jest badge" src="https://img.shields.io/badge/5.16.4-Jest-C21325?style&logo=jest" />
   </a>
   <a target="_blank" href="https://firebase.google.com/">
-    <img title="Firebase" alt="Firebase badge" src="https://img.shields.io/badge/Firebase-FFCA28?style&logo=firebase" />
+    <img title="Firebase" alt="Firebase badge" src="https://img.shields.io/badge/9.9.0-Firebase-FFCA28?style&logo=firebase" />
   </a>
   <a target="_blank" href="https://nodejs.org">
     <img title="NodeJS alt="NodeJS badge" src="https://img.shields.io/badge/18.6.0-NodeJS-339933?style&logo=node.js" />
@@ -58,6 +58,13 @@
 ## 🎨 Design
 
 A planned design directed towards the theory of colors, joy, adventure and the passion to travel and discover new places.
+
+| Color         | Hex                                                              |
+| ------------- | ---------------------------------------------------------------- |
+| Primary Color | ![#ffffff](https://via.placeholder.com/15/fff/fff.png) #ffffff |
+| Secondary Color | ![#ffbd29](https://via.placeholder.com/15/ffbd29/ffbd29.png) #ffbd29 |
+| Background Color | ![#565252](https://via.placeholder.com/15/565252/565252.png) #565252 |
+| Neutral Color | ![#022fd0](https://via.placeholder.com/15/022fd0/022fd0.png) #022fd0 |
 
 ## 🦾 Technologies
 

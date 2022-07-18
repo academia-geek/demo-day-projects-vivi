@@ -1,11 +1,18 @@
 import {
   createUserWithEmailAndPassword,
+  EmailAuthCredential,
+  isSignInWithEmailLink,
+  linkWithCredential,
+  sendSignInLinkToEmail,
+  signInWithCredential,
+  signInWithEmailLink,
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
+import { loginUserAsync } from "./loginAction";
 
 const registerUserSync = (name, email, password, location) => {
   return {
@@ -72,7 +79,10 @@ export const loginGoogle = () => {
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("El correo electrónico ya está en uso");
-        } else if (error.code === "auth/popup-closed-by-user") {
+        } else if (
+          error.code === "auth/popup-closed-by-user" ||
+          error.code === "auth/cancelled-popup-request"
+        ) {
           return;
         } else {
           console.warn("No se ha podido registrar el usuario", error);
@@ -103,11 +113,58 @@ export const loginFacebook = () => {
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("El correo electrónico ya está en uso");
-        } else if (error.code === "auth/popup-closed-by-user") {
+        } else if (
+          error.code === "auth/popup-closed-by-user" ||
+          error.code === "auth/cancelled-popup-request"
+        ) {
           return;
         } else {
           console.warn("No se ha podido registrar el usuario", error);
         }
       });
+  };
+};
+
+const actionCodeSettings = {
+  url: "http://localhost:3000/login/company",
+  handleCodeInApp: true,
+};
+
+export const sendEmailAdmin = (email) => {
+  return (dispatch) => {
+    sendSignInLinkToEmail(auth, email, actionCodeSettings)
+      .then(() => {
+        alert(
+          "Se ha enviado un enlace de inicio de sesión a tu correo, por favor revisa tu bandeja de entrada para ingresar al sistema de organizadores"
+        );
+        window.localStorage.setItem("emailForVerification", email);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.warn("No se ha podido enviar el correo de verificación", error);
+      });
+  };
+};
+
+export const confirmEmailAdmin = () => {
+  return (dispatch) => {
+    if (isSignInWithEmailLink(auth, window.location.href)) {
+      const email = window.localStorage.getItem("emailForVerification");
+      if (!email) {
+        alert("No se ha podido enviar el correo de verificación");
+        return;
+      }
+      signInWithEmailLink(auth, email, window.location.href)
+        .then(async ({ user }) => {
+          window.localStorage.removeItem("emailForVerification");
+          dispatch(registerUserSync(email));
+        })
+        .catch((error) => {
+          console.warn(
+            "No se ha podido enviar el correo de verificación",
+            error
+          );
+        });
+    }
   };
 };

@@ -11,9 +11,6 @@ import { TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import image from '../assets/prueba/image3.png'
 import { Paper } from '@mui/material'
-
-
-
 const dataActivities = []
 export const Programming = () => {
     const { id } = useParams()
@@ -58,7 +55,7 @@ export const Programming = () => {
                     <>
                     <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                     <List.Item  >
-                                                          
+                                                         
                             <CardActivite k={item.seconds} />
                        
                     </List.Item>

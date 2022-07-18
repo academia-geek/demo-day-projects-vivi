@@ -3,7 +3,7 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
@@ -60,8 +60,9 @@ export const loginGoogle = () => {
         console.log(usuario)
         const usuarioID = user?.uid
         const docRef = doc(db, "Info", usuarioID);
+        const docSnap = await getDoc(docRef);
 
-        if (!docRef){
+        if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
             "Gustos": [{}],
@@ -70,7 +71,7 @@ export const loginGoogle = () => {
             "Posts": [{}]
           });
         }
-        
+
         dispatch(registerUserSync(user.displayName, user.email));
       })
       .catch((error) => {
@@ -88,13 +89,14 @@ export const loginGoogle = () => {
 export const loginFacebook = () => {
   return (dispatch) => {
     signInWithPopup(auth, facebook)
-      .then(({ user }) => {
+      .then(async ({ user }) => {
         const usuario = auth.currentUser;
         console.log(usuario)
         const usuarioID = user?.uid
         const docRef = doc(db, "Info", usuarioID);
+        const docSnap = await getDoc(docRef);
 
-        if (!docRef){
+        if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
             "Gustos": [{}],

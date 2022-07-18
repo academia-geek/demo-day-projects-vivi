@@ -8,56 +8,43 @@
 
 <div align="center">
   <a target="_blank" href="https://reactjs.org/">
-    <img title="React" alt="React badge" src="https://img.shields.io/badge/^18.2.0-React-61DAFB?style=for-the-badge&logo=react" />
+    <img title="React" alt="React badge" src="https://img.shields.io/badge/^18.2.0-React-61DAFB?style&logo=react" />
   </a>
   <a target="_blank" href="https://reactjs.org/">
-    <img title="Create React App" alt="Create React App badge" src="https://img.shields.io/badge/^18.2.0-Create%20React%20App-09D3AC?style=for-the-badge&logo=create-react-app" />
+    <img title="Create React App" alt="Create React App badge" src="https://img.shields.io/badge/^18.2.0-Create%20React%20App-09D3AC?style&logo=create-react-app" />
   </a>
   <a target="_blank" href="https://reactrouter.com/">
-    <img title="React Router" alt="React Router badge" src="https://img.shields.io/badge/^6.3.0-React%20Router-CA4245?style=for-the-badge&logo=react-router" />
+    <img title="React Router" alt="React Router badge" src="https://img.shields.io/badge/^6.3.0-React%20Router-CA4245?style&logo=react-router" />
   </a>
   <a target="_blank" href="https://redux.js.org/">
-    <img title="Redux" alt="Redux badge" src="https://img.shields.io/badge/^8.0.2-Redux-764ABC?style=for-the-badge&logo=redux" />
+    <img title="Redux" alt="Redux badge" src="https://img.shields.io/badge/^8.0.2-Redux-764ABC?style&logo=redux" />
   </a>
   <a target="_blank" href="https://getbootstrap.com/">
-    <img title="Bootstrap" alt="Bootstrap badge" src="https://img.shields.io/badge/v.5.1-Bootstrap-7952B3?style=for-the-badge&logo=bootstrap" />
+    <img title="Bootstrap" alt="Bootstrap badge" src="https://img.shields.io/badge/v.5.1-Bootstrap-7952B3?style&logo=bootstrap" />
   </a>
   <a target="_blank" href="https://ant.design/">
-    <img title="Ant Design" alt="Ant Design badge" src="https://img.shields.io/badge/4.21.5-Ant%20Design-0170FE?style=for-the-badge&logo=ant-design" />
+    <img title="Ant Design" alt="Ant Design badge" src="https://img.shields.io/badge/4.21.5-Ant%20Design-0170FE?style&logo=ant-design" />
   </a>
   <a target="_blank" href="https://styled-components.com/">
-    <img title="Styled Components" alt="Styled Components badge" src="https://img.shields.io/badge/^5.3.5-Styled%20Components-DB7093?style=for-the-badge&logo=styled-components" />
+    <img title="Styled Components" alt="Styled Components badge" src="https://img.shields.io/badge/^5.3.5-Styled%20Components-DB7093?style&logo=styled-components" />
   </a>
   <a target="_blank" href="https://mui.com/">
-    <img title="Material UI" alt="MUI badge" src="https://img.shields.io/badge/^5.3.5-MUI-007FFF?style=for-the-badge&logo=mui" />
+    <img title="Material UI" alt="MUI badge" src="https://img.shields.io/badge/^5.3.5-MUI-007FFF?style&logo=mui" />
   </a>
   <a target="_blank" href="https://leafletjs.com/">
-    <img title="Leaflet" alt="Leaflet badge" src="https://img.shields.io/badge/4.0.1-Leaflet-199900?style=for-the-badge&logo=leaflet" />
+    <img title="Leaflet" alt="Leaflet badge" src="https://img.shields.io/badge/4.0.1-Leaflet-199900?style&logo=leaflet" />
   </a>
   <a target="_blank" href="https://jestjs.io/">
-    <img title="Jest" alt="Jest badge" src="https://img.shields.io/badge/^5.16.4-Jest-C21325?style=for-the-badge&logo=jest" />
+    <img title="Jest" alt="Jest badge" src="https://img.shields.io/badge/^5.16.4-Jest-C21325?style&logo=jest" />
   </a>
-</div>
-<div align="center">
-  <a target="_blank" href="https://github.com/7-18">
-    <img title="Kevin Brian Briceño" alt="7-18 badge" src="https://img.shields.io/badge/Kevin%20Brian%20Briceño-GitHub-181717?style=for-the-badge&logo=github" />
-  </a>
-  <a target="_blank" href="https://github.com/MeliMend">
-    <img title="Melisa Mendoza Mogollon" alt="MeliMend badge" src="https://img.shields.io/badge/Melisa%20Mendoza%20Mogollon-GitHub-181717?style=for-the-badge&logo=github" />
-  </a>
-  <a target="_blank" href="https://github.com/SebastianLunar">
-    <img title="Sebastian Luna" alt="SebastianLunar badge" src="https://img.shields.io/badge/Sebastián%20Luna-GitHub-181717?style=for-the-badge&logo=github" />
-  </a>
-</div>
-<div align="center">
   <a target="_blank" href="https://firebase.google.com/">
-    <img title="Firebase" alt="Firebase badge" src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase" />
+    <img title="Firebase" alt="Firebase badge" src="https://img.shields.io/badge/Firebase-FFCA28?style&logo=firebase" />
   </a>
   <a target="_blank" href="https://nodejs.org">
-    <img title="NodeJS alt="NodeJS badge" src="https://img.shields.io/badge/18.6.0-NodeJS-339933?style=for-the-badge&logo=node.js" />
+    <img title="NodeJS alt="NodeJS badge" src="https://img.shields.io/badge/18.6.0-NodeJS-339933?style&logo=node.js" />
   </a>
   <a target="_blank" href="https://www.javascript.com/">
-    <img title="JavaScript" alt="JavaScript badge" src="https://img.shields.io/badge/ES6-JavaScript-FFCA28?style=for-the-badge&logo=javascript" />
+    <img title="JavaScript" alt="JavaScript badge" src="https://img.shields.io/badge/ES6-JavaScript-FFCA28?style&logo=javascript" />
   </div>
 
 <br/>

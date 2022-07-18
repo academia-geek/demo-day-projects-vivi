@@ -1,10 +1,7 @@
 import {
   createUserWithEmailAndPassword,
-  EmailAuthCredential,
   isSignInWithEmailLink,
-  linkWithCredential,
   sendSignInLinkToEmail,
-  signInWithCredential,
   signInWithEmailLink,
   signInWithPopup,
   updateProfile,
@@ -12,7 +9,6 @@ import {
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db, facebook, google } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
-import { loginUserAsync } from "./loginAction";
 
 const registerUserSync = (name, email, password, location) => {
   return {
@@ -134,9 +130,7 @@ export const sendEmailAdmin = (email) => {
   return (dispatch) => {
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
       .then(() => {
-        alert(
-          "Se ha enviado un enlace de inicio de sesión a tu correo, por favor revisa tu bandeja de entrada para ingresar al sistema de organizadores"
-        );
+        alert("Se ha enviado un enlace de inicio de sesión a tu correo, por favor revisa tu bandeja de entrada para ingresar al sistema de organizadores");
         window.localStorage.setItem("emailForVerification", email);
         window.location.href = "/";
       })

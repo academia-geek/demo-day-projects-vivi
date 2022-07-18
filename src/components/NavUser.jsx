@@ -28,6 +28,9 @@ export const NavUser = () => {
       setProfile(user);
     }
   }, []);
+
+  console.log(profile);
+
   return (
     <>
       <DivMenu style={{ width: "100vw", position: "fixed", zIndex: "99"}}>

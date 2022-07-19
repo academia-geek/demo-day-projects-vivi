@@ -81,7 +81,7 @@ export const addPost = (value, userID) => {
         const datos = []
 
         data.forEach(obj => { datos.push(obj) })
-        datos.push(value)
+        datos.unshift(value)
 
         await updateDoc(docRef, {
             "Posts": datos,
@@ -96,7 +96,6 @@ export const addPost = (value, userID) => {
 export const listAsync = () => {
     return async (dispatch) => {
         const user = auth.currentUser;
-        console.log(user)
         const usuario = user?.uid
         const docRef = doc(db, "Info", usuario);
         const docSnap = await getDoc(docRef);

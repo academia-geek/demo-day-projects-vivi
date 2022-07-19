@@ -7,20 +7,12 @@ import { CardEvent } from '../components/calendar _and_programming/CardEvent';
 import moment from 'moment'
 
 export const CalendarPage = () => {
-  const d=moment()
   const datel =new Date(moment().format('YYYY-MM-DD')).getTime()
-  const h=new Date(datel).getTime()
   const [date, setdate] = useState(datel);
   const onSelect=(value)=> {
-    
-    console.log(value)
-    const datel =value.format('YYYY-MM-DD')  
-    console.log(datel)
-   setdate(new Date(datel).getTime())
-       // console.log(datel)
-   };
-      console.log(d)
- console.log(datel)
+  setdate(new Date(value.format('YYYY-MM-DD')).getTime())   
+  };
+     
   return (
     <div>
       <div className="d-flex">

@@ -11,9 +11,6 @@ import { TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import image from '../assets/prueba/image3.png'
 import { Paper } from '@mui/material'
-
-
-
 const dataActivities = []
 export const Programming = () => {
     const { id } = useParams()
@@ -51,14 +48,14 @@ export const Programming = () => {
         }       
         
         <List
-               style={{marginTop:"80px",marginLeft:"80px"}}
+               style={{marginTop:"50px",marginLeft:"80px"}}
                itemLayout="horizontal"
                 dataSource={date?.date}
                 renderItem={(item) => (
                     <>
                     <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                     <List.Item  >
-                                                          
+                                                         
                             <CardActivite k={item.seconds} />
                        
                     </List.Item>
@@ -69,7 +66,7 @@ export const Programming = () => {
          
         </Col>
         <Col sm={3}>
-          <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
+          <div style={{ height: "200vw", background: " #565252", marginTop: "50px", width: '20vw', marginLeft: "4.9vw" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
           </div>
           <SiderCalendar/>

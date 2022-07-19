@@ -46,7 +46,7 @@ export const DivPost = styled.div`
     justify-content: space-between;
     gap: 20px;
     p {
-      font-size: 16px !important;
+      font-size: 1rem !important;
       margin-top: 1rem !important;
     }
 

@@ -13,6 +13,7 @@ import { PrivateRoutes } from "./Private";
 import { Dashboard } from "./Dashboard";
 import { Spin } from "../components/Spin";
 import { AdminLogin } from "../components/admin/AdminLogin";
+import { AdminConfirmation } from "../components/admin/AdminConfirmation";
 
 export const AppRoutes = () => {
   const [checking, setChecking] = useState(true);
@@ -60,6 +61,14 @@ export const AppRoutes = () => {
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <AdminLogin />
+            </PublicRoutes>
+          }
+        />
+        <Route
+          path="/login/company/confirmation"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <AdminConfirmation />
             </PublicRoutes>
           }
         />

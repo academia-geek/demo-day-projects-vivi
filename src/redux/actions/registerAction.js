@@ -3,6 +3,7 @@ import {
   isSignInWithEmailLink,
   sendSignInLinkToEmail,
   signInWithEmailLink,
+  signInWithPhoneNumber,
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
@@ -122,17 +123,18 @@ export const loginFacebook = () => {
 };
 
 const actionCodeSettings = {
-  url: "http://localhost:3000/login/company",
+  url: "http://localhost:3000/login/company/confirmation",
   handleCodeInApp: true,
 };
 
-export const sendEmailAdmin = (email) => {
+export const sendEmailAdmin = (name, email, phone) => {
   return (dispatch) => {
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
       .then(() => {
-        alert("Se ha enviado un enlace de inicio de sesión a tu correo, por favor revisa tu bandeja de entrada para ingresar al sistema de organizadores");
-        window.localStorage.setItem("emailForVerification", email);
-        window.location.href = "/";
+        window.localStorage.setItem(
+          "user",
+          JSON.stringify({ name, email, phone })
+        );
       })
       .catch((error) => {
         console.warn("No se ha podido enviar el correo de verificación", error);
@@ -143,15 +145,22 @@ export const sendEmailAdmin = (email) => {
 export const confirmEmailAdmin = () => {
   return (dispatch) => {
     if (isSignInWithEmailLink(auth, window.location.href)) {
-      const email = window.localStorage.getItem("emailForVerification");
-      if (!email) {
+      const userLocal = JSON.parse(window.localStorage.getItem("user"));
+      if (!userLocal.email) {
         alert("No se ha podido enviar el correo de verificación");
         return;
       }
-      signInWithEmailLink(auth, email, window.location.href)
+      signInWithEmailLink(auth, userLocal.email, window.location.href)
         .then(async ({ user }) => {
-          window.localStorage.removeItem("emailForVerification");
-          dispatch(registerUserSync(email));
+          await updateProfile(auth.currentUser, {
+            displayName: userLocal.name,
+            photoURL:
+              "https://res.cloudinary.com/divjxvhtz/image/upload/v1658190807/paisaje_uoxzm6.jpg",
+            phoneNumber: userLocal.phone,
+          });
+          dispatch(registerUserSync(userLocal.email));
+          signInWithPhoneNumber(auth, userLocal.phone);
+          window.localStorage.removeItem("user");
         })
         .catch((error) => {
           console.warn(

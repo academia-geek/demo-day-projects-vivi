@@ -40,7 +40,7 @@ export const BoxStyled = styled(Box)`
 
 export const CarouselStyled = styled.div`
   padding: 10px;
-  margin-top: 70px;
+  margin-top: ${(props) => (props.marginTop ? props.marginTop : "0")};
 
   .carousel-item > img {
     height: 541px;
@@ -94,7 +94,8 @@ export const AsideStyled = styled.aside`
   padding: 20px;
   width: 100%;
   padding-top: 80px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  height: 100vh;
 
   &::-webkit-scrollbar {
     width: 0px;

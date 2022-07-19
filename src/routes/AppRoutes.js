@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Login } from '../components/Login'
-import { Register } from '../components/Register'
-import { Business } from '../containers/Business'
-import { RegisterAdmi } from '../containers/RegisterAdmi'
-import { LandingPageEn } from '../containers/LandingPageEn'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "../components/Login";
+import { Register } from "../components/Register";
+import { Business } from "../containers/Business";
+import { RegisterAdmi } from "../containers/RegisterAdmi";
+import { LandingPageEn } from "../containers/LandingPageEn";
 import { LandingPage } from "../containers/LandingPage";
 import { auth } from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
@@ -12,7 +12,8 @@ import { PublicRoutes } from "./Public";
 import { PrivateRoutes } from "./Private";
 import { Dashboard } from "./Dashboard";
 import { Spin } from "../components/Spin";
-
+import { AdminLogin } from "../components/admin/AdminLogin";
+import { AdminConfirmation } from "../components/admin/AdminConfirmation";
 
 export const AppRoutes = () => {
   const [checking, setChecking] = useState(true);
@@ -38,7 +39,7 @@ export const AppRoutes = () => {
 
   return (
     <BrowserRouter>
-      <Routes>         
+      <Routes>
         <Route
           path="/"
           element={
@@ -56,38 +57,52 @@ export const AppRoutes = () => {
           }
         />
         <Route
+          path="/login/company"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <AdminLogin />
+            </PublicRoutes>
+          }
+        />
+        <Route
+          path="/login/company/confirmation"
+          element={
+            <PublicRoutes isAuthenticated={isLogged}>
+              <AdminConfirmation />
+            </PublicRoutes>
+          }
+        />
+        <Route
           path="/signin"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <Register />
             </PublicRoutes>
           }
-        
         />
-         <Route
+        <Route
           path="/En"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <LandingPageEn />
-          </PublicRoutes>
+            </PublicRoutes>
           }
         />
-       
-       
+
         <Route
           path="/bienvenido"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <RegisterAdmi />
-          </PublicRoutes>
+            </PublicRoutes>
           }
         />
-         
-         <Route
+
+        <Route
           path="/business"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
-            <Business />
+              <Business />
             </PublicRoutes>
           }
         />

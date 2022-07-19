@@ -5,7 +5,7 @@ import { DivMenu } from "../styles/homeStyles";
 import { Menu } from "./Menu";
 
 export const NavUser = () => {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState({});
   const [sidebar, setSidebar] = useState({
     left: false,
   });
@@ -28,9 +28,10 @@ export const NavUser = () => {
       setProfile(user);
     }
   }, []);
+
   return (
     <>
-      <DivMenu style={{ width: "100vw", position: "fixed", zIndex: "99"}}>
+      <DivMenu style={{ width: "100vw", position: "fixed", zIndex: "99" }}>
         <Button
           onClick={toggleDrawer("left", true)}
           style={{ cursor: "pointer" }}

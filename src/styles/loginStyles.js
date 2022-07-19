@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import town from "../assets/town1.png";
 import town_2 from "../assets/town2.png";
+import town_3 from "../assets/town3.png";
 
 export const DivForm = styled.div`
   display: flex;
@@ -18,6 +19,10 @@ export const DivForm = styled.div`
   &.register {
     background-image: url(${town_2});
     background-position: center -220px;
+  }
+
+  &.company {
+    background-image: url(${town_3});
   }
 
   & > h2 {

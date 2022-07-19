@@ -17,13 +17,14 @@ export const FormSchedule = () =>{
        
     SetDates(new Date(date).getTime())
   };
+  // const h =dates+86400000
   const onFinish = (values) => {
       console.log('Success:', values);
       const id = localStorage.getItem("id")
       const formValue = {
         id: id,
         date:date,
-        dates:dates,
+        dates:dates+86400000,
         name: values.name,
         organizer: values.Organizer,
         place: values.Place,

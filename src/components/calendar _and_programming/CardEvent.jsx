@@ -10,12 +10,9 @@ import image from '../../assets/prueba/image3.png'
 
 export const CardEvent = ({m}) => {
     const dispatch=useDispatch()
-     console.log(m)
-     const h =m+86400000
-     console.log(h)
-      const {EventsList} = useSelector(store => store.eventos)
-      console.log(EventsList)
-        const filtro = EventsList.filter((ev) => {
+         const h =m+86400000
+           const {EventsList} = useSelector(store => store.eventos)
+              const filtro = EventsList.filter((ev) => {
         return ev.date.map((date) => { 
           return date.seconds;
         }).includes((h/1000));

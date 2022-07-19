@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const DivPosting = styled.div`
   margin: 20px 40px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: fill-available;
 `;
 
 export const Userbar = styled.div`
@@ -14,33 +15,39 @@ export const Userbar = styled.div`
   padding: 20px 40px;
 
   & > div {
-    display: flex;
     gap: 10px;
     align-items: center;
 
-    & > span {
+    span {
       font-size: 18px;
       margin-left: 10px;
+    }
+    h5 {
+      font-size: 14px;
+      color: lightgray
     }
   }
 `;
 
 export const DivPost = styled.div`
   display: flex;
-  padding: 20px 40px;
+  padding: 0px 40px 20px 40px;
   gap: 20px;
-  & > div > img {
-    width: 589px;
-    height: 310px;
+  & > div{
+    width: 65%;
+    img {
+      width: 100%;
+    }
   }
   & > div.comment {
-    padding: 20px;
+    width: 35%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
-
-    & > p {
-      font-size: 16px;
+    p {
+      font-size: 1rem !important;
+      margin-top: 1rem !important;
     }
 
     & > a {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import chat from '../assets/Chatbot.png'
 import { Chatlog1, Chatlog2 } from '../styles/globalStyles';
 
@@ -10,6 +11,7 @@ export const Chatbot = () => {
     const [show3, setShow3] = useState("none")
     const [show4, setShow4] = useState("none")
     const [respuesta, setRespuesta] = useState("")
+    const [ruta, setRuta] = useState("")
 
     const handleClose = () => setShow("none");
     const handleShow = () => setShow("block");
@@ -19,10 +21,13 @@ export const Chatbot = () => {
         setSelected1(selected)
         if (selected === "Muéstrame los eventos cercanos a la fecha") {
             setRespuesta("¡Estás de suerte! Tenemos próximos los siguientes eventos:")
+            setRuta("/calendar")
         } else if (selected === "Deseo publicar un evento") {
             setRespuesta("¡Genial! Nos alegra que cuentes con nosotros... ")
+            setRuta("/addEvent")
         } else if (selected === "¿Por dónde empiezo?") {
             setRespuesta("¿Qué tal si te unes a nuestra comunidad?... ")
+            setRuta("/register")
         }
         setShow3("block")
 
@@ -35,7 +40,7 @@ export const Chatbot = () => {
 
     return (
         <>
-            <div style={{ display: `${show}`, position: "fixed", bottom: "4rem", right: "1rem", backgroundColor: "white", borderRadius: "10px", boxShadow: "1px 2px 15px rgb(0 0 0 / 80%)" }}>
+            <div onHide={handleClose} style={{ display: `${show}`, position: "fixed", bottom: "4rem", right: "1rem", backgroundColor: "white", borderRadius: "10px", boxShadow: "1px 2px 15px rgb(0 0 0 / 80%)" }}>
                 <div className='d-flex justify-content-between align-items-center px-3 py-2' style={{ backgroundColor: "#FFBD29", width: "300px", borderRadius: "10px 10px 0 0" }}>
                     <div className='d-flex align-items-center'>
                         <img style={{ width: "24px", borderRadius: "100%", marginRight: "1rem" }} src="https://e7.pngegg.com/pngimages/567/860/png-clipart-woman-in-white-notched-lapel-suit-jacket-call-centre-customer-service-technical-support-customer-service-miscellaneous-microphone.png" alt="" />
@@ -51,7 +56,7 @@ export const Chatbot = () => {
                         {selected1}
                     </Chatlog2>
                     <Chatlog1 style={{ display: `${show4}` }}>
-                        {respuesta}
+                        {respuesta} <Link to={ruta}>Sígueme</Link>
                     </Chatlog1>
                     <div className='mt-3 d-flex flex-column align-items-end'>
                         <Chatlog2 style={{ display: `${show2}`, cursor: "pointer" }} onClick={selecting}>

@@ -82,7 +82,7 @@ export const UserImg = styled.img`
 `
 export const EditIcon = styled.img`
   position: absolute;
-  transform: translate(116px,44px);
+  transform: translate(119px,103px);
   width: 2rem;
   border-radius: 8px;
   cursor: pointer;

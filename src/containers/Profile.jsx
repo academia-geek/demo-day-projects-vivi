@@ -5,6 +5,7 @@ import { auth } from "../firebase/firebaseConfig";
 import { Col } from "react-bootstrap";
 import { User } from "../components/User";
 import { Posts } from "../components/Posts";
+import { Chatbot } from '../components/Chatbot'
 import { Footer } from "../components/Footer";
 
 export const Profile = () => {
@@ -41,17 +42,18 @@ export const Profile = () => {
                         sidebar={sidebar}
                         profile={profile}
                     />
-                    <User 
-                        userID = {profile?.uid}
+                    <User
+                        userID={profile?.uid}
                     />
-                    <Posts 
-                        userID = {profile?.uid}
+                    <Posts
+                        userID={profile?.uid}
                     />
                 </Col>
-                <Col sm={3}>
+                <Col sm={3} style={{ backgroundColor: "#565252" }}>
                     <Aside />
                 </Col>
             </div>
+            <Chatbot />
             <Footer />
         </div>
     );

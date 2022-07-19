@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
 import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync } from "../redux/actions/infoAction";
 
-export const User = ({userID}) => {
+export const User = ({ userID }) => {
     const dispatch = useDispatch()
     const { listaInfo } = useSelector(store => store.info)
     const userData = listaInfo[0]
@@ -28,28 +28,28 @@ export const User = ({userID}) => {
         dispatch(addAge(formValue.age, userID))
         reset()
         handleClose()
-    } 
+    }
     const handleSubmitLikes = (e) => {
         e.preventDefault()
         dispatch(addLike(valueLike, userID))
         resetLike()
-    } 
+    }
     const handleDeleteLikes = (id) => { dispatch(deleteLike(id, userID)) }
 
     const handleSubmitPlaces = (e) => {
         e.preventDefault()
         dispatch(addPlace(valuePlace, userID))
         resetPlace()
-    } 
+    }
     const handleDeletePlaces = (id) => { dispatch(deletePlace(id, userID)) }
 
     const handleSubmitLiked = (e) => {
         e.preventDefault()
         dispatch(addLiked(valueLiked, userID))
         resetLiked()
-    } 
+    }
     const handleDeleteLiked = (id) => { dispatch(deleteLiked(id, userID)) }
-    
+
     useEffect(() => {
         dispatch(listAsync())
         const user = auth.currentUser;
@@ -60,13 +60,15 @@ export const User = ({userID}) => {
 
     return (
         <>
-            <div className='d-flex px-5 justify-content-between align-items-center' style={{paddingTop: "111px"}}>
-                <UserImg src={profile?.photoURL} alt={profile?.displayName} />
-                <EditIcon src={edit} alt="" />
+            <div className='d-flex px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
+                <div className="d-flex mx-auto">
+                    <UserImg src={profile?.photoURL} alt={profile?.displayName} />
+                    <EditIcon src={edit} alt="" />
+                </div>
                 <div>
                     <div className="d-flex justify-content-between align-items-center">
                         <h2>Tu Información</h2>
-                        <img src={edit} alt="" onClick={handleShow} style={{cursor: "pointer"}}/>
+                        <img src={edit} alt="" onClick={handleShow} style={{ cursor: "pointer" }} />
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Edad:</h5>
@@ -99,7 +101,7 @@ export const User = ({userID}) => {
                         <UserData>{
                             userData?.Deseados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
-                                    <h6>{i.place}</h6>
+                                    <h6>{i.liked}</h6>
                                 </TAG>
                             ))}
                         </UserData>
@@ -111,7 +113,7 @@ export const User = ({userID}) => {
                     <Modal.Title>Tu Información</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={(e) => {e.prevent.Default()}}>
+                    <Form onSubmit={(e) => { e.prevent.Default() }}>
                         <Form.Group className="mb-3">
                             <Form.Label>Edad</Form.Label>
                             <Form.Control name="age" type="number" placeholder="Escribe tu edad" value={formValue.age} onChange={handleChange} />
@@ -121,7 +123,7 @@ export const User = ({userID}) => {
                         <Form.Group className="mb-3">
                             <Form.Label>Gustos</Form.Label>
                             <Form.Control name="like" type="text" placeholder="Ingresa una actividad" value={valueLike.like} onChange={handleChangeLike} />
-                       </Form.Group>
+                        </Form.Group>
                         <CONT>{
                             userData?.Gustos.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>

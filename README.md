@@ -1,57 +1,132 @@
-# 👋🏼 Bienvenid@ al Demo Day.
+# <img title="ViVi" alt="ViVi logo" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658111468/Logo_big_u3it6y.png" height="50" /> Welcome to ViVi!
 
-<h3 align="center"><strong>!Bienvenido a tu ultimo proyecto en Academia Geek 🤖,  estamos muy a gusto en que seas parte de nuestra comunidad y poder apoyarte en tu crecimiento profesional en el maravilloso mundo del desarrollo del software!</strong></h3>
+<div align="center">
+  <a target="_blank" href="https://vivi-b2804.web.app">
+    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658112531/vivi.re_kyiasq.png" />
+  </a>
+</div>
 
-En este Proyecto a realizar vas a evidenciar los conceptos adquiridos en todo este proceso de aprendizaje como React Js, JavaScript, Redux y Firebase.
+<div align="center">
+  <a target="_blank" href="https://reactjs.org/">
+    <img title="React" alt="React badge" src="https://img.shields.io/badge/18.2.0-React-61DAFB?style&logo=react" />
+  </a>
+  <a target="_blank" href="https://reactjs.org/">
+    <img title="Create React App" alt="Create React App badge" src="https://img.shields.io/badge/18.2.0-Create%20React%20App-09D3AC?style&logo=create-react-app" />
+  </a>
+  <a target="_blank" href="https://reactrouter.com/">
+    <img title="React Router" alt="React Router badge" src="https://img.shields.io/badge/6.3.0-React%20Router-CA4245?style&logo=react-router" />
+  </a>
+  <a target="_blank" href="https://redux.js.org/">
+    <img title="Redux" alt="Redux badge" src="https://img.shields.io/badge/8.0.2-Redux-764ABC?style&logo=redux" />
+  </a>
+  <a target="_blank" href="https://getbootstrap.com/">
+    <img title="Bootstrap" alt="Bootstrap badge" src="https://img.shields.io/badge/v.5.1-Bootstrap-7952B3?style&logo=bootstrap" />
+  </a>
+  <a target="_blank" href="https://ant.design/">
+    <img title="Ant Design" alt="Ant Design badge" src="https://img.shields.io/badge/4.21.5-Ant%20Design-0170FE?style&logo=ant-design" />
+  </a>
+  <a target="_blank" href="https://styled-components.com/">
+    <img title="Styled Components" alt="Styled Components badge" src="https://img.shields.io/badge/5.3.5-Styled%20Components-DB7093?style&logo=styled-components" />
+  </a>
+  <a target="_blank" href="https://mui.com/">
+    <img title="Material UI" alt="MUI badge" src="https://img.shields.io/badge/5.3.5-MUI-007FFF?style&logo=mui" />
+  </a>
+  <a target="_blank" href="https://leafletjs.com/">
+    <img title="Leaflet" alt="Leaflet badge" src="https://img.shields.io/badge/4.0.1-Leaflet-199900?style&logo=leaflet" />
+  </a>
+  <a target="_blank" href="https://jestjs.io/">
+    <img title="Jest" alt="Jest badge" src="https://img.shields.io/badge/5.16.4-Jest-C21325?style&logo=jest" />
+  </a>
+  <a target="_blank" href="https://firebase.google.com/">
+    <img title="Firebase" alt="Firebase badge" src="https://img.shields.io/badge/9.9.0-Firebase-FFCA28?style&logo=firebase" />
+  </a>
+  <a target="_blank" href="https://nodejs.org">
+    <img title="NodeJS alt="NodeJS badge" src="https://img.shields.io/badge/18.6.0-NodeJS-339933?style&logo=node.js" />
+  </a>
+  <a target="_blank" href="https://www.javascript.com/">
+    <img title="JavaScript" alt="JavaScript badge" src="https://img.shields.io/badge/ES6-JavaScript-FFCA28?style&logo=javascript" />
+  </div>
 
-# 🎯 Objetivo del DemoDay:
+<br/>
 
-Adquirir los conocimientos esenciales para realizar aplicaciones web dinámicas haciendo uso de JavaScript Vanilla. 
+<div align="center">
+  <h3 align="center"><strong>A web application for the creation, information and dissemination of regional events, fairs and celebrations in Colombia. Aimed at promoting the formal and informal economy through the promotion of recreational tourism.</strong></h3>
+  <br />
+  <h5 align="center"><strong><em>"Live to Travel, Travel to Live".</em></strong></h5>
+</div>
 
-Con el Demo Day se pretende que los beneficiarios demuestren todos sus conocimientos adquiridos a empresas Nacionales e Internacionales, con esto pueden vivir la experiencia de exponer un proyecto y una idea de negocio al mundo.
+## 🎨 Design
 
-# 📹 Video explicado:
+A planned design directed towards the theory of colors, joy, adventure and the passion to travel and discover new places.
 
-[¿Como hacer el proyecto DemoDay?](https://drive.google.com/file/d/1kzQ5TuYc0NuIH6qGe5_Wr3Fnrjd5qKJp/view)
+| Color         | Hex                                                              |
+| ------------- | ---------------------------------------------------------------- |
+| Primary Color | ![#ffffff](https://via.placeholder.com/15/fff/fff.png) #ffffff |
+| Secondary Color | ![#ffbd29](https://via.placeholder.com/15/ffbd29/ffbd29.png) #ffbd29 |
+| Background Color | ![#565252](https://via.placeholder.com/15/565252/565252.png) #565252 |
+| Neutral Color | ![#022fd0](https://via.placeholder.com/15/022fd0/022fd0.png) #022fd0 |
 
-# ☕ Pasos para desarrollar el DemoDay:
+## 🦾 Technologies
 
-1. Crear un proyecto con la plantilla Basic Kanban y en la descripción colocar:
+- [Node.js](https://nodejs.org/)
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [Redux](https://redux.js.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Ant Design](https://ant.design/)
+- [Styled Components](https://styled-components.com/)
+- [Material UI](https://mui.com/)
+- [Leaflet](https://leafletjs.com/)
+- [Jest](https://jestjs.com/)
+- [Firebase](https://firebase.google.com/)
 
->- Texto descriptivo.
->- Enlace del prototipo en alta fidelidad (marvel o herramienta usada).
->- Enlace del despliegue.
->- Enlace del video demo.
+## 🚀 Get Started
 
-Todo esto usando markdown
+You need to be using:
 
-2. Crear dos milestones que corresponden a todo el desarrollo de la aplicación y se deben crear de esta forma:
+- [Git](https://git-scm.com/downloads)
+- [Nodejs v18 or higher](https://nodejs.org/download/)
 
->- **Componente Design Thinking:** Poner una descripción y los objetivos de ese componente.
->- **Componente técnico:** Poner una descripción y los objetivos de ese componente.
+Clone the repository & install dependencies:
 
-3. Crear issues por cada una de las tareas de Design Thinking:
+```bash
+git clone git@github.com:academia-geek/demo-day-projects-vivi.git
+cd demo-day-projects-vivi
+npm install
+npm run start
+```
 
->- 5 por qué
->- Perfil del cliente
->- Mapa de valor
->- Prototipo de baja fidelidad
->- Prototipo de mediana fidelidad
->- Presentación
+<div align="center">
+  <a target="_blank" href="https://vivi-b2804.web.app">
+    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658112531/vivi.cl_wexixp.png" />
+  </a>
+</div>
 
-4. Crear issues por cada una de las tareas técnicas:
+## Documentation 📚
 
->- Readme profesional
->- Guía de estilos
->- Landing Page del producto
->- Diseño responsive
->- Autenticación con Google y Facebook
->- Enrutamiento dinámico con protección de rutas
->- Crud con Firebase
->- Imágenes y/o videos en la nube
+[Documentation](https://github.com/academia-geek/demo-day-projects-vivi/wiki)
 
-5. Aquellos issues que consideren crear para su proceso de desarrollo se deben adjuntar al milestone de Componente Técnico.
+## Run Tests 👁‍🗨🧾
 
-6. Cada uno de estos issues debe estar asignado a una o más intergrantes del equipo de desarrollo. 
+```bash
+  cd demo-day-projects-vivi
+  npm run test
+```
 
-7. Colocar etiquetas que logren diferenciar los diferentes issues según el componente al que corresponde.
+## Feedback 💬
+
+If you have any feedback, please reach out to us at <a href="mailto:melisamendozamogollon@gmail.com">melisamendozamogollon@gmail.com</a>
+
+## 🔗 Authors
+
+[![github](https://img.shields.io/badge/Kevin%20Brian%20Briceño-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/7-18)
+[![github](https://img.shields.io/badge/Melisa%20Mendoza%20Mogollon-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MeliMend)
+[![github](https://img.shields.io/badge/Sebastián%20Luna-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SebastianLunar)
+
+## 🎈 Thanks for reading
+
+Join us on <strong>[ViVi](https://vivi-b2804.web.app)</strong> and share new experiences getting to know the beautiful regions of Colombia
+
+## 😃👍 Show your support
+
+Give a ⭐️ if you liked it!

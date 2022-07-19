@@ -29,17 +29,14 @@ export const registerUserAsync = (name, email, password, location) => {
             "https://res.cloudinary.com/dd5yolnde/image/upload/v1657788433/user_l2s3mu.png",
         });
         dispatch(registerUserSync(name, email, password, location));
-
-        const usuario = auth.currentUser;
-        console.log(usuario)
-        const usuarioID = user?.uid
+        const usuarioID = user?.uid;
 
         setDoc(doc(db, "Info", usuarioID), {
           edad: "",
-          "Gustos": [{}],
-          "Visitados": [{}],
-          "Deseados": [{}],
-          "Posts": [{}]
+          Gustos: [{}],
+          Visitados: [{}],
+          Deseados: [{}],
+          Posts: [{}],
         });
       })
       .catch((error) => {
@@ -56,19 +53,17 @@ export const loginGoogle = () => {
   return (dispatch) => {
     signInWithPopup(auth, google)
       .then(async ({ user }) => {
-        const usuario = auth.currentUser;
-        console.log(usuario)
-        const usuarioID = user?.uid
+        const usuarioID = user?.uid;
         const docRef = doc(db, "Info", usuarioID);
         const docSnap = await getDoc(docRef);
 
         if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
-            "Gustos": [{}],
-            "Visitados": [{}],
-            "Deseados": [{}],
-            "Posts": [{}]
+            Gustos: [{}],
+            Visitados: [{}],
+            Deseados: [{}],
+            Posts: [{}],
           });
         }
 
@@ -90,19 +85,17 @@ export const loginFacebook = () => {
   return (dispatch) => {
     signInWithPopup(auth, facebook)
       .then(async ({ user }) => {
-        const usuario = auth.currentUser;
-        console.log(usuario)
-        const usuarioID = user?.uid
+        const usuarioID = user?.uid;
         const docRef = doc(db, "Info", usuarioID);
         const docSnap = await getDoc(docRef);
 
         if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
             edad: "",
-            "Gustos": [{}],
-            "Visitados": [{}],
-            "Deseados": [{}],
-            "Posts": [{}]
+            Gustos: [{}],
+            Visitados: [{}],
+            Deseados: [{}],
+            Posts: [{}],
           });
         }
         dispatch(registerUserSync(user.displayName, user.email));

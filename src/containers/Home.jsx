@@ -16,8 +16,6 @@ export const Home = () => {
     }
   }, []);
 
-  console.log(profile);
-
   return (
     <div>
       <div className="d-flex">

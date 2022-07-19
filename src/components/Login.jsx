@@ -40,7 +40,7 @@ export const Login = () => {
           }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            dispatch(loginUserAsync(values));
+            dispatch(loginUserAsync(values.email, values.password));
           }}
         >
           {({ values, errors, touched, handleChange, handleSubmit }) => (

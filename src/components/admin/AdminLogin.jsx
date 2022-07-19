@@ -2,13 +2,11 @@ import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import {
-  confirmEmailAdmin,
-  sendEmailAdmin,
-} from "../../redux/actions/registerAction";
+import { sendEmailAdmin } from "../../redux/actions/registerAction";
 import { NavbarLanding } from "../Navbar";
 import { DivForm, FormStyled, InputStyled } from "../../styles/loginStyles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Alert from "@mui/material/Alert";
 
 const AdminLoginSchema = Yup.object().shape({
   name: Yup.string()
@@ -24,15 +22,14 @@ const AdminLoginSchema = Yup.object().shape({
 
 export const AdminLogin = () => {
   const dispatch = useDispatch();
-  const email_user = JSON.parse(localStorage.getItem("user"));
   const [confirmed, setConfirmed] = useState(false);
 
   return (
     <>
       <NavbarLanding fixed="null" />
-      <DivForm className="company">
-        <h2>Forma parte de ViVi e impulsa tu región</h2>
-        {!confirmed ? (
+      {!confirmed ? (
+        <DivForm className="company">
+          <h2>Forma parte de ViVi e impulsa tu región</h2>
           <Formik
             initialValues={{
               name: "",
@@ -96,15 +93,25 @@ export const AdminLogin = () => {
               </FormStyled>
             )}
           </Formik>
-        ) : (
-          <div className="bg-success">
-            <h2>
-              Gracias por registrarte, te hemos enviado un enlace para que
-              puedas ingresar y formar parte de la familia ViVi
-            </h2>
-          </div>
-        )}
-      </DivForm>
+        </DivForm>
+      ) : (
+        <>
+          <DivForm className="company d-block">
+            <Alert variant="filled" severity="success">
+              Tu correo ha sido registrado correctamente
+            </Alert>
+            <FormStyled className="mt-5">
+              <h4>Gracias por querer formar parte de ViVi.</h4>
+              <h4>
+                Te hemos enviado un correo para iniciar tu cuenta de organizador
+              </h4>
+            </FormStyled>
+            <Button variant="warning" className="mt-3 px-4 py-1">
+              Volver a la página principal
+            </Button>
+          </DivForm>
+        </>
+      )}
     </>
   );
 };

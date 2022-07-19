@@ -40,7 +40,7 @@ export const AdminConfirmation = () => {
                   name="email"
                   placeholder="Ingresa tu correo para confirmar"
                   onChange={handleChange}
-                  value={email_user?.email}
+                  value={values.email}
                 />
                 {errors.email && touched.email ? (
                   <div className="error">{errors.email}</div>

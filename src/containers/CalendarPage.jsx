@@ -4,24 +4,29 @@ import { Calendar } from 'antd';
 import { TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { CardEvent } from '../components/calendar _and_programming/CardEvent';
+import moment from 'moment'
 
 export const CalendarPage = () => {
-  const [date, setdate] = useState();
+  const d=moment()
+  const datel =new Date(moment().format('YYYY-MM-DD')).getTime()
+  const h=new Date(datel).getTime()
+  const [date, setdate] = useState(datel);
   const onSelect=(value)=> {
-    const d= new Date(value)
-    console.log(d)
+    
+    console.log(value)
     const datel =value.format('YYYY-MM-DD')  
     console.log(datel)
    setdate(new Date(datel).getTime())
-  // console.log(datel)
+       // console.log(datel)
    };
- console.log(date)
+      console.log(d)
+ console.log(datel)
   return (
     <div>
       <div className="d-flex">
         <Col sm={9}>
         <div className="site-calendar-demo-card" >
-            <Calendar fullscreen={false} onSelect={onSelect} />
+            <Calendar fullscreen={false} onSelect={onSelect}/>
           </div>
           <CardEvent m={date} />
         </Col>

@@ -5,14 +5,19 @@ import carousel2 from "../assets/carousel2.png";
 import carousel3 from "../assets/carousel3.png";
 import { CarouselStyled } from "../styles/homeStyles";
 
-export const CarouselEvents = () => {
+export const CarouselEvents = ({ marginTop }) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} as={CarouselStyled}>
+    <Carousel
+      activeIndex={index}
+      onSelect={handleSelect}
+      as={CarouselStyled}
+      marginTop={marginTop}
+    >
       <Carousel.Item>
         <img className="d-block w-100" src={carousel1} alt="First slide" />
       </Carousel.Item>

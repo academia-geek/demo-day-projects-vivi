@@ -40,7 +40,7 @@ export const BoxStyled = styled(Box)`
 
 export const CarouselStyled = styled.div`
   padding: 10px;
-  margin-top: 70px;
+  margin-top: ${(props) => (props.marginTop ? props.marginTop : "0")};
 
   .carousel-item > img {
     height: 541px;

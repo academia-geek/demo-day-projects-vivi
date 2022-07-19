@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   isSignInWithEmailLink,
+  sendEmailVerification,
   sendSignInLinkToEmail,
   signInWithEmailLink,
   signInWithPhoneNumber,
@@ -32,6 +33,16 @@ export const registerUserAsync = (name, email, password, location) => {
           photoURL:
             "https://res.cloudinary.com/dd5yolnde/image/upload/v1657788433/user_l2s3mu.png",
         });
+        const emailVerified = user.emailVerified;
+        if (emailVerified === false) {
+          sendEmailVerification(user)
+            .then(() => {
+              console.log("Email enviado");
+            })
+            .catch((error) => {
+              console.warn(error);
+            });
+        }
         dispatch(registerUserSync(name, email, password, location));
         const usuarioID = user?.uid;
 

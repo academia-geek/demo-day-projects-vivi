@@ -10,7 +10,7 @@ import {
   getFavoriteAsync,
   removeFromFavoriteAsync,
 } from "../../redux/actions/favoriteAction";
-import { EventBottom, HeartIcon } from "../../styles/calendarStyle";
+import { DivEvent, EventBottom, HeartIcon } from "../../styles/calendarStyle";
 
 export const CardEvent = ({ m }) => {
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ export const CardEvent = ({ m }) => {
         renderItem={(item) => (
           <List.Item>
             <div style={{ display: "flex" }}>
-              <div style={{ width: "40vw", marginLeft: "10px" }}>
+              <DivEvent>
                 <h2>{item.name}</h2>
                 <article>{item.description}</article>
                 <h6>{item.location}</h6>
@@ -65,18 +65,20 @@ export const CardEvent = ({ m }) => {
                     <HeartIcon
                       className="heart"
                       onClick={() => handleFavorite(item.id)}
+                      title="Eliminar de favoritos"
                     />
                   ) : (
                     <HeartOutlined
                       className="heart"
                       onClick={() => handleFavorite(item.id)}
+                      title="Añadir a favoritos"
                     />
                   )}
                   <Link to={`/programming/${item.id}`}>
                     <Button>Programación</Button>
                   </Link>
                 </EventBottom>
-              </div>
+              </DivEvent>
               <img
                 src={image}
                 alt="Cargando..."

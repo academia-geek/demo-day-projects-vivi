@@ -66,6 +66,19 @@ const HeartSvg = () => (
 
 export const HeartIcon = (props) => <Icon component={HeartSvg} {...props} />;
 
+export const DivEvent = styled.div`
+  width: 40vw;
+  margin-left: 10px;
+
+  & > a {
+    color: #00a8ff;
+
+    &:hover {
+      color: #022fd0;
+    }
+  }
+`;
+
 export const EventBottom = styled.div`
   margin-top: 5vw;
   margin-left: 20px;

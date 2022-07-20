@@ -8,7 +8,7 @@ import {
   getFavoriteAsync,
   removeFromFavoriteAsync,
 } from "../redux/actions/favoriteAction";
-import { EventBottom, HeartIcon } from "../styles/calendarStyle";
+import { DivEvent, EventBottom, HeartIcon } from "../styles/calendarStyle";
 import { Aside } from "../components/Aside";
 
 export const Favorites = () => {
@@ -51,22 +51,23 @@ export const Favorites = () => {
               renderItem={(item) => (
                 <List.Item>
                   <div style={{ display: "flex", margin: "20px" }}>
-                    <div style={{ width: "40vw", marginLeft: "10px" }}>
+                    <DivEvent>
                       <h2>{item.name}</h2>
                       <article>{item.description}</article>
-                      <h6>{item.location}</h6>
+                      <Link to={`/map/${item.location}`}>{item.location}</Link>
                       <EventBottom>
                         <HeartIcon
                           className="heart"
                           onClick={() =>
                             dispatch(removeFromFavoriteAsync(item.id))
                           }
+                          title="Eliminar de favoritos"
                         />
                         <Link to={`/programming/${item.id}`}>
                           <Button>Programación</Button>
                         </Link>
                       </EventBottom>
-                    </div>
+                    </DivEvent>
                   </div>
                 </List.Item>
               )}

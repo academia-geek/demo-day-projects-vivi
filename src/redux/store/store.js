@@ -5,6 +5,7 @@ import { registerReducer } from "../reducers/registerReducer";
 import { eventsReducers } from "../reducers/eventsReducer";
 import { infoReducers } from "../reducers/infoReducer";
 import { scheduleReducers } from "../reducers/schedule";
+import { favoriteReducer } from "../reducers/favoriteReducer";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -13,7 +14,8 @@ const reducers = combineReducers({
   register: registerReducer,
   login: loginReducer,
   info: infoReducers,
-  schedule: scheduleReducers
+  schedule: scheduleReducers,
+  favorites: favoriteReducer,
 });
 
 export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));

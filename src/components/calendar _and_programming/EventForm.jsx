@@ -1,13 +1,23 @@
-import { Button, DatePicker, Form, Input, Space } from 'antd';
+import { Button, DatePicker, Form, Input, message, Space, Upload } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { imgUpload } from '../../helpers/imgUpload';
+import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
+import App from './UploadImg';
+
+
+
+
 
 const { RangePicker } = DatePicker;
 
 const datadate = []
+
 export const EventForm = () => {
   const dispatch = useDispatch()
+  const [pic, setPic] = useState("")
+  const [loadings, setLoadings] = useState([]);
 
   const onChange = (value, dateString) => {
     console.log('Rango de fecha: ', dateString);
@@ -23,12 +33,48 @@ export const EventForm = () => {
     }
   };
 
+  const { Dragger } = Upload;
+  const props = {
+    name: 'file',
+    multiple: true,
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+  
+    onChange(info) {
+     console.log(info)
+      const f =info.file.originFileObj
+      console.log(f)
+      imgUpload(info.file.originFileObj)
+            .then((resp) => {
+                console.log(resp)
+                setPic(resp)
+                            })
+            .catch((error) => { console.warn(error) });
+      const { status } = info.file;
+  
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+  
+      if (status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully.`);
+      } else if (status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+  
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
+    },
+  };
+ 
+
   const onFinish = (values) => {
-       const formValue = {
+    const formValue = {
       id: Math.random(),
       name: values.Eventname,
       description: values.Description,
       location: values.Location,
+      img:pic,
       date: datadate
     }
     localStorage.setItem("id", formValue.id)
@@ -39,7 +85,7 @@ export const EventForm = () => {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-  const [loadings, setLoadings] = useState([]);
+
 
   const enterLoading = (index) => {
     setLoadings((prevLoadings) => {
@@ -48,6 +94,7 @@ export const EventForm = () => {
 
       return newLoadings;
     });
+
     setTimeout(() => {
       setLoadings((prevLoadings) => {
         const newLoadings = [...prevLoadings];
@@ -56,7 +103,7 @@ export const EventForm = () => {
         window.location.href = "./Schedule"
         return newLoadings;
       });
-    }, 3000);
+    }, 2000);
   };
 
   return (
@@ -88,6 +135,17 @@ export const EventForm = () => {
       >
         <Input placeholder="Ubicación" allowClear />
       </Form.Item>
+      <Dragger {...props}>
+    <p className="ant-upload-drag-icon">
+      <InboxOutlined />
+    </p>
+    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+    <p className="ant-upload-hint">
+      Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+      band files
+    </p>
+  </Dragger>
+ 
       <Space direction="vertical" size={12}>
         <RangePicker
           format="YYYY-MM-DD"

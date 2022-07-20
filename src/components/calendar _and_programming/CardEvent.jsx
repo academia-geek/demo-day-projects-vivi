@@ -42,7 +42,7 @@ export const CardEvent = ({ m }) => {
           </Link>
           </div>
           </div>
-       <img src={image} alt="Cargando..." style={{width:"300px",marginLeft:"3px"}} />
+       <img src={item.img} alt="..cargando" style={{width:"200px",marginLeft:"50px"}} />
        </div>
       </List.Item>
       )}

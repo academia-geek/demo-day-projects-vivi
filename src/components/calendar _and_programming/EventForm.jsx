@@ -40,10 +40,7 @@ export const EventForm = () => {
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   
     onChange(info) {
-     console.log(info)
-      const f =info.file.originFileObj
-      console.log(f)
-      imgUpload(info.file.originFileObj)
+    imgUpload(info.file.originFileObj)
             .then((resp) => {
                 console.log(resp)
                 setPic(resp)
@@ -61,11 +58,7 @@ export const EventForm = () => {
         message.error(`${info.file.name} file upload failed.`);
       }
     },
-  
-    onDrop(e) {
-      console.log('Dropped files', e.dataTransfer.files);
-    },
-  };
+    };
  
 
   const onFinish = (values) => {
@@ -135,8 +128,8 @@ export const EventForm = () => {
       >
         <Input placeholder="Ubicación" allowClear />
       </Form.Item>
-      <Dragger {...props}>
-    <p className="ant-upload-drag-icon">
+      <Dragger {...props} style={{width:"50vw"}}>
+      <p className="ant-upload-drag-icon">
       <InboxOutlined />
     </p>
     <p className="ant-upload-text">Click or drag file to this area to upload</p>

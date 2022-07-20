@@ -41,7 +41,6 @@ export const addToFavoriteAsync = (id) => {
     console.log(docData);
     if (docData._document === null) {
       setDoc(docRef, {
-        id: auth.currentUser?.uid,
         favorites: [
           {
             id: id,
@@ -54,6 +53,9 @@ export const addToFavoriteAsync = (id) => {
       favoritesData.forEach((favorite) => {
         favorites.push(favorite);
       });
+      if (favorites.find((favorite) => favorite.id === id)) {
+        return;
+      }
       favorites.push({
         id: id,
       });
@@ -68,15 +70,10 @@ export const addToFavoriteAsync = (id) => {
 
 export const getFavoriteAsync = () => {
   return async (dispatch) => {
-    const collectionFavorites = collection(db, "Favorites");
-    const getFavorites = await getDocs(collectionFavorites);
-    const favorites = [];
-    getFavorites.forEach((fav) => {
-      favorites.push({
-        ...fav.data(),
-      });
-    });
-    dispatch(getFavoriteSync(favorites));
+    const docRef = doc(db, "Favorites", auth.currentUser?.uid);
+    const docData = await getDoc(docRef);
+    const favoritesData = docData.data();
+    dispatch(getFavoriteSync([favoritesData]));
   };
 };
 
@@ -85,12 +82,16 @@ export const removeFromFavoriteAsync = (id) => {
     const docRef = doc(db, "Favorites", auth.currentUser?.uid);
     const docData = await getDoc(docRef);
     const favoritesData = docData.data().favorites;
-    favoritesData.forEach((favorite) => {
-      if (favorite.id === id) {
-        deleteDoc(docRef, favorite);
-      }
+    const favorites = [];
+    favoritesData.forEach((fav) => {
+      favorites.push(fav);
     });
-    dispatch(removeFromFavoriteSync(id));
-    dispatch(getFavoriteAsync());
+    const newFavorites = favorites.filter((fav) => fav.id !== id);
+    updateDoc(docRef, {
+      favorites: newFavorites,
+    }).then(() => {
+      dispatch(removeFromFavoriteSync(id));
+      dispatch(getFavoriteAsync());
+    });
   };
 };

@@ -60,6 +60,9 @@ export const TittleStyle = styled.h4`
 export const EventBottom = styled.div`
   margin-top: 5vw;
   margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   & > .heart > svg {
     fill: #dd373f;

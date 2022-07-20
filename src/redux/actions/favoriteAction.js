@@ -7,6 +7,7 @@ import {
   getDocs,
   query,
   setDoc,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebaseConfig";
@@ -35,9 +36,31 @@ const getFavoriteSync = (favorites) => {
 
 export const addToFavoriteAsync = (id) => {
   return async (dispatch) => {
-    setDoc(doc(db, "Favorites", auth.currentUser?.uid), {
-      id,
-    });
+    const docRef = doc(db, "Favorites", auth.currentUser?.uid);
+    const docData = await getDoc(docRef);
+    console.log(docData);
+    if (docData._document === null) {
+      setDoc(docRef, {
+        id: auth.currentUser?.uid,
+        favorites: [
+          {
+            id: id,
+          },
+        ],
+      });
+    } else {
+      const favoritesData = docData.data().favorites;
+      const favorites = [];
+      favoritesData.forEach((favorite) => {
+        favorites.push(favorite);
+      });
+      favorites.push({
+        id: id,
+      });
+      updateDoc(docRef, {
+        favorites: favorites,
+      });
+    }
     dispatch(addToFavoriteSync(id));
     dispatch(getFavoriteAsync());
   };
@@ -59,11 +82,13 @@ export const getFavoriteAsync = () => {
 
 export const removeFromFavoriteAsync = (id) => {
   return async (dispatch) => {
-    const collectionFavorites = collection(db, "Favorites");
-    const q = query(collectionFavorites, where("id", "==", id));
-    const getFavorites = await getDocs(q);
-    getFavorites.forEach((fav) => {
-      deleteDoc(doc(db, "Favorites", fav.id));
+    const docRef = doc(db, "Favorites", auth.currentUser?.uid);
+    const docData = await getDoc(docRef);
+    const favoritesData = docData.data().favorites;
+    favoritesData.forEach((favorite) => {
+      if (favorite.id === id) {
+        deleteDoc(docRef, favorite);
+      }
     });
     dispatch(removeFromFavoriteSync(id));
     dispatch(getFavoriteAsync());

@@ -1,7 +1,7 @@
 import { listEventAsync } from "../../redux/actions/eventsAction";
 import Icon, { HeartOutlined } from "@ant-design/icons";
 import { Button, List } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import image from "../../assets/prueba/image3.png";
@@ -11,6 +11,7 @@ import {
   removeFromFavoriteAsync,
 } from "../../redux/actions/favoriteAction";
 import { EventBottom } from "../../styles/calendarStyle";
+import { auth } from "../../firebase/firebaseConfig";
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -22,6 +23,7 @@ const HeartIcon = (props) => <Icon component={HeartSvg} {...props} />;
 
 export const CardEvent = ({ m }) => {
   const dispatch = useDispatch();
+  const [profile, setProfile] = useState(null);
   const h = m + 86400000;
   const { EventsList } = useSelector((store) => store.eventos);
   const { favorites } = useSelector((store) => store.favorites);
@@ -38,19 +40,24 @@ export const CardEvent = ({ m }) => {
   }, [dispatch]);
 
   useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      setProfile(user);
+    }
     dispatch(getFavoriteAsync());
   }, [dispatch]);
 
+  const favoritesId = favorites
+    .filter((fav) => fav.id)
+    .map((fav) => fav.favorites)
+    .map((fav) => fav);
+
   const handleFavorite = (id) => {
-    const favoritesInclude = favorites.filter((fav) => fav.id === id);
-    if (favoritesInclude.length === 0) {
-      dispatch(addToFavoriteAsync(id));
-    } else {
-      dispatch(removeFromFavoriteAsync(id));
-    }
+    dispatch(addToFavoriteAsync(id));
   };
 
-  const favoritesId = favorites.map((fav) => fav.id);
+  console.log(favorites);
+  console.log(favoritesId);
 
   return (
     <div>
@@ -72,7 +79,7 @@ export const CardEvent = ({ m }) => {
                 <article>{item.description}</article>
                 <h6>{item.location}</h6>
                 <EventBottom>
-                  {favoritesId.includes(item.id) ? (
+                  {favoritesId?.includes(item.id) ? (
                     <HeartIcon
                       className="heart"
                       onClick={() => handleFavorite(item.id)}
@@ -84,7 +91,7 @@ export const CardEvent = ({ m }) => {
                     />
                   )}
                   <Link to={`/programming/${item.id}`}>
-                    <Button style={{ marginLeft: "20px" }}>Programación</Button>
+                    <Button>Programación</Button>
                   </Link>
                 </EventBottom>
               </div>

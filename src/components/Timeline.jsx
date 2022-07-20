@@ -11,7 +11,7 @@ export const Timeline = () => {
     <DivPosting>
       <Userbar>
         <div>
-          <Avatar src="https://i.pravatar.cc/300" alt="avatar" />
+          <Avatar src="https://i.pravatar.cc/300" />
           <span>Melisa Mendoza</span>
         </div>
         <span>11/7/2022 16:34</span>

@@ -94,6 +94,15 @@ export const Posts = ({ userID }) => {
 
             <CONT>{
                 userData?.Posts.filter(i => i.id).map(i => (
+                /*
+                <img src={cross} className="cross" onClick={() => handleDelete(i.id)} />
+                <Userbar>
+                <div>
+                    <Avatar src={profile?.photoURL} alt={profile?.displayName} />
+                    <span>{profile?.displayName}</span>
+                </div>
+                <span>{i.time}</span>
+                */
                     <DivPosting>
                         <Userbar>
                             <div>

@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
+import { InputStyled } from '../../styles/calendarStyle';
+import { Paper } from '@mui/material'
 const { RangePicker } = DatePicker;
 const datadate = []
 
@@ -97,6 +99,7 @@ export const EventForm = () => {
   };
 
   return (
+    
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -105,49 +108,50 @@ export const EventForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
-      
+      style={{marginLeft:"5vw",marginTop:"-90px"}}
     >
       <Form.Item
       
         name="Eventname"
         rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
       >
-        <Input style={{ marginTop: "100px" }} placeholder="Nombre del evento" allowClear />
+        <InputStyled style={{ marginTop: "100px" }} placeholder="Nombre del evento" allowClear />
       </Form.Item>
       <Form.Item
         name="Description"
         rules={[{ required: true, message: 'Por Favor introduce la descripción del evento !' }]}
       >
-        <Input placeholder="Descripcion de la festividad" allowClear />
+        <InputStyled placeholder="Descripcion de la festividad" allowClear />
       </Form.Item>
       <Form.Item
         name="Location"
         rules={[{ required: true, message: 'Por Favor introduce la ciudad!' }]}
       >
-        <Input placeholder="Ubicación" allowClear />
+        <InputStyled placeholder="Ubicación" allowClear  />
       </Form.Item>
-      <Dragger {...props} style={{width:"50vw"}}  accept="image/png, image/jpeg, image/jpg" percent >
+      <Dragger {...props} style={{width:"50vw",borderRadius:"10px"}}  accept="image/png, image/jpeg, image/jpg" percent >
       <p className="ant-upload-drag-icon">
       <InboxOutlined />
     </p>
-    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+    <p className="ant-upload-text">Clic o arrastre la imagen a esta área para cargarla.</p>
     <p className="ant-upload-hint">
-      Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-      band files
+     Soporte para carga única. Ingresa la imagen que represente el evento, esta se mostrara al usuario.
     </p>
   </Dragger>
-  <Form.Item>
+  <Form.Item style={{marginTop:"10px",marginLeft:"12vw"}}>
       <Space direction="vertical" size={12}>
         <RangePicker
           format="YYYY-MM-DD"
           onChange={onChange}
+          style={{borderRadius:"10px"}}
         />
       </Space>
       </Form.Item>
       
-      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} disabled={fileList.length === 0}>
+      <Button  style={{marginLeft:"20vw",borderRadius:"10px",background:" #ffbd29"}} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} disabled={fileList.length === 0}>
         Agregar </Button>
 
     </Form>
+  
   );
 }

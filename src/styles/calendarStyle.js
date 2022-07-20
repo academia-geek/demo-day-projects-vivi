@@ -77,7 +77,11 @@ export const CalendarStyle=styled(Calendar)`
   position: relative;
   color:rgba(255, 189, 41,1);
 }
-
-
-
+`
+export const Siderbar =styled.div`
+height: 200vw;
+background:  #565252;
+margin-top: 50px;
+width: 20vw; 
+margin-left: 4.9vw
 `

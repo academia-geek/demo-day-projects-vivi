@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {  Col } from "react-bootstrap";
 import { Calendar } from 'antd';
-import { CalendarStyle, TittleStyle } from '../styles/calendarStyle';
+import { CalendarStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { CardEvent } from '../components/calendar _and_programming/CardEvent';
 import moment from 'moment'
@@ -23,9 +23,9 @@ export const CalendarPage = () => {
           <CardEvent m={date} />
         </Col>
         <Col sm={3}>
-          <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
+          <Siderbar >
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
-          </div>
+          </Siderbar>
           <SiderCalendar/>
         </Col>
       </div>

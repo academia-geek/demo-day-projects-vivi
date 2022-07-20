@@ -7,7 +7,7 @@ import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import {  Col } from "react-bootstrap";
-import { TittleStyle } from '../styles/calendarStyle';
+import { Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import image from '../assets/prueba/image3.png'
 import { Paper } from '@mui/material'
@@ -66,9 +66,9 @@ export const Programming = () => {
          
         </Col>
         <Col sm={3}>
-          <div style={{ height: "200vw", background: " #565252", marginTop: "50px", width: '20vw', marginLeft: "4.9vw" }}>
+          <Siderbar>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
-          </div>
+          </Siderbar>
           <SiderCalendar/>
         </Col>
       </div>

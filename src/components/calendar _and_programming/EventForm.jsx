@@ -10,6 +10,7 @@ const datadate = []
 export const EventForm = () => {
   const dispatch = useDispatch()
   const [pic, setPic] = useState("")
+  const [fileList, setFileList] = useState([]);
   const [loadings, setLoadings] = useState([]);
 
   const onChange = (value, dateString) => {
@@ -33,6 +34,7 @@ export const EventForm = () => {
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   
     onChange(info) {
+      
     imgUpload(info.file.originFileObj)
             .then((resp) => {
                 console.log(resp)
@@ -43,12 +45,14 @@ export const EventForm = () => {
   
       if (status !== 'uploading') {
         console.log(info.file, info.fileList);
+        
       }
   
       if (status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully.`);
+        message.success(`${info.file.name} imagen cargada correctamente`);
+        setFileList(1)
       } else if (status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
+        message.error(`${info.file.name} no se cargo correctamente, intentalo de nuevo`);
       }
     },
     };
@@ -85,7 +89,7 @@ export const EventForm = () => {
       setLoadings((prevLoadings) => {
         const newLoadings = [...prevLoadings];
         newLoadings[index] = false;
-
+        message.success("Evento cargado correctamente");
         window.location.href = "./Schedule"
         return newLoadings;
       });
@@ -101,9 +105,10 @@ export const EventForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      
     >
       <Form.Item
-
+      
         name="Eventname"
         rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
       >
@@ -121,7 +126,7 @@ export const EventForm = () => {
       >
         <Input placeholder="Ubicación" allowClear />
       </Form.Item>
-      <Dragger {...props} style={{width:"50vw"}}>
+      <Dragger {...props} style={{width:"50vw"}}  accept="image/png, image/jpeg, image/jpg" percent >
       <p className="ant-upload-drag-icon">
       <InboxOutlined />
     </p>
@@ -131,15 +136,16 @@ export const EventForm = () => {
       band files
     </p>
   </Dragger>
- 
+  <Form.Item>
       <Space direction="vertical" size={12}>
         <RangePicker
           format="YYYY-MM-DD"
           onChange={onChange}
         />
       </Space>
-
-      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
+      </Form.Item>
+      
+      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} disabled={fileList.length === 0}>
         Agregar </Button>
 
     </Form>

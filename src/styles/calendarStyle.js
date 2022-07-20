@@ -42,7 +42,7 @@ width:2000px;
 margin-top:15px;
 overflow: auto;
 overflow-X:hidden;
-height: 89.5vh;
+height: 89 vh;
 position:fixed;
 left:81vw;
 top:7vw;

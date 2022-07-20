@@ -26,35 +26,42 @@ margin-left:15px;
 }
 `;
 
-export const LineStyle=styled.hr`
-width:150px;
-margin-left:15px
-`
-;
-export const textStyle=styled.h6`
-font-size:9px;
-color:red;
-`
-;
-export const SiderStyle=styled(Sider)`
-width:2000px;
-margin-top:15px;
-overflow: auto;
-overflow-X:hidden;
-height: 89.5vh;
-position:fixed;
-left:81vw;
-top:7vw;
-bottom: 0;
-background:rgba(255, 189, 41,1);
-::-webkit-scrollbar {
-  display: none;
+export const LineStyle = styled.hr`
+  width: 150px;
+  margin-left: 15px;
+`;
+export const textStyle = styled.h6`
+  font-size: 9px;
+  color: red;
+`;
+export const SiderStyle = styled(Sider)`
+  width: 2000px;
+  margin-top: 15px;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 89.5vh;
+  position: fixed;
+  left: 81vw;
+  top: 7vw;
+  bottom: 0;
+  background: rgba(255, 189, 41, 1);
+  ::-webkit-scrollbar {
+    display: none;
   }
-`
-export const TittleStyle=styled.h4`
-  margin-Left:10px;
+`;
+export const TittleStyle = styled.h4`
+  margin-left: 10px;
   position: fixed;
   color: white;
   font-family: "Merriweather", serif;
-  margin-top:19px;
-`
+  margin-top: 19px;
+`;
+
+export const EventBottom = styled.div`
+  margin-top: 5vw;
+  margin-left: 20px;
+
+  & > .heart > svg {
+    fill: #dd373f;
+  }
+`;

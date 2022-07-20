@@ -5,6 +5,7 @@ import { NavUser } from "../components/NavUser";
 import { AddEvent } from "../containers/AddEvent";
 import { CalendarPage } from "../containers/CalendarPage";
 import { EventSchedule } from "../containers/EventSchedule";
+import { Favorites } from "../containers/Favorites";
 import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
@@ -12,7 +13,7 @@ import { Programming } from "../containers/Programming";
 export const Dashboard = () => {
   return (
     <>
-     <NavUser/>
+      <NavUser />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -21,7 +22,8 @@ export const Dashboard = () => {
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/Schedule" element={<EventSchedule />} />
-        <Route path="/programming/:id" element={<Programming/>} />
+        <Route path="/programming/:id" element={<Programming />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );

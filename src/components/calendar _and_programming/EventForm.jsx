@@ -4,14 +4,7 @@ import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
-import App from './UploadImg';
-
-
-
-
-
 const { RangePicker } = DatePicker;
-
 const datadate = []
 
 export const EventForm = () => {

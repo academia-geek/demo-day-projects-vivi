@@ -1,7 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { AddLocation } from "../components/AddLocation";
-
-import { UploadImg} from "../components/calendar _and_programming/UploadImg";
 import { Map } from "../components/Map";
 import { NavUser } from "../components/NavUser";
 import { AddEvent } from "../containers/AddEvent";
@@ -24,8 +22,7 @@ export const Dashboard = () => {
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/programming/:id" element={<Programming/>} />
-        <Route path="/prueba" element={<UploadImg/>} />
-      </Routes>
+        </Routes>
     </>
   );
 };

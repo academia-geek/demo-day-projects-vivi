@@ -7,6 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteEventAsync, listEventAsync } from '../../redux/actions/eventsAction';
 import { Footer } from '../../components/Footer';
 import { deleteScheduleAsync, listScheduleAsync } from '../../redux/actions/scheduleAction';
+import { Col } from "react-bootstrap";
+import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
+import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
+
 export const DetailEvents = () => {
     const dispatch=useDispatch()
     const { EventsList } = useSelector(store => store.eventos)
@@ -28,9 +32,12 @@ export const DetailEvents = () => {
   }
 
   return (
-    <div style={{paddingTop:"100px"}}>
+    <div >
+      <div className="d-flex">
+        <Col sm={9}>
+          <h3 className='titlleEvents '>Lista de Eventos Publicados</h3>
       <List
-        style={{ paddingTop: "10px",width:"70vw",marginLeft:"15vw" }}
+        style={{ paddingTop: "10px",width:"70vw",marginLeft:"5vw" }}
         
         dataSource={EventsList}
         locale={{ emptyText: 'No hay eventos que mostrar' }}
@@ -73,7 +80,18 @@ export const DetailEvents = () => {
           </Paper>
         )}
       />
-      <Footer/>
+      </Col>
+        <Col sm={3}>
+          <Siderbar>
+            <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+          </Siderbar>
+          <SiderCalendar />
+        </Col>
+      <br/>
+      <div/>
+      </div>
+            <Footer/>
         </div>
+        
   )
 }

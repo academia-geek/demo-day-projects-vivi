@@ -25,7 +25,7 @@ export const Dashboard = () => {
         <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/programming/:id" element={<Programming/>} />
         <Route path="/detail" element={<DetailEvents/>} />
-        <Route path="/detailItinerary" element={<DetailItinerary/>} />
+        <Route path="/detailItinerary/:id" element={<DetailItinerary/>} />
         </Routes>
     </>
   );

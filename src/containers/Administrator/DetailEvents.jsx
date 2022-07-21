@@ -59,7 +59,7 @@ export const DetailEvents = () => {
               
               <img src={item.img} alt="..cargando" style={{ width: "200px", marginLeft: "50px" ,height:'200px'}} />
             <div style={{marginTop:"50px",height:'100px',marginLeft:"5vw"}}>
-            <Link to={`/itinerarydetails/${item.id}`}>
+            <Link to={`/detailItinerary/${item.id}`}>
             <Tooltip title="Editar el itinerario del evento" color={'#FFBD29'}>
               <Button style={{border:"none"}}>
             <CarryOutOutlined style={{ fontSize: '20px', color: '#565252' }} />

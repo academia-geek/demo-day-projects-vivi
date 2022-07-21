@@ -29,6 +29,7 @@ export const CardActivite = ({k}) => {
      {  
         dataFinal.map(m=>(
           <div style={{display:"flex", marginTop:"10px"}}>
+            <div style={{display:"flex",width:"55vw"}}>
            <Dateg k={m.date}/>
             <img src={image} style={{width:"5px",marginLeft:"5px"}}/>
           <div style={{display:"block", marginLeft:"10px"}}>
@@ -38,8 +39,9 @@ export const CardActivite = ({k}) => {
             <EnvironmentOutlined />
             <h6 style={{marginLeft:"7px"}}>{m.place}</h6>
             </div>
-            <Button onClick={handleShow}>Nuevo post</Button>
+            </div>
           </div>
+          <Button onClick={handleShow}>Comentar</Button>
           <Modal show={show} onHide={handleClose}>
                 {/* <Modal.Header closeButton>
                     <Modal.Title>Nuevo post</Modal.Title>

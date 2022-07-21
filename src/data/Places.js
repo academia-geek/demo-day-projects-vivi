@@ -105,7 +105,7 @@ export const places = [
         lon: -72.866388888889
     },
     {
-        name: "Caño Cristales",
+        name: "Parque Nacional Natural El Tuparro",
         image: "https://elrinconcolombiano.com/wp-content/uploads/2021/04/El-Balancin-Raudal-de-Maypures-Parque-Nacional-Natural-El-Tuparro.jpg",
         description: "Una extensa sabana verde surcada por grandes ríos con potentes raudales y playas doradas, pequeños caños de aguas cristalinas, bosques de galería, morichales y saladillales, además de enormes rocas cristalinas en forma de cerros redondeados.",
         lat: 4.97,

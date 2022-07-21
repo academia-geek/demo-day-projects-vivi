@@ -12,10 +12,16 @@ export const CardStyledCalendar = styled.div`
         max-width: 100%;
         border-radius: 20px;
     }
+    p{
+        font-style: italic;
+        margin-bottom: 0;
+        margin-top: 1rem;
+    }
     & > div > div {
-        font-size: 12px;
+        font-size: 1rem;
         font-weight: bold;
         text-align: center;
+        width: fill-available;
     }
 `;
 

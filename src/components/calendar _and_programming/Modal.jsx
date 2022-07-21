@@ -8,20 +8,14 @@ import { addScheduleAsync } from '../../redux/actions/scheduleAction';
 
 
 
-export const ModalConfirm = ({data}) => {
+export const ModalConfirm = () => {
     const [isModalVisible, setIsModalVisible] = useState(true);
-    const [value,setValue]=useState()
-    const dispatch=useDispatch()
-
-    const handleCancel = () => {
+        const handleCancel = () => {
         setIsModalVisible(false);
         window.location.href = "./"
     };
+          const handleOk = () => {
         
-   
-
-     const handleOk = () => {
-        dispatch(addScheduleAsync(data))
       setIsModalVisible(false);
       
       window.location.href = "./Schedule"
@@ -33,7 +27,7 @@ export const ModalConfirm = ({data}) => {
     <div>
          <>
       
-      <Modal style={{textAlign:"center"}}  visible={isModalVisible}  onOk={handleOk} onCancel={handleCancel}>
+      <Modal style={{textAlign:"center"}}  visible={isModalVisible}  cancelText={'No'} onOk={handleOk} onCancel={handleCancel}>
         <h5>Quieres agregar otra actividad al itinerario?</h5>        
         
       </Modal>

@@ -8,7 +8,10 @@ export const typesLogin = {
 };
 
 export const typesInfo = {
-  list_info: 'list',
+  list_info: '[Info]list',
+}
+export const typesPosts = {
+  list_posts: '[AllPosts]list',
 }
 export const typesEvents = {
   add: '[Events]agregar',

@@ -4,6 +4,7 @@ import { Calendar } from 'antd';
 import { CalendarStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { CardEvent } from '../components/calendar _and_programming/CardEvent';
+import { Footer } from '../components/Footer'
 import moment from 'moment'
 
 export const CalendarPage = () => {
@@ -23,12 +24,13 @@ export const CalendarPage = () => {
           <CardEvent m={date} />
         </Col>
         <Col sm={3}>
-          <Siderbar >
+          <div style={{ height: "calc(100% - 63px)", background: " #565252", marginTop: "63px", marginLeft: "4.9vw", width: "80.3%" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
-          </Siderbar>
-          <SiderCalendar/>
+            <SiderCalendar/>
+          </div>
         </Col>
       </div>
+      <Footer />
     </div>
   )
 }

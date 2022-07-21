@@ -1,6 +1,6 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { auth, db } from "../../firebase/firebaseConfig"
-import { typesInfo } from "../types/types"
+import { typesInfo, typesPosts } from "../types/types"
 
 //Agregar y Listar
 export const addAge = (value, userID) => {
@@ -92,6 +92,21 @@ export const addPost = (value, userID) => {
         })
     }
 }
+export const listAllPosts = () => {
+    return async (dispatch) => {
+        const datos = []
+        const Posts = await getDocs(collection(db, "Info"))
+        const feed = Posts.docs
+
+        feed.forEach(obj => {
+            const postData = obj.data().Posts
+            if (postData !== undefined) {
+                datos.unshift(...postData)
+            }
+        })
+        dispatch(listPostsSync([datos]))
+    }
+}
 
 export const listAsync = () => {
     return async (dispatch) => {
@@ -106,6 +121,12 @@ export const listAsync = () => {
 export const listSync = (lista) => {
     return {
         type: typesInfo.list_info,
+        payload: lista
+    }
+}
+export const listPostsSync = (lista) => {
+    return {
+        type: typesPosts.list_posts,
         payload: lista
     }
 }

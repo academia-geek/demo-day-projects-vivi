@@ -56,7 +56,7 @@ export const Posts = ({ userID }) => {
     })
 
     const { id, place, posttext, rate } = formValue
-    const Infopost = { id, place, posttext, rate, pic, time }
+    const Infopost = { id, place, posttext, rate, pic, time, photo: profile?.photoURL, name: profile?.displayName }
 
     const handleSubmit = (e) => {
         e.preventDefault()

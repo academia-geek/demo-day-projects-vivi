@@ -1,58 +1,78 @@
-import { DatePicker, Form, Modal, Space } from 'antd';
+
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { InputStyled } from '../../styles/calendarStyle';
+import { Button, DatePicker, Form, Input, message, Modal, Space, Upload } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
+import {  editEventAsync } from '../../redux/actions/eventsAction';
+import { imgUpload } from '../../helpers/imgUpload';
+const { RangePicker } = DatePicker;
+const datadate = []
 
-export const Edit = () => {
+export const Edit = ({data}) => {
     const [isModalVisible, setIsModalVisible] = useState(true);
     const [value,setValue]=useState()
     const dispatch=useDispatch()
+    const[date, SetDate]=useState()
+    const[dates, SetDates]=useState()
+    const [loadings, setLoadings] = useState([]);
+    const [pic, setPic] = useState("")
+    const [fileList, setFileList] = useState([]);
     const { EventsList } = useSelector(store => store.eventos)
+    const { Dragger } = Upload;
+    const props = {
+      name: 'file',
+      multiple: true,
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    
+      onChange(info) {
+        imgUpload(info.file.originFileObj)
+              .then((resp) => {
+                  console.log(resp)
+                  setPic(resp)
+                              })
+              .catch((error) => { console.warn(error) });
+        const { status } = info.file;
+    
+        if (status !== 'uploading') {
+          console.log(info.file, info.fileList);
+          
+        }
+    
+        if (status === 'done') {
+          message.success(`${info.file.name} imagen cargada correctamente`);
+          setFileList(1)
+        } else if (status === 'error') {
+          message.error(`${info.file.name} no se cargo correctamente, intentalo de nuevo`);
+        }
+      },
+      };
+
     const handleCancel = () => {
         setIsModalVisible(false);
     };
-    const[date, SetDate]=useState()
-    const[dates, SetDates]=useState()
-   
-    const [loadings, setLoadings] = useState([]);
-    const [modal, setModal] = useState(false)
     
-    const onChange = (value, dateString) => {
-     SetDate(dateString)
-    const date =value.format('YYYY-MM-DD')
-         
-      SetDates(new Date(date).getTime())
-    };
-    
+    const dataEvent=EventsList.find(element=> element.id == data)
+      
     const onFinish = (values) => {
         console.log('Success:', values);
-        const id = localStorage.getItem("id")
-        // const formValue = {
-        //   iud:Math.random(),
-        //   id: id,
-        //   date:date,
-        //   dates:dates+86400000,
-        //   name: values.name,
-        //   organizer: values.Organizer,
-        //   place: values.Place,
-        //        }
-               
-            //    dispatch(addScheduleAsync(formValue))
+    const formValue = {
+              id: dataEvent.id,
+              name: values.Eventname,
+              description: values.Description,
+               location: values.Location,
+              img:pic,
+              date: dataEvent.date
+               }
+               SetDate(formValue)    
       };
       const onFinishFailed = (errorInfo) => {
         alert("La Información no se gurado correctamente")
       };
-    
-//     const handleInputChange = (target) => {
-//         console.log(target.target.defaultValue)
-//       setValue(target.target.defaultValue)  
-//        }
-//     console.log(data)
-//   const dataDetail=commentData.find((l)=>l.id==data)
-//   console.log(dataDetail)
-   
+  
      const handleOk = () => {
-    //   dispatch (editCommentAsync(formValue))
+   
+    dispatch(editEventAsync(date))
       setIsModalVisible(false);
      
   };
@@ -63,39 +83,50 @@ export const Edit = () => {
         
       
       <Modal style={{textAlign:"center"}} title="Editar Información del evento" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      <Form
-    name="basic"
-    labelCol={{ span: 8 }}
-    wrapperCol={{ span: 16 }}
-    initialValues={{ remember: true }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="on"
-    style={{marginLeft:"5vw"}}
+        
+  <Form
+      name="basic"
+      labelCol={{ span: 8 }}
+      wrapperCol={{ span: 16 }}
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+      style={{marginLeft:"5vw",marginTop:"-90px"}}
     >
+      <Form.Item
+      
+        name="Eventname"
+        defaultValue={dataEvent.name}
+      >
+        <InputStyled style={{ marginTop: "100px" }} placeholder={dataEvent.name} allowClear defaultValue={dataEvent.name}/>
+      </Form.Item>
+      <Form.Item
+        name="Description"
+        defaultValue={dataEvent.description}
+      >
+        <InputStyled allowClear defaultValue={dataEvent.description} />
+      </Form.Item>
+      <Form.Item
+        name="Location"
+        defaultValue={dataEvent.location}
+      
+      >
+        <InputStyled placeholder={dataEvent.location} allowClear defaultValue={dataEvent.location} />
+      </Form.Item>
+      <Dragger {...props} style={{width:"50vw",borderRadius:"10px"}}  accept="image/png, image/jpeg, image/jpg" percent defaultValue={dataEvent.img}>
+      <p className="ant-upload-drag-icon">
+      <InboxOutlined />
+    </p>
+    <p className="ant-upload-text">Clic o arrastre la imagen a esta área para cargarla.</p>
+    <p className="ant-upload-hint">
+     Soporte para carga única. Ingresa la imagen que represente el evento, esta se mostrara al usuario.
+    </p>
+  </Dragger>
+       <Button  style={{marginLeft:"20vw",borderRadius:"10px",background:" #ffbd29"}} htmlType="submit" >
+        Agregar </Button>
+   </Form>
   
-    <Form.Item
-        name="name"
-        rules={[{ required: true, message: 'Por Favor introduce el nombre del evento!' }]}
-      >
-        <InputStyled placeholder="Nombre de la actividad" allowClear  />
-      </Form.Item>
-      <Form.Item
-       name="Organizer"
-        rules={[{ required: true, message: 'Por Favor introduce quien organiza la actividad !' }]}
-      >
-        <InputStyled placeholder="Nombre del organizador" allowClear  />
-      </Form.Item>
-      <Form.Item
-       name="Place"
-        rules={[{ required: true, message: 'Por Favor introduce donde se realizará la actividad!' }]}
-      >
-        <InputStyled placeholder="Ubicacion de la actividad" allowClear  />
-      </Form.Item>
-  <Space direction="vertical" size={12}>
-    <DatePicker showTime onChange={onChange} style={{borderRadius:"10px",marginLeft:"15vw"}} />
-      </Space>
-      </Form>
       </Modal>
       
    

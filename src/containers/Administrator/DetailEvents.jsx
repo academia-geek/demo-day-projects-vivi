@@ -12,6 +12,7 @@ import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
 import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
 import { Edit } from '../../components/admin/EditModal';
 
+
 export const DetailEvents = () => {
   const [datos, setDatos] = useState("")
   const [modal, setModal] = useState(false)

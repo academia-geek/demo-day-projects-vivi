@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {  useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
 import { Dateg } from './Date'
@@ -9,6 +9,8 @@ import { Form, Modal, Stack } from 'react-bootstrap'
 import useForm from '../../hooks/useForm'
 import { Rating } from '@mui/material'
 import { auth } from '../../firebase/firebaseConfig'
+import { imgUpload } from '../../helpers/imgUpload'
+import { addPost } from '../../redux/actions/infoAction'
 
 export const CardActivite = ({k}) => {
   const [show, setShow] = useState(false);
@@ -17,6 +19,10 @@ export const CardActivite = ({k}) => {
   const [time, setTime] = useState("")
   const [btnState, setBtn] = useState(true);
   const { id } = useParams()
+  const dispatch=useDispatch()
+  let date = new Date()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
   const { Activities } = useSelector(store => store.schedule)
   const dataAct = Activities.filter(m => m.id == id)
   const a = k * 1000
@@ -34,8 +40,20 @@ export const CardActivite = ({k}) => {
     const handleShow = () => {
         setShow(true)
         setBtn(true)
-        // setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
+        setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
     };
+
+    const handleImage = (e) => {
+      const file = e.target.files[0]
+      console.log(file)
+      imgUpload(file)
+          .then((resp) => {
+              console.log(resp)
+              setPic(resp)
+              setBtn(false)
+          })
+          .catch((error) => { console.warn(error) });
+  }
     const [formValue, handleChange, reset] = useForm({
       idp: crypto.randomUUID(),
       place: '',
@@ -43,10 +61,10 @@ export const CardActivite = ({k}) => {
       rate: '',
   })
   const { idp, place, posttext, rate } = formValue
-    // const Infopost = { id, place, posttext, rate, pic, time }
+    const Infopost = { id, place, posttext, rate, pic, time }
   const handleSubmit = (e) => {
     e.preventDefault()
-    // dispatch(addPost(Infopost, userID))
+    dispatch(addPost(Infopost, userID))
     reset()
 } 
     return (
@@ -55,7 +73,7 @@ export const CardActivite = ({k}) => {
      {  
         dataFinal.map(m=>(
           <div style={{display:"flex", marginTop:"10px"}}>
-            <div style={{display:"flex",width:"55vw"}}>
+            <div style={{display:"flex",width:"56,6vw"}}>
            <Dateg k={m.date}/>
             <img src={image} style={{width:"5px",marginLeft:"5px"}}/>
           <div style={{display:"block", marginLeft:"10px"}}>
@@ -92,10 +110,10 @@ export const CardActivite = ({k}) => {
                                 />
                             </Stack>
                         </Form.Group>
-                        {/* <Form.Group controlId="formFileSm" className="mb-3">
+                        <Form.Group controlId="formFileSm" className="mb-3">
                             <Form.Label>Añadir foto</Form.Label>
                             <Form.Control type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" size="sm" onChange={handleImage} />
-                        </Form.Group> */}
+                        </Form.Group>
                         <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
                             Publicar
                         </Button>

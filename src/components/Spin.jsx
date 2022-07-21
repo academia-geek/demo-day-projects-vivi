@@ -1,14 +1,14 @@
-import { Spinner } from "react-bootstrap";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Spin = ({ height }) => {
   return (
     <div
       className="d-flex justify-content-center align-items-center"
-      style={{ height: height }}
+      style={{ height: height, gap: "1rem", backgroundColor: "rgb(160, 202, 223)" }}
     >
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+      <Spinner animation="grow" size="sm" variant="warning" />
+      <Spinner animation="grow" size="sm" variant="primary" />
+      <Spinner animation="grow" size="sm" variant="danger" />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Paper } from '@mui/material'
 import { DeleteOutlined,FormOutlined,CarryOutOutlined } from '@ant-design/icons';
 import { Button, Card, List, Tooltip } from 'antd'
@@ -10,8 +10,11 @@ import { deleteScheduleAsync, listScheduleAsync } from '../../redux/actions/sche
 import { Col } from "react-bootstrap";
 import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
 import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
+import { Edit } from '../../components/admin/EditModal';
 
 export const DetailEvents = () => {
+  const [datos, setDatos] = useState("")
+  const [modal, setModal] = useState(false)
     const dispatch=useDispatch()
     const { EventsList } = useSelector(store => store.eventos)
     const{Activities}=useSelector(store=>store.schedule)
@@ -27,8 +30,8 @@ export const DetailEvents = () => {
   
     }
     const handleEdit=(id)=>{
-      // setDatos(id)
-      // setModal(true)
+      setDatos(id)
+      setModal(true)
   }
 
   return (
@@ -89,6 +92,9 @@ export const DetailEvents = () => {
         </Col>
       <br/>
       <div/>
+      {
+                modal === true ? <Edit data={datos} /> : ''
+            }
       </div>
             <Footer/>
         </div>

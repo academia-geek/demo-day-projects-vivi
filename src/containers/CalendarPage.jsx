@@ -24,10 +24,10 @@ export const CalendarPage = () => {
           <CardEvent m={date} />
         </Col>
         <Col sm={3}>
-          <div style={{ height: "100%", background: " #565252", marginTop: "63px", marginLeft: "4.9vw" }}>
+          <div style={{ height: "calc(100% - 63px)", background: " #565252", marginTop: "63px", marginLeft: "4.9vw", width: "80.3%" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+            <SiderCalendar/>
           </div>
-          <SiderCalendar/>
         </Col>
       </div>
       <Footer />

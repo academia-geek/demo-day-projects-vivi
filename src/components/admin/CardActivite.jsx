@@ -43,13 +43,13 @@ export const CardActivite = ({ k }) => {
                             </div>
                         </div>
                         <div style={{ marginLeft: "30vw" }}>
-                            <Tooltip title="Editar la informacion de esta actividad" color={'#FFBD29'}>
+                            <Tooltip title={`Editar la informacion de ${m.name}`} color={'#FFBD29'}>
                                 <Button onClick={() => handleEdit(m.id)} style={{ border: "none" }}>
                                     <FormOutlined style={{ fontSize: '20px', color: '#565252', marginTop: "10px" }} />
                                 </Button>
                             </Tooltip>
                             <br />
-                            <Tooltip title="Eliminar la actividad" color={'#FFBD29'}>
+                            <Tooltip title={`Eliminar ${m.name}`} color={'#FFBD29'}>
                                 <Button onClick={() => handleDelete(m.id)} style={{ border: "none" }}>
                                     <DeleteOutlined style={{ fontSize: '20px', color: '#565252', marginTop: "10px" }} />
                                 </Button>

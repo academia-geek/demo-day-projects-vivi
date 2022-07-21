@@ -73,7 +73,7 @@ export const CardActivite = ({k}) => {
      {  
         dataFinal.map(m=>(
           <div style={{display:"flex", marginTop:"10px"}}>
-            <div style={{display:"flex",width:"56,6vw"}}>
+            <div style={{display:"flex",width:"56vw"}}>
            <Dateg k={m.date}/>
             <img src={image} style={{width:"5px",marginLeft:"5px"}}/>
           <div style={{display:"block", marginLeft:"10px"}}>

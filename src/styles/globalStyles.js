@@ -23,6 +23,8 @@ export const FOOTER = styled.footer`
   font-weight: 300;
   flex-shrink: 0;
   bottom: 0;
+  position: relative;
+  z-index: 99;
 `;
 export const CONTAINER = styled.div`
   display: flex;

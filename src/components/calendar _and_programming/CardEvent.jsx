@@ -4,7 +4,6 @@ import { Button, List } from "antd";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import image from "../../assets/prueba/image3.png";
 import {
   addToFavoriteAsync,
   getFavoriteAsync,
@@ -80,9 +79,9 @@ export const CardEvent = ({ m }) => {
                 </EventBottom>
               </DivEvent>
               <img
-                src={image}
-                alt="Cargando..."
-                style={{ width: "300px", marginLeft: "3px" }}
+                src={item.img}
+                alt="..cargando"
+                style={{ width: "200px", marginLeft: "50px" }}
               />
             </div>
           </List.Item>

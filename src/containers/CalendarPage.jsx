@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import {  Col } from "react-bootstrap";
 import { Calendar } from 'antd';
-import { TittleStyle } from '../styles/calendarStyle';
+import { CalendarStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { CardEvent } from '../components/calendar _and_programming/CardEvent';
+import { Footer } from '../components/Footer'
 import moment from 'moment'
 
 export const CalendarPage = () => {
@@ -18,17 +19,18 @@ export const CalendarPage = () => {
       <div className="d-flex">
         <Col sm={9}>
         <div className="site-calendar-demo-card" >
-            <Calendar fullscreen={false} onSelect={onSelect}/>
+            <CalendarStyle fullscreen={false} onSelect={onSelect}/>
           </div>
           <CardEvent m={date} />
         </Col>
         <Col sm={3}>
-          <div style={{ height: "100vw", background: " #565252", marginTop: "-10px", width: '20vw', marginLeft: "4.9vw" }}>
+          <div style={{ height: "calc(100% - 63px)", background: " #565252", marginTop: "63px", marginLeft: "4.9vw", width: "80.3%" }}>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+            <SiderCalendar/>
           </div>
-          <SiderCalendar/>
         </Col>
       </div>
+      <Footer />
     </div>
   )
 }

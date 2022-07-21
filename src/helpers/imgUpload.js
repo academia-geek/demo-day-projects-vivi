@@ -1,4 +1,5 @@
 export const imgUpload = async (file) => {
+    console.log(file)
     const formData = new FormData();
     formData.append("upload_preset", "ViVi_app");
     formData.append("file", file);

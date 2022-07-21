@@ -70,6 +70,7 @@ ul {
   width: 60vw;
   text-align: start;
   font-weight: bold;
+  
 }
 .site-calendar-demo-card {
   width: 50vw;
@@ -84,5 +85,16 @@ ul {
   text-align: center;
   position: fixed;
   color: white;
+  font-family: "Merriweather", serif;
+}
+.titlleEvents {
+  color: #000;
+  -webkit-text-stroke: 0.5px black;
+  font-size: 2,5rem;
+  font-weight: bold;
+  padding-top: 100px;
+  width: 80vw;
+  text-align: center;
+  margin-left:3,5vw;
   font-family: "Merriweather", serif;
 }

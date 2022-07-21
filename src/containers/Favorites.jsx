@@ -68,6 +68,11 @@ export const Favorites = () => {
                         </Link>
                       </EventBottom>
                     </DivEvent>
+                    <img
+                      src={item?.img}
+                      alt={item.name}
+                      style={{ width: "300px", marginLeft: "3px" }}
+                    />
                   </div>
                 </List.Item>
               )}

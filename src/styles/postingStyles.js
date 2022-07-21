@@ -4,17 +4,7 @@ export const DivPosting = styled.div`
   margin: 20px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   width: fill-available;
-  padding: 20px 0;
   position: relative;
-
-  .cross {
-    width: 20px;
-    border-radius: 100%;
-    position: absolute;
-    right: 5%;
-    opacity: 0;
-    transition: 0.3s;
-  }
 
   &:hover {
     .cross {
@@ -24,7 +14,6 @@ export const DivPosting = styled.div`
   }
 `;
 
-//display: flex;
 export const Userbar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -34,16 +23,32 @@ export const Userbar = styled.div`
   padding: 20px 40px;
 
   & > div {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    align-items: center;
+
+    & > .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     span {
       font-size: 18px;
     }
-    h5 {
+    span.time {
       font-size: 14px;
       color: lightgray;
     }
+  }
+
+  .cross {
+    width: 20px;
+    border-radius: 100%;
+    position: absolute;
+    right: 5%;
+    opacity: 0;
+    transition: 0.3s;
   }
 `;
 

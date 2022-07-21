@@ -51,20 +51,20 @@ export const DetailEvents = () => {
             <Link to={`/itinerarydetails/${item.id}`}>
             <Tooltip title="Editar el itinerario del evento" color={'#FFBD29'}>
               <Button style={{border:"none"}}>
-            <CarryOutOutlined style={{ fontSize: '20px', color: '#FFBD29' }} />
+            <CarryOutOutlined style={{ fontSize: '20px', color: '#565252' }} />
             </Button>
             </Tooltip>
             </Link>
             <br/>
             <Tooltip title="Editar la informacion principal del evento" color={'#FFBD29'}>
             <Button onClick={()=>handleEdit(item.id)} style={{border:"none"}}>
-            <FormOutlined style={{ fontSize: '20px', color: '#FFBD29' ,marginTop:"10px"}}/>
+            <FormOutlined style={{ fontSize: '20px', color: '#565252' ,marginTop:"10px"}}/>
             </Button>
               </Tooltip>
               <br/>  
             <Tooltip title="Eliminar todo el evento" color={'#FFBD29'}>
             <Button onClick={()=>handleDelete(item.id)} style={{border:"none"}}>
-            <DeleteOutlined style={{ fontSize: '20px', color: '#FFBD29',marginTop:"10px" }}/>
+            <DeleteOutlined style={{ fontSize: '20px', color: '#565252',marginTop:"10px" }}/>
             </Button>
             </Tooltip>
             </div>

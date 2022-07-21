@@ -1,8 +1,8 @@
 import { MapDiv } from "../styles/mapStyles";
 import { MapContainer } from "react-leaflet/MapContainer";
 import { Marker, Popup, TileLayer } from "react-leaflet";
-import { useMapEvents, useMapEvent } from "react-leaflet/hooks";
-import { useEffect, useRef, useState } from "react";
+import { useMapEvents } from "react-leaflet/hooks";
+import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate, useParams } from "react-router-dom";
@@ -29,18 +29,16 @@ function Location({ location }) {
     click() {
       if (index <= coordinatesMapped.length - 1) {
         setIndex(index + 1);
-        map.flyTo(coordinatesMapped[index], 10);
+        map.flyTo(coordinatesMapped[index], 8);
       } else {
         setIndex(0);
-        map.flyTo(location, 10);
+        map.flyTo(location, 8);
       }
     },
+    locationfound(e) {
+      setPosition(e.latlng);
+    },
   });
-
-  console.log(index);
-  console.log(coordinatesMapped.length);
-
-  console.log(position);
 
   const getMarkers = () => {
     return (
@@ -114,7 +112,6 @@ function Location({ location }) {
 
 export const Map = () => {
   const navigate = useNavigate();
-  const animateRef = useRef(true);
 
   const { id } = useParams();
 

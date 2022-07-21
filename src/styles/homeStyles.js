@@ -100,6 +100,10 @@ export const AsideStyled = styled.aside`
   &::-webkit-scrollbar {
     width: 0px;
   }
+
+  & > div.calendar {
+    cursor: pointer;
+  }
 `;
 
 export const ButtonAside = styled.button`
@@ -169,14 +173,15 @@ export const CalendarStyled = styled(Calendar)`
   margin-bottom: 20px;
   border-radius: 20px;
   padding: 10px;
+  cursor: pointer;
+  user-select: none;
 
-  .react-calendar__month-view__weekdays > div > abbr[title] {
-    cursor: default;
-    text-decoration: none;
+  .react-calendar__navigation button:enabled:hover {
+    background-color: transparent;
   }
 
-  .react-calendar__month-view__days > button {
-    cursor: default !important;
+  .react-calendar__month-view__weekdays > div > abbr[title] {
+    text-decoration: none;
   }
 
   .react-calendar__tile--active,

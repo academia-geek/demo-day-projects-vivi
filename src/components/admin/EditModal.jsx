@@ -39,6 +39,9 @@ export const Edit = () => {
                
             //    dispatch(addScheduleAsync(formValue))
       };
+      const onFinishFailed = (errorInfo) => {
+        alert("La Información no se gurado correctamente")
+      };
     
 //     const handleInputChange = (target) => {
 //         console.log(target.target.defaultValue)
@@ -66,8 +69,8 @@ export const Edit = () => {
     wrapperCol={{ span: 16 }}
     initialValues={{ remember: true }}
     onFinish={onFinish}
-    // onFinishFailed={onFinishFailed}
-    autoComplete="off"
+    onFinishFailed={onFinishFailed}
+    autoComplete="on"
     style={{marginLeft:"5vw"}}
     >
   

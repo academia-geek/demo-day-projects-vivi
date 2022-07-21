@@ -9,6 +9,7 @@ import { EventSchedule } from "../containers/Administrator/EventSchedule";
 import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
+import { DetailItinerary } from "../containers/Administrator/DetailItinerary";
 
 export const Dashboard = () => {
   return (
@@ -24,6 +25,7 @@ export const Dashboard = () => {
         <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/programming/:id" element={<Programming/>} />
         <Route path="/detail" element={<DetailEvents/>} />
+        <Route path="/detailItinerary" element={<DetailItinerary/>} />
         </Routes>
     </>
   );

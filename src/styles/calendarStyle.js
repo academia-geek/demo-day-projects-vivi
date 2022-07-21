@@ -98,4 +98,5 @@ export const FontStyled1=styled.div`
 background-image: url(${image1});
 background-repeat: no-repeat;
 background-size: cover;
+padding-top:100px
 `

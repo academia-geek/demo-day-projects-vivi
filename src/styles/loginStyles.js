@@ -26,7 +26,7 @@ export const DivForm = styled.div`
   }
 
   & > h2 {
-    color: #fff;
+    color: var(--primary-color);
     -webkit-text-stroke: 0.5px #000;
     text-shadow: 1px 1px 1px #000;
     font-size: 3rem;
@@ -50,7 +50,7 @@ export const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--primary-color);
   border: 1px solid #000;
   border-radius: 20px;
   padding: 30px;
@@ -137,7 +137,7 @@ export const FormOption = styled.div`
       background-color: #3a559f;
 
       &:hover {
-        background-color: #fff;
+        background-color: var(--primary-color);
         color: #3a559f;
       }
     }

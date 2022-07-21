@@ -45,7 +45,7 @@ export const DivEvent = styled.div`
     color: #00a8ff;
 
     &:hover {
-      color: #022fd0;
+      color: var(--neutral-color);
     }
   }
 `;
@@ -97,12 +97,12 @@ export const CalendarStyle = styled(Calendar)`
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
     z-index: 1;
     color: rgba(255, 189, 41, 1);
-    background: #fff;
+    background: var(--primary-color);
     border-color: #faad14;
   }
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-    color: #565252;
-    border-color: #565252;
+    color: var(--background-color);
+    border-color: var(--background-color);
   }
   .ant-radio-button-wrapper:hover {
     position: relative;
@@ -111,7 +111,7 @@ export const CalendarStyle = styled(Calendar)`
 `;
 export const Siderbar = styled.div`
   height: 200vw;
-  background: #565252;
+  background: var(--background-color);
   margin-top: 50px;
   width: 20vw;
   margin-left: 4.9vw;

@@ -49,7 +49,7 @@ export const SECTION1 = styled.div`
     display: flex;
     align-items: center;
     font-size: 36px;
-    color: #fff;
+    color: var(--primary-color);
     position: relative;
     margin-bottom: 10px;
   }
@@ -64,42 +64,44 @@ export const Chatlog1 = styled.div`
 export const Chatlog2 = styled.div`
   border-radius: 10px;
   padding: 8px 12px;
-  background-color: #ffbd29;
+  background-color: var(--secondary-color);
   font-size: 14px;
   margin-bottom: 0.5rem;
   max-width: 232px;
 `;
 export const UserData = styled.div`
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   border-radius: 13px;
   width: 266px;
   min-height: 2rem;
-  display: flex; flex-wrap: wrap;
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export const UserImg = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 100%;
-`
+`;
 export const EditIcon = styled.img`
   position: absolute;
-  transform: translate(119px,103px);
+  transform: translate(119px, 103px);
   width: 2rem;
   border-radius: 8px;
   cursor: pointer;
-`
+`;
 export const CONT = styled.div`
-    display: flex; flex-wrap: wrap;
-    gap: 8px;
-`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
 export const TAG = styled.section`
-    display: flex;
-    align-items: center;
-    background-color: #D9D9D9;
-    padding: 0 8px;
-    border-radius: 10px;
-    h6{
-      margin: 0;
-    }
-`
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  padding: 0 8px;
+  border-radius: 10px;
+  h6 {
+    margin: 0;
+  }
+`;

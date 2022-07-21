@@ -45,19 +45,19 @@ export const InputLocation = styled.input`
 export const ButtonLocation = styled.button`
   width: 200px;
   text-align: center;
-  background-color: #022fd0;
+  background-color: var(--neutral-color);
   border-radius: 22px;
   border: 1px solid transparent;
   outline: none;
   padding: 10px 5px;
   font-weight: 700;
-  color: #fff;
+  color: var(--primary-color);
   transition: 0.3s;
 
   &:hover {
-    background-color: #fff;
-    border-color: #022fd0;
-    color: #022fd0;
+    background-color: var(--primary-color);
+    border-color: var(--neutral-color);
+    color: var(--neutral-color);
   }
 `;
 
@@ -74,7 +74,7 @@ export const MapDiv = styled.div`
     position: absolute;
     cursor: pointer;
     transition: 0.3s;
-    background-color: #fff;
+    background-color: var(--primary-color);
 
     & > path {
       fill: #000;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {  useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
@@ -8,15 +8,23 @@ import { Button } from 'antd'
 import { Form, Modal, Stack } from 'react-bootstrap'
 import useForm from '../../hooks/useForm'
 import { Rating } from '@mui/material'
+import { auth } from '../../firebase/firebaseConfig'
 
 export const CardActivite = ({k}) => {
   const [show, setShow] = useState(false);
+  const [profile, setProfile] = useState(null);
     const { id } = useParams()
     const{Activities}=useSelector(store=>store.schedule) 
     const dataAct=Activities.filter(m=>m.id==id)
     const a=k*1000
     console.log(a)
     const dataFinal=dataAct.filter(m=>m.dates ==a)
+    useEffect(() => {
+      const user = auth.currentUser;
+      if (user) {
+          setProfile(user);
+      }
+  }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true)
@@ -29,6 +37,8 @@ export const CardActivite = ({k}) => {
       posttext: '',
       rate: '',
   })
+  const {  place, posttext, rate } = formValue
+    // const Infopost = { id, place, posttext, rate, pic, time }
   const handleSubmit = (e) => {
     e.preventDefault()
     // dispatch(addPost(Infopost, userID))

@@ -6,18 +6,20 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEventAsync, listEventAsync } from '../../redux/actions/eventsAction';
 import { Footer } from '../../components/Footer';
-import { deleteScheduleAsync } from '../../redux/actions/scheduleAction';
+import { deleteScheduleAsync, listScheduleAsync } from '../../redux/actions/scheduleAction';
 export const DetailEvents = () => {
     const dispatch=useDispatch()
     const { EventsList } = useSelector(store => store.eventos)
+    const{Activities}=useSelector(store=>store.schedule)
     useEffect(() => {
         dispatch(listEventAsync())
+        dispatch(listScheduleAsync())
       }, [dispatch])
       const handleDelete = (id)=>{
         alert('vamos a eliminar el evento')
-        dispatch(deleteEventAsync(id))
-        
-        dispatch(deleteScheduleAsync(id))
+        const filter= Activities.filter(m=>m.id == id)
+        filter.forEach(element => dispatch(deleteScheduleAsync(element.id)))
+       dispatch(deleteEventAsync(id))
   
     }
     const handleEdit=(id)=>{
@@ -47,20 +49,20 @@ export const DetailEvents = () => {
               <img src={item.img} alt="..cargando" style={{ width: "200px", marginLeft: "50px" ,height:'200px'}} />
             <div style={{marginTop:"50px",height:'100px',marginLeft:"5vw"}}>
             <Link to={`/itinerarydetails/${item.id}`}>
-            <Tooltip title="Mostrar detalles" color={'#FFBD29'}>
+            <Tooltip title="Editar el itinerario del evento" color={'#FFBD29'}>
               <Button style={{border:"none"}}>
             <CarryOutOutlined style={{ fontSize: '20px', color: '#FFBD29' }} />
             </Button>
             </Tooltip>
             </Link>
             <br/>
-            <Tooltip title="Editar" color={'#FFBD29'}>
+            <Tooltip title="Editar la informacion principal del evento" color={'#FFBD29'}>
             <Button onClick={()=>handleEdit(item.id)} style={{border:"none"}}>
             <FormOutlined style={{ fontSize: '20px', color: '#FFBD29' ,marginTop:"10px"}}/>
             </Button>
               </Tooltip>
               <br/>  
-            <Tooltip title="Borrar" color={'#FFBD29'}>
+            <Tooltip title="Eliminar todo el evento" color={'#FFBD29'}>
             <Button onClick={()=>handleDelete(item.id)} style={{border:"none"}}>
             <DeleteOutlined style={{ fontSize: '20px', color: '#FFBD29',marginTop:"10px" }}/>
             </Button>

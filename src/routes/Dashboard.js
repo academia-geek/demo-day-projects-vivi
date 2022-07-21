@@ -2,9 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { AddLocation } from "../components/AddLocation";
 import { Map } from "../components/Map";
 import { NavUser } from "../components/NavUser";
-import { AddEvent } from "../containers/AddEvent";
+import { AddEvent } from "../containers/Administrator/AddEvent";
 import { CalendarPage } from "../containers/CalendarPage";
-import { EventSchedule } from "../containers/EventSchedule";
+import { DetailEvents } from "../containers/Administrator/DetailEvents";
+import { EventSchedule } from "../containers/Administrator/EventSchedule";
 import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
@@ -22,6 +23,7 @@ export const Dashboard = () => {
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/programming/:id" element={<Programming/>} />
+        <Route path="/detail" element={<DetailEvents/>} />
         </Routes>
     </>
   );

@@ -1,8 +1,8 @@
 import { Paper } from '@mui/material'
 import React from 'react'
-import { EventForm } from '../components/calendar _and_programming/EventForm'
-import { Footer } from '../components/Footer'
-import { FontStyled } from '../styles/calendarStyle'
+import { EventForm } from '../../components/calendar _and_programming/EventForm'
+import { Footer } from '../../components/Footer'
+import { FontStyled } from '../../styles/calendarStyle'
 
 
 

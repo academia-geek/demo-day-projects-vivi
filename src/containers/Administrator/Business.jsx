@@ -1,9 +1,9 @@
 import { Button, Card } from 'antd'
 import React from 'react'
-import { CardsBusiness } from '../components/CardsBusiness'
-import { Footer } from '../components/Footer'
-import { NavbarLanding } from '../components/Navbar'
-import {  Div } from '../styles/businessStyles'
+import { CardsBusiness } from '../../components/CardsBusiness'
+import { Footer } from '../../components/Footer'
+import { NavbarLanding } from '../../components/Navbar'
+import {  Div } from '../../styles/businessStyles'
 
 
 export const Business = () => {

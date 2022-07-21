@@ -7,42 +7,103 @@ import "leaflet/dist/leaflet.css";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { getWeather } from "../helpers/getWeather";
+import { Icon } from "leaflet";
+import marker from "leaflet/dist/images/marker-icon.png";
+
+const coordinates = [
+  [6.29, -75.54],
+  [1.21, -77.28],
+  [7.88, -72.51],
+];
 
 function Location({ location }) {
   const [position, setPosition] = useState(null);
+  const coordinatesMapped = coordinates.map((coordinate) => {
+    return coordinate;
+  });
+
+  console.log(coordinatesMapped);
+
   const map = useMapEvents({
-    doubleClick() {
-      map.locate();
+    click() {
+      map.flyTo(location, 10);
     },
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom(), {
-        animate: false,
-      });
+      map.flyTo(location, 10);
     },
   });
 
+  console.log(position);
+
+  const getMarkers = () => {
+    return (
+      <>
+        {coordinates.map((coordinate, index) => (
+          <Marker
+            key={index}
+            position={coordinate}
+            icon={
+              new Icon({
+                iconUrl: marker,
+                className: "marker-icon",
+                iconSize: [10, 18],
+                iconAnchor: [2, 11],
+                popupAnchor: [1, -34],
+              })
+            }
+          >
+            <Popup>
+              <span>Nombre del evento</span>
+            </Popup>
+          </Marker>
+        ))}
+      </>
+    );
+  };
+
   useEffect(() => {
     if (location) {
+      map.locate();
       map.flyTo(location, 10);
+      setPosition(location);
     }
   }, [location]);
 
   return position === null ? null : (
-    <Marker position={position}>
-      <Popup>Tú estás aquí</Popup>
-    </Marker>
+    <>
+      {getMarkers()}
+      <Marker
+        position={position}
+        icon={
+          new Icon({
+            iconUrl: marker,
+            iconSize: [10, 18],
+            iconAnchor: [2, 11],
+            popupAnchor: [1, -34],
+          })
+        }
+      >
+        <Popup>
+          <span>Tú estás aquí</span>
+        </Popup>
+      </Marker>
+      <Marker
+        position={location}
+        icon={
+          new Icon({
+            iconUrl: marker,
+            className: "marker-actually",
+            iconSize: [10, 18],
+            iconAnchor: [2, 11],
+            popupAnchor: [1, -34],
+          })
+        }
+      >
+        <Popup>Nombre del evento linkeado</Popup>
+      </Marker>
+    </>
   );
-}
-
-function SetViewOnClick({ animateRef }) {
-  const map = useMapEvent("click", (e) => {
-    map.setView(e.latlng, map.getZoom(), {
-      animate: animateRef.current || false,
-    });
-  });
-
-  return null;
 }
 
 export const Map = () => {
@@ -106,7 +167,6 @@ export const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Location location={location} />
-        <SetViewOnClick animateRef={animateRef} />
       </MapContainer>
     </MapDiv>
   );

@@ -94,4 +94,14 @@ export const MapDiv = styled.div`
   .leaflet-left {
     left: 90%;
   }
+
+  .marker-icon {
+    filter: sepia(100%) saturate(600%) hue-rotate(357deg) brightness(95%)
+      contrast(124%);
+  }
+
+  .marker-actually {
+    filter: sepia(100%) saturate(300%) hue-rotate(80deg) brightness(95%)
+      contrast(124%);
+  }
 `;

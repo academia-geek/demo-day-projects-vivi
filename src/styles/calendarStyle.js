@@ -83,6 +83,7 @@ export const SiderStyle = styled.div`
     display: none;
   }
 `;
+
 export const TittleStyle = styled.h4`
   color: white;
   font-family: "Merriweather", serif;
@@ -90,7 +91,10 @@ export const TittleStyle = styled.h4`
   text-align: center;
   margin-top: 19px;
 `;
+
 export const CalendarStyled = styled(Calendar)`
+  user-select: none;
+
   .ant-radio-button-wrapper-checked:not([class*=" ant-radio-button-wrapper-disabled"]).ant-radio-button-wrapper:first-child {
     border-right-color: var(--secondary-color);
     border-color: var(--secondary-color);

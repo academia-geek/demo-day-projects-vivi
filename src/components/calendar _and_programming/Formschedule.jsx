@@ -24,6 +24,7 @@ export const FormSchedule = () =>{
       console.log('Success:', values);
       const id = localStorage.getItem("id")
       const formValue = {
+        iud:Math.random(),
         id: id,
         date:date,
         dates:dates+86400000,

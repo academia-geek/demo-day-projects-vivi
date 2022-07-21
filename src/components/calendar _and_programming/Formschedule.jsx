@@ -2,22 +2,23 @@ import { Button, DatePicker, Form, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addScheduleAsync } from '../../redux/actions/scheduleAction';
+import { ModalConfirm } from './Modal';
 const { RangePicker } = DatePicker;
 
 export const FormSchedule = () =>{ 
   const[date, SetDate]=useState()
   const[dates, SetDates]=useState()
+ 
   const [loadings, setLoadings] = useState([]);
+  const [modal, setModal] = useState(false)
   const dispatch=useDispatch()
   const onChange = (value, dateString) => {
    SetDate(dateString)
-   console.log(value)
-    console.log('dia y hora del evento ', dateString);
-    const date =value.format('YYYY-MM-DD')
+  const date =value.format('YYYY-MM-DD')
        
     SetDates(new Date(date).getTime())
   };
-  // const h =dates+86400000
+  
   const onFinish = (values) => {
       console.log('Success:', values);
       const id = localStorage.getItem("id")
@@ -29,6 +30,7 @@ export const FormSchedule = () =>{
         organizer: values.Organizer,
         place: values.Place,
              }
+             
              dispatch(addScheduleAsync(formValue))
     };
   
@@ -46,7 +48,7 @@ export const FormSchedule = () =>{
         setLoadings((prevLoadings) => {
           const newLoadings = [...prevLoadings];
           newLoadings[index] = false;
-          window.location.href = "./Schedule"
+          setModal(true)
           return newLoadings;
         });
       }, 3000);
@@ -84,12 +86,13 @@ export const FormSchedule = () =>{
     <DatePicker showTime onChange={onChange}  />
       </Space>
       <div>
-      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)}>
+      <Button type="primary" htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)}  >
           Agregar 
         </Button>
-        <Button type="primary"  href='/' >
-          Finalizar
-        </Button>
+        {
+                modal === true ? <ModalConfirm  /> : ''
+            }
+
         </div>
    </Form>
 );

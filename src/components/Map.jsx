@@ -18,6 +18,7 @@ const coordinates = [
 
 function Location({ location }) {
   const [position, setPosition] = useState(null);
+  const [index, setIndex] = useState(0);
   const coordinatesMapped = coordinates.map((coordinate) => {
     return coordinate;
   });
@@ -26,13 +27,18 @@ function Location({ location }) {
 
   const map = useMapEvents({
     click() {
-      map.flyTo(location, 10);
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      map.flyTo(location, 10);
+      if (index <= coordinatesMapped.length - 1) {
+        setIndex(index + 1);
+        map.flyTo(coordinatesMapped[index], 10);
+      } else {
+        setIndex(0);
+        map.flyTo(location, 10);
+      }
     },
   });
+
+  console.log(index);
+  console.log(coordinatesMapped.length);
 
   console.log(position);
 

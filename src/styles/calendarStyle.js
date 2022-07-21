@@ -2,6 +2,7 @@ import { Calendar, Input } from "antd";
 import Sider from "antd/lib/layout/Sider";
 import styled from "styled-components";
 import image from "../assets/prueba/image5.jpg"; 
+import image1 from "../assets/prueba/image7.jpg"; 
 
 export const CardStyledCalendar = styled.div`
 justify-content: center;
@@ -92,4 +93,9 @@ margin-left:7vw
 `
 export const FontStyled=styled.div`
 background-image: url(${image});
+`
+export const FontStyled1=styled.div`
+background-image: url(${image1});
+background-repeat: no-repeat;
+background-size: cover;
 `

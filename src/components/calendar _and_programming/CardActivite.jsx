@@ -5,7 +5,9 @@ import image from '../../assets/prueba/Line.png'
 import { Dateg } from './Date'
 import {EnvironmentOutlined} from '@ant-design/icons';
 import { Button } from 'antd'
-import { Modal } from 'react-bootstrap'
+import { Form, Modal, Stack } from 'react-bootstrap'
+import useForm from '../../hooks/useForm'
+import { Rating } from '@mui/material'
 
 export const CardActivite = ({k}) => {
   const [show, setShow] = useState(false);
@@ -21,8 +23,17 @@ export const CardActivite = ({k}) => {
         // setBtn(true)
         // setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
     };
-
-    
+    const [formValue, handleChange, reset] = useForm({
+      id: crypto.randomUUID(),
+      place: '',
+      posttext: '',
+      rate: '',
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // dispatch(addPost(Infopost, userID))
+    reset()
+} 
     return (
     < div >
    
@@ -47,7 +58,7 @@ export const CardActivite = ({k}) => {
                     <Modal.Title>Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {/* <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Lugar</Form.Label>
                             <Form.Control name="place" type="text" value={formValue.place} onChange={handleChange} />
@@ -66,14 +77,14 @@ export const CardActivite = ({k}) => {
                                 />
                             </Stack>
                         </Form.Group>
-                        <Form.Group controlId="formFileSm" className="mb-3">
+                        {/* <Form.Group controlId="formFileSm" className="mb-3">
                             <Form.Label>Añadir foto</Form.Label>
                             <Form.Control type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" size="sm" onChange={handleImage} />
-                        </Form.Group>
-                        <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
+                        </Form.Group> */}
+                        {/* <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
                             Publicar
-                        </Button>
-                    </Form> */}
+                        </Button> */}
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
 

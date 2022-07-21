@@ -13,31 +13,36 @@ import { auth } from '../../firebase/firebaseConfig'
 export const CardActivite = ({k}) => {
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(null);
-    const { id } = useParams()
-    const{Activities}=useSelector(store=>store.schedule) 
-    const dataAct=Activities.filter(m=>m.id==id)
-    const a=k*1000
-    console.log(a)
-    const dataFinal=dataAct.filter(m=>m.dates ==a)
-    useEffect(() => {
-      const user = auth.currentUser;
-      if (user) {
-          setProfile(user);
-      }
+  const [pic, setPic] = useState("")
+  const [time, setTime] = useState("")
+  const [btnState, setBtn] = useState(true);
+  const { id } = useParams()
+  const { Activities } = useSelector(store => store.schedule)
+  const dataAct = Activities.filter(m => m.id == id)
+  const a = k * 1000
+  console.log(a)
+  const dataFinal = dataAct.filter(m => m.dates == a)
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      setProfile(user);
+    }
   }, []);
+  const userID=profile?.uid
+  console.log(userID)
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true)
-        // setBtn(true)
+        setBtn(true)
         // setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
     };
     const [formValue, handleChange, reset] = useForm({
-      id: crypto.randomUUID(),
+      idp: crypto.randomUUID(),
       place: '',
       posttext: '',
       rate: '',
   })
-  const {  place, posttext, rate } = formValue
+  const { idp, place, posttext, rate } = formValue
     // const Infopost = { id, place, posttext, rate, pic, time }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -91,9 +96,9 @@ export const CardActivite = ({k}) => {
                             <Form.Label>Añadir foto</Form.Label>
                             <Form.Control type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" size="sm" onChange={handleImage} />
                         </Form.Group> */}
-                        {/* <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
+                        <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
                             Publicar
-                        </Button> */}
+                        </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

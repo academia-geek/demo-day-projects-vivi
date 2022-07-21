@@ -15,11 +15,6 @@ export const Div = styled.div`
   margin-right:auto
    
   }
-  
-
- 
- 
- 
- 
+   
   }
 `;

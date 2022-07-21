@@ -38,8 +38,10 @@ export const Posts = ({ userID }) => {
 
     const handleImage = (e) => {
         const file = e.target.files[0]
+        console.log(file)
         imgUpload(file)
             .then((resp) => {
+                console.log(resp)
                 setPic(resp)
                 setBtn(false)
             })

@@ -43,11 +43,11 @@ export const CardActivite = ({k}) => {
           </div>
           <Button onClick={handleShow}>Comentar</Button>
           <Modal show={show} onHide={handleClose}>
-                {/* <Modal.Header closeButton>
-                    <Modal.Title>Nuevo post</Modal.Title>
+                <Modal.Header closeButton>
+                    <Modal.Title>Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={handleSubmit}>
+                    {/* <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Lugar</Form.Label>
                             <Form.Control name="place" type="text" value={formValue.place} onChange={handleChange} />
@@ -73,11 +73,11 @@ export const CardActivite = ({k}) => {
                         <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
                             Publicar
                         </Button>
-                    </Form>
+                    </Form> */}
                 </Modal.Body>
                 <Modal.Footer>
 
-                </Modal.Footer> */}
+                </Modal.Footer>
             </Modal>
           </div> 
         )) 

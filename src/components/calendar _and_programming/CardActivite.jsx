@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {  useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
 import { Dateg } from './Date'
 import {EnvironmentOutlined} from '@ant-design/icons';
+import { Button } from 'antd'
+import { Modal } from 'react-bootstrap'
 
 export const CardActivite = ({k}) => {
+  const [show, setShow] = useState(false);
     const { id } = useParams()
     const{Activities}=useSelector(store=>store.schedule) 
     const dataAct=Activities.filter(m=>m.id==id)
     const a=k*1000
     console.log(a)
     const dataFinal=dataAct.filter(m=>m.dates ==a)
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(true)
+        // setBtn(true)
+        // setTime(date.toLocaleDateString() + " " + hours + ":" + minutes)
+    };
+
+    
     return (
     < div >
    
@@ -27,7 +38,45 @@ export const CardActivite = ({k}) => {
             <EnvironmentOutlined />
             <h6 style={{marginLeft:"7px"}}>{m.place}</h6>
             </div>
+            <Button onClick={handleShow}>Nuevo post</Button>
           </div>
+          <Modal show={show} onHide={handleClose}>
+                {/* <Modal.Header closeButton>
+                    <Modal.Title>Nuevo post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Lugar</Form.Label>
+                            <Form.Control name="place" type="text" value={formValue.place} onChange={handleChange} />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Comparte tu experiencia:</Form.Label>
+                            <Form.Control name="posttext" as="textarea" rows={3} value={formValue.posttext} onChange={handleChange} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 text-center">
+                            <Form.Label>¿Cómo calificarías el lugar?</Form.Label>
+                            <Stack spacing={1} style={{ alignItems: "center" }}>
+                                <Rating
+                                    name="rate"
+                                    value={formValue.rate}
+                                    onChange={handleChange}
+                                />
+                            </Stack>
+                        </Form.Group>
+                        <Form.Group controlId="formFileSm" className="mb-3">
+                            <Form.Label>Añadir foto</Form.Label>
+                            <Form.Control type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" size="sm" onChange={handleImage} />
+                        </Form.Group>
+                        <Button disabled={btnState} variant="success" type="submit" onClick={handleClose} style={{ display: "flex", margin: "0 auto" }}>
+                            Publicar
+                        </Button>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+
+                </Modal.Footer> */}
+            </Modal>
           </div> 
         )) 
      }

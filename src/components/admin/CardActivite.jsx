@@ -30,16 +30,16 @@ export const CardActivite = ({ k }) => {
             {
                 dataFinal.map(m => (
                     <div style={{ display: "flex", marginTop: "10px" }}>
-                        <div style={{ display: "flex",width:"30vw"}}>
-                        <Dateg k={m.date} />
-                        <img src={image} style={{ width: "5px", marginLeft: "5px" }} />
-                        <div style={{ display: "block", marginLeft: "10px" }}>
-                            <h3>{m.name}</h3>
-                            <h6 style={{ color: "rgba(211, 205, 208, 0.8)", marginTop: "-10px", fontSize: "13px" }}>Organiza: {m.organizer}</h6>
-                            <div style={{ display: "flex", marginTop: "10px" }}>
-                                <EnvironmentOutlined />
-                                <h6 style={{ marginLeft: "7px" }}>{m.place}</h6>
-                            </div>
+                        <div style={{ display: "flex", width: "30vw" }}>
+                            <Dateg k={m.date} />
+                            <img src={image} style={{ width: "5px", marginLeft: "5px" }} />
+                            <div style={{ display: "block", marginLeft: "10px" }}>
+                                <h3>{m.name}</h3>
+                                <h6 style={{ color: "rgba(211, 205, 208, 0.8)", marginTop: "-10px", fontSize: "13px" }}>Organiza: {m.organizer}</h6>
+                                <div style={{ display: "flex", marginTop: "10px" }}>
+                                    <EnvironmentOutlined />
+                                    <h6 style={{ marginLeft: "7px" }}>{m.place}</h6>
+                                </div>
                             </div>
                         </div>
                         <div style={{ marginLeft: "30vw" }}>

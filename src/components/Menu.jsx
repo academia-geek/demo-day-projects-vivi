@@ -48,7 +48,7 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
         <ListItem disablePadding>
           <ListItemButton className="gap-2">
             <Heart className="icon" />
-            <ListItemText className="text-white" as={Link} to="/" primary={"Tus eventos guardados"} />
+            <ListItemText className="text-white" as={Link} to="/favorites" primary={"Tus eventos guardados"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>

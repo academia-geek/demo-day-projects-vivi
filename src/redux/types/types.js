@@ -25,3 +25,9 @@ export const typesSchedule = {
   delete_Schedule: '[Schedule]delete',
   edit_Schedule : '[Schedule]edit',
 }
+
+export const typesFavorite = {
+  ADD_TO_FAVORITE: "ADD FAVORITE EVENT",
+  REMOVE_FROM_FAVORITE: "REMOVE FAVORITE EVENT",
+  LIST_FAVORITE: "LIST FAVORITE EVENT",
+}

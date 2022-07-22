@@ -89,7 +89,7 @@ export const CardActivite = ({k}) => {
             </div>
             </div>
           </div>
-          <Button onClick={handleShow} style={{height:"30px"}}>Comentar</Button>
+          <Button onClick={handleShow} style={{height:"40px",background:"rgba(255, 189, 41, 1)",border:"none",marginTop:"20px"}}>Comentar</Button>
           <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Post</Modal.Title>

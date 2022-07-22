@@ -58,7 +58,7 @@ export const CardEvent = ({ m }) => {
               <DivEvent>
                 <h2>{item.name}</h2>
                 <article>{item.description}</article>
-                <h6>{item.location}</h6>
+                <Link to={`/map/${item.location}`} style={{color:"rgba(255, 189, 41, 1)"}}>{item.location}</Link>
                 <EventBottom>
                   {favoritesId?.favorites.find((fav) => fav.id === item.id) ? (
                     <HeartIcon

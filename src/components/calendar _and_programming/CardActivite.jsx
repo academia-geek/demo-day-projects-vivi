@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  useParams } from 'react-router-dom'
+import {  Link, useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
 import { Dateg } from './Date'
 import {EnvironmentOutlined} from '@ant-design/icons';
@@ -85,7 +85,7 @@ export const CardActivite = ({k}) => {
             <h6 style={{color:"rgba(211, 205, 208, 0.8)",marginTop:"-10px",fontSize:"13px"}}>Organiza: {m.organizer}</h6>
             <div style={{display:"flex",marginTop:"10px"}}>
             <EnvironmentOutlined />
-            <h6 style={{marginLeft:"7px"}}>{m.place}</h6>
+            <Link to={`/map/${m.place}`}>{m.place}</Link>
             </div>
             </div>
           </div>

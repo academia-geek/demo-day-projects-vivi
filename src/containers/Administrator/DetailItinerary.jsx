@@ -1,8 +1,9 @@
-import { Divider, List, } from 'antd'
+import { Divider, List, Tooltip, } from 'antd'
+import { PlusCircleOutlined } from '@ant-design/icons';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { Col } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import { Paper } from '@mui/material'
 import { listEventAsync } from '../../redux/actions/eventsAction';
 import { listScheduleAsync } from '../../redux/actions/scheduleAction';
@@ -19,11 +20,12 @@ export const DetailItinerary = () => {
   const dataAct = Activities.filter(m => m.id == id)
   const [date] = data
   const dispatch = useDispatch()
+  
   useEffect(() => {
     dispatch(listEventAsync())
     dispatch(listScheduleAsync())
   }, [dispatch])
-  
+
   return (
     <div>
       <div className="d-flex">
@@ -40,6 +42,9 @@ export const DetailItinerary = () => {
               </Paper>
             ))
           }
+          <Tooltip title='Agregar actividad al itinerario ' color={'#FFBD29'}>
+            <Button style={{ fontSize: "20px", marginLeft: "65vw", marginTop: "20px", background: "rgba(255, 189, 41, 1)", border: "none" }}>Agregar</Button>
+          </Tooltip>
           <List
             style={{ marginTop: "50px", marginLeft: "80px" }}
             itemLayout="horizontal"

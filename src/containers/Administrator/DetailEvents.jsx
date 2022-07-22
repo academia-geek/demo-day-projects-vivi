@@ -11,6 +11,7 @@ import { Col } from "react-bootstrap";
 import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
 import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
 import { Edit } from '../../components/admin/EditModal';
+import { EnvironmentOutlined } from '@ant-design/icons';
 
 export const DetailEvents = () => {
   const [datos, setDatos] = useState("")
@@ -47,33 +48,33 @@ export const DetailEvents = () => {
             locale={{ emptyText: 'No hay eventos que mostrar' }}
             emptyText='no'
             renderItem={(item) => (
-              <Paper elevation={8}>
-                <Card style={{ border: '1px solid rgba(255, 189, 41, 1)', marginTop: "10px" }}>
+              <Paper elevation={5}>
+                <Card style={{ marginTop: "20px" }}>
                   <div style={{ display: "flex" }}>
                     <div style={{ width: "40vw", marginLeft: "10px" }}>
                       <h2>{item.name}</h2>
                       <article>{item.description}</article>
-                      <h6>{item.location}</h6>
+                      <Link to={`/map/${item.location}`} style={{ color: "#000", fontWeight: '600 ' }}>{item.location}</Link>
                     </div>
                     <img src={item.img} alt="..cargando" style={{ width: "200px", marginLeft: "50px", height: '200px' }} />
                     <div style={{ marginTop: "50px", height: '100px', marginLeft: "5vw" }}>
                       <Link to={`/detailItinerary/${item.id}`}>
                         <Tooltip title={`Editar el itinerario de ${item.name}`} color={'#FFBD29'}>
                           <Button style={{ border: "none" }}>
-                            <CarryOutOutlined style={{ fontSize: '20px', color: '#565252' }} />
+                            <CarryOutOutlined style={{ fontSize: '20px', color: '#000' }} />
                           </Button>
                         </Tooltip>
                       </Link>
                       <br />
                       <Tooltip title={`Editar la informacion principal ${item.name}`} color={'#FFBD29'}>
                         <Button onClick={() => handleEdit(item.id)} style={{ border: "none" }}>
-                          <FormOutlined style={{ fontSize: '20px', color: '#565252', marginTop: "10px" }} />
+                          <FormOutlined style={{ fontSize: '20px', color: '#000', marginTop: "10px" }} />
                         </Button>
                       </Tooltip>
                       <br />
                       <Tooltip title={`Eliminar todo ${item.name} `} color={'#FFBD29'}>
                         <Button onClick={() => handleDelete(item.id)} style={{ border: "none" }}>
-                          <DeleteOutlined style={{ fontSize: '20px', color: '#565252', marginTop: "10px" }} />
+                          <DeleteOutlined style={{ fontSize: '20px', color: '#000', marginTop: "10px" }} />
                         </Button>
                       </Tooltip>
                     </div>

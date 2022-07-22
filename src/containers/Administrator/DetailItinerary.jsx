@@ -1,31 +1,29 @@
-import { Button, Divider, List, Tooltip, Card, } from 'antd'
+import { Divider, List, } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Col } from "react-bootstrap";
 import { Paper } from '@mui/material'
 import { listEventAsync } from '../../redux/actions/eventsAction';
 import { listScheduleAsync } from '../../redux/actions/scheduleAction';
 import { TittleProgramming } from '../../components/calendar _and_programming/TittleProgramming';
-
 import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
 import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
-
 import { CardActivite } from '../../components/admin/CardActivite';
 
 export const DetailItinerary = () => {
   const { id } = useParams()
+  const { EventsList } = useSelector(store => store.eventos)
+  const [date] = data
+  const { Activities } = useSelector(store => store.schedule)
+  const data = EventsList.filter(m => m.id == id)
+  const dataAct = Activities.filter(m => m.id == id)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(listEventAsync())
     dispatch(listScheduleAsync())
   }, [dispatch])
-  const { EventsList } = useSelector(store => store.eventos)
-  const data = EventsList.filter(m => m.id == id)
-  const [date] = data
-  const { Activities } = useSelector(store => store.schedule)
-  const dataAct = Activities.filter(m => m.id == id)
-
+  
   return (
     <div>
       <div className="d-flex">
@@ -37,7 +35,7 @@ export const DetailItinerary = () => {
                 <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
-                  <a>{item.location}</a>
+                  <Link to={`/map/${item.location}`} style={{ color: "#000" }}>{item.location}</Link>
                 </div>
               </Paper>
             ))
@@ -51,7 +49,7 @@ export const DetailItinerary = () => {
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
                   <CardActivite k={item.seconds} />
-                 
+
                 </List.Item>
               </>
             )}

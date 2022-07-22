@@ -4,13 +4,12 @@ import {  useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
 import { Dateg } from './Date'
 import {EnvironmentOutlined} from '@ant-design/icons';
-import { Button } from 'antd'
-import { Form, Modal, Stack } from 'react-bootstrap'
+import { Form, Modal, Stack,Button } from 'react-bootstrap'
 import useForm from '../../hooks/useForm'
 import { Rating } from '@mui/material'
 import { auth } from '../../firebase/firebaseConfig'
 import { imgUpload } from '../../helpers/imgUpload'
-import { addPost } from '../../redux/actions/infoAction'
+import {  addPost, listAsync } from '../../redux/actions/infoAction'
 
 export const CardActivite = ({k}) => {
   const [show, setShow] = useState(false);
@@ -21,19 +20,21 @@ export const CardActivite = ({k}) => {
   const { id } = useParams()
   const dispatch=useDispatch()
   let date = new Date()
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
+  let hours = date.getHours()
+  let minutes = date.getMinutes()
+
   const { Activities } = useSelector(store => store.schedule)
   const dataAct = Activities.filter(m => m.id == id)
   const a = k * 1000
   console.log(a)
   const dataFinal = dataAct.filter(m => m.dates == a)
   useEffect(() => {
+    dispatch(listAsync());
     const user = auth.currentUser;
     if (user) {
       setProfile(user);
     }
-  }, []);
+  }, [dispatch]);
   const userID=profile?.uid
   console.log(userID)
     const handleClose = () => setShow(false);
@@ -61,10 +62,13 @@ export const CardActivite = ({k}) => {
       rate: '',
   })
   const { idp, place, posttext, rate } = formValue
-    const Infopost = { id, place, posttext, rate, pic, time }
+  const Infopost = { idp, place, posttext, rate, pic, time,photo: profile?.photoURL,
+    name: profile?.displayName, }
+   
   const handleSubmit = (e) => {
+    console.log(Infopost)
     e.preventDefault()
-    dispatch(addPost(Infopost, userID))
+       dispatch(addPost(Infopost, userID))
     reset()
 } 
     return (
@@ -85,7 +89,7 @@ export const CardActivite = ({k}) => {
             </div>
             </div>
           </div>
-          <Button onClick={handleShow}>Comentar</Button>
+          <Button onClick={handleShow} style={{height:"30px"}}>Comentar</Button>
           <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Post</Modal.Title>
@@ -94,7 +98,7 @@ export const CardActivite = ({k}) => {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Lugar</Form.Label>
-                            <Form.Control name="place" type="text" value={formValue.place} onChange={handleChange} />
+                            <Form.Control name="place" type="text" value={m.place} onChange={handleChange} />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Comparte tu experiencia:</Form.Label>

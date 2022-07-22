@@ -128,8 +128,6 @@ export const Edit = ({data}) => {
    </Form>
   
       </Modal>
-      
-   
    
     </div>
   )

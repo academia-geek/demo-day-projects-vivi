@@ -4,11 +4,7 @@ import { Button, List } from "antd";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToFavoriteAsync,
-  getFavoriteAsync,
-  removeFromFavoriteAsync,
-} from "../../redux/actions/favoriteAction";
+import {addToFavoriteAsync, getFavoriteAsync, removeFromFavoriteAsync} from "../../redux/actions/favoriteAction";
 import { DivEvent, EventBottom, HeartIcon } from "../../styles/calendarStyle";
 
 export const CardEvent = ({ m }) => {
@@ -17,6 +13,7 @@ export const CardEvent = ({ m }) => {
   const { EventsList } = useSelector((store) => store.eventos);
   const { favorites } = useSelector((store) => store.favorites);
   const favoritesId = favorites[0];
+
   const filtro = EventsList.filter((ev) => {
     return ev.date
       .map((date) => {
@@ -24,7 +21,7 @@ export const CardEvent = ({ m }) => {
       })
       .includes(h / 1000);
   });
-  console.log(filtro);
+  
   useEffect(() => {
     dispatch(listEventAsync());
   }, [dispatch]);
@@ -58,7 +55,7 @@ export const CardEvent = ({ m }) => {
               <DivEvent>
                 <h2>{item.name}</h2>
                 <article>{item.description}</article>
-                <Link to={`/map/${item.location}`} style={{color:"rgba(255, 189, 41, 1)"}}>{item.location}</Link>
+                <Link to={`/map/${item.location}`} style={{ color: "rgba(255, 189, 41, 1)" }}>{item.location}</Link>
                 <EventBottom>
                   {favoritesId?.favorites.find((fav) => fav.id === item.id) ? (
                     <HeartIcon

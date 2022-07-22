@@ -79,7 +79,7 @@ export const DivPost = styled.div`
       color: #00a8ff;
 
       &:hover {
-        color: #022fd0;
+        color: var(--neutral-color);
       }
     }
   }

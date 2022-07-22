@@ -9,12 +9,10 @@ export const Div = styled.div`
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  &.business{
-  background-image: url(${business});
-  margin-left:auto;
-  margin-right:auto
-   
-  }
-   
+
+  &.business {
+    background-image: url(${business});
+    margin-left: auto;
+    margin-right: auto;
   }
 `;

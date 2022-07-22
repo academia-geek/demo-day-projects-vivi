@@ -59,7 +59,7 @@ export const CardEvent = ({ m }) => {
                 <EventBottom>
                   {favoritesId?.favorites.find((fav) => fav.id === item.id) ? (
                     <HeartIcon
-                      className="heart"
+                      className="heart-checked"
                       onClick={() => handleFavorite(item.id)}
                       title="Eliminar de favoritos"
                     />

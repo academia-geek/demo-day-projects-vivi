@@ -57,7 +57,7 @@ export const Favorites = () => {
                       <Link to={`/map/${item.location}`}>{item.location}</Link>
                       <EventBottom>
                         <HeartIcon
-                          className="heart"
+                          className="heart-checked"
                           onClick={() =>
                             dispatch(removeFromFavoriteAsync(item.id))
                           }

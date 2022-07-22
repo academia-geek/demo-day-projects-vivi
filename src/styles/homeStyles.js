@@ -8,8 +8,8 @@ export const DivMenu = styled.div`
   gap: 10px;
   padding: 5px 20px;
   align-items: center;
-  background-color: #565252;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--primary-color);
   border-bottom: 1px solid #a0a0a0;
 
   & > span {
@@ -19,17 +19,17 @@ export const DivMenu = styled.div`
 
 export const BoxStyled = styled(Box)`
   padding: 20px 0;
-  background-color: #565252;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--primary-color);
   height: 100vh;
 
   hr {
-    border-color: #fff !important;
+    border-color: var(--primary-color) !important;
   }
 
   .icon {
     width: 25px;
-    fill: #fff;
+    fill: var(--primary-color);
   }
 
   & > div,
@@ -68,7 +68,7 @@ export const CarouselStyled = styled.div`
     padding-top: 5px;
     border-radius: 20px;
     & > button {
-      border: 2px solid #fff;
+      border: 2px solid var(--primary-color);
       border-radius: 50%;
       width: 10px;
       height: 10px;
@@ -81,7 +81,7 @@ export const CarouselStyled = styled.div`
       }
 
       &.active {
-        background-color: #fff;
+        background-color: var(--primary-color);
         max-width: 10px;
         height: 10px;
       }
@@ -90,7 +90,7 @@ export const CarouselStyled = styled.div`
 `;
 
 export const AsideStyled = styled.aside`
-  background-color: #565252;
+  background-color: var(--background-color);
   padding: 20px;
   width: 100%;
   padding-top: 80px;
@@ -100,13 +100,17 @@ export const AsideStyled = styled.aside`
   &::-webkit-scrollbar {
     width: 0px;
   }
+
+  & > div.calendar {
+    cursor: pointer;
+  }
 `;
 
 export const ButtonAside = styled.button`
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  background-color: #ffbd29;
+  background-color: var(--secondary-color);
   border: none;
   outline: none;
   padding: 10px 5px;
@@ -127,11 +131,11 @@ export const ButtonAside = styled.button`
 export const SideCalendar = styled.div`
   border: 1px solid #f0f0f0;
   border-radius: 30px;
-  background-color: #fff;
+  background-color: var(--primary-color);
 `;
 
 export const AsideEvents = styled.div`
-  background-color: #fff;
+  background-color: var(--primary-color);
   padding: 15px;
 
   & > h5 {
@@ -169,25 +173,26 @@ export const CalendarStyled = styled(Calendar)`
   margin-bottom: 20px;
   border-radius: 20px;
   padding: 10px;
+  cursor: pointer;
+  user-select: none;
 
-  .react-calendar__month-view__weekdays > div > abbr[title] {
-    cursor: default;
-    text-decoration: none;
+  .react-calendar__navigation button:enabled:hover {
+    background-color: transparent;
   }
 
-  .react-calendar__month-view__days > button {
-    cursor: default !important;
+  .react-calendar__month-view__weekdays > div > abbr[title] {
+    text-decoration: none;
   }
 
   .react-calendar__tile--active,
   .react-calendar__tile--active:hover,
   .react-calendar__tile--active:enabled:hover {
-    background: #ffbd29 !important;
+    background: var(--secondary-color) !important;
   }
 
   .react-calendar__tile:not(--active):enabled:hover,
   .react-calendar__tile:not(--active):focus,
   .react-calendar__tile:not(--active):enabled:hover:active {
-    background: #fff;
+    background: var(--primary-color);
   }
 `;

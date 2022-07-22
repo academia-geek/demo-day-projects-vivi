@@ -32,6 +32,7 @@ ul {
   margin-top: 4px;
   margin-left: 20px;
 }
+
 .optionNavbar {
   color: white;
   margin-left: 20px;
@@ -39,10 +40,12 @@ ul {
   font-family: "Raleway", sans-serif;
   font-size: 15px;
 }
+
 .optionNavbar:hover {
   color: white;
   height: 40px;
 }
+
 .optionSelect {
   width: 65px;
   color: white;
@@ -52,7 +55,7 @@ ul {
 
 .titlleBusi {
   color: white;
-  -webkit-text-stroke: 0.5px black;
+  -webkit-text-stroke: 0.5px #000;
   font-size: 4rem;
   font-weight: bold;
   margin-top: 20vw;
@@ -61,8 +64,9 @@ ul {
   margin-right: 10vw;
   font-family: "Merriweather", serif;
 }
+
 .contBusi {
-  color: black;
+  color: #000;
   font-size: 2rem;
   font-family: "Merriweather", serif;
   margin-top: 20px;
@@ -70,31 +74,34 @@ ul {
   width: 60vw;
   text-align: start;
   font-weight: bold;
-  
 }
+
 .site-calendar-demo-card {
   width: 50vw;
-  border: 1px solid rgba(255, 189, 41, 1);
-  border-radius: 2px;
+  border: 1px solid var(--background-color);
+  border-radius: 20px;
+  padding: 20px;
   scroll-behavior: auto;
   margin-left: 15vw;
   margin-top: 100px;
-  color: white;
+  color: var(--primary-color);
 }
+
 .l {
   text-align: center;
   position: fixed;
-  color: white;
+  color: var(--primary-color);
   font-family: "Merriweather", serif;
 }
+
 .titlleEvents {
   color: #000;
-  -webkit-text-stroke: 0.5px black;
-  font-size: 2,5rem;
+  -webkit-text-stroke: 0.5px #000;
+  font-size: 2, 5rem;
   font-weight: bold;
   padding-top: 100px;
   width: 80vw;
   text-align: center;
-  margin-left:3,5vw;
+  margin-left: 3, 5vw;
   font-family: "Merriweather", serif;
 }

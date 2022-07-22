@@ -45,7 +45,7 @@ export const DivEvent = styled.div`
     color: #00a8ff;
 
     &:hover {
-      color: #022fd0;
+      color: var(--neutral-color);
     }
   }
 `;
@@ -57,8 +57,21 @@ export const EventBottom = styled.div`
   align-items: center;
   gap: 20px;
 
-  & > .heart > svg {
-    fill: #dd373f;
+  & > .heart > svg,
+  & > .heart-checked > svg {
+    width: 1.3rem;
+    height: 30px;
+    transition: 0.3s;
+  }
+
+  & > .heart > svg,
+  & > .heart-checked > svg:hover {
+    fill: #ff7875;
+  }
+
+  & > .heart-checked > svg,
+  & > .heart > svg:hover {
+    fill: #ff4d4f;
   }
 `;
 
@@ -83,6 +96,7 @@ export const SiderStyle = styled.div`
     display: none;
   }
 `;
+
 export const TittleStyle = styled.h4`
   color: white;
   font-family: "Merriweather", serif;
@@ -90,28 +104,86 @@ export const TittleStyle = styled.h4`
   text-align: center;
   margin-top: 19px;
 `;
-export const CalendarStyle = styled(Calendar)`
+
+export const CalendarStyled = styled(Calendar)`
+  user-select: none;
+
   .ant-radio-button-wrapper-checked:not([class*=" ant-radio-button-wrapper-disabled"]).ant-radio-button-wrapper:first-child {
-    border-right-color: #faad14;
+    border-right-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+
+    &:hover {
+      color: var(--secondary-color);
+    }
   }
+
+  ant-radio-button-inner {
+    box-shadow: none;
+    outline: none;
+    border: none;
+  }
+
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: var(--secondary-color);
+  }
+
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    z-index: 1;
-    color: rgba(255, 189, 41, 1);
-    background: #fff;
-    border-color: #faad14;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    box-shadow: none;
+
+    &:hover {
+      color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
   }
-  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-    color: #565252;
-    border-color: #565252;
-  }
+
   .ant-radio-button-wrapper:hover {
-    position: relative;
-    color: rgba(255, 189, 41, 1);
+    color: var(--secondary-color);
+  }
+
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+    background-color: var(--secondary-color);
+  }
+
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+    .ant-select-selector {
+    border-color: var(--secondary-color);
+  }
+
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+    .ant-select-selector {
+    border-color: var(--secondary-color);
+    box-shadow: none;
+  }
+
+  .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-color: var(--secondary-color);
+  }
+
+  table > thead > tr > th {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-today
+    .ant-picker-cell-inner::before {
+    border-color: var(--secondary-color);
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+
+  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+    .ant-select-selector {
+    border-color: var(--secondary-color);
   }
 `;
 export const Siderbar = styled.div`
   height: 200vw;
-  background: #565252;
+  background: var(--background-color);
   margin-top: 50px;
   width: 20vw;
   margin-left: 4.9vw;

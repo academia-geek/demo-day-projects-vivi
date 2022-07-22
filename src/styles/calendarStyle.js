@@ -57,8 +57,21 @@ export const EventBottom = styled.div`
   align-items: center;
   gap: 20px;
 
-  & > .heart > svg {
-    fill: #dd373f;
+  & > .heart > svg,
+  & > .heart-checked > svg {
+    width: 1.3rem;
+    height: 30px;
+    transition: 0.3s;
+  }
+
+  & > .heart > svg,
+  & > .heart-checked > svg:hover {
+    fill: #ff7875;
+  }
+
+  & > .heart-checked > svg,
+  & > .heart > svg:hover {
+    fill: #ff4d4f;
   }
 `;
 

@@ -19,6 +19,12 @@ export const Chatbot = () => {
     const handleShow = () => setShow("block");
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addPost(Infopost, userID));
+        reset();
+    };
+
     useEffect(() => {
         const user = auth.currentUser;
         if (user) {

@@ -15,6 +15,10 @@ export const Chatbot = () => {
     const [show, setShow] = useState("none")
 
 
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true);

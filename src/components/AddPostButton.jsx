@@ -19,6 +19,17 @@ export const Chatbot = () => {
     const handleShow = () => setShow("block");
 
 
+    const Infopost = {
+        id,
+        place,
+        posttext,
+        rate,
+        pic,
+        time,
+        photo: profile?.photoURL,
+        name: profile?.displayName,
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(addPost(Infopost, userID));

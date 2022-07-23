@@ -12,8 +12,12 @@ import { imgUpload } from "../helpers/imgUpload";
 import btn from '../assets/green-add-button-12023.png'
 
 export const Chatbot = () => {
-    const [show, setShow] = useState("none")
-
+    const [profile, setProfile] = useState(null);
+    const [show, setShow] = useState(false);
+    const [pic, setPic] = useState("");
+    const [time, setTime] = useState("");
+    const [btnState, setBtn] = useState(true);
+    const dispatch = useDispatch();
 
     let date = new Date();
     let hours = date.getHours();

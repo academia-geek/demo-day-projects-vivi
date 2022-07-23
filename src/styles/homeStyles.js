@@ -44,7 +44,6 @@ export const CarouselStyled = styled.div`
 
   .carousel-item > img {
     height: 284px;
-    border: 1px solid transparent;
   }
 
   .carousel-control-prev-icon,

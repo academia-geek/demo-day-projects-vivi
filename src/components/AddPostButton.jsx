@@ -18,6 +18,21 @@ export const Chatbot = () => {
     const handleClose = () => setShow("none");
     const handleShow = () => setShow("block");
 
+
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        imgUpload(file)
+            .then((resp) => {
+                console.log(resp);
+                setPic(resp);
+                setBtn(false);
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
+    };
+
     const [formValue, handleChange, reset] = useForm({
         id: crypto.randomUUID(),
         place: "",

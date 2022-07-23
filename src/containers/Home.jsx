@@ -33,7 +33,7 @@ export const Home = () => {
               <CarouselEvents />
             </>
           ) : (
-            <CarouselEvents marginTop={"70px"} />
+            <CarouselEvents marginTop={"63px"} />
           )}
           <Timeline />
         </Col>

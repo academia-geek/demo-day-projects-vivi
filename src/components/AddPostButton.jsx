@@ -11,7 +11,7 @@ import useForm from "../hooks/useForm";
 import { imgUpload } from "../helpers/imgUpload";
 import btn from '../assets/green-add-button-12023.png'
 
-export const AddPostButton = () => {
+export const AddPostButton = ({ userID }) => {
     const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
     const [pic, setPic] = useState("");

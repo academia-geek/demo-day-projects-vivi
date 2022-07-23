@@ -42,7 +42,9 @@ export const Home = () => {
           <Aside />
         </Col>
       </div>
-      <AddPostButton />
+      <AddPostButton
+        userID={profile?.uid}
+      />
     </div>
   );
 };

@@ -43,7 +43,7 @@ export const CarouselStyled = styled.div`
   margin-top: ${(props) => (props.marginTop ? props.marginTop : "0")};
 
   .carousel-item > img {
-    height: 541px;
+    height: 284px;
     border: 1px solid transparent;
   }
 

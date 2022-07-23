@@ -15,9 +15,12 @@ export const Chatbot = () => {
     const [show, setShow] = useState("none")
 
 
-    const handleClose = () => setShow("none");
-    const handleShow = () => setShow("block");
-
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(true);
+        setBtn(true);
+        setTime(date.toLocaleDateString() + " " + hours + ":" + minutes);
+    };
 
     const handleImage = (e) => {
         const file = e.target.files[0];
@@ -64,7 +67,6 @@ export const Chatbot = () => {
             setProfile(user);
         }
     }, [dispatch]);
-
 
     return (
         <>

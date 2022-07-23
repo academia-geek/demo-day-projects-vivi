@@ -18,7 +18,7 @@ export const Chatbot = () => {
     const handleClose = () => setShow("none");
     const handleShow = () => setShow("block");
 
-
+    const { id, place, posttext, rate } = formValue;
     const Infopost = {
         id,
         place,

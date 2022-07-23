@@ -13,11 +13,19 @@ import btn from '../assets/green-add-button-12023.png'
 
 export const Chatbot = () => {
     const [show, setShow] = useState("none")
- 
+
 
     const handleClose = () => setShow("none");
     const handleShow = () => setShow("block");
-   
+
+
+    useEffect(() => {
+        const user = auth.currentUser;
+        if (user) {
+            setProfile(user);
+        }
+    }, [dispatch]);
+
 
     return (
         <>

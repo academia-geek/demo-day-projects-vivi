@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPost } from "../redux/actions/infoAction";
 import { auth } from "../firebase/firebaseConfig";
 import Rating from "@mui/material/Rating";
@@ -11,7 +11,7 @@ import useForm from "../hooks/useForm";
 import { imgUpload } from "../helpers/imgUpload";
 import btn from '../assets/green-add-button-12023.png'
 
-export const Chatbot = () => {
+export const AddPostButton = () => {
     const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
     const [pic, setPic] = useState("");

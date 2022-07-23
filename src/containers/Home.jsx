@@ -5,6 +5,7 @@ import { Timeline } from "../components/Timeline";
 import Alert from "@mui/material/Alert";
 import { auth } from "../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
+import { AddPostButton } from "../components/AddPostButton";
 
 export const Home = () => {
   const [profile, setProfile] = useState({});
@@ -41,6 +42,7 @@ export const Home = () => {
           <Aside />
         </Col>
       </div>
+      <AddPostButton />
     </div>
   );
 };

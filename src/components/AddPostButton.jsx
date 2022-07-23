@@ -18,6 +18,13 @@ export const Chatbot = () => {
     const handleClose = () => setShow("none");
     const handleShow = () => setShow("block");
 
+    const [formValue, handleChange, reset] = useForm({
+        id: crypto.randomUUID(),
+        place: "",
+        posttext: "",
+        rate: "",
+    });
+
     const { id, place, posttext, rate } = formValue;
     const Infopost = {
         id,

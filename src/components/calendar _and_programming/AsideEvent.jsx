@@ -8,16 +8,21 @@ useEffect(() => {
     dispatch(listEventAsync());
 
   }, [dispatch]);
-  const event=EventsList.find (item=> item.id ==id)
-  const {name,location,img}=event
-  console.log(name)
+  const event=EventsList?.filter(item=> item.id ==id)
+//  const event=[eventObj]
+  
   return (
-    <div style={{display:"flex"}}>
-        <img  style={{width:"50%"}} src={img} alt="...cargando"  />
-    <div style={{textAlign:'center',width:"50%"}}>
-        <h6 style={{fontWeight:"800"}}>{name}</h6>
-        <h6 style={{fontWeight:"100"}}>{location}</h6>
+    <div >
+        {
+     event?.map( item =>
+       <div style={{display:"flex"}}>
+        <img  style={{width:"40%"}} src={item.img} alt="...cargando"  />
+    <div style={{textAlign:'center',width:"40%"}}>
+        <h6 style={{fontWeight:"800"}}>{item.name }</h6>
+        <h6 style={{fontWeight:"100"}}>{item.location}</h6>
     </div>
+    </div>
+     ) }
     </div>
   )
 }

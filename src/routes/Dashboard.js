@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { AddLocation } from "../components/AddLocation";
 import { Map } from "../components/Map";
 import { NavUser } from "../components/NavUser";
 import { AddEvent } from "../containers/Administrator/AddEvent";

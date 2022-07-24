@@ -9,17 +9,23 @@ import {
 import { Mapped } from "./Mapped";
 import { Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { cities } from "../data/cities";
 
 export const AddLocation = ({ show, handleClose }) => {
   const [weather, setWeather] = useState({});
 
   const handleChange = (e) => {
     if (e.target.value.length >= 4) {
-      getWeather(e.target.value).then((data) => {
+      const city = e.target.value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      getWeather(city).then((data) => {
         if (data.code === "ERR_BAD_REQUEST") {
           setWeather({});
-        } else {
+        } else if (data.location.country === "Colombia") {
           setWeather(data);
+        } else {
+          setWeather({});
         }
       });
     }
@@ -49,6 +55,8 @@ export const AddLocation = ({ show, handleClose }) => {
     });
   };
 
+  console.log(weather);
+
   return (
     <>
       <Modal show={show} onHide={handleClose} size="lg">
@@ -60,7 +68,13 @@ export const AddLocation = ({ show, handleClose }) => {
                 type="text"
                 placeholder="Ingresa la ubicación del evento..."
                 onChange={handleChange}
-              />
+              >
+                {cities.map((city) => (
+                  <option key={city.id} value={city.name}>
+                    {city.name}
+                  </option>
+                ))}
+              </InputLocation>
               <span>
                 <Location />
               </span>

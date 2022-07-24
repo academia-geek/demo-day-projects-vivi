@@ -19,7 +19,6 @@ export const Dashboard = () => {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/locations" element={<AddLocation />} />
         <Route path="/map/:id" element={<Map />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/addEvent" element={<AddEvent />} />

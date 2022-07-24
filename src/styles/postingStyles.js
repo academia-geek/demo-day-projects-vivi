@@ -75,6 +75,8 @@ export const DivPost = styled.div`
   & > div.comment {
     width: 35%;
     display: flex;
+    justify-content: start;
+    align-items: flex-start;
     flex-direction: column;
     gap: 20px;
     background-color: #FFFFFF !important;

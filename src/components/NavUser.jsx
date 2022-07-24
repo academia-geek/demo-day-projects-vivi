@@ -1,11 +1,13 @@
 import { Avatar, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../firebase/firebaseConfig";
+import { listAsync } from "../redux/actions/infoAction";
 import { DivMenu } from "../styles/homeStyles";
 import { Menu } from "./Menu";
 
 export const NavUser = () => {
+  const dispatch = useDispatch()
   const [profile, setProfile] = useState({});
   const [sidebar, setSidebar] = useState({
     left: false,
@@ -26,11 +28,12 @@ export const NavUser = () => {
   };
 
   useEffect(() => {
+    dispatch(listAsync());
     const user = auth.currentUser;
     if (user) {
       setProfile(user);
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

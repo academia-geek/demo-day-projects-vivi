@@ -21,37 +21,6 @@ export const Timeline = () => {
 
   return (
     <>
-      <DivPosting>
-        <Userbar>
-          <div>
-            <div className="user">
-              <Avatar src="https://i.pravatar.cc/300" alt="avatar" />
-              <div className="d-flex flex-column">
-                <span>Melisa Mendoza</span>
-                <span className="time">11/7/2022 16:34</span>
-              </div>
-            </div>
-          </div>
-        </Userbar>
-        <DivPost>
-          <div>
-            <img src={post} />
-          </div>
-          <div className="comment">
-            <div>
-              <Stack spacing={1}>
-                <Rating name="read-only" value={4} readOnly />
-              </Stack>
-              <p>
-                La celebración fue muy divertida y bonita. Conocí grandes
-                personas, en especial una señora que me llevó a conocer la
-                ciudad y degustar comidas exquisitas.
-              </p>
-            </div>
-            <Link to={`/map/${place}`}>{place}</Link>
-          </div>
-        </DivPost>
-      </DivPosting>
       <CONT>
         {userData
           ?.filter((i) => i.id)

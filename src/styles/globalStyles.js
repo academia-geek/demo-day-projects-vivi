@@ -114,6 +114,9 @@ export const HeroCards = styled.div`
   border-radius: 10px;
   width: 45%;
   height: 50vw;
+  a{
+    width: fill-available;
+  }
   img{
     width: fill-available;
     border-radius: 100%;

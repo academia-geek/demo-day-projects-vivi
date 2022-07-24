@@ -2,7 +2,30 @@ import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { auth, db } from "../../firebase/firebaseConfig"
 import { typesInfo, typesPosts } from "../types/types"
 
-//Agregar y Listar
+export const updatePhoto = (value, userID) => {
+    return async (dispatch) => {
+        const docRef = doc(db, "Info", userID);
+        const docSnap = await getDoc(docRef);
+        const data = docSnap.data().Posts
+        const datos = []
+        
+        data.forEach(obj => { datos.push(obj) })
+        datos.forEach(obj => {
+            obj.photo = value
+        })
+
+        await updateDoc(docRef, {
+            profileImg: value,
+            Posts: datos,
+        }).then(
+            dispatch(listAsync())
+        ).catch(error => {
+            console.warn(error, 'Datos no guardados')
+        })
+    }
+}
+
+//Añadir y listar
 export const addAge = (value, userID) => {
     return async (dispatch) => {
         const docRef = doc(db, "Info", userID);

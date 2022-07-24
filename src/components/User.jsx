@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
-import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync } from "../redux/actions/infoAction";
+import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync, updatePhoto } from "../redux/actions/infoAction";
 import { imgUpload } from "../helpers/imgUpload";
 
 export const User = ({ userID }) => {
@@ -17,7 +17,6 @@ export const User = ({ userID }) => {
     const userData = listaInfo[0]
     const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
-    const [pic, setPic] = useState("");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -25,8 +24,7 @@ export const User = ({ userID }) => {
         const file = e.target.files[0];
         imgUpload(file)
             .then((resp) => {
-                console.log(resp);
-                setPic(resp);
+                dispatch(updatePhoto(resp, userID))
             })
             .catch((error) => {
                 console.warn(error);
@@ -76,7 +74,7 @@ export const User = ({ userID }) => {
         <>
             <div className='d-flex px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex mx-auto">
-                    <UserImg src={profile?.photoURL} alt={profile?.displayName} />
+                    <UserImg src={userData?.profileImg} alt={profile?.displayName} />
                     <label for="file-input">
                         <EditIcon src={edit} alt="" />
                     </label>

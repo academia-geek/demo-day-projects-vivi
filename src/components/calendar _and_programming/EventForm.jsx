@@ -5,7 +5,6 @@ import { imgUpload } from '../../helpers/imgUpload';
 import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
 import { InputStyled } from '../../styles/calendarStyle';
-import { Paper } from '@mui/material'
 const { RangePicker } = DatePicker;
 const datadate = []
 
@@ -38,12 +37,6 @@ export const EventForm = () => {
   
     onChange(info) {
       setImage(info.file.originFileObj)
-    // imgUpload(info.file.originFileObj)
-    //         .then((resp) => {
-    //             console.log(resp)
-    //             setPic(resp)
-    //                         })
-    //         .catch((error) => { console.warn(error) });
       const { status } = info.file;
   
       if (status !== 'uploading') {

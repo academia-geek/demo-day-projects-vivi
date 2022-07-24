@@ -92,8 +92,13 @@ export const SiderStyle = styled.div`
   overflow-x: hidden;
   height: calc(100vh + 129px);
   background: rgba(255, 189, 41, 1);
+
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  & > div {
+    cursor: pointer;
   }
 `;
 

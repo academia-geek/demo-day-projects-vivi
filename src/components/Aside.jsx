@@ -52,9 +52,9 @@ export const Aside = () => {
             <CardStyled>
               <div>
               <AsideEvent id={item.id}/>
-              <div style={{display:"flex"}}>
-              <h6>{item.date}</h6>
-              <h6>{item.name}</h6>
+              <div style={{display:"flex",marginTop:"1vw",marginLeft:"2vw"}}>
+              <h6 style={{fontSize:"12px",fontWeight: "400",width:"30%"}}>{item.date}</h6>
+              <h6 style={{fontSize:"14px",fontWeight: "500",width:"60%",marginLeft:"4px"}}>{item.name}</h6>
               </div>
               </div>
             </CardStyled>

@@ -85,7 +85,7 @@ export const UserImg = styled.img`
 `;
 export const EditIcon = styled.img`
   position: absolute;
-  transform: translate(119px, 103px);
+  transform: translate(-31px, 103px);
   width: 2rem;
   border-radius: 8px;
   cursor: pointer;
@@ -95,7 +95,7 @@ export const CONT = styled.div`
   flex-wrap: wrap;
   gap: 8px;
 `;
-export const TAG = styled.section`
+export const TAG = styled.div`
   display: flex;
   align-items: center;
   background-color: #d9d9d9;

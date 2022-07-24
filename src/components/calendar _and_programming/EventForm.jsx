@@ -1,16 +1,16 @@
 import { Button, DatePicker, Form, Input, message, Space, Upload } from 'antd';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
 import { InputStyled } from '../../styles/calendarStyle';
-import { Paper } from '@mui/material'
 const { RangePicker } = DatePicker;
 const datadate = []
 
 export const EventForm = () => {
   const dispatch = useDispatch()
+  const [image,setImage] =useState("")
   const [pic, setPic] = useState("")
   const [fileList, setFileList] = useState([]);
   const [loadings, setLoadings] = useState([]);
@@ -36,13 +36,7 @@ export const EventForm = () => {
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   
     onChange(info) {
-      
-    imgUpload(info.file.originFileObj)
-            .then((resp) => {
-                console.log(resp)
-                setPic(resp)
-                            })
-            .catch((error) => { console.warn(error) });
+      setImage(info.file.originFileObj)
       const { status } = info.file;
   
       if (status !== 'uploading') {
@@ -58,7 +52,14 @@ export const EventForm = () => {
       }
     },
     };
- 
+  useMemo(()=>{
+  imgUpload(image)
+            .then((resp) => {
+                console.log(resp)
+                setPic(resp)
+                            })
+            .catch((error) => { console.warn(error) })}
+  ,[])
 
   const onFinish = (values) => {
     const formValue = {
@@ -129,7 +130,7 @@ export const EventForm = () => {
       >
         <InputStyled placeholder="Ubicación" allowClear  />
       </Form.Item>
-      <Dragger {...props} style={{width:"50vw",borderRadius:"10px"}}  accept="image/png, image/jpeg, image/jpg" percent >
+      <Dragger {...props} style={{width:"50vw",borderRadius:"10px"}}  accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" percent >
       <p className="ant-upload-drag-icon">
       <InboxOutlined />
     </p>
@@ -148,7 +149,7 @@ export const EventForm = () => {
       </Space>
       </Form.Item>
       
-      <Button  style={{marginLeft:"20vw",borderRadius:"10px",background:" #ffbd29"}} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} disabled={fileList.length === 0}>
+      <Button  style={{marginLeft:"20vw",borderRadius:"10px",background:" #ffbd29"}} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
         Agregar </Button>
 
     </Form>

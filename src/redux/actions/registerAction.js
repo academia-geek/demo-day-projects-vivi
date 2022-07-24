@@ -47,6 +47,7 @@ export const registerUserAsync = (name, email, password, location) => {
         const usuarioID = user?.uid;
 
         setDoc(doc(db, "Info", usuarioID), {
+          profileImg: user?.photoURL,
           edad: "",
           Gustos: [{}],
           Visitados: [{}],
@@ -74,6 +75,7 @@ export const loginGoogle = () => {
 
         if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
+            profileImg: user?.photoURL,
             edad: "",
             Gustos: [{}],
             Visitados: [{}],
@@ -109,6 +111,7 @@ export const loginFacebook = () => {
 
         if (docSnap._document == null) {
           setDoc(doc(db, "Info", usuarioID), {
+            profileImg: user?.photoURL,
             edad: "",
             Gustos: [{}],
             Visitados: [{}],

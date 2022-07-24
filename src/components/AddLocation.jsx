@@ -51,18 +51,11 @@ export const AddLocation = ({ show, handleClose }) => {
 
   return (
     <>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        keyboard={false}
-        backdrop="static"
-        centered
-        size="lg"
-      >
+      <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton></Modal.Header>
         <DivLocation>
           <Modal.Body>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleConfirmation}>
               <InputLocation
                 type="text"
                 placeholder="Ingresa la ubicación del evento..."

@@ -4,9 +4,11 @@ import { useDispatch } from "react-redux";
 import { imgUpload } from "../../helpers/imgUpload";
 import { InboxOutlined } from "@ant-design/icons";
 import { addEventAsync } from "../../redux/actions/eventsAction";
-import { InputStyled } from "../../styles/calendarStyle";
+import { ButtonAntdStyled, InputStyled } from "../../styles/calendarStyle";
 import { Paper } from "@mui/material";
 import { AddLocation } from "../AddLocation";
+import { ReactComponent as Location } from "../../assets/location.svg";
+
 const { RangePicker } = DatePicker;
 const datadate = [];
 
@@ -26,6 +28,8 @@ export const EventForm = () => {
   };
 
   const location = JSON.parse(window.localStorage.getItem("location"));
+
+  if (window.location.reload) localStorage.removeItem("location");
 
   const onChange = (value, dateString) => {
     console.log("Rango de fecha: ", dateString);
@@ -152,12 +156,14 @@ export const EventForm = () => {
           name="Location"
           rules={[{ required: true, message: "Por favor introduce la ciudad" }]}
         >
-          <InputStyled
-            placeholder={location ? location : "Ubicación"}
-            allowClear
+          <ButtonAntdStyled
             onClick={showMap}
+            icon={<Location className="location" />}
+            className="w-100"
             disabled={location ? true : false}
-          />
+          >
+            {location ? location : "Ubicación"}
+          </ButtonAntdStyled>
         </Form.Item>
         <Dragger
           {...props}

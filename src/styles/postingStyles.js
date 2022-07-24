@@ -59,8 +59,16 @@ export const DivPost = styled.div`
 
   & > div {
     width: 65%;
+    height: 24.45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EDEDED;
     img {
-      width: 100%;
+      width: initial;
+      max-width: fill-available;
+      height: initial;
+      max-height: fill-available;
     }
   }
 
@@ -69,7 +77,7 @@ export const DivPost = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-
+    background-color: #FFFFFF !important;
     p {
       font-size: 1rem !important;
       margin-top: 1rem !important;

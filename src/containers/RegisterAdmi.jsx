@@ -1,6 +1,9 @@
+import { Paper } from '@mui/material';
 import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {  FontStyled2 } from '../styles/calendarStyle';
+import logo from '../assets/Logo.png'
 
 export const RegisterAdmi = () => {
   const navigate = useNavigate()
@@ -21,23 +24,30 @@ export const RegisterAdmi = () => {
   };
 
   return (
+    <FontStyled2>
+      <Link to='/' >
+      <img src={logo} style={{width:"60px",color:"white"}}/>
+      </Link>
     <Form
       name="basic"
       labelCol={{
-        span: 8,
+        span: 9,
       }}
       wrapperCol={{
-        span: 16,
+        span:6,
       }}
       initialValues={{
         remember: true,
       }}
+     
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      style={{marginTop:"18vw",color:"white"}}
     >
       <Form.Item
-        label="Username"
+        style={{fontWeight:'600'}}
+        label="Usuario"
         name="username"
         rules={[
           {
@@ -46,11 +56,15 @@ export const RegisterAdmi = () => {
           },
         ]}
       >
-        <Input />
+        <Paper>
+        <Input  />
+        </Paper>
+       
       </Form.Item>
 
       <Form.Item
-        label="Password"
+      style={{fontWeight:'600'}}
+        label="Contraseña"
         name="password"
         rules={[
           {
@@ -59,31 +73,28 @@ export const RegisterAdmi = () => {
           },
         ]}
       >
+        <Paper>
         <Input.Password />
+        </Paper>
       </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
+      <div style={{ textAlign:'center'}}>
+       <h6>¿No tienes usuario Administartivo?</h6> 
+       <Link to='/login/company'>
+        <h6> Registrate</h6>
+       </Link>  
+       </div>
       <Form.Item
         wrapperCol={{
-          offset: 8,
-          span: 16,
+          offset: 11,
+          span: 11,
         }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button htmlType="submit">
           Submit
         </Button>
       </Form.Item>
     </Form>
+    </FontStyled2>
   );
 };
 

@@ -94,7 +94,7 @@ export const AppRoutes = () => {
         />
 
         <Route
-          path="/bienvenido"
+          path="/sign__in/Admi"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <RegisterAdmi />

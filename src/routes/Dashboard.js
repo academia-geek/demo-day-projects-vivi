@@ -26,7 +26,6 @@ export const Dashboard = () => {
         <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/programming/:id" element={<Programming />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/programming/:id" element={<Programming />} />
         <Route path="/detail" element={<DetailEvents />} />
         <Route path="/detailItinerary/:id" element={<DetailItinerary />} />
       </Routes>

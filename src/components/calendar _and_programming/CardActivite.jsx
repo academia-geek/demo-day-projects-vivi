@@ -94,7 +94,7 @@ export const CardActivite = ({k}) => {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Lugar</Form.Label>
-                            <Form.Control name="place" type="text" value={formValue.place} onChange={handleChange} />
+                            <Form.Control name="place" type="text" value={m.place} />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Comparte tu experiencia:</Form.Label>

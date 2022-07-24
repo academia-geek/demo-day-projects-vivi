@@ -11,6 +11,7 @@ import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
 import { DetailItinerary } from "../containers/Administrator/DetailItinerary";
+import { AdminHome } from "../containers/Administrator/AdminHome";
 
 export const Dashboard = () => {
   return (
@@ -22,10 +23,12 @@ export const Dashboard = () => {
         <Route path="/locations" element={<AddLocation />} />
         <Route path="/map/:id" element={<Map />} />
         <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/Schedule" element={<EventSchedule />} />
-        <Route path="/programming/:id" element={<Programming />} />
         <Route path="/favorites" element={<Favorites />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin/home" element={<AdminHome />} />
+        <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/programming/:id" element={<Programming />} />
         <Route path="/detail" element={<DetailEvents />} />
         <Route path="/detailItinerary/:id" element={<DetailItinerary />} />

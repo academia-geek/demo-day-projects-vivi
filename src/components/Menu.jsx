@@ -14,12 +14,14 @@ import { ReactComponent as Logout } from "../assets/logout.svg";
 import { ReactComponent as Contact } from "../assets/phone.svg";
 import { ReactComponent as Help } from "../assets/help.svg";
 import { ReactComponent as Calendar } from "../assets/calendar.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAsync } from "../redux/actions/loginAction";
 import { Link } from "react-router-dom";
 
 export const Menu = ({ toggleDrawer, sidebar, profile }) => {
   const dispatch = useDispatch();
+  const { listaInfo } = useSelector((store) => store.info);
+  const userData = listaInfo[0];
   const list = (anchor) => (
     <BoxStyled
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 350 }}
@@ -28,7 +30,7 @@ export const Menu = ({ toggleDrawer, sidebar, profile }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <div className="pb-4 d-flex gap-3 align-items-center">
-        <Avatar src={profile?.photoURL} alt={profile?.displayName} />
+        <Avatar src={userData?.profileImg} alt={profile?.displayName} />
         <span className="fs-5">{profile?.displayName}</span>
       </div>
       <Divider />

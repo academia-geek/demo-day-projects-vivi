@@ -105,3 +105,12 @@ export const TAG = styled.div`
     margin: 0;
   }
 `;
+
+export const HeroCards = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  padding: 0 8px;
+  border-radius: 10px;
+  
+`;

@@ -39,7 +39,7 @@ export const DetailEvents = () => {
 
   return (
     <div >
-      <div className="d-flex">
+      <div className="d-flex">  
         <Col sm={9}>
           <h3 className='titlleEvents '>Lista de Eventos Publicados</h3>
           <List
@@ -87,8 +87,8 @@ export const DetailEvents = () => {
         <Col sm={3}>
           <Siderbar>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+            <SiderCalendar />
           </Siderbar>
-          <SiderCalendar />
         </Col>
         <br />
         <div />

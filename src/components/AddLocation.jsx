@@ -55,8 +55,6 @@ export const AddLocation = ({ show, handleClose }) => {
     });
   };
 
-  console.log(weather);
-
   return (
     <>
       <Modal show={show} onHide={handleClose} size="lg">

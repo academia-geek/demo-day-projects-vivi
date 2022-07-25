@@ -12,21 +12,23 @@ import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
 
 export const CardActivite = ({ k, l }) => {
+  const { id } = useParams()
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(null);
   const [pic, setPic] = useState("");
   const [time, setTime] = useState("");
   const [btnState, setBtn] = useState(true);
-  const { id } = useParams();
   const dispatch = useDispatch();
   let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
   const { Activities } = useSelector((store) => store.schedule);
-  const dataAct = Activities.filter((m) => m.id == id);
+  const { EventsList } = useSelector(store => store.eventos)
+  const dataAct = Activities.filter((m) => m.id === id);
   const a = k * 1000;
   const dataFinal = dataAct.filter((m) => m.dates == a);
-
+  const dataCity= EventsList.filter((m )=> m.id === id)
+    console.log('data City',dataCity)
   useEffect(() => {
     dispatch(listAsync());
     const user = auth.currentUser;
@@ -87,7 +89,7 @@ export const CardActivite = ({ k, l }) => {
   return (
     <div>
       {dataFinal.map((m) => (
-        <div style={{ display: "flex", marginTop: "10px" }}>
+        <div style={{ display: "flex", marginTop: "10px" }} key={m.date}>
           <div style={{ display: "flex", width: "56vw" }}>
             <Dateg k={m.date} />
             <img src={image} style={{ width: "5px", marginLeft: "5px" }} />

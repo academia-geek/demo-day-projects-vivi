@@ -10,6 +10,7 @@ import { Rating } from "@mui/material";
 import { auth } from "../../firebase/firebaseConfig";
 import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
+import { LinkStyle } from "../../styles/calendarStyle";
 
 export const CardActivite = ({ k, l }) => {
   const { id } = useParams()
@@ -107,7 +108,7 @@ export const CardActivite = ({ k, l }) => {
               </h6>
               <div style={{ display: "flex", marginTop: "10px" }}>
                 <EnvironmentOutlined />
-                <Link to={`/map/${l}`}>{l}</Link>
+                <LinkStyle to={`/map/${city}`}>{city}</LinkStyle>
               </div>
               <a href={m.link} target="_blank">{m.description}</a>
 

@@ -51,8 +51,7 @@ export const FormSchedule = () =>{
         organizer: values.Organizer,
         link:link,
         description:values.descriptionLink,
-        place: values.Place,
-             }
+                     }
              
              dispatch(addScheduleAsync(formValue))
     };
@@ -101,13 +100,6 @@ export const FormSchedule = () =>{
       >
         <InputStyled placeholder="Nombre del organizador" allowClear  />
       </Form.Item>
-      <Form.Item
-       name="Place"
-        rules={[{ required: true, message: 'Por Favor introduce donde se realizará la actividad!' }]}
-      >
-        <InputStyled placeholder="Ubicacion de la actividad" allowClear  />
-      </Form.Item>
-
       <Form.Item
         name="website"
         label="."

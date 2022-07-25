@@ -14,6 +14,10 @@ import { Dashboard } from "./Dashboard";
 import { Spin } from "../components/Spin";
 import { AdminLogin } from "../components/admin/AdminLogin";
 import { AdminConfirmation } from "../components/admin/AdminConfirmation";
+import { DetailEvents } from "../containers/Administrator/DetailEvents";
+import { DetailItinerary } from "../containers/Administrator/DetailItinerary";
+import { EventSchedule } from "../containers/Administrator/EventSchedule";
+import { AddEvent } from "../containers/Administrator/AddEvent";
 
 export const AppRoutes = () => {
   const [checking, setChecking] = useState(true);
@@ -90,7 +94,7 @@ export const AppRoutes = () => {
         />
 
         <Route
-          path="/bienvenido"
+          path="/sign__in/Admi"
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <RegisterAdmi />
@@ -106,6 +110,26 @@ export const AppRoutes = () => {
             </PublicRoutes>
           }
         />
+        <Route path="/detail" element={
+           <PublicRoutes isAuthenticated={isLogged}>
+           <DetailEvents />
+         </PublicRoutes>
+        } />
+        <Route path="/detailItinerary/:id" element={
+        <PublicRoutes isAuthenticated={isLogged}>
+         <DetailItinerary />
+         </PublicRoutes>
+       } />
+       <Route path="/addEvent" element={
+        <PublicRoutes isAuthenticated={isLogged}>
+        <AddEvent />
+        </PublicRoutes>
+         } />
+        <Route path="/Schedule" element={
+        <PublicRoutes isAuthenticated={isLogged}>
+       <EventSchedule />
+        </PublicRoutes>
+        } />
         <Route
           path="/*"
           element={

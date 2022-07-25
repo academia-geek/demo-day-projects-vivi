@@ -1,8 +1,9 @@
-import { Calendar, Input } from "antd";
+import { Calendar, Input, Button } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
 import image1 from "../assets/prueba/image7.jpg";
+import image2 from "../assets/prueba/image8.jpg";
 
 export const CardStyledCalendar = styled.div`
   padding: 10px;
@@ -92,8 +93,13 @@ export const SiderStyle = styled.div`
   overflow-x: hidden;
   height: calc(100vh + 129px);
   background: rgba(255, 189, 41, 1);
+
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  & > div {
+    cursor: pointer;
   }
 `;
 
@@ -192,8 +198,35 @@ export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
 `;
+export const ButtonAntdStyled = styled(Button)`
+  border-radius: 10px;
+  margin-left: 7vw;
+  text-align: left;
+  color: #a9a9a9;
+
+  &[disabled]:hover {
+    .location {
+      fill: #a9a9a9;
+    }
+  }
+
+  &:hover {
+    .location {
+      fill: #40a9ff;
+    }
+  }
+
+  .location {
+    width: 15px;
+    height: 15px;
+    fill: #a9a9a9;
+    margin-right: 5px;
+  }
+`;
 export const FontStyled = styled.div`
   background-image: url(${image});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
@@ -201,3 +234,10 @@ export const FontStyled1 = styled.div`
   background-size: cover;
   padding-top: 100px;
 `;
+export const FontStyled2 = styled.div`
+  background-image: url(${image2});
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 47vw
+`;
+

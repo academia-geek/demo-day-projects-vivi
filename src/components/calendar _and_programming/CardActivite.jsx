@@ -27,8 +27,9 @@ export const CardActivite = ({ k, l }) => {
   const dataAct = Activities.filter((m) => m.id === id);
   const a = k * 1000;
   const dataFinal = dataAct.filter((m) => m.dates == a);
-  const dataCity= EventsList.filter((m )=> m.id === id)
-    console.log('data City',dataCity)
+  const dataCity= EventsList.find((m )=> m.id == id)
+  const city=dataCity.location
+    
   useEffect(() => {
     dispatch(listAsync());
     const user = auth.currentUser;
@@ -62,7 +63,7 @@ export const CardActivite = ({ k, l }) => {
 
   const [formValue, handleChange, reset] = useForm({
     idp: crypto.randomUUID(),
-    place: l,
+    place: city,
     posttext: "",
     rate: "",
   });
@@ -134,7 +135,7 @@ export const CardActivite = ({ k, l }) => {
                   <Form.Control
                     name="place"
                     type="text"
-                    value={l}
+                    value={city}
                     onChange={handleChange}
                     disabled
                   />

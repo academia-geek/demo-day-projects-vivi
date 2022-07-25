@@ -22,7 +22,7 @@ export const Programming = () => {
 
   const { EventsList } = useSelector(store => store.eventos)
   const data = EventsList.filter(m => m.id == id)
-  const { location } = data[0]
+ 
   const [date] = data
   
   return (
@@ -49,7 +49,7 @@ export const Programming = () => {
               <>
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
-                  <CardActivite k={item.seconds} l={location} />
+                  <CardActivite k={item.seconds}  />
                 </List.Item>
               </>
             )}

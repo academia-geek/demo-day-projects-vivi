@@ -11,13 +11,13 @@ import { auth } from "../../firebase/firebaseConfig";
 import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
 
-export const CardActivite = ({ k }) => {
+export const CardActivite = ({ k, l}) => {
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(null);
   const [pic, setPic] = useState("");
   const [time, setTime] = useState("");
   const [btnState, setBtn] = useState(true);
-
+ console.log(l)
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -63,7 +63,7 @@ export const CardActivite = ({ k }) => {
 
   const [formValue, handleChange, reset] = useForm({
     idp: crypto.randomUUID(),
-    place: "",
+    place:l,
     posttext: "",
     rate: "",
   });
@@ -105,10 +105,10 @@ export const CardActivite = ({ k }) => {
               >
                 Organiza: {m.organizer}
               </h6>
-              <div style={{ display: "flex", marginTop: "10px" }}>
+              {/* <div style={{ display: "flex", marginTop: "10px" }}>
                 <EnvironmentOutlined />
                 <Link to={`/map/${m.place}`}>{m.place}</Link>
-              </div>
+              </div> */}
              <a href={m.link} target="_blank">{m.description}</a>
              
             </div>
@@ -135,8 +135,9 @@ export const CardActivite = ({ k }) => {
                   <Form.Control
                     name="place"
                     type="text"
-                    value={m.place}
+                    value={l}
                     onChange={handleChange}
+                    disabled
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -150,7 +151,7 @@ export const CardActivite = ({ k }) => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 text-center">
-                  <Form.Label>¿Cómo calificarías el lugar?</Form.Label>
+                  <Form.Label>¿Cómo calificarías la experiencia?</Form.Label>
                   <Stack spacing={1} style={{ alignItems: "center" }}>
                     <Rating
                       name="rate"

@@ -20,6 +20,8 @@ export const Programming = () => {
   }, [dispatch])
   const { EventsList } = useSelector(store => store.eventos)
   const data = EventsList.filter(m => m.id == id)
+  const {location}=data[0]
+  console.log(location)
   const [date] = data
   const { Activities } = useSelector(store => store.schedule)
   const dataAct = Activities.filter(m => m.id == id)
@@ -47,7 +49,7 @@ export const Programming = () => {
               <>
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
-                  <CardActivite k={item.seconds} />
+                  <CardActivite k={item.seconds} l={location} />
                 </List.Item>
               </>
             )}

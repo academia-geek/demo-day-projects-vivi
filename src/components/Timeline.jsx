@@ -10,14 +10,13 @@ import { Link } from "react-router-dom";
 import { CONT } from "../styles/globalStyles";
 
 export const Timeline = () => {
-  const place = "Plaza San Pedro Claver, Cartagena de Indias";
   const dispatch = useDispatch();
   const { listaPosts } = useSelector((store) => store.posts);
   const userData = listaPosts[0];
 
   useEffect(() => {
     dispatch(listAllPosts());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>

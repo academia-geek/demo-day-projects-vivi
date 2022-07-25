@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPost, listAsync } from "../redux/actions/infoAction";
 import { auth } from "../firebase/firebaseConfig";
 import Rating from "@mui/material/Rating";
@@ -17,6 +17,8 @@ export const AddPostButton = ({ userID }) => {
     const [pic, setPic] = useState("");
     const [time, setTime] = useState("");
     const [btnState, setBtn] = useState(true);
+    const { listaInfo } = useSelector((store) => store.info);
+    const userData = listaInfo[0];
     const dispatch = useDispatch();
 
     let date = new Date();

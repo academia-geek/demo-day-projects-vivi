@@ -4,15 +4,39 @@ import {
   CalendarStyled,
   CardStyled,
 } from "../styles/homeStyles";
-import event from "../assets/carousel1.png";
+import { Button, List } from "antd";
+// import event from "../assets/carousel1.png";
 import { Card } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from 'react-redux'
+import moment from "moment";
+import { listAsync } from "../redux/actions/infoAction";
+import { listScheduleAsync } from "../redux/actions/scheduleAction";
+import { AsideEvent } from "./calendar _and_programming/AsideEvent";
+const datadate = []
 export const Aside = () => {
   const [value] = useState(new Date());
   const navigate = useNavigate();
+   const { Activities } = useSelector(store => store.schedule)
+  const dispatch = useDispatch()
+  console.log(Activities)
+  const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
+  console.log(dateToday)
+  useEffect(() => {
+    dispatch(listScheduleAsync());
+
+  }, [dispatch]);
+  for (let i = 0; i <= 14; i++) {
+    const fecha = dateToday + (86400000 * i)
+    console.log(fecha)
+    const filtro = Activities?.find(element => element.dates == fecha)
+    if (filtro != undefined) {
+      const count = datadate.push(filtro)
+    }
+  }
+  console.log(datadate)
   return (
     <AsideStyled>
       <div onClick={() => navigate("/calendar")} className="calendar">
@@ -23,30 +47,18 @@ export const Aside = () => {
         Próximos eventos
       </h4>
       <AsideEvents>
-        <CardStyled>
-          <img src={event} />
-          <Card.Body>
-            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
-          </Card.Body>
-        </CardStyled>
-        <CardStyled>
-          <img src={event} />
-          <Card.Body>
-            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
-          </Card.Body>
-        </CardStyled>
-        <CardStyled>
-          <img src={event} />
-          <Card.Body>
-            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
-          </Card.Body>
-        </CardStyled>
-        <CardStyled>
-          <img src={event} />
-          <Card.Body>
-            <Card.Title>Ferias y fiestas del sol y el acero</Card.Title>
-          </Card.Body>
-        </CardStyled>
+        {
+          datadate?.map(item =>
+            <CardStyled>
+              <div>
+              <AsideEvent id={item.id}/>
+              <div style={{display:"flex",marginTop:"1vw",marginLeft:"2vw"}}>
+              <h6 style={{fontSize:"12px",fontWeight: "400",width:"30%"}}>{item.date}</h6>
+              <h6 style={{fontSize:"14px",fontWeight: "500",width:"60%",marginLeft:"4px"}}>{item.name}</h6>
+              </div>
+              </div>
+            </CardStyled>
+          )}
       </AsideEvents>
     </AsideStyled>
   );

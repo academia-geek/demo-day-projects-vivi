@@ -66,9 +66,11 @@ export const AddLocation = ({ show, handleClose }) => {
             <form onSubmit={handleConfirmation}>
               <InputLocation
                 type="text"
-                placeholder="Ingresa la ubicación del evento..."
                 onChange={handleChange}
               >
+                <option value="" selected disabled hidden>
+                  Ingresa la ubicación del evento
+                </option>
                 {cities.map((city) => (
                   <option key={city.id} value={city.name}>
                     {city.name}

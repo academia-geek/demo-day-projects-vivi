@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
 import image1 from "../assets/prueba/image7.jpg";
+import image2 from "../assets/prueba/image8.jpg";
 
 export const CardStyledCalendar = styled.div`
   padding: 10px;
@@ -224,6 +225,8 @@ export const ButtonAntdStyled = styled(Button)`
 `;
 export const FontStyled = styled.div`
   background-image: url(${image});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
@@ -231,3 +234,10 @@ export const FontStyled1 = styled.div`
   background-size: cover;
   padding-top: 100px;
 `;
+export const FontStyled2 = styled.div`
+  background-image: url(${image2});
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 47vw
+`;
+

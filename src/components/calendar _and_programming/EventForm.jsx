@@ -1,21 +1,19 @@
-import { Button, DatePicker, Form, Input, message, Space, Upload } from "antd";
-import React, { useState } from "react";
+import { ButtonAntdStyled, InputStyled } from "../../styles/calendarStyle";
+import { AddLocation } from "../AddLocation";
+import { ReactComponent as Location } from "../../assets/location.svg";
+import { Button, DatePicker, Form, message, Space, Upload } from "antd";
+import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { imgUpload } from "../../helpers/imgUpload";
 import { InboxOutlined } from "@ant-design/icons";
 import { addEventAsync } from "../../redux/actions/eventsAction";
-import { ButtonAntdStyled, InputStyled } from "../../styles/calendarStyle";
-import { Paper } from "@mui/material";
-import { AddLocation } from "../AddLocation";
-import { ReactComponent as Location } from "../../assets/location.svg";
-
 const { RangePicker } = DatePicker;
 const datadate = [];
 
 export const EventForm = () => {
   const dispatch = useDispatch();
   const [pic, setPic] = useState("");
-  const [fileList, setFileList] = useState([]);
+  const [image, setImage] = useState("");
   const [loadings, setLoadings] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -27,7 +25,7 @@ export const EventForm = () => {
     handleShow();
   };
 
-  const location = JSON.parse(window.localStorage.getItem("location"));
+  const location = JSON.parse(localStorage.getItem("location"));
 
   if (window.location.reload) localStorage.removeItem("location");
 
@@ -52,14 +50,7 @@ export const EventForm = () => {
     action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
 
     onChange(info) {
-      imgUpload(info.file.originFileObj)
-        .then((resp) => {
-          console.log(resp);
-          setPic(resp);
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
+      setImage(info.file.originFileObj);
       const { status } = info.file;
 
       if (status !== "uploading") {
@@ -68,7 +59,6 @@ export const EventForm = () => {
 
       if (status === "done") {
         message.success(`${info.file.name} imagen cargada correctamente`);
-        setFileList(1);
       } else if (status === "error") {
         message.error(
           `${info.file.name} no se cargo correctamente, intentalo de nuevo`
@@ -76,6 +66,17 @@ export const EventForm = () => {
       }
     },
   };
+
+  useMemo(() => {
+    imgUpload(image)
+      .then((resp) => {
+        console.log(resp);
+        setPic(resp);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
+  }, []);
 
   const onFinish = (values) => {
     const formValue = {
@@ -86,9 +87,9 @@ export const EventForm = () => {
       img: pic,
       date: datadate,
     };
-    localStorage.removeItem("location");
     localStorage.setItem("id", formValue.id);
     dispatch(addEventAsync(formValue));
+    localStorage.removeItem("location");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -131,7 +132,7 @@ export const EventForm = () => {
           rules={[
             {
               required: true,
-              message: "Por favor introduce el nombre del evento",
+              message: "Por Favor introduce el nombre del evento!",
             },
           ]}
         >
@@ -146,7 +147,7 @@ export const EventForm = () => {
           rules={[
             {
               required: true,
-              message: "Por favor introduce la descripción del evento",
+              message: "Por Favor introduce la descripción del evento !",
             },
           ]}
         >
@@ -160,7 +161,7 @@ export const EventForm = () => {
             onClick={showMap}
             icon={<Location className="location" />}
             className="w-100"
-            disabled={location ? true : false}
+            disabled={location === null ? false : true}
           >
             {location ? location : "Ubicación"}
           </ButtonAntdStyled>
@@ -168,7 +169,7 @@ export const EventForm = () => {
         <Dragger
           {...props}
           style={{ width: "50vw", borderRadius: "10px" }}
-          accept="image/png, image/jpeg, image/jpg"
+          accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
           percent
         >
           <p className="ant-upload-drag-icon">
@@ -191,7 +192,6 @@ export const EventForm = () => {
             />
           </Space>
         </Form.Item>
-
         <Button
           style={{
             marginLeft: "20vw",
@@ -201,9 +201,8 @@ export const EventForm = () => {
           htmlType="submit"
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
-          disabled={fileList.length === 0}
         >
-          Agregar
+          Agregar{" "}
         </Button>
       </Form>
       <AddLocation show={show} handleClose={handleClose} />

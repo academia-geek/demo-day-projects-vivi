@@ -9,7 +9,7 @@ import { FontStyled1 } from '../../styles/calendarStyle'
 export const EventSchedule = () => {
   return (
     <FontStyled1 >
-      <Paper elevation={12} style={{ marginLeft: '20vw', width:"60vw",height:"480px"}}>
+      <Paper elevation={12} style={{ marginLeft: '20vw', width:"60vw",height:"530px"}}>
         <h1 style={{textAlign:"center",paddingTop:"50px"}}>Ingresa los datos de las actividades del itinerario</h1> 
         <FormSchedule/>
         </Paper>

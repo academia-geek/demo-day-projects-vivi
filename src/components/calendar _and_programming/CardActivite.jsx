@@ -11,25 +11,22 @@ import { auth } from "../../firebase/firebaseConfig";
 import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
 
-export const CardActivite = ({ k, l}) => {
+export const CardActivite = ({ k, l }) => {
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(null);
   const [pic, setPic] = useState("");
   const [time, setTime] = useState("");
   const [btnState, setBtn] = useState(true);
- console.log(l)
   const { id } = useParams();
   const dispatch = useDispatch();
-
   let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
-
   const { Activities } = useSelector((store) => store.schedule);
   const dataAct = Activities.filter((m) => m.id == id);
   const a = k * 1000;
-
   const dataFinal = dataAct.filter((m) => m.dates == a);
+
   useEffect(() => {
     dispatch(listAsync());
     const user = auth.currentUser;
@@ -63,7 +60,7 @@ export const CardActivite = ({ k, l}) => {
 
   const [formValue, handleChange, reset] = useForm({
     idp: crypto.randomUUID(),
-    place:l,
+    place: l,
     posttext: "",
     rate: "",
   });
@@ -105,12 +102,12 @@ export const CardActivite = ({ k, l}) => {
               >
                 Organiza: {m.organizer}
               </h6>
-              {/* <div style={{ display: "flex", marginTop: "10px" }}>
+              <div style={{ display: "flex", marginTop: "10px" }}>
                 <EnvironmentOutlined />
-                <Link to={`/map/${m.place}`}>{m.place}</Link>
-              </div> */}
-             <a href={m.link} target="_blank">{m.description}</a>
-             
+                <Link to={`/map/${l}`}>{l}</Link>
+              </div>
+              <a href={m.link} target="_blank">{m.description}</a>
+
             </div>
           </div>
           <Button

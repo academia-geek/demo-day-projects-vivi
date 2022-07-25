@@ -1,54 +1,62 @@
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/Logo.png";
+import { NavbarSelect, NavbarStyled } from "../styles/landingStyles";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
-import { Button, Select } from 'antd';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom'
-import logo from '../assets/Logo.png'
-const { Option } = Select;
-
-export function NavbarLanding({ fixed }) {
+export function NavbarLanding() {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
-     };
- 
+  };
+
   return (
-    <Navbar  expand="lg" fixed={fixed} style={{backgroundColor:"rgba(255, 189, 41, 1)"}}>
+    <NavbarStyled expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/" style={{color:"white"}}>
-            <img src={logo} style={{width:"60px",color:"white"}}/>
-            ViVi
+        <Navbar.Brand className="text-uppercase" as={Link} to="/">
+          <img src={logo} />
+          ViVi
         </Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-        <Nav.Link href="/#about" className='optionNavbar'>Conócenos</Nav.Link>
-        <Nav.Link href="/business" className='optionNavbar'>ViVi empresarial</Nav.Link>
-        <Nav.Link href="/#contact" className='optionNavbar'>Contáctanos</Nav.Link>
-        </Navbar.Collapse>
-        
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-         
-            <Nav.Link href="/login" className='optionNavbar'>Inicia sesión</Nav.Link>
-           
-            <Button className='btnRegistro' shape="round" href='/signin'>
+
+        <div className="nav-before d-lg-none d-flex ms-auto">
+          <Nav.Link as={Link} to="/login" className="me-2 icon">
+            <PersonOutlineOutlinedIcon />
+          </Nav.Link>
+          <Nav.Link as={Link} to="/signin" className="btn-register px-3 py-2">
+            Regístrate
+          </Nav.Link>
+        </div>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="m-auto nav-center">
+            <Nav.Link href="/#about">Conócenos</Nav.Link>
+            <Nav.Link as={Link} to="/business">
+              ViVi Empresarial
+            </Nav.Link>
+            <Nav.Link href="/#contact">Contáctanos</Nav.Link>
+          </Nav>
+          <Nav className="d-lg-flex d-none gap-2">
+            <Nav.Link as={Link} to="/login" className="btn-login px-3 py-2">
+              <PersonOutlineOutlinedIcon className="me-2 mb-1" />
+              Inicia sesión
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signin" className="btn-register px-3 py-2">
               Regístrate
-            </Button>
-            <Select
-             onChange={handleChange}
-              defaultValue="ES"
-              className='optionSelect'
-              bordered={false}
-              style={{background:"rgba(255, 189, 41, 1)"}}
-            
-            >
-               <Option value="EN" > <NavLink  style={{color:"white"}} to="/En">EN</NavLink></Option>
-               <Option value="ES" ><NavLink style={{color:"white"}} to="/">ES</NavLink></Option>
-             
-            </Select>
-                  
+            </Nav.Link>
+            <NavbarSelect onChange={handleChange} defaultValue="ES">
+              <option value="EN">
+                <NavLink to="/En">EN</NavLink>
+              </option>
+              <option value="ES">
+                <NavLink to="/">ES</NavLink>
+              </option>
+            </NavbarSelect>
+          </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </NavbarStyled>
   );
 }
-

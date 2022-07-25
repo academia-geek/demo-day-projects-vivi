@@ -1,17 +1,18 @@
 import React from 'react'
 import { Chatbot } from '../components/Chatbot'
 import { Footer } from '../components/Footer'
-import { AlertVivi } from '../components/Alert'
+import { AlertVivi } from '../components/landing_page/Alert'
 import { NavbarLanding } from '../components/Navbar'
 import imagenLanding from '../assets/imagenLanding.jpg'
 import { SectionHero } from '../styles/globalStyles'
+import { CarouselLanding } from '../components/landing_page/CarouselLanding'
 
 
 export const LandingPage = () => {
     return (
         <>
-            <NavbarLanding fixed="top" />
-            <img src={imagenLanding} style={{ width: "100vw" }} />
+            <NavbarLanding />
+            <CarouselLanding />
             <AlertVivi />
             <SectionHero className='d-flex align-items-center gap-4'>
                 <div id='about' style={{ width: "40%" }}>

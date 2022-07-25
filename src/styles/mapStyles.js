@@ -5,9 +5,8 @@ export const DivLocation = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px 0;
 
-  & > form {
+  form {
     position: relative;
     display: flex;
     justify-content: center;
@@ -15,22 +14,23 @@ export const DivLocation = styled.div`
 
     & > span {
       position: absolute;
-      right: 5%;
+      right: 10%;
       & > svg {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
         fill: #a9a9a9;
       }
     }
   }
 `;
 
-export const InputLocation = styled.input`
+export const InputLocation = styled.select`
+  -webkit-appearance: none;
+  -moz-appearance: none;
   width: 600px;
   border: 2px solid #a9a9a9;
   border-radius: 33px;
-  padding: 10px 30px;
-  font-size: 20px;
+  padding: 5px 30px;
   font-weight: 500;
   outline: none;
   position: relative;

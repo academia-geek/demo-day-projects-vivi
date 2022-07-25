@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getWeather } from "../helpers/getWeather";
 import { Icon } from "leaflet";
 import marker from "leaflet/dist/images/marker-icon.png";
+import { places } from "../data/Places";
 
 const coordinates = [
   [6.29, -75.54],
@@ -22,8 +23,6 @@ function Location({ location }) {
   const coordinatesMapped = coordinates.map((coordinate) => {
     return coordinate;
   });
-
-  console.log(coordinatesMapped);
 
   const map = useMapEvents({
     click() {
@@ -104,7 +103,7 @@ function Location({ location }) {
           })
         }
       >
-        <Popup>Nombre del evento linkeado</Popup>
+        <Popup>{location.name}</Popup>
       </Marker>
     </>
   );
@@ -112,7 +111,6 @@ function Location({ location }) {
 
 export const Map = () => {
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   const back = () => {
@@ -125,7 +123,15 @@ export const Map = () => {
   });
 
   useEffect(() => {
-    if (id !== undefined) {
+    const place = places.find((p) => p.name === id);
+
+    if (place) {
+      setLocation({
+        name: place.name,
+        lat: place.lat,
+        lng: place.lon,
+      });
+    } else if (id !== undefined || id !== place.name) {
       getWeather(id).then((data) => {
         if (data.code === "ERR_BAD_REQUEST") {
           setLocation({
@@ -134,6 +140,7 @@ export const Map = () => {
           });
         } else {
           setLocation({
+            name: data.location.name,
             lat: data.location.lat,
             lng: data.location.lon,
           });

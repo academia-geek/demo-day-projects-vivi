@@ -1,4 +1,4 @@
-import { Calendar, Input } from "antd";
+import { Calendar, Input, Button } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
@@ -93,8 +93,13 @@ export const SiderStyle = styled.div`
   overflow-x: hidden;
   height: calc(100vh + 129px);
   background: rgba(255, 189, 41, 1);
+
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  & > div {
+    cursor: pointer;
   }
 `;
 
@@ -192,6 +197,31 @@ export const Siderbar = styled.div`
 export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
+`;
+export const ButtonAntdStyled = styled(Button)`
+  border-radius: 10px;
+  margin-left: 7vw;
+  text-align: left;
+  color: #a9a9a9;
+
+  &[disabled]:hover {
+    .location {
+      fill: #a9a9a9;
+    }
+  }
+
+  &:hover {
+    .location {
+      fill: #40a9ff;
+    }
+  }
+
+  .location {
+    width: 15px;
+    height: 15px;
+    fill: #a9a9a9;
+    margin-right: 5px;
+  }
 `;
 export const FontStyled = styled.div`
   background-image: url(${image});

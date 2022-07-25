@@ -61,7 +61,7 @@ export const Mapped = ({ weather }) => {
       <MapContainer
         center={[location.lat, location.lng]}
         zoom={10}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
         dragging={true}
         doubleClickZoom={true}
         boxZoom={true}

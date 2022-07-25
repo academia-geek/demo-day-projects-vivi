@@ -1,16 +1,19 @@
 import { Button, DatePicker, Form, Input, message, Space, Upload } from 'antd';
-import React, { useMemo, useState } from 'react';
+import { ReactComponent as Location } from "../../assets/location.svg";
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
-import { InboxOutlined } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
+// import { InboxOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
-import { InputStyled } from '../../styles/calendarStyle';
+import { ButtonAntdStyled, InputStyled } from '../../styles/calendarStyle';
+import { AddLocation } from '../AddLocation';
 const { RangePicker } = DatePicker;
 const datadate = []
 
 export const EventForm = () => {
   const dispatch = useDispatch()
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState()
   const [pic, setPic] = useState("")
   const [fileList, setFileList] = useState([]);
   const [loadings, setLoadings] = useState([]);
@@ -29,29 +32,57 @@ export const EventForm = () => {
     }
   };
 
-  const { Dragger } = Upload;
   const props = {
     name: 'file',
-    multiple: true,
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    headers: {
+      authorization: 'authorization-text',
+    },
 
     onChange(info) {
-      setImage(info.file.originFileObj)
-      const { status } = info.file;
 
-      if (status !== 'uploading') {
+      imgUpload(info.file.originFileObj)
+        .then((resp) => {
+          console.log(resp)
+          setPic(resp)
+        })
+        .catch((error) => { console.warn(error) })
+
+      if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
 
-      if (status === 'done') {
-        message.success(`${info.file.name} imagen cargada correctamente`);
-        setFileList(1)
-      } else if (status === 'error') {
-        message.error(`${info.file.name}  cargo correctamente`);
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
       }
     },
   };
-  useMemo(() => {
+
+  // const { Dragger } = Upload;
+  // const props = {
+  //   name: 'file',
+  //   multiple: true,
+  //   // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+
+  //   onChange(info) {
+  //     setImage(info.file.originFileObj)
+  //     const { status } = info.file;
+
+  //     if (status !== 'uploading') {
+  //       console.log(info.file, info.fileList);
+  //     }
+
+  //     if (status === 'done') {
+  //       message.success(`${info.file.name} imagen cargada correctamente`);
+  //       setFileList(1)
+  //     } else if (status === 'error') {
+  //       message.error(`${info.file.name}  cargo correctamente`);
+  //     }
+  //   },
+  // };
+  useEffect(() => {
     imgUpload(image)
       .then((resp) => {
         console.log(resp)
@@ -60,17 +91,31 @@ export const EventForm = () => {
       .catch((error) => { console.warn(error) })
   }
     , [])
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const showMap = () => {
+    handleShow();
+  };
+
+  const location = localStorage.getItem("location");
+
+  if (window.location.reload) localStorage.removeItem("location");
 
   const onFinish = (values) => {
     const formValue = {
       id: Math.random(),
       name: values.Eventname,
       description: values.Description,
-      location: values.Location,
+      location: values.location,
       img: pic,
       date: datadate
     }
     localStorage.setItem("id", formValue.id)
+    console.log(formValue)
+    localStorage.removeItem("location");
     dispatch(addEventAsync(formValue))
   };
 
@@ -94,7 +139,7 @@ export const EventForm = () => {
         window.location.href = "./Schedule"
         return newLoadings;
       });
-    }, 2000);
+    }, 4000);
   };
 
   return (
@@ -122,20 +167,29 @@ export const EventForm = () => {
         <InputStyled placeholder="Descripcion de la festividad" allowClear />
       </Form.Item>
       <Form.Item
-        name="Location"
-        rules={[{ required: true, message: 'Por Favor introduce la ciudad!' }]}
+        name="location"
+        rules={[{ required: true, message: 'Por Favor introduce la ubicación !' }]}
       >
         <InputStyled placeholder="Ubicación" allowClear />
       </Form.Item>
-      <Dragger {...props} style={{ width: "50vw", borderRadius: "10px" }} accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" percent >
-        <p className="ant-upload-drag-icon">
-          <InboxOutlined />
-        </p>
-        <p className="ant-upload-text">Clic o arrastre la imagen a esta área para cargarla.</p>
-        <p className="ant-upload-hint">
-          Soporte para carga única. Ingresa la imagen que represente el evento, esta se mostrara al usuario.
-        </p>
-      </Dragger>
+
+      {/* <Form.Item
+        name="Location"
+        rules={[{ required: true, message: "Por favor introduce la ciudad" }]}
+      >
+        <ButtonAntdStyled
+          onClick={showMap}
+          icon={<Location className="location" />}
+          className="w-100"
+          disabled={location === null ? false : true}
+        >
+          {location ? location : "Ubicación"}
+        </ButtonAntdStyled>
+      </Form.Item> */}
+
+      <Upload {...props} style={{ marginLeft: "5vw" }} >
+        <Button icon={<UploadOutlined />}>Click para agregar imagen</Button>
+      </Upload>
       <Form.Item style={{ marginTop: "10px", marginLeft: "12vw" }}>
         <Space direction="vertical" size={12}>
           <RangePicker
@@ -148,8 +202,10 @@ export const EventForm = () => {
 
       <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
         Agregar </Button>
-
+      <AddLocation show={show} handleClose={handleClose} />
     </Form>
+
+
 
   );
 }

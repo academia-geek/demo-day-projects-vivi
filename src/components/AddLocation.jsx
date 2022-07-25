@@ -33,7 +33,7 @@ export const AddLocation = ({ show, handleClose }) => {
 
   const handleSubmit = () => {
     if (weather !== {}) {
-      localStorage.setItem("location", JSON.stringify(weather.location.name));
+      localStorage.setItem("location",(weather.location.name));
       handleClose();
     }
   };

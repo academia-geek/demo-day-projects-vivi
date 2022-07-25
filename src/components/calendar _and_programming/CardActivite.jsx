@@ -109,6 +109,8 @@ export const CardActivite = ({ k }) => {
                 <EnvironmentOutlined />
                 <Link to={`/map/${m.place}`}>{m.place}</Link>
               </div>
+             <a href={m.link} target="_blank">{m.description}</a>
+             
             </div>
           </div>
           <Button

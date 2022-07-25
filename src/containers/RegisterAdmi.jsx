@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {  FontStyled2 } from '../styles/calendarStyle';
@@ -9,14 +9,13 @@ export const RegisterAdmi = () => {
   const navigate = useNavigate()
   const onFinish = (values) => {
     console.log('Success:', values);
-    if (values.username == "administrador" && values.password == "12345678"){
-       navigate('/addEvent')
+    if (values.username === "administrador" && values.password == "12345678"){
+       navigate('/admin/home')
     }
     else{
       alert ("usuario o contaseña incorrectos")
     }
-   
-    
+      
   };
 
   const onFinishFailed = (errorInfo) => {

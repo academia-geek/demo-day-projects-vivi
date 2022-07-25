@@ -18,6 +18,7 @@ import { DetailEvents } from "../containers/Administrator/DetailEvents";
 import { DetailItinerary } from "../containers/Administrator/DetailItinerary";
 import { EventSchedule } from "../containers/Administrator/EventSchedule";
 import { AddEvent } from "../containers/Administrator/AddEvent";
+import { AdminHome } from "../containers/Administrator/AdminHome";
 
 export const AppRoutes = () => {
   const [checking, setChecking] = useState(true);
@@ -111,24 +112,31 @@ export const AppRoutes = () => {
           }
         />
         <Route path="/detail" element={
-           <PublicRoutes isAuthenticated={isLogged}>
-           <DetailEvents />
-         </PublicRoutes>
+          <PublicRoutes isAuthenticated={isLogged}>
+            <DetailEvents />
+          </PublicRoutes>
         } />
         <Route path="/detailItinerary/:id" element={
-        <PublicRoutes isAuthenticated={isLogged}>
-         <DetailItinerary />
-         </PublicRoutes>
-       } />
-       <Route path="/addEvent" element={
-        <PublicRoutes isAuthenticated={isLogged}>
-        <AddEvent />
-        </PublicRoutes>
-         } />
+          <PublicRoutes isAuthenticated={isLogged}>
+            <DetailItinerary />
+          </PublicRoutes>
+        } />
+        <Route path="/addEvent" element={
+          <PublicRoutes isAuthenticated={isLogged}>
+            <AddEvent />
+          </PublicRoutes>
+        } />
+
+        <Route path="/admin/home" element={
+          <PublicRoutes isAuthenticated={isLogged}>
+            <AdminHome />
+          </PublicRoutes>
+        } />
+        
         <Route path="/Schedule" element={
-        <PublicRoutes isAuthenticated={isLogged}>
-       <EventSchedule />
-        </PublicRoutes>
+          <PublicRoutes isAuthenticated={isLogged}>
+            <EventSchedule />
+          </PublicRoutes>
         } />
         <Route
           path="/*"

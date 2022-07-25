@@ -1,4 +1,4 @@
-import { Calendar, Input, Button } from "antd";
+import { Calendar, Input, Button, AutoComplete } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
@@ -198,6 +198,10 @@ export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
 `;
+export const AutoCompleteStyled = styled(AutoComplete)`
+  border-radius: 10px;
+  
+`;
 export const ButtonAntdStyled = styled(Button)`
   border-radius: 10px;
   margin-left: 7vw;
@@ -232,7 +236,7 @@ export const FontStyled1 = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 100px;
+  padding-top: 65px;
 `;
 export const FontStyled2 = styled.div`
   background-image: url(${image2});

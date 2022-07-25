@@ -17,12 +17,10 @@ export const Dashboard = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/map/:id" element={<Map />} />
         <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/favorites" element={<Favorites />} />
 
         {/* Admin Routes */}
         <Route path="/admin/home" element={<AdminHome />} />
-        <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/programming/:id" element={<Programming />} />
       </Routes>
     </>

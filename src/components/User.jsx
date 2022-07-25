@@ -8,7 +8,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
-import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync } from "../redux/actions/infoAction";
+import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync, updatePhoto } from "../redux/actions/infoAction";
+import { imgUpload } from "../helpers/imgUpload";
 
 export const User = ({ userID }) => {
     const dispatch = useDispatch()
@@ -18,6 +19,17 @@ export const User = ({ userID }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        imgUpload(file)
+            .then((resp) => {
+                dispatch(updatePhoto(resp, userID))
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
+    };
 
     const [formValue, handleChange, reset] = useForm({ age: '' })
     const [valueLike, handleChangeLike, resetLike] = useForm({ id: crypto.randomUUID(), like: '' })
@@ -62,8 +74,16 @@ export const User = ({ userID }) => {
         <>
             <div className='d-flex px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex mx-auto">
-                    <UserImg src={profile?.photoURL} alt={profile?.displayName} />
-                    <EditIcon src={edit} alt="" />
+                    <UserImg src={userData?.profileImg} alt={profile?.displayName} />
+                    <label for="file-input">
+                        <EditIcon src={edit} alt="" />
+                    </label>
+                    <input
+                        id="file-input"
+                        type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
+                        onChange={handleImage}
+                        style={{ display: "none" }}
+                    />
                 </div>
                 <div>
                     <div className="d-flex justify-content-between align-items-center">
@@ -73,7 +93,7 @@ export const User = ({ userID }) => {
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Edad:</h5>
                         <UserData>
-                            <TAG>{userData?.edad}</TAG>
+                            <TAG><h6>{userData?.edad}</h6></TAG>
                         </UserData>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">

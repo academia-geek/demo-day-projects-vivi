@@ -6,6 +6,7 @@ import { Favorites } from "../containers/Favorites";
 import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
+import { AdminHome } from "../containers/Administrator/AdminHome";
 
 export const Dashboard = () => {
   return (
@@ -16,7 +17,12 @@ export const Dashboard = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/map/:id" element={<Map />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/Schedule" element={<EventSchedule />} />
         <Route path="/favorites" element={<Favorites />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin/home" element={<AdminHome />} />
+        <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/programming/:id" element={<Programming />} />
       </Routes>
     </>

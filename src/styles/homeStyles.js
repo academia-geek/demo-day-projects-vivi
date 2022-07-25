@@ -39,12 +39,10 @@ export const BoxStyled = styled(Box)`
 `;
 
 export const CarouselStyled = styled.div`
-  padding: 10px;
   margin-top: ${(props) => (props.marginTop ? props.marginTop : "0")};
 
   .carousel-item > img {
-    height: 541px;
-    border: 1px solid transparent;
+    height: 284px;
   }
 
   .carousel-control-prev-icon,

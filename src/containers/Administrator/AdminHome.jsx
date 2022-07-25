@@ -1,13 +1,12 @@
-import { Aside } from "../components/Aside";
-import { CarouselEvents } from "../components/CarouselEvents";
+import { Aside } from "../../components/Aside";
+import { CarouselEvents } from "../../components/CarouselEvents";
 import { Col } from "react-bootstrap";
-import { Timeline } from "../components/Timeline";
 import Alert from "@mui/material/Alert";
-import { auth } from "../firebase/firebaseConfig";
+import { auth } from "../../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
-import { AddPostButton } from "../components/AddPostButton";
+import { AdminHero } from "../../components/admin/AdminHero";
 
-export const Home = () => {
+export const AdminHome = () => {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
@@ -31,20 +30,16 @@ export const Home = () => {
                 Correo electrónico no verificado - Por favor revisa tu bandeja
                 de entrada
               </Alert>
-              <CarouselEvents />
+              <AdminHero />
             </>
           ) : (
-            <CarouselEvents marginTop={"63px"} />
+            <AdminHero marginTop={"63px"} />
           )}
-          <Timeline />
         </Col>
         <Col sm={3} className="position-fixed end-0">
           <Aside />
         </Col>
       </div>
-      <AddPostButton
-        userID={profile?.uid}
-      />
     </div>
   );
 };

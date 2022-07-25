@@ -66,7 +66,7 @@ export const Posts = ({ userID }) => {
     rate,
     pic,
     time,
-    photo: profile?.photoURL,
+    photo: userData?.profileImg,
     name: profile?.displayName,
   };
 
@@ -129,7 +129,7 @@ export const Posts = ({ userID }) => {
               />
             </Userbar>
             <DivPost>
-              <div>
+              <div className="imagen">
                 <img src={i.pic} alt={i.place} />
               </div>
               <div className="comment">

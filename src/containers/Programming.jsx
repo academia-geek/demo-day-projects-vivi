@@ -7,7 +7,7 @@ import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import { Col } from "react-bootstrap";
-import { Siderbar, TittleStyle } from '../styles/calendarStyle';
+import { LinkStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { Paper } from '@mui/material'
 
@@ -36,7 +36,7 @@ export const Programming = () => {
                 <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
-                  <Link to={`/map/${item.location}`}>{item.location}</Link>
+                  <LinkStyle to={`/map/${item.location}`}>{item.location}</LinkStyle>
                 </div>
               </Paper>
             ))

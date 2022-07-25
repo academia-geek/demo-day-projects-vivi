@@ -1,10 +1,8 @@
 import { Button, DatePicker, Form, message, Space, Upload,Select } from 'antd';
-
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { UploadOutlined } from '@ant-design/icons';
-
 import { addEventAsync } from '../../redux/actions/eventsAction';
 import {  InputStyled } from '../../styles/calendarStyle';
 import { cities } from "../../data/cities";
@@ -14,11 +12,8 @@ const datadate = []
 
 export const EventForm = () => {
   const dispatch = useDispatch()
-
   const [pic, setPic] = useState("")
-
   const [loadings, setLoadings] = useState([]);
-
   const onChange = (value, dateString) => {
     console.log('Rango de fecha: ', dateString);
     const date1 = dateString[0]
@@ -51,21 +46,8 @@ export const EventForm = () => {
 
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
-      }
-    
-    },
+      } },
   };
-
-   // useEffect(() => {
-  //   imgUpload(image)
-  //     .then((resp) => {
-  //       console.log(resp)
-  //       setPic(resp)
-  //     })
-  //     .catch((error) => { console.warn(error) })
-  // }
-  //   , [])
-
 
   const onFinish = (values) => {
     const formValue = {
@@ -77,7 +59,6 @@ export const EventForm = () => {
       date: datadate
     }
     localStorage.setItem("id", formValue.id)
-    console.log(formValue)
     localStorage.removeItem("location");
     dispatch(addEventAsync(formValue))
   };
@@ -102,7 +83,7 @@ export const EventForm = () => {
         window.location.href = "./Schedule"
         return newLoadings;
       });
-    }, 4000);
+    }, 2000);
   };
 
   return (
@@ -136,11 +117,11 @@ export const EventForm = () => {
         rules={[
           {
             required: true,
-            message: 'Por favor selecciona una descripcion del link!',
+            message: 'Por favor selecciona una ciudad',
           },
         ]}
       >
-        <Select placeholder="selecciona una descripción del link " style={{borderRadius:' 10px'}}>
+        <Select placeholder="Selecciona una ciudad " style={{borderRadius:' 10px'}}>
         {cities.map(c=>
           <Option value={c.name}>{c.name}</Option>
         )} 
@@ -160,7 +141,6 @@ export const EventForm = () => {
           />
         </Space>
       </Form.Item>
-
       <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
         Agregar </Button>
          </Form>

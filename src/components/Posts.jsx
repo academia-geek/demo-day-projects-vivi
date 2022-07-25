@@ -66,7 +66,7 @@ export const Posts = ({ userID }) => {
     rate,
     pic,
     time,
-    photo: profile?.photoURL,
+    photo: userData?.profileImg,
     name: profile?.displayName,
   };
 

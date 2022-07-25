@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPost } from "../redux/actions/infoAction";
+import { addPost, listAsync } from "../redux/actions/infoAction";
 import { auth } from "../firebase/firebaseConfig";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -59,7 +59,7 @@ export const AddPostButton = ({ userID }) => {
         rate,
         pic,
         time,
-        photo: profile?.photoURL,
+        photo: userData?.profileImg,
         name: profile?.displayName,
     };
 
@@ -70,6 +70,7 @@ export const AddPostButton = ({ userID }) => {
     };
 
     useEffect(() => {
+        dispatch(listAsync());
         const user = auth.currentUser;
         if (user) {
             setProfile(user);

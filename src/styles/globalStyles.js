@@ -99,8 +99,10 @@ export const HeroCards = styled.div`
   background-color: #d9d9d9;
   padding: 0 8px;
   border-radius: 10px;
-  width: 45%;
-  height: 50vw;
+  width: 25%;
+  height: 15vw;
+  margin-left: 2%;;
+ 
   a{
     width: fill-available;
   }

@@ -6,7 +6,7 @@ import { HeroCards } from '../../styles/globalStyles'
 
 export const AdminHero = () => {
     return (
-        <section className="d-flex justify-content-center gap-3" style={{ marginTop: "100px" }}>
+        <section className="d-flex justify-content-center align-items-center gap-3" style={{ height: "inherit" }}>
             <HeroCards>
                 <Link to="/addEvent">
                     <img src={agendar} alt="Agendar" />

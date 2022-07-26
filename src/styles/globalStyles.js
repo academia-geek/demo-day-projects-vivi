@@ -122,7 +122,7 @@ export const HeroCards = styled.div`
     width: fill-available;
   }
   img{
-    width: fill-available;
+    width: 50%;
     border-radius: 100%;
   }
 `;

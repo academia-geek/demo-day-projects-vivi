@@ -115,6 +115,9 @@ export const HeroCards = styled.div`
   width: 45%;
   height: 50vw;
   text-align: center;
+  :hover{
+    transform:scale(1.01);
+  }
   h2{
     padding: 1rem;
   }

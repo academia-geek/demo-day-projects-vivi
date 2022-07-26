@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export const Events = () => {
   const navigate = useNavigate();
   return (
-    <section className="mb-5">
+    <section className="mb-4">
       <Container>
         <TitleLanding className="left">
           <h2 className="text-uppercase">¡Echa un vistazo!</h2>

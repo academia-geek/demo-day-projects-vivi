@@ -7,7 +7,7 @@ import { Box, TitleLanding } from "../../styles/landingStyles";
 
 export const Services = () => {
   return (
-    <section className="mb-5">
+    <section className="mb-4">
       <Container>
         <TitleLanding className="right">
           <h2 className="text-uppercase">Servicios</h2>

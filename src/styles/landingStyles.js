@@ -533,3 +533,45 @@ export const EventLanding = styled.div`
     }
   }
 `;
+
+export const FormLanding = styled.form`
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+
+  & > div > input {
+    background-color: #f2f1ec;
+    border: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      background-color: #f2f1ec;
+    }
+  }
+
+  & > div > textarea {
+    background-color: #f2f1ec;
+    resize: none;
+    margin-top: 1rem;
+    height: 180px;
+    border: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      background-color: #f2f1ec;
+    }
+  }
+
+  & > button {
+    margin-top: 1rem;
+    border: 1px solid transparent;
+    padding: 0.5rem 2rem;
+
+    &:hover {
+      border-color: var(--secondary-color);
+    }
+  }
+`;

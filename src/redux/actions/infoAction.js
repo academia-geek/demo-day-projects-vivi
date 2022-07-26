@@ -1,5 +1,6 @@
 import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { auth, db } from "../../firebase/firebaseConfig"
+import { timeConverter } from "../../helpers/timeConverter"
 import { typesInfo, typesPosts } from "../types/types"
 
 export const updatePhoto = (value, userID) => {
@@ -131,8 +132,7 @@ export const listAllPosts = () => {
         const sub1 = datos.filter(a=>a.id)
 
         sub1.forEach(obj => {
-            obj.time = (obj.time).replaceAll("/", "-")+":00"
-            console.log(obj.time)
+            obj.time = timeConverter(obj.time)
         })
 
            console.log(sub1);

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/Logo.png'
+import { Footer } from "../../components/Footer";
 
 export const AdminHome = () => {
   const [profile, setProfile] = useState({});
@@ -60,6 +61,7 @@ export const AdminHome = () => {
           </AsideStyled2>
         </Col>
       </div>
+      <Footer />
     </div>
   );
 };

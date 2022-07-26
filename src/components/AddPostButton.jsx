@@ -70,6 +70,7 @@ export const AddPostButton = ({ userID }) => {
         e.preventDefault();
         dispatch(addPost(Infopost, userID));
         reset();
+        dispatch(listAsync());
     };
 
     useEffect(() => {
@@ -82,7 +83,7 @@ export const AddPostButton = ({ userID }) => {
 
     return (
         <>
-            <img style={{ position: "fixed", bottom: "1rem", right: "1rem", width: "3rem", cursor: "pointer" }} src={btn} onClick={handleShow} alt="" />
+            <img style={{ position: "fixed", bottom: "1rem", right: "1rem", width: "3rem", cursor: "pointer", zIndex: "99" }} src={btn} onClick={handleShow} alt="" />
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Nuevo post</Modal.Title>

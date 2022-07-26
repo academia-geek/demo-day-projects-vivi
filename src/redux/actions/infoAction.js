@@ -1,5 +1,6 @@
 import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { auth, db } from "../../firebase/firebaseConfig"
+import { timeConverter } from "../../helpers/timeConverter"
 import { typesInfo, typesPosts } from "../types/types"
 
 export const updatePhoto = (value, userID) => {
@@ -8,7 +9,7 @@ export const updatePhoto = (value, userID) => {
         const docSnap = await getDoc(docRef);
         const data = docSnap.data().Posts
         const datos = []
-        
+
         data.forEach(obj => { datos.push(obj) })
         datos.forEach(obj => {
             obj.photo = value
@@ -127,7 +128,23 @@ export const listAllPosts = () => {
                 datos.unshift(...postData)
             }
         })
-        dispatch(listPostsSync([datos]))
+
+        const sub1 = datos.filter(a=>a.id)
+
+        sub1.forEach(obj => {
+            obj.time = timeConverter(obj.time)
+        })
+
+        const sub2 = sub1.sort(function (x, y) {
+            var firstDate = new Date(x.time),
+                SecondDate = new Date(y.time);
+
+            if (firstDate < SecondDate) return 1;
+            if (firstDate > SecondDate) return -1;
+            return 0;
+        });
+
+        dispatch(listPostsSync([sub2]))
     }
 }
 
@@ -138,6 +155,7 @@ export const listAsync = () => {
         const docRef = doc(db, "Info", usuario);
         const docSnap = await getDoc(docRef);
         const fireData = docSnap.data()
+        console.log("pase a listasync")
         dispatch(listSync([fireData]))
     }
 }

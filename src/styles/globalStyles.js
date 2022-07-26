@@ -11,7 +11,7 @@ export const FOOTER = styled.footer`
   flex-shrink: 0;
   bottom: 0;
   position: relative;
-  z-index: 99;
+  z-index: 98;
 `;
 export const CONTAINER = styled.div`
   display: flex;
@@ -101,13 +101,14 @@ export const HeroCards = styled.div`
   border-radius: 10px;
   width: 25%;
   height: 15vw;
-  margin-left: 2%;;
+  margin-left: 2%;
+  text-align: center;
  
   a{
     width: fill-available;
   }
   img{
-    width: fill-available;
+    width: 50%;
     border-radius: 100%;
   }
 `;

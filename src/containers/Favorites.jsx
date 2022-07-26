@@ -10,6 +10,7 @@ import {
 } from "../redux/actions/favoriteAction";
 import { DivEvent, EventBottom, HeartIcon } from "../styles/calendarStyle";
 import { Aside } from "../components/Aside";
+import { Footer } from "../components/Footer";
 
 export const Favorites = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ export const Favorites = () => {
   return (
     <div>
       <div className="d-flex">
-        <Col sm={9}>
+        <Col sm={9} style={{height: "100vh"}}>
           <div className="d-flex flex-column mt-5">
             {favoritesEvents.length > 0 ? (
               <h3 className="text-center mt-5">Mis eventos favoritos</h3>
@@ -83,6 +84,7 @@ export const Favorites = () => {
           <Aside />
         </Col>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -36,6 +36,14 @@ export const NavbarStyled = styled(Navbar)`
       color: var(--primary-color);
       transition: 0.3s;
 
+      @media (max-width: 968px) {
+        background-color: #333333;
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        margin: 0.5rem 0;
+      }
+
       &:hover {
         color: var(--secondary-color);
       }
@@ -113,7 +121,7 @@ export const NavbarSelect = styled.select`
   }
 `;
 
-export const CarouselVideos = styled.div`
+export const CarouselVideos = styled.main`
   .carousel-item > video {
     width: 100%;
     height: 88.5vh;
@@ -132,7 +140,7 @@ export const CarouselVideos = styled.div`
   .carousel-indicators {
     margin: 0;
     background-color: rgba(0, 0, 0, 0.9);
-    height: 2rem;
+    height: 5.5%;
     width: 150px;
     bottom: 10%;
     left: 50%;
@@ -140,6 +148,11 @@ export const CarouselVideos = styled.div`
     transform: translateX(-50%);
     padding-top: 5px;
     border-radius: 20px;
+
+    @media (max-width: 968px) {
+      height: 6%;
+    }
+
     & > button {
       border: 2px solid var(--primary-color);
       border-radius: 50%;
@@ -163,7 +176,7 @@ export const CarouselVideos = styled.div`
   }
 
   .carousel-caption {
-    margin-bottom: 12%;
+    margin-bottom: 20vh;
     user-select: none;
     & > h3 {
       font-size: 4.5rem;
@@ -216,6 +229,15 @@ export const BannerLanding = styled(Alert)`
   background: #212529;
   position: relative;
 
+  @media (max-width: 468px) {
+    width: 100%;
+    text-align: center;
+
+    img {
+      display: none;
+    }
+  }
+
   & > div > div > div {
     gap: 50px;
 
@@ -250,6 +272,67 @@ export const BannerLanding = styled(Alert)`
 
       &:hover {
         background-color: #333333;
+      }
+    }
+  }
+`;
+
+export const TitleLanding = styled.div`
+  h1.about-title {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 3.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+    user-select: none;
+
+    @media (max-width: 450px) {
+      font-size: 2.5rem;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 15%;
+      height: 5px;
+      background-color: var(--secondary-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+`;
+
+export const SectionHero = styled.section`
+  background-color: #f2f1ec;
+  padding: 24px;
+  margin-bottom: 2.5rem;
+
+  div.quote {
+    padding-top: 2px;
+    user-select: none;
+
+    & > div > span {
+      margin-left: 8px;
+      font-size: 1rem;
+    }
+    & > div > img.logo {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  & > div > div {
+    h2 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 1rem;
+
+      @media (max-width: 950px) {
+        font-size: 1.5rem;
       }
     }
   }

@@ -20,6 +20,12 @@ body {
   letter-spacing: -0.3px;
 }
 
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+
 a {
   text-decoration: none;
 }

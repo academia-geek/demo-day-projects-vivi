@@ -6,7 +6,7 @@ export const AlertVivi = () => (
   <BannerLanding
     message={
       <div className="d-flex align-items-center">
-        <div className="py-5">
+        <div className="py-4">
           <h3>ViVi Empresarial</h3>
           <p>
             Conoce la mejor forma de promover el turismo de tu región, ¡únete a

@@ -24,7 +24,7 @@ export const FOOTER = styled.footer`
   flex-shrink: 0;
   bottom: 0;
   position: relative;
-  z-index: 99;
+  z-index: 98;
 `;
 export const CONTAINER = styled.div`
   display: flex;

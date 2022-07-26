@@ -20,9 +20,9 @@ export const CarouselLanding = () => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} as={CarouselVideos} fade>
       <Carousel.Item>
-        {/* <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
           <source src={colombia_1s} type="video/mp4" />
-        </video> */}
+        </video>
         <Carousel.Caption>
           <h3>Comparte tu aventura</h3>
           <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>

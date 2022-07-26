@@ -13,15 +13,7 @@ export const Aside = () => {
   const navigate = useNavigate();
   const { EventsList } = useSelector(store => store.eventos)
   const dispatch = useDispatch()
-<<<<<<< HEAD
-  // console.log(Activities)
   const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
-  // console.log(dateToday)
-  useEffect(() => {
-    dispatch(listScheduleAsync());
-=======
-  const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
->>>>>>> 8b719ed83270f575a06bfaec302a023108017588
 
   useEffect(() => {
     dispatch(listEventAsync());
@@ -29,15 +21,6 @@ export const Aside = () => {
 
    for (let i = 0; i <= 14; i++) {
     const fecha = dateToday + (86400000 * i)
-<<<<<<< HEAD
-    // console.log(fecha)
-    const filtro = Activities?.find(element => element.dates == fecha)
-    if (filtro != undefined) {
-      const count = datadate.push(filtro)
-    }
-  }
-  // console.log(datadate)
-=======
     const filtro = EventsList.find((ev) => {
       return ev.date
         .map((date) => {
@@ -52,7 +35,6 @@ export const Aside = () => {
     }
   }
 
->>>>>>> 8b719ed83270f575a06bfaec302a023108017588
   return (
     <AsideStyled>
       <div onClick={() => navigate("/calendar")} className="calendar">

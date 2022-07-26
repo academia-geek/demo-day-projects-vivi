@@ -17,7 +17,7 @@ import { listScheduleAsync } from "../redux/actions/scheduleAction";
 import { AsideEvent } from "./calendar _and_programming/AsideEvent";
 import { elementAcceptingRef } from "@mui/utils";
 import { listEventAsync } from "../redux/actions/eventsAction";
-const datadate = [{name:""}]
+const datadate = []
 export const Aside = () => {
   const [value] = useState(new Date());
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export const Aside = () => {
     });
     console.log(filtro)
     const prueba=datadate.some(elem =>elem?.name === filtro?.name)
-    if(prueba != true ){
+    if(prueba === false && filtro !=  undefined ){
       datadate.push(filtro)
     }
     // const filtro = Activities?.find(element => element.dates == fecha)

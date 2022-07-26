@@ -155,6 +155,7 @@ export const listAsync = () => {
         const docRef = doc(db, "Info", usuario);
         const docSnap = await getDoc(docRef);
         const fireData = docSnap.data()
+        console.log("pase a listasync")
         dispatch(listSync([fireData]))
     }
 }

@@ -1,10 +1,10 @@
 import { Aside } from "../../components/Aside";
-import { CarouselEvents } from "../../components/CarouselEvents";
 import { Col } from "react-bootstrap";
 import Alert from "@mui/material/Alert";
 import { auth } from "../../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
 import { AdminHero } from "../../components/admin/AdminHero";
+import { Footer } from "../../components/Footer";
 
 export const AdminHome = () => {
   const [profile, setProfile] = useState({});
@@ -19,7 +19,7 @@ export const AdminHome = () => {
   return (
     <div>
       <div className="d-flex">
-        <Col sm={9}>
+        <Col sm={9} style={{height: "100vh"}}>
           {profile?.emailVerified === false ? (
             <>
               <Alert
@@ -40,6 +40,7 @@ export const AdminHome = () => {
           <Aside />
         </Col>
       </div>
+      <Footer />
     </div>
   );
 };

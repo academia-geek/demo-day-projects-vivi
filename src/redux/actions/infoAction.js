@@ -144,9 +144,7 @@ export const listAllPosts = () => {
             return 0;
         });
 
-        console.log(sub2);
-
-        // dispatch(listPostsSync([datos]))
+        dispatch(listPostsSync([sub2]))
     }
 }
 

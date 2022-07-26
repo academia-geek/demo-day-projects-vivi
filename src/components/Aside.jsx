@@ -65,10 +65,10 @@ export const Aside = () => {
             <Link to={`/programming/${item.id}`}>
             <CardStyled>
                        
-              <CardStyledHome >
+              <CardStyledHome>
                 
-              <h6 style={{fontSize:"14px",fontWeight: "700",width:"95%",marginLeft:"2px"}}>{item?.name}</h6>
-              <img src={item.img} style={{width:"50%"}}/>
+              <h6 style={{fontSize:"15px",fontWeight: "700",width:"95%",marginLeft:"2px"}}>{item?.name}</h6>
+              <img src={item.img} style={{width:"50%",borderRadius:"15px 0 15px  0"}}/>
               </CardStyledHome>
              
             </CardStyled>

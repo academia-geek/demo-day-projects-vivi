@@ -254,10 +254,9 @@ Font-weight:700;
 }
 `
 export const CardStyledHome=styled.div`
-margin-top: 1vw;
 text-align: center;
 :hover{
-  border-color: #ffbd29;
-  color:red;
+  box-shadow: 1px 1px 1px 1px  #d4d4d4;
+
 }
 `

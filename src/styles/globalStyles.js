@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const SectionHero = styled.section`
-  margin: 2rem;
-  h1 {
-    font-size: 60px;
-  }
-  h3 {
-    font-size: 20px;
-    margin-bottom: 1rem;
-  }
-  img {
-    border-radius: 2rem;
-  }
-`;
 export const FOOTER = styled.footer`
   text-align: center;
   width: 100%;

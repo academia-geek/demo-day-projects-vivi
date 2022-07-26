@@ -69,6 +69,7 @@ export const AddPostButton = ({ userID }) => {
         e.preventDefault();
         dispatch(addPost(Infopost, userID));
         reset();
+        dispatch(listAsync());
     };
 
     useEffect(() => {

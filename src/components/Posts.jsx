@@ -15,6 +15,7 @@ import { imgUpload } from "../helpers/imgUpload";
 import { CONT } from "../styles/globalStyles";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Avatar } from "@mui/material";
+import { cities } from "../data/cities";
 
 export const Posts = ({ userID }) => {
   const [profile, setProfile] = useState(null);
@@ -153,13 +154,20 @@ export const Posts = ({ userID }) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Lugar</Form.Label>
-              <Form.Control
-                name="place"
+              {/* <Form.Label>Lugar</Form.Label> */}
+
+              <Form.Select aria-label="Selecciona una ciudad" name="place"
                 type="text"
-                value={formValue.place}
-                onChange={handleChange}
-              />
+                onChange={handleChange}>
+                   <option value="">Selecciona una ciudad</option> 
+                {cities.map(c =>
+                    
+          <option name="place" type="text" value={c.name} onChange={handleChange}>{c.name}</option>
+
+                )}
+
+              </Form.Select>
+
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Comparte tu experiencia:</Form.Label>

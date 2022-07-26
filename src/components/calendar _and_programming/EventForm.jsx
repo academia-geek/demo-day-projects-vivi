@@ -127,8 +127,6 @@ export const EventForm = () => {
         )} 
         </Select>
       </Form.Item>
-
-
       <Upload {...props} style={{ marginLeft: "5vw" }} >
         <Button icon={<UploadOutlined />}>Click para agregar imagen</Button>
       </Upload>

@@ -253,3 +253,11 @@ Font-weight:700;
   color:var(--secondary-color) ;
 }
 `
+export const CardStyledHome=styled.div`
+margin-top: 1vw;
+text-align: center;
+:hover{
+  border-color: #ffbd29;
+  color:red;
+}
+`

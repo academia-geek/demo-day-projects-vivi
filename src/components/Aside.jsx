@@ -9,7 +9,8 @@ import { Button, List } from "antd";
 import { Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
-import { useNavigate } from "react-router-dom";
+
+import { Link, useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import moment from "moment";
 import {  listAsync } from "../redux/actions/infoAction";
@@ -17,6 +18,7 @@ import { listScheduleAsync } from "../redux/actions/scheduleAction";
 import { AsideEvent } from "./calendar _and_programming/AsideEvent";
 import { elementAcceptingRef } from "@mui/utils";
 import { listEventAsync } from "../redux/actions/eventsAction";
+import { CardStyledHome } from "../styles/calendarStyle";
 const datadate = []
 export const Aside = () => {
   const [value] = useState(new Date());
@@ -45,10 +47,7 @@ export const Aside = () => {
     if(prueba === false && filtro !=  undefined ){
       datadate.push(filtro)
     }
-    // const filtro = Activities?.find(element => element.dates == fecha)
-    // if (filtro != undefined) {
-    //   const count = datadate.push(filtro)
-    // }
+   
   }
   console.log(datadate)
   return (
@@ -63,15 +62,17 @@ export const Aside = () => {
       <AsideEvents>
         {
           datadate?.map(item =>
+            <Link to={`/programming/${item.id}`}>
             <CardStyled>
-              <div>
-              {/* <AsideEvent id={item?.id}/> */}
-              <div style={{display:"flex",marginTop:"1vw",marginLeft:"2vw"}}>
-              {/* <h6 style={{fontSize:"12px",fontWeight: "400",width:"30%"}}>{item.date}</h6> */}
-              <h6 style={{fontSize:"14px",fontWeight: "500",width:"60%",marginLeft:"4px"}}>{item?.name}</h6>
-              </div>
-              </div>
+                       
+              <CardStyledHome >
+                
+              <h6 style={{fontSize:"14px",fontWeight: "700",width:"95%",marginLeft:"2px"}}>{item?.name}</h6>
+              <img src={item.img} style={{width:"50%"}}/>
+              </CardStyledHome>
+             
             </CardStyled>
+            </Link>
           )}
       </AsideEvents>
     </AsideStyled>

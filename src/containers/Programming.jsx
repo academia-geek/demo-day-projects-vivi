@@ -58,9 +58,9 @@ export const Programming = () => {
         <Col sm={3}>
           <Siderbar>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+            <SiderCalendar />
           </Siderbar>
-          <SiderCalendar />
-        </Col>
+          </Col>
       </div>
     </div>
   )

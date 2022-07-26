@@ -10,26 +10,27 @@ import { Rating } from "@mui/material";
 import { auth } from "../../firebase/firebaseConfig";
 import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
+import { LinkStyle } from "../../styles/calendarStyle";
 
-export const CardActivite = ({ k }) => {
+export const CardActivite = ({ k, l }) => {
+  const { id } = useParams()
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(null);
   const [pic, setPic] = useState("");
   const [time, setTime] = useState("");
   const [btnState, setBtn] = useState(true);
-
-  const { id } = useParams();
   const dispatch = useDispatch();
-
   let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
-
   const { Activities } = useSelector((store) => store.schedule);
-  const dataAct = Activities.filter((m) => m.id == id);
+  const { EventsList } = useSelector(store => store.eventos)
+  const dataAct = Activities.filter((m) => m.id === id);
   const a = k * 1000;
-
   const dataFinal = dataAct.filter((m) => m.dates == a);
+  const dataCity= EventsList.find((m )=> m.id == id)
+  const city=dataCity.location
+    
   useEffect(() => {
     dispatch(listAsync());
     const user = auth.currentUser;
@@ -63,7 +64,7 @@ export const CardActivite = ({ k }) => {
 
   const [formValue, handleChange, reset] = useForm({
     idp: crypto.randomUUID(),
-    place: "",
+    place: city,
     posttext: "",
     rate: "",
   });
@@ -90,7 +91,7 @@ export const CardActivite = ({ k }) => {
   return (
     <div>
       {dataFinal.map((m) => (
-        <div style={{ display: "flex", marginTop: "10px" }}>
+        <div style={{ display: "flex", marginTop: "10px" }} key={m.date}>
           <div style={{ display: "flex", width: "56vw" }}>
             <Dateg k={m.date} />
             <img src={image} style={{ width: "5px", marginLeft: "5px" }} />
@@ -107,10 +108,10 @@ export const CardActivite = ({ k }) => {
               </h6>
               <div style={{ display: "flex", marginTop: "10px" }}>
                 <EnvironmentOutlined />
-                <Link to={`/map/${m.place}`}>{m.place}</Link>
+                <LinkStyle to={`/map/${city}`}>{city}</LinkStyle>
               </div>
-             <a href={m.link} target="_blank">{m.description}</a>
-             
+              <a href={m.link} target="_blank">{m.description}</a>
+
             </div>
           </div>
           <Button
@@ -135,8 +136,9 @@ export const CardActivite = ({ k }) => {
                   <Form.Control
                     name="place"
                     type="text"
-                    value={m.place}
+                    value={city}
                     onChange={handleChange}
+                    disabled
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -150,7 +152,7 @@ export const CardActivite = ({ k }) => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 text-center">
-                  <Form.Label>¿Cómo calificarías el lugar?</Form.Label>
+                  <Form.Label>¿Cómo calificarías la experiencia?</Form.Label>
                   <Stack spacing={1} style={{ alignItems: "center" }}>
                     <Rating
                       name="rate"

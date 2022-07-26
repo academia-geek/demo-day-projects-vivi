@@ -18,6 +18,13 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   letter-spacing: -0.3px;
+  
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
 }
 
 a {

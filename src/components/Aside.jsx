@@ -1,35 +1,35 @@
-import {
-  AsideEvents,
-  AsideStyled,
-  CalendarStyled,
-  CardStyled,
-} from "../styles/homeStyles";
-import { Button, List } from "antd";
-// import event from "../assets/carousel1.png";
-import { Card } from "react-bootstrap";
+import { AsideEvents, AsideStyled, CalendarStyled, CardStyled,} from "../styles/homeStyles";
 import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import moment from "moment";
-import { listAsync } from "../redux/actions/infoAction";
-import { listScheduleAsync } from "../redux/actions/scheduleAction";
-import { AsideEvent } from "./calendar _and_programming/AsideEvent";
+import { listEventAsync } from "../redux/actions/eventsAction";
+import { CardStyledHome } from "../styles/calendarStyle";
 const datadate = []
+
 export const Aside = () => {
   const [value] = useState(new Date());
   const navigate = useNavigate();
-   const { Activities } = useSelector(store => store.schedule)
+  const { EventsList } = useSelector(store => store.eventos)
   const dispatch = useDispatch()
+<<<<<<< HEAD
   // console.log(Activities)
   const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
   // console.log(dateToday)
   useEffect(() => {
     dispatch(listScheduleAsync());
+=======
+  const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
+>>>>>>> 8b719ed83270f575a06bfaec302a023108017588
 
+  useEffect(() => {
+    dispatch(listEventAsync());
   }, [dispatch]);
-  for (let i = 0; i <= 14; i++) {
+
+   for (let i = 0; i <= 14; i++) {
     const fecha = dateToday + (86400000 * i)
+<<<<<<< HEAD
     // console.log(fecha)
     const filtro = Activities?.find(element => element.dates == fecha)
     if (filtro != undefined) {
@@ -37,6 +37,22 @@ export const Aside = () => {
     }
   }
   // console.log(datadate)
+=======
+    const filtro = EventsList.find((ev) => {
+      return ev.date
+        .map((date) => {
+          return date.seconds;
+        })
+        .includes(fecha / 1000);
+    });
+    
+    const prueba = datadate.some(elem => elem?.name === filtro?.name)
+    if (prueba === false && filtro != undefined) {
+      datadate.push(filtro)
+    }
+  }
+
+>>>>>>> 8b719ed83270f575a06bfaec302a023108017588
   return (
     <AsideStyled>
       <div onClick={() => navigate("/calendar")} className="calendar">
@@ -49,15 +65,14 @@ export const Aside = () => {
       <AsideEvents>
         {
           datadate?.map(item =>
-            <CardStyled>
-              <div>
-              <AsideEvent id={item.id}/>
-              <div style={{display:"flex",marginTop:"1vw",marginLeft:"2vw"}}>
-              <h6 style={{fontSize:"12px",fontWeight: "400",width:"30%"}}>{item.date}</h6>
-              <h6 style={{fontSize:"14px",fontWeight: "500",width:"60%",marginLeft:"4px"}}>{item.name}</h6>
-              </div>
-              </div>
-            </CardStyled>
+            <Link to={`/programming/${item.id}`} key={item.id}>
+              <CardStyled >
+                <CardStyledHome>
+                  <h6 style={{ fontSize: "15px", fontWeight: "700", width: "95%", marginLeft: "2px" }}>{item?.name}</h6>
+                  <img src={item.img} style={{ width: "50%", borderRadius: "15px 0 15px  0" }} />
+                </CardStyledHome>
+              </CardStyled>
+            </Link>
           )}
       </AsideEvents>
     </AsideStyled>

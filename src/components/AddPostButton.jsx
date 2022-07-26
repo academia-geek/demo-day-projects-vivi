@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import useForm from "../hooks/useForm";
 import { imgUpload } from "../helpers/imgUpload";
 import btn from '../assets/green-add-button-12023.png'
+import { cities } from "../data/cities";
 
 export const AddPostButton = ({ userID }) => {
     const [profile, setProfile] = useState(null);
@@ -90,13 +91,14 @@ export const AddPostButton = ({ userID }) => {
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
-                            <Form.Label>Lugar</Form.Label>
-                            <Form.Control
-                                name="place"
+                            <Form.Select aria-label="Selecciona una ciudad" name="place"
                                 type="text"
-                                value={formValue.place}
-                                onChange={handleChange}
-                            />
+                                onChange={handleChange}>
+                                <option value="">Selecciona una ciudad</option>
+                                {cities.map(c =>
+                                    <option key={c.id} name="place" type="text" value={c.name} onChange={handleChange}>{c.name}</option>
+                                )}
+                            </Form.Select>
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Comparte tu experiencia:</Form.Label>

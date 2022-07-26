@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const SectionHero = styled.section`
-  margin: 2rem;
-  h1 {
-    font-size: 60px;
-  }
-  h3 {
-    font-size: 20px;
-    margin-bottom: 1rem;
-  }
-  img {
-    border-radius: 2rem;
-  }
-`;
 export const FOOTER = styled.footer`
   text-align: center;
   width: 100%;
@@ -112,15 +99,10 @@ export const HeroCards = styled.div`
   background-color: #d9d9d9;
   padding: 0 8px;
   border-radius: 10px;
-  width: 45%;
-  height: 50vw;
-  text-align: center;
-  :hover{
-    transform:scale(1.01);
-  }
-  h2{
-    padding: 1rem;
-  }
+  width: 25%;
+  height: 15vw;
+  margin-left: 2%;;
+ 
   a{
     width: fill-available;
   }

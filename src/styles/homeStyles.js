@@ -103,7 +103,22 @@ export const AsideStyled = styled.aside`
     cursor: pointer;
   }
 `;
+export const AsideStyled2 = styled.aside`
+  background-color: #212529;
+  padding: 20px;
+  width: 100%;
+  padding-top: 10px;
+  overflow-y: scroll;
+  height: 100vh;
 
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  & > div.calendar {
+    cursor: pointer;
+  }
+`;
 export const ButtonAside = styled.button`
   width: 100%;
   text-align: center;
@@ -166,6 +181,7 @@ export const CardStyled = styled(Card)`
     text-align: center;
   }
 `;
+
 
 export const CalendarStyled = styled(Calendar)`
   margin-bottom: 20px;

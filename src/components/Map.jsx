@@ -12,9 +12,9 @@ import marker from "leaflet/dist/images/marker-icon.png";
 import { places } from "../data/Places";
 
 const coordinates = [
-  [6.29, -75.54],
-  [1.21, -77.28],
-  [7.88, -72.51],
+  // [6.29, -75.54],
+  // [1.21, -77.28],
+  // [7.88, -72.51],
 ];
 
 function Location({ location }) {

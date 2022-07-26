@@ -13,7 +13,7 @@ export function NavbarLanding() {
 
   return (
     <NavbarStyled expand="lg" bg="dark" variant="dark">
-      <Container>
+      <Container className="px-5 px-lg-0">
         <Navbar.Brand className="text-uppercase" as={Link} to="/">
           <img src={logo} />
           ViVi
@@ -31,7 +31,7 @@ export function NavbarLanding() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="m-auto nav-center">
+          <Nav className="m-auto nav-center px-5 py-2 py-lg-0 px-lg-0">
             <Nav.Link href="/#about">Conócenos</Nav.Link>
             <Nav.Link as={Link} to="/business">
               ViVi Empresarial

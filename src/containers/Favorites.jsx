@@ -10,6 +10,7 @@ import {
 } from "../redux/actions/favoriteAction";
 import { DivEvent, EventBottom, HeartIcon } from "../styles/calendarStyle";
 import { Aside } from "../components/Aside";
+import { Footer } from "../components/Footer";
 
 export const Favorites = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ export const Favorites = () => {
           <Aside />
         </Col>
       </div>
+      <Footer />
     </div>
   );
 };

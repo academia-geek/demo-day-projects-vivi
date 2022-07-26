@@ -128,7 +128,6 @@ export const listAllPosts = () => {
             }
         })
 
-        console.log(datos)
         const sub1 = datos.filter(a=>a.id)
 
         sub1.forEach(obj => {

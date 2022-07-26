@@ -278,7 +278,7 @@ export const BannerLanding = styled(Alert)`
 `;
 
 export const TitleLanding = styled.div`
-  h1 {
+  h2 {
     text-align: center;
     padding: 2rem 0;
     font-size: 3.5rem;
@@ -361,7 +361,6 @@ export const SectionHero = styled.section`
 
 export const Box = styled.div`
   border-radius: 5px;
-  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -388,7 +387,6 @@ export const Box = styled.div`
 
   &:hover {
     box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
   }
 `;
 

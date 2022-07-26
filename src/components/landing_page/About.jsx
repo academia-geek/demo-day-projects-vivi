@@ -4,9 +4,9 @@ import logo from "../../assets/Logo.png";
 
 export const About = () => {
   return (
-    <Container>
+    <Container id="about">
       <TitleLanding>
-        <h1 className="about-title text-uppercase">Quiénes Somos</h1>
+        <h2 className="about-title text-uppercase">Quiénes Somos</h2>
       </TitleLanding>
       <SectionHero>
         <Row>

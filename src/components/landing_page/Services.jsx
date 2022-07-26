@@ -10,7 +10,7 @@ export const Services = () => {
     <section className="mb-5">
       <Container>
         <TitleLanding className="right">
-          <h1 className="text-uppercase">Servicios</h1>
+          <h2 className="text-uppercase">Servicios</h2>
         </TitleLanding>
         <Row className="justify-content-center">
           <Col md={3} className="mt-5 mt-lg-0">

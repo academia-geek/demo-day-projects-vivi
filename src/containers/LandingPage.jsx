@@ -8,6 +8,7 @@ import { CarouselLanding } from "../components/landing_page/CarouselLanding";
 import { About } from "../components/landing_page/About";
 import { Services } from "../components/landing_page/Services";
 import { Events } from "../components/landing_page/Events";
+import { ContactLanding } from "../components/landing_page/ContactLanding";
 
 export const LandingPage = () => {
   return (
@@ -18,6 +19,7 @@ export const LandingPage = () => {
       <About />
       <Services />
       <Events />
+      <ContactLanding />
       <Chatbot />
       <Footer />
     </>

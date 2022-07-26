@@ -12,7 +12,7 @@ export const Events = () => {
     <section className="mb-5">
       <Container>
         <TitleLanding className="left">
-          <h1 className="text-uppercase">¡Echa un vistazo!</h1>
+          <h2 className="text-uppercase">¡Echa un vistazo!</h2>
         </TitleLanding>
         <Row>
           <Col md={3} className="px-0 py-1 py-lg-0">

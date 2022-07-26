@@ -4,6 +4,7 @@ import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
 import image1 from "../assets/prueba/image7.jpg";
 import image2 from "../assets/prueba/image8.jpg";
+import {  Link } from 'react-router-dom'
 
 export const CardStyledCalendar = styled.div`
   padding: 10px;
@@ -245,3 +246,17 @@ export const FontStyled2 = styled.div`
   height: 47vw
 `;
 
+export const LinkStyle= styled(Link)`
+color: #000;
+Font-weight:700;
+:hover{
+  color:var(--secondary-color) ;
+}
+`
+export const CardStyledHome=styled.div`
+text-align: center;
+:hover{
+  box-shadow: 1px 1px 1px 1px  #d4d4d4;
+
+}
+`

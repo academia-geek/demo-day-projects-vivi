@@ -2,27 +2,29 @@ import { Divider, List } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import { Col } from "react-bootstrap";
-import { Siderbar, TittleStyle } from '../styles/calendarStyle';
+import { LinkStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { Paper } from '@mui/material'
-const dataActivities = []
+
 export const Programming = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(listEventAsync())
     dispatch(listScheduleAsync())
   }, [dispatch])
+
   const { EventsList } = useSelector(store => store.eventos)
   const data = EventsList.filter(m => m.id == id)
+ 
   const [date] = data
-  const { Activities } = useSelector(store => store.schedule)
-  const dataAct = Activities.filter(m => m.id == id)
+  
   return (
     <div>
       <div className="d-flex">
@@ -34,7 +36,7 @@ export const Programming = () => {
                 <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
-                  <a>{item.location}</a>
+                  <LinkStyle to={`/map/${item.location}`}>{item.location}</LinkStyle>
                 </div>
               </Paper>
             ))
@@ -47,7 +49,7 @@ export const Programming = () => {
               <>
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
-                  <CardActivite k={item.seconds} />
+                  <CardActivite k={item.seconds}  />
                 </List.Item>
               </>
             )}
@@ -56,9 +58,9 @@ export const Programming = () => {
         <Col sm={3}>
           <Siderbar>
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
+            <SiderCalendar />
           </Siderbar>
-          <SiderCalendar />
-        </Col>
+          </Col>
       </div>
     </div>
   )

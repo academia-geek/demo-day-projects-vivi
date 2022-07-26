@@ -23,7 +23,7 @@ export const ContactLanding = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Nombre"
+                  placeholder="Nombre y apellido"
                 />
                 <input
                   type="email"

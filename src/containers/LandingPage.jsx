@@ -7,6 +7,7 @@ import imagenLanding from "../assets/imagenLanding.jpg";
 import { CarouselLanding } from "../components/landing_page/CarouselLanding";
 import { About } from "../components/landing_page/About";
 import { Services } from "../components/landing_page/Services";
+import { Events } from "../components/landing_page/Events";
 
 export const LandingPage = () => {
   return (
@@ -16,6 +17,7 @@ export const LandingPage = () => {
       <AlertVivi />
       <About />
       <Services />
+      <Events />
       <Chatbot />
       <Footer />
     </>

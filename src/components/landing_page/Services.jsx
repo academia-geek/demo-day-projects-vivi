@@ -9,7 +9,7 @@ export const Services = () => {
   return (
     <section className="mb-5">
       <Container>
-        <TitleLanding>
+        <TitleLanding className="right">
           <h1 className="text-uppercase">Servicios</h1>
         </TitleLanding>
         <Row className="justify-content-center">

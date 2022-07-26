@@ -135,14 +135,12 @@ export const listAllPosts = () => {
             obj.time = timeConverter(obj.time)
         })
 
-           console.log(sub1);
-
         const sub2 = sub1.sort(function (x, y) {
             var firstDate = new Date(x.time),
                 SecondDate = new Date(y.time);
 
-            if (firstDate < SecondDate) return -1;
-            if (firstDate > SecondDate) return 1;
+            if (firstDate < SecondDate) return 1;
+            if (firstDate > SecondDate) return -1;
             return 0;
         });
 

@@ -98,13 +98,6 @@ export const AddPostButton = ({ userID }) => {
                                     <option key={c.id} name="place" type="text" value={c.name} onChange={handleChange}>{c.name}</option>
                                 )}
                             </Form.Select>
-                            {/* <Form.Label>Lugar</Form.Label>
-                            <Form.Control
-                                name="place"
-                                type="text"
-                                value={formValue.place}
-                                onChange={handleChange}
-                            /> */}
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Comparte tu experiencia:</Form.Label>

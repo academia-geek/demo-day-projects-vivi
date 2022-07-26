@@ -101,7 +101,8 @@ export const HeroCards = styled.div`
   border-radius: 10px;
   width: 25%;
   height: 15vw;
-  margin-left: 2%;;
+  margin-left: 2%;
+  text-align: center;
  
   a{
     width: fill-available;

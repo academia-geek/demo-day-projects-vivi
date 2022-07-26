@@ -133,9 +133,6 @@ export const listAllPosts = () => {
         sub1.forEach(obj => {
             obj.time = (obj.time).replaceAll("/", "-")+":00"
             console.log(obj.time)
-            console.log(parseInt(obj.time))
-
-            console.log(new Date(obj.time).getTime())
         })
 
            console.log(sub1);

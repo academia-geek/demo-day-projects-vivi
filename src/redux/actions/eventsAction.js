@@ -23,7 +23,7 @@ export const listEventAsync =() => {
     return async (dispatch)=>{
 
         const collectionListar = await getDocs(collection(db, "eventos"))
-        console.log(collectionListar)
+        // console.log(collectionListar)
         const eventsA = []
         collectionListar.forEach(listar => {
             eventsA .push(

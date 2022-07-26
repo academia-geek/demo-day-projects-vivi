@@ -21,22 +21,22 @@ export const Aside = () => {
   const navigate = useNavigate();
    const { Activities } = useSelector(store => store.schedule)
   const dispatch = useDispatch()
-  console.log(Activities)
+  // console.log(Activities)
   const dateToday = new Date(moment().format("YYYY-MM-DD")).getTime();
-  console.log(dateToday)
+  // console.log(dateToday)
   useEffect(() => {
     dispatch(listScheduleAsync());
 
   }, [dispatch]);
   for (let i = 0; i <= 14; i++) {
     const fecha = dateToday + (86400000 * i)
-    console.log(fecha)
+    // console.log(fecha)
     const filtro = Activities?.find(element => element.dates == fecha)
     if (filtro != undefined) {
       const count = datadate.push(filtro)
     }
   }
-  console.log(datadate)
+  // console.log(datadate)
   return (
     <AsideStyled>
       <div onClick={() => navigate("/calendar")} className="calendar">

@@ -8,7 +8,7 @@ export const updatePhoto = (value, userID) => {
         const docSnap = await getDoc(docRef);
         const data = docSnap.data().Posts
         const datos = []
-        
+
         data.forEach(obj => { datos.push(obj) })
         datos.forEach(obj => {
             obj.photo = value
@@ -127,7 +127,32 @@ export const listAllPosts = () => {
                 datos.unshift(...postData)
             }
         })
-        dispatch(listPostsSync([datos]))
+
+        console.log(datos)
+        const sub1 = datos.filter(a=>a.id)
+
+        sub1.forEach(obj => {
+            obj.time = (obj.time).replaceAll("/", "-")+":00"
+            console.log(obj.time)
+            console.log(parseInt(obj.time))
+
+            console.log(new Date(obj.time).getTime())
+        })
+
+           console.log(sub1);
+
+        const sub2 = sub1.sort(function (x, y) {
+            var firstDate = new Date(x.time),
+                SecondDate = new Date(y.time);
+
+            if (firstDate < SecondDate) return -1;
+            if (firstDate > SecondDate) return 1;
+            return 0;
+        });
+
+        console.log(sub2);
+
+        // dispatch(listPostsSync([datos]))
     }
 }
 

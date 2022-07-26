@@ -154,20 +154,14 @@ export const Posts = ({ userID }) => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              {/* <Form.Label>Lugar</Form.Label> */}
-
               <Form.Select aria-label="Selecciona una ciudad" name="place"
                 type="text"
                 onChange={handleChange}>
-                   <option value="">Selecciona una ciudad</option> 
+                <option value="">Selecciona una ciudad</option>
                 {cities.map(c =>
-                    
-          <option name="place" type="text" value={c.name} onChange={handleChange}>{c.name}</option>
-
+                  <option key={c.id} name="place" type="text" value={c.name} onChange={handleChange}>{c.name}</option>
                 )}
-
               </Form.Select>
-
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Comparte tu experiencia:</Form.Label>

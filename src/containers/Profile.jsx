@@ -49,7 +49,7 @@ export const Profile = () => {
                         userID={profile?.uid}
                     />
                 </Col>
-                <Col sm={3} style={{ backgroundColor: "#565252" }}>
+                <Col sm={3} style={{ backgroundColor: "#565252" }} className="position-fixed end-0">
                     <Aside />
                 </Col>
             </div>

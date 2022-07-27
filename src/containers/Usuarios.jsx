@@ -7,8 +7,10 @@ import { OtherUser } from "../components/OtherUsers";
 import { OtherPosts } from "../components/OtherPosts";
 import { Chatbot } from '../components/Chatbot'
 import { Footer } from "../components/Footer";
+import { useParams } from "react-router-dom";
 
 export const Usuarios = () => {
+    const { userID } = useParams()
     const [profile, setProfile] = useState(null);
     const [sidebar, setSidebar] = useState({
         left: false,
@@ -43,10 +45,10 @@ export const Usuarios = () => {
                         profile={profile}
                     />
                     <OtherUser
-                        userID={profile?.uid}
+                        userID={userID}
                     />
                     <OtherPosts
-                        userID={profile?.uid}
+                        userID={userID}
                     />
                 </Col>
                 <Col sm={3} style={{ backgroundColor: "#565252" }} className="position-fixed end-0">

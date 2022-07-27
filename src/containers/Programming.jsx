@@ -33,7 +33,7 @@ export const Programming = () => {
           {
             data?.map(item => (
               <Paper elevación={12} style={{ display: "flex", marginTop: "90px", marginLeft: '50px' }}>
-                <img src={item.img} alt="publicidad" style={{ width: "200px", borderRadius: "10px", marginLeft: "30px" }} />
+                <img src={item.img} alt={item.name} style={{ width: "200px", borderRadius: "10px", marginLeft: "30px" }} />
                 <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
@@ -60,7 +60,7 @@ export const Programming = () => {
           <div
             style={{
               height: "calc(100% - 63px)",
-              background: " #565252",
+              background: "var(--background-color)",
               marginTop: "63px",
               marginLeft: "4.9vw",
               width: "80.3%",

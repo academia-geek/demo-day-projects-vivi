@@ -4,7 +4,7 @@ import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
 import image1 from "../assets/prueba/image7.jpg";
 import image2 from "../assets/prueba/image8.jpg";
-import {  Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export const CardStyledCalendar = styled.div`
   padding: 10px;
@@ -80,6 +80,8 @@ export const EventBottom = styled.div`
 export const LineStyle = styled.hr`
   width: 70%;
   margin: 1rem auto;
+  border-top-color: var(--secondary-color);
+  opacity: 1;
 `;
 
 export const textStyle = styled.h6`
@@ -93,7 +95,7 @@ export const SiderStyle = styled.div`
   overflow: auto;
   overflow-x: hidden;
   height: calc(100vh + 129px);
-  background: rgba(255, 189, 41, 1);
+  background: var(--primary-color);
 
   ::-webkit-scrollbar {
     display: none;
@@ -201,7 +203,6 @@ export const InputStyled = styled(Input)`
 `;
 export const AutoCompleteStyled = styled(AutoComplete)`
   border-radius: 10px;
-  
 `;
 export const ButtonAntdStyled = styled(Button)`
   border-radius: 10px;
@@ -232,58 +233,56 @@ export const FontStyled = styled.div`
   background-image: url(${image});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 45vw
+  height: 45vw;
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 65px;
-  
 `;
 export const FontStyled2 = styled.div`
   background-image: url(${image2});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 47vw
+  height: 47vw;
 `;
 
-export const LinkStyle= styled(Link)`
-color: #000;
-Font-weight:700;
-:hover{
-  color:var(--secondary-color) ;
-}
-`
-export const CardStyledHome=styled.div`
-text-align: center;
-:hover{
-  box-shadow: 1px 1px 1px 1px  #d4d4d4;
+export const LinkStyle = styled(Link)`
+  color: #000;
+  font-weight: 700;
+  :hover {
+    color: var(--secondary-color);
+  }
+`;
+export const CardStyledHome = styled.div`
+  text-align: center;
+  :hover {
+    box-shadow: 1px 1px 1px 1px #d4d4d4;
+  }
+`;
 
-}
-`
-
-export const UploadImg=styled(Upload)`
-.ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
-  color: #faad14;
-}
-`
-export const TitleAdmi=styled.h1`
-text-align:center;
- padding-top:5vw;
- font-size:80px;
- text-shadow:1px 8px 5px white;
- &:after {
-  content: "";
-  display: block;
-  margin-top: 10px;
-  width: 20%;
-  height: 10px;
-  background-color: var(--secondary-color);
-  position: absolute;
-  left: 38%;
-  transform: translateX(-50%);
- }
-`
-
-
+export const UploadImg = styled(Upload)`
+  .ant-upload-list-item-error,
+  .ant-upload-list-item-error .ant-upload-text-icon > .anticon,
+  .ant-upload-list-item-error .ant-upload-list-item-name {
+    color: #faad14;
+  }
+`;
+export const TitleAdmi = styled.h1`
+  text-align: center;
+  padding-top: 5vw;
+  font-size: 80px;
+  text-shadow: 1px 8px 5px white;
+  &:after {
+    content: "";
+    display: block;
+    margin-top: 10px;
+    width: 20%;
+    height: 10px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    left: 38%;
+    transform: translateX(-50%);
+  }
+`;

@@ -30,9 +30,10 @@ export const OtherUser = ({ userID }) => {
 
     return (
         <>
-            <div className='d-flex px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
+            <div className='px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex mx-auto">
                     <UserImg src={userData?.profileImg} alt={profile?.displayName} />
+                    <h2>{profile?.displayName}</h2>
                 </div>
                 <div>
                     <div className="d-flex justify-content-center align-items-center">
@@ -65,7 +66,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Sitios a los que me gustaría ir:</h5>
+                        <h5>Sitios a los que le gustaría ir:</h5>
                         <UserData>{
                             userData?.Deseados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>

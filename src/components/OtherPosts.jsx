@@ -19,7 +19,6 @@ import { cities } from "../data/cities";
 
 export const OtherPosts = ({ userID }) => {
     const [show, setShow] = useState(false);
-    const [pic, setPic] = useState("");
     const dispatch = useDispatch();
     const { listaPosts } = useSelector((store) => store.posts);
     const userData = listaPosts[0];

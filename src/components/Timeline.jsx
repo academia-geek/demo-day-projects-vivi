@@ -17,6 +17,7 @@ export const Timeline = () => {
 
   const seeMore = () =>{
     setLimit(limit+5)
+    dispatch(listAllPosts());
   }
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export const Timeline = () => {
   return (
     <>
       <CONT>
-        {userData?.splice(0, 5).map((i) => (
+        {userData?.splice(0, limit).map((i) => (
             <DivPosting>
               <Userbar>
                 <div>
@@ -55,7 +56,7 @@ export const Timeline = () => {
               </DivPost>
             </DivPosting>
           ))}
-          <Button variant="success" className="d-flex mx-auto" onClick={seeMore}>Ver más</Button>
+          <Button variant="success" className="d-flex mx-auto mb-3" onClick={seeMore}>Ver más...</Button>
       </CONT>
     </>
   );

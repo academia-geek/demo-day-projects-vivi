@@ -132,12 +132,12 @@ export const listAllPosts = () => {
         const sub1 = datos.filter(a => a.id)
 
         sub1.forEach(obj => {
-            obj.time = timeConverter(obj.time)
+            obj.tiempo = timeConverter(obj.time)
         })
 
         const sub2 = sub1.sort(function (x, y) {
-            var firstDate = new Date(x.time),
-                SecondDate = new Date(y.time);
+            var firstDate = new Date(x.tiempo),
+                SecondDate = new Date(y.tiempo);
 
             if (firstDate < SecondDate) return 1;
             if (firstDate > SecondDate) return -1;

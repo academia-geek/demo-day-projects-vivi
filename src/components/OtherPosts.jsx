@@ -8,7 +8,6 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import cross from "../assets/delete.png";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { CONT } from "../styles/globalStyles";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Avatar } from "@mui/material";

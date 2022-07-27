@@ -11,7 +11,6 @@ export const OtherUser = ({ userID }) => {
     const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     useEffect(() => {
         dispatch(listAsync())

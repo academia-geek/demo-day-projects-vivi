@@ -14,7 +14,7 @@ export const Timeline = () => {
   const userData = listaPosts[0];
 
   const seeMore = () =>{
-    
+
   }
 
   useEffect(() => {
@@ -53,8 +53,8 @@ export const Timeline = () => {
               </DivPost>
             </DivPosting>
           ))}
+          <h3 onClick={seeMore}>Ver más</h3>
       </CONT>
-      <h3>Ver más</h3>
     </>
   );
 };

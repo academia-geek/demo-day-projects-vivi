@@ -10,7 +10,7 @@ import { Footer } from "../components/Footer";
 import { useParams } from "react-router-dom";
 
 export const Usuarios = () => {
-    const { userID } = useParams()
+    const { id } = useParams()
     const [profile, setProfile] = useState(null);
     const [sidebar, setSidebar] = useState({
         left: false,
@@ -45,10 +45,10 @@ export const Usuarios = () => {
                         profile={profile}
                     />
                     <OtherUser
-                        userID={userID}
+                        userID={id}
                     />
                     <OtherPosts
-                        userID={userID}
+                        userID={id}
                     />
                 </Col>
                 <Col sm={3} style={{ backgroundColor: "#565252" }} className="position-fixed end-0">

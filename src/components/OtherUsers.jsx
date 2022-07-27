@@ -9,7 +9,6 @@ export const OtherUser = ({ userID }) => {
     const { listaInfo } = useSelector(store => store.info)
     const userData = listaInfo[0]
     const [profile, setProfile] = useState(null);
-    const [show, setShow] = useState(false);
 
     useEffect(() => {
         dispatch(listAsync())

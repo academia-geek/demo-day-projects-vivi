@@ -33,15 +33,6 @@ export const OtherUser = ({ userID }) => {
             <div className='d-flex px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex mx-auto">
                     <UserImg src={userData?.profileImg} alt={profile?.displayName} />
-                    <label for="file-input">
-                        <EditIcon src={edit} alt="" />
-                    </label>
-                    <input
-                        id="file-input"
-                        type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
-                        onChange={handleImage}
-                        style={{ display: "none" }}
-                    />
                 </div>
                 <div>
                     <div className="d-flex justify-content-between align-items-center">

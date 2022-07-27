@@ -36,7 +36,9 @@ export const Timeline = () => {
                     <Avatar src={i.photo} alt={i.name} />
                   </Link>
                   <div className="d-flex flex-column">
-                    <span>{i.name}</span>
+                    <Link to={`/user/${i.userID}`}>
+                      <span>{i.name}</span>
+                    </Link>
                     <span className="time">{i.time}</span>
                   </div>
                 </div>

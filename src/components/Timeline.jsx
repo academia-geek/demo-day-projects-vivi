@@ -7,6 +7,7 @@ import { Avatar } from "@mui/material";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Link } from "react-router-dom";
 import { CONT } from "../styles/globalStyles";
+import Button from 'react-bootstrap/Button';
 
 export const Timeline = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export const Timeline = () => {
   const [limit, setLimit] = useState(5)
 
   const seeMore = () =>{
-
+    setLimit(limit+5)
   }
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export const Timeline = () => {
               </DivPost>
             </DivPosting>
           ))}
-          <h3 onClick={seeMore}>Ver más</h3>
+          <Button variant="success" className="d-flex mx-auto" onClick={seeMore}>Ver más</Button>
       </CONT>
     </>
   );

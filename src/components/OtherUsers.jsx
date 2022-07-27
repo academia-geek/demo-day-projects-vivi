@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { auth } from "../firebase/firebaseConfig";
 import { CONT, EditIcon, TAG, UserData, UserImg } from "../styles/globalStyles";
 import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync, updatePhoto } from "../redux/actions/infoAction";
-import { imgUpload } from "../helpers/imgUpload";
 
 export const OtherUser = ({ userID }) => {
     const dispatch = useDispatch()

@@ -232,12 +232,14 @@ export const FontStyled = styled.div`
   background-image: url(${image});
   background-repeat: no-repeat;
   background-size: cover;
+  height: 45vw
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 65px;
+  
 `;
 export const FontStyled2 = styled.div`
   background-image: url(${image2});
@@ -266,3 +268,22 @@ export const UploadImg=styled(Upload)`
   color: #faad14;
 }
 `
+export const TitleAdmi=styled.h1`
+text-align:center;
+ padding-top:5vw;
+ font-size:80px;
+ text-shadow:1px 8px 5px white;
+ &:after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  width: 20%;
+  height: 10px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  left: 38%;
+  transform: translateX(-50%);
+ }
+`
+
+

@@ -22,9 +22,9 @@ export const Programming = () => {
 
   const { EventsList } = useSelector(store => store.eventos)
   const data = EventsList.filter(m => m.id == id)
- 
+
   const [date] = data
-  
+
   return (
     <div>
       <div className="d-flex">
@@ -49,18 +49,26 @@ export const Programming = () => {
               <>
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
-                  <CardActivite k={item.seconds}  />
+                  <CardActivite k={item.seconds} />
                 </List.Item>
               </>
             )}
           />
         </Col>
         <Col sm={3}>
-          <Siderbar>
+          <div
+            style={{
+              height: "calc(100% - 63px)",
+              background: " #565252",
+              marginTop: "63px",
+              marginLeft: "4.9vw",
+              width: "80.3%",
+            }}
+          >
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
             <SiderCalendar />
-          </Siderbar>
-          </Col>
+          </div>
+        </Col>
       </div>
     </div>
   )

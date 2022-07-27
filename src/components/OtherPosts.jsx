@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { listAllPosts, listAsync } from "../redux/actions/infoAction";
 import { auth } from "../firebase/firebaseConfig";
-import Swal from "sweetalert2";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { CONT } from "../styles/globalStyles";

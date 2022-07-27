@@ -35,9 +35,8 @@ export const OtherUser = ({ userID }) => {
                     <UserImg src={userData?.profileImg} alt={profile?.displayName} />
                 </div>
                 <div>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <h2>Tu Información</h2>
-                        <img src={edit} alt="" onClick={handleShow} style={{ cursor: "pointer" }} />
+                    <div className="d-flex justify-content-center align-items-center">
+                        <h2>Información</h2>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
                         <h5>Edad:</h5>
@@ -77,59 +76,6 @@ export const OtherUser = ({ userID }) => {
                     </div>
                 </div>
             </div>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Tu Información</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={(e) => { e.prevent.Default() }}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Edad</Form.Label>
-                            <Form.Control name="age" type="number" placeholder="Escribe tu edad" value={formValue.age} onChange={handleChange} />
-                        </Form.Group>
-                    </Form>
-                    <Form onSubmit={handleSubmitLikes}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Gustos</Form.Label>
-                            <Form.Control name="like" type="text" placeholder="Ingresa una actividad" value={valueLike.like} onChange={handleChangeLike} />
-                        </Form.Group>
-                        <CONT>{
-                            userData?.Gustos.filter(i => i.id).map(i => (
-                                <TAG key={i.id}>
-                                    <h6>{i.like}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeleteLikes(i.id)} alt="" />
-                                </TAG>
-                            ))}
-                        </CONT>
-                    </Form>
-                    <Form onSubmit={handleSubmitPlaces}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Sitios visitados</Form.Label>
-                            <Form.Control name="place" type="text" placeholder="Ingresa un lugar" value={valuePlace.place} onChange={handleChangePlace} />
-                        </Form.Group>
-                        <CONT>{
-                            userData?.Visitados.filter(i => i.id).map(i => (
-                                <TAG key={i.id}>
-                                    <h6>{i.place}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeletePlaces(i.id)} alt="" />
-                                </TAG>
-                            ))}
-                        </CONT>
-                    </Form>
-                    <Form onSubmit={handleSubmitLiked}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Sitios a los que me gustaría ir</Form.Label>
-                            <Form.Control name="liked" type="text" placeholder="Ingresa un lugar" value={valueLiked.liked} onChange={handleChangeLiked} />
-                        </Form.Group>
-                        <CONT>{
-                            userData?.Deseados.filter(i => i.id).map(i => (
-                                <TAG key={i.id}>
-                                    <h6>{i.liked}</h6><img src={cross} style={{ width: "1rem", cursor: "pointer", borderRadius: "100%" }} onClick={() => handleDeleteLiked(i.id)} alt="" />
-                                </TAG>
-                            ))}
-                        </CONT>
-                    </Form>
-                    <Button variant="success" className="d-flex mx-auto mt-3" onClick={handleAge}>Guardar Cambios</Button>
-                </Modal.Body>
-            </Modal>
         </>
     )
 }

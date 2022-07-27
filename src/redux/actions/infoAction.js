@@ -129,7 +129,7 @@ export const listAllPosts = () => {
             }
         })
 
-        const sub1 = datos.filter(a=>a.id)
+        const sub1 = datos.filter(a => a.id)
 
         sub1.forEach(obj => {
             obj.time = timeConverter(obj.time)

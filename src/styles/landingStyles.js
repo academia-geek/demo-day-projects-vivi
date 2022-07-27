@@ -303,27 +303,6 @@ export const TitleLanding = styled.div`
   }
 `;
 
-/*
-  &.right {
-    h1 {
-      text-align: right;
-      &:after {
-        left: 88%;
-      }
-    }
-  }
-
-  &.left {
-    h1 {
-      text-align: left;
-
-      &:after {
-        left: 10%;
-      }
-    }
-  }
-  */
-
 export const SectionHero = styled.section`
   background-color: #f2f1ec;
   padding: 24px;
@@ -540,6 +519,14 @@ export const FormLanding = styled.form`
   width: 100%;
   height: 100%;
 
+  @media (max-width: 767px) {
+    box-shadow: none;
+
+    & > div > textarea {
+      height: 50px;
+    }
+  }
+
   & > div > input {
     background-color: #f2f1ec;
     border: none;
@@ -555,7 +542,7 @@ export const FormLanding = styled.form`
     background-color: #f2f1ec;
     resize: none;
     margin-top: 1rem;
-    height: 180px;
+    height: 25vh;
     border: none;
 
     &:focus {
@@ -573,5 +560,14 @@ export const FormLanding = styled.form`
     &:hover {
       border-color: var(--secondary-color);
     }
+  }
+`;
+
+export const Copy = styled.div`
+  background-color: var(--background-color);
+  height: 50px;
+
+  & > p {
+    color: #c2c2c2;
   }
 `;

@@ -1,17 +1,38 @@
 import styled from "styled-components";
 
 export const FOOTER = styled.footer`
-  text-align: center;
   width: 100%;
-  padding: 20px 0;
-  font-size: 14px;
-  color: #aaa;
-  background-color: #343434;
-  font-weight: 300;
-  flex-shrink: 0;
-  bottom: 0;
+  background-color: #f2f1ec;
   position: relative;
   z-index: 98;
+
+  .navbar-brand {
+    &:hover {
+      color: var(--background-color);
+    }
+
+    & > img {
+      width: 60px;
+    }
+  }
+
+  a {
+    color: var(--background-color);
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  .footer-icons {
+    & > svg {
+      font-size: 30px;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 `;
 export const CONTAINER = styled.div`
   display: flex;
@@ -103,11 +124,11 @@ export const HeroCards = styled.div`
   height: 15vw;
   margin-left: 2%;
   text-align: center;
- 
-  a{
+
+  a {
     width: fill-available;
   }
-  img{
+  img {
     width: 50%;
     border-radius: 100%;
   }

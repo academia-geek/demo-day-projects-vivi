@@ -30,7 +30,7 @@ export const ContactLanding = () => {
   };
 
   return (
-    <section className="mb-5">
+    <section className="mb-5" id="contact">
       <Container>
         <TitleLanding>
           <h2 className="text-uppercase">Contáctanos</h2>

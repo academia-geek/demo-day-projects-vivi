@@ -117,7 +117,8 @@ export const EventForm = () => {
 
       <Form.Item
         name="cite"
-        style={{ borderRadius: '10px', marginLeft: '7vw', width: '100%' }}
+        
+        style={{ borderRadius: '10px', marginLeft: '7vw', width: '100%',}}
         rules={[
           {
             required: true,

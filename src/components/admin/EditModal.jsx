@@ -2,15 +2,17 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { InputStyled } from '../../styles/calendarStyle';
-import { Button, DatePicker, Form, Input, message, Modal, Space, Upload } from 'antd';
+import { Button, DatePicker, Form, Input, message,  Space, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { editEventAsync } from '../../redux/actions/eventsAction';
 import { imgUpload } from '../../helpers/imgUpload';
+import Modal from "react-bootstrap/Modal";
 
 
 export const Edit = ({ data }) => {
   const [isModalVisible, setIsModalVisible] = useState(true);
   const dispatch = useDispatch()
+  const [show, setShow] = useState(true);
   const [date, SetDate] = useState()
    const [loadings, setLoadings] = useState([]);
   const [pic, setPic] = useState("")
@@ -37,8 +39,9 @@ export const Edit = ({ data }) => {
     },
   };
 
-  const handleCancel = () => {
+  const handleClose = () => {
     setIsModalVisible(false);
+    setShow(false)
   };
 
   const dataEvent = EventsList.find(element => element.id == data)
@@ -52,8 +55,8 @@ export const Edit = ({ data }) => {
       img: pic,
       date: dataEvent.date
     }
-    SetDate(formValue)
-  
+    dispatch(editEventAsync(formValue))
+     setShow(false)
     
   };
   const onFinishFailed = (errorInfo) => {
@@ -64,11 +67,18 @@ export const Edit = ({ data }) => {
     dispatch(editEventAsync(date))
     setIsModalVisible(false);
   };
-
+  const handleShow = () => {
+    setShow(true);
+    
+  };
   return (
 
     <div>
-      <Modal style={{ textAlign: "center" }} title="Editar Información del evento" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+       <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>¡Modifica!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
 
         <Form
           name="basic"
@@ -113,6 +123,8 @@ export const Edit = ({ data }) => {
             Agregar </Button>
         </Form>
 
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
       </Modal>
 
     </div>

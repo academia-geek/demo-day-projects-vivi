@@ -198,12 +198,13 @@ export const Siderbar = styled.div`
 export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
+  :focus{
+    border: 1px solid var(--secondary-color)!important;
+  }
   :hover{
     border: 1px solid var(--secondary-color)!important;
   };
-  &:focus{
-    border: 1px solid var(--secondary-color)!important;
-  }
+ 
 `;
 export const AutoCompleteStyled = styled(AutoComplete)`
   border-radius: 10px;

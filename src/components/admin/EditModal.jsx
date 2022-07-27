@@ -6,16 +6,13 @@ import { Button, DatePicker, Form, Input, message, Modal, Space, Upload } from '
 import { InboxOutlined } from '@ant-design/icons';
 import { editEventAsync } from '../../redux/actions/eventsAction';
 import { imgUpload } from '../../helpers/imgUpload';
-const { RangePicker } = DatePicker;
-const datadate = []
+
 
 export const Edit = ({ data }) => {
   const [isModalVisible, setIsModalVisible] = useState(true);
-  const [value, setValue] = useState()
   const dispatch = useDispatch()
   const [date, SetDate] = useState()
-  const [dates, SetDates] = useState()
-  const [loadings, setLoadings] = useState([]);
+   const [loadings, setLoadings] = useState([]);
   const [pic, setPic] = useState("")
   const [fileList, setFileList] = useState([]);
   const { EventsList } = useSelector(store => store.eventos)
@@ -35,15 +32,7 @@ export const Edit = ({ data }) => {
       const { status } = info.file;
 
       if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
-
-      }
-
-      if (status === 'done') {
-        message.success(`${info.file.name} imagen cargada correctamente`);
-        setFileList(1)
-      } else if (status === 'error') {
-        message.error(`${info.file.name} no se cargo correctamente, intentalo de nuevo`);
+       console.log(info.file, info.fileList);
       }
     },
   };
@@ -55,8 +44,7 @@ export const Edit = ({ data }) => {
   const dataEvent = EventsList.find(element => element.id == data)
 
   const onFinish = (values) => {
-    console.log('Success:', values);
-    const formValue = {
+       const formValue = {
       id: dataEvent.id,
       name: values.Eventname,
       description: values.Description,
@@ -65,6 +53,8 @@ export const Edit = ({ data }) => {
       date: dataEvent.date
     }
     SetDate(formValue)
+  
+    
   };
   const onFinishFailed = (errorInfo) => {
     alert("La Información no se gurado correctamente")
@@ -78,8 +68,6 @@ export const Edit = ({ data }) => {
   return (
 
     <div>
-
-
       <Modal style={{ textAlign: "center" }} title="Editar Información del evento" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
 
         <Form

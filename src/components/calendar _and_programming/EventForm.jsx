@@ -14,9 +14,10 @@ const datadate = []
 export const EventForm = () => {
   const dispatch = useDispatch()
   const [pic, setPic] = useState("")
-  const [img,setImg]=useState()
+ const [btnState, setBtn] = useState(true);
   const [loadings, setLoadings] = useState([]);
   const onChange = (value, dateString) => {
+    setBtn(false)
     console.log('Rango de fecha: ', dateString);
     const date1 = dateString[0]
     const date2 = dateString[1]
@@ -38,8 +39,7 @@ export const EventForm = () => {
     },
 
     onChange(info) {
-      setImg(info.file.originFileObj)
-      imgUpload(info.file.originFileObj)
+          imgUpload(info.file.originFileObj)
         .then((resp) => {
           console.log(resp)
           setPic(resp)
@@ -64,7 +64,6 @@ export const EventForm = () => {
       date: datadate
     }
     localStorage.setItem("id", formValue.id)
-    localStorage.removeItem("location");
     dispatch(addEventAsync(formValue))
   };
 
@@ -144,7 +143,7 @@ export const EventForm = () => {
           />
         </Space>
       </Form.Item>
-      <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
+      <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit"  disabled={btnState} loading={loadings[2]} onClick={() => enterLoading(2)} >
         Agregar </Button>
     </Form>
 

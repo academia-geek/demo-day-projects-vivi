@@ -1,5 +1,5 @@
 import Rating from "@mui/material/Rating";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listAllPosts } from "../redux/actions/infoAction";
 import Stack from "@mui/material/Stack";
@@ -12,6 +12,7 @@ export const Timeline = () => {
   const dispatch = useDispatch();
   const { listaPosts } = useSelector((store) => store.posts);
   const userData = listaPosts[0];
+  const [limit, setLimit] = useState(5)
 
   const seeMore = () =>{
 

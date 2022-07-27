@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { auth } from "../firebase/firebaseConfig";
 import { CONT, EditIcon, TAG, UserData, UserImg } from "../styles/globalStyles";
-import Modal from 'react-bootstrap/Modal';
 import useForm from '../hooks/useForm';
 import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync, updatePhoto } from "../redux/actions/infoAction";
 import { imgUpload } from "../helpers/imgUpload";

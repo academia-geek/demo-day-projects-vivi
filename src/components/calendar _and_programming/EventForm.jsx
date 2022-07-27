@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { UploadOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
-import { InputStyled, UploadImg } from '../../styles/calendarStyle';
+import { ButtonAdmi, InputStyled, UploadImg } from '../../styles/calendarStyle';
 import { cities } from "../../data/cities";
 import { Option } from 'antd/lib/mentions';
 import { SettingsRemote } from '@mui/icons-material';
@@ -143,8 +143,8 @@ export const EventForm = () => {
           />
         </Space>
       </Form.Item>
-      <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit"  disabled={btnState} loading={loadings[2]} onClick={() => enterLoading(2)} >
-        Agregar </Button>
+      <ButtonAdmi style={{marginLeft:"35%"}} htmlType="submit"  disabled={btnState} loading={loadings[2]} onClick={() => enterLoading(2)} >
+        Agregar </ButtonAdmi>
     </Form>
 
 

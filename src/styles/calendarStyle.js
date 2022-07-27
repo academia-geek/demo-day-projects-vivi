@@ -1,4 +1,4 @@
-import { Calendar, Input, Button, AutoComplete, Upload } from "antd";
+import { Calendar, Input, Button, AutoComplete, Upload} from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
@@ -198,6 +198,12 @@ export const Siderbar = styled.div`
 export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
+  :hover{
+    border: 1px solid var(--secondary-color)!important;
+  };
+  &:focus{
+    border: 1px solid var(--secondary-color)!important;
+  }
 `;
 export const AutoCompleteStyled = styled(AutoComplete)`
   border-radius: 10px;
@@ -242,10 +248,16 @@ export const FontStyled1 = styled.div`
   
 `;
 export const FontStyled2 = styled.div`
-  background-image: url(${image2});
+  background-image: url(${image2}) ;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 47vw
+  filter: blur(2px);
+  -webkit-filter: blur(1.5px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  height: 47vw;
+   
 `;
 
 export const LinkStyle= styled(Link)`
@@ -285,5 +297,51 @@ text-align:center;
   transform: translateX(-50%);
  }
 `
+export const ButtonAdmi = styled(Button)`
+  outline: none;
+  border: none;
+  margin-top:10px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+  padding: 14px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-left:-4.5%;
+  height: 40px;
 
+  & > span {
+    display: flex;
+    align-items: center;
+    margin-top:-5px;
+       gap: 2px;
+  }
 
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+`;
+
+export const InputAdmi=styled(Input)`
+
+  :hover {
+    border: 1.5px solid var(--secondary-color);
+   
+  } 
+  :focus {
+    border: 2px solid var(--secondary-color);
+   
+  } 
+`
+export const InputAdmi1=styled(Input.Password)`
+:hover {
+  border: 1.5px solid var(--secondary-color)!important;
+ 
+} 
+&:focus {
+  border: 2px solid var(--secondary-color)!important;
+ 
+} 
+`

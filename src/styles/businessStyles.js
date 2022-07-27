@@ -20,6 +20,7 @@ export const Div = styled.div`
 export const ButtonBusiness = styled(Button)`
   outline: none;
   border: none;
+  margin-top:10px;
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border-radius: 8px;
@@ -34,7 +35,7 @@ export const ButtonBusiness = styled(Button)`
     display: flex;
     align-items: center;
     margin-top:6px;
-    gap: 10px;
+    gap: 2px;
   }
 
   &:hover {

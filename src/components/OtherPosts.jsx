@@ -13,7 +13,6 @@ import Modal from "react-bootstrap/Modal";
 import { CONT } from "../styles/globalStyles";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Avatar } from "@mui/material";
-import { cities } from "../data/cities";
 
 export const OtherPosts = ({ userID }) => {
     const dispatch = useDispatch();

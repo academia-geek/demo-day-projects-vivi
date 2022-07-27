@@ -5,6 +5,7 @@ import { listEventAsync } from '../redux/actions/eventsAction'
 import { useParams, Link } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
+import { Footer } from "../components/Footer";
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import { Col } from "react-bootstrap";
 import { LinkStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
@@ -70,6 +71,7 @@ export const Programming = () => {
           </div>
         </Col>
       </div>
+      <Footer />
     </div>
   )
 }

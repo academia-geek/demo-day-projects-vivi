@@ -12,7 +12,10 @@ export const Timeline = () => {
   const dispatch = useDispatch();
   const { listaPosts } = useSelector((store) => store.posts);
   const userData = listaPosts[0];
-  console.log(userData)
+
+  const seeMore = () =>{
+    
+  }
 
   useEffect(() => {
     dispatch(listAllPosts());
@@ -51,6 +54,7 @@ export const Timeline = () => {
             </DivPosting>
           ))}
       </CONT>
+      <h3>Ver más</h3>
     </>
   );
 };

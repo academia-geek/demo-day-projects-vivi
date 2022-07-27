@@ -23,8 +23,8 @@ export const OtherPosts = ({ userID }) => {
     const [time, setTime] = useState("");
     const [btnState, setBtn] = useState(true);
     const dispatch = useDispatch();
-    const { listaInfo } = useSelector((store) => store.info);
-    const userData = listaInfo[0];
+    const { listaPosts } = useSelector((store) => store.posts);
+    const userData = listaPosts[0];
 
     useEffect(() => {
         dispatch(listAllPosts());
@@ -40,7 +40,7 @@ export const OtherPosts = ({ userID }) => {
             </div>
 
             <CONT>
-                {userData?.Posts.filter((i) => i.id).map((i) => (
+                {userData?.filter((i) => i.userID === userID).map((i) => (
                     <DivPosting>
                         <Userbar>
                             <div>

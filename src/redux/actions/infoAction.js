@@ -150,19 +150,12 @@ export const listAllPosts = () => {
 
 export const listAsync = (otro) => {
     return async (dispatch) => {
-        if (otro) {
-            const docRef = doc(db, "Info", otro);
-            const docSnap = await getDoc(docRef);
-            const fireData = docSnap.data()
-            dispatch(listSync([fireData]))
-        } else {
-            const user = auth.currentUser;
-            const usuario = user?.uid
-            const docRef = doc(db, "Info", usuario);
-            const docSnap = await getDoc(docRef);
-            const fireData = docSnap.data()
-            dispatch(listSync([fireData]))
-        }
+        const user = auth.currentUser;
+        const usuario = user?.uid
+        const docRef = doc(db, "Info", usuario);
+        const docSnap = await getDoc(docRef);
+        const fireData = docSnap.data()
+        dispatch(listSync([fireData]))
     }
 }
 export const listSync = (lista) => {

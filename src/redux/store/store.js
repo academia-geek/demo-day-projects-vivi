@@ -7,6 +7,7 @@ import { infoReducers } from "../reducers/infoReducer";
 import { scheduleReducers } from "../reducers/schedule";
 import { favoriteReducer } from "../reducers/favoriteReducer";
 import { postsReducers } from "../reducers/postsReducer";
+import { otherUserReducers } from "../reducers/otherUserReducer";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -18,6 +19,7 @@ const reducers = combineReducers({
   schedule: scheduleReducers,
   favorites: favoriteReducer,
   posts: postsReducers,
+  otherUser: otherUserReducers,
 });
 
 export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));

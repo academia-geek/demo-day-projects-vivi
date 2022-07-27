@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { TAG, UserData, UserImg } from "../styles/globalStyles";
-import { listAsync } from "../redux/actions/infoAction";
+import { listAsync } from "../redux/actions/otherUserAction";
 
 export const OtherUser = ({ userID }) => {
     const dispatch = useDispatch()
-    const { listaInfo } = useSelector(store => store.info)
-    const userData = listaInfo[0]
+    const { otherUser } = useSelector(store => store.otherUser)
+    const userData = otherUser[0]
 
     useEffect(() => {
         dispatch(listAsync(userID))

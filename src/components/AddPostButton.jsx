@@ -64,6 +64,7 @@ export const AddPostButton = ({ userID }) => {
         time,
         photo: userData?.profileImg,
         name: profile?.displayName,
+        userID
     };
 
     const handleSubmit = (e) => {

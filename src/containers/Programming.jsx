@@ -2,12 +2,13 @@ import { Divider, List } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
+import { Footer } from "../components/Footer";
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import { Col } from "react-bootstrap";
-import { LinkStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
+import { LinkStyle, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { Paper } from '@mui/material'
 
@@ -22,9 +23,9 @@ export const Programming = () => {
 
   const { EventsList } = useSelector(store => store.eventos)
   const data = EventsList.filter(m => m.id == id)
- 
+
   const [date] = data
-  
+
   return (
     <div>
       <div className="d-flex">
@@ -49,19 +50,28 @@ export const Programming = () => {
               <>
                 <Divider orientation="right"><TittleProgramming k={item.seconds} /></Divider>
                 <List.Item  >
-                  <CardActivite k={item.seconds}  />
+                  <CardActivite k={item.seconds} />
                 </List.Item>
               </>
             )}
           />
         </Col>
         <Col sm={3}>
-          <Siderbar>
+          <div
+            style={{
+              height: "calc(100% - 63px)",
+              background: " #565252",
+              marginTop: "63px",
+              marginLeft: "4.9vw",
+              width: "80.3%",
+            }}
+          >
             <TittleStyle>CONOCE COLOMBIA</TittleStyle>
             <SiderCalendar />
-          </Siderbar>
-          </Col>
+          </div>
+        </Col>
       </div>
+      <Footer />
     </div>
   )
 }

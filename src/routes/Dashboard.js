@@ -6,7 +6,7 @@ import { Favorites } from "../containers/Favorites";
 import { Home } from "../containers/Home";
 import { Profile } from "../containers/Profile";
 import { Programming } from "../containers/Programming";
-// import { AdminHome } from "../containers/Administrator/AdminHome";
+import { Usuarios } from "../containers/Usuarios";
 
 export const Dashboard = () => {
   return (
@@ -18,10 +18,8 @@ export const Dashboard = () => {
         <Route path="/map/:id" element={<Map />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/favorites" element={<Favorites />} />
-
-        {/* Admin Routes */}
-        {/* <Route path="/admin/home" element={<AdminHome />} /> */}
         <Route path="/programming/:id" element={<Programming />} />
+        <Route path="/user/:id" element={<Usuarios />} />
       </Routes>
     </>
   );

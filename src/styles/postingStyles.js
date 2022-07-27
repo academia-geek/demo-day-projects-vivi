@@ -32,7 +32,9 @@ export const Userbar = styled.div`
       align-items: center;
       gap: 10px;
     }
-
+    a{
+      color: #000000;
+    }
     span {
       font-size: 18px;
     }

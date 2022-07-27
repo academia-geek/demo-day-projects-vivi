@@ -21,9 +21,7 @@ export const addEventSync = (formValue)=> {
 
 export const listEventAsync =() => {
     return async (dispatch)=>{
-
         const collectionListar = await getDocs(collection(db, "eventos"))
-        // console.log(collectionListar)
         const eventsA = []
         collectionListar.forEach(listar => {
             eventsA .push(
@@ -77,9 +75,6 @@ export const editEventAsync = (newEvent)=>{
         datosQ.forEach(async(docu)=>{
             id = docu.id
         })
-
-        console.log(id)
-
         const docRef = doc(db, "eventos", id)
 
         await updateDoc(docRef, newEvent)
@@ -89,14 +84,11 @@ export const editEventAsync = (newEvent)=>{
         
         })
         .catch(error => console.log(error))
-
-       
     }
 }
 export const editEventSync = (newEvent)=>{
     return {
         type: typesEvents.edit,
         payload: {newEvent}
-
     }
 }

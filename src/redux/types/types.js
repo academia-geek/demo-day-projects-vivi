@@ -31,3 +31,7 @@ export const typesFavorite = {
   REMOVE_FROM_FAVORITE: "REMOVE FAVORITE EVENT",
   LIST_FAVORITE: "LIST FAVORITE EVENT",
 }
+
+export const typesOtherUser = {
+  list_other: '[Info]list_other_user',
+}

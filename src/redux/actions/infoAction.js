@@ -130,15 +130,15 @@ export const listAllPosts = () => {
             }
         })
 
-        const sub1 = datos.filter(a=>a.id)
+        const sub1 = datos.filter(a => a.id)
 
         sub1.forEach(obj => {
-            obj.time = timeConverter(obj.time)
+            obj.tiempo = timeConverter(obj.time)
         })
 
         const sub2 = sub1.sort(function (x, y) {
-            var firstDate = new Date(x.time),
-                SecondDate = new Date(y.time);
+            var firstDate = new Date(x.tiempo),
+                SecondDate = new Date(y.tiempo);
 
             if (firstDate < SecondDate) return 1;
             if (firstDate > SecondDate) return -1;
@@ -149,14 +149,13 @@ export const listAllPosts = () => {
     }
 }
 
-export const listAsync = () => {
+export const listAsync = (otro) => {
     return async (dispatch) => {
         const user = auth.currentUser;
         const usuario = user?.uid
         const docRef = doc(db, "Info", usuario);
         const docSnap = await getDoc(docRef);
         const fireData = docSnap.data()
-        console.log("pase a listasync")
         dispatch(listSync([fireData]))
     }
 }

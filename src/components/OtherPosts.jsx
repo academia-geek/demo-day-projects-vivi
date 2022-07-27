@@ -18,8 +18,6 @@ import { Avatar } from "@mui/material";
 import { cities } from "../data/cities";
 
 export const OtherPosts = ({ userID }) => {
-    console.log(userID)
-    const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
     const [pic, setPic] = useState("");
     const [time, setTime] = useState("");

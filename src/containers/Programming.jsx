@@ -2,13 +2,13 @@ import { Divider, List } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listEventAsync } from '../redux/actions/eventsAction'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { listScheduleAsync } from '../redux/actions/scheduleAction'
 import { CardActivite } from '../components/calendar _and_programming/CardActivite'
 import { Footer } from "../components/Footer";
 import { TittleProgramming } from '../components/calendar _and_programming/TittleProgramming'
 import { Col } from "react-bootstrap";
-import { LinkStyle, Siderbar, TittleStyle } from '../styles/calendarStyle';
+import { LinkStyle, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { Paper } from '@mui/material'
 

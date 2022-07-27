@@ -20,48 +20,6 @@ export const OtherUser = ({ userID }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleImage = (e) => {
-        const file = e.target.files[0];
-        imgUpload(file)
-            .then((resp) => {
-                dispatch(updatePhoto(resp, userID))
-            })
-            .catch((error) => {
-                console.warn(error);
-            });
-    };
-
-    const [formValue, handleChange, reset] = useForm({ age: '' })
-    const [valueLike, handleChangeLike, resetLike] = useForm({ id: crypto.randomUUID(), like: '' })
-    const [valuePlace, handleChangePlace, resetPlace] = useForm({ id: crypto.randomUUID(), place: '' })
-    const [valueLiked, handleChangeLiked, resetLiked] = useForm({ id: crypto.randomUUID(), liked: '' })
-
-    const handleAge = (e) => {
-        dispatch(addAge(formValue.age, userID))
-        reset()
-        handleClose()
-    }
-    const handleSubmitLikes = (e) => {
-        e.preventDefault()
-        dispatch(addLike(valueLike, userID))
-        resetLike()
-    }
-    const handleDeleteLikes = (id) => { dispatch(deleteLike(id, userID)) }
-
-    const handleSubmitPlaces = (e) => {
-        e.preventDefault()
-        dispatch(addPlace(valuePlace, userID))
-        resetPlace()
-    }
-    const handleDeletePlaces = (id) => { dispatch(deletePlace(id, userID)) }
-
-    const handleSubmitLiked = (e) => {
-        e.preventDefault()
-        dispatch(addLiked(valueLiked, userID))
-        resetLiked()
-    }
-    const handleDeleteLiked = (id) => { dispatch(deleteLiked(id, userID)) }
-
     useEffect(() => {
         dispatch(listAsync())
         const user = auth.currentUser;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addPost, deletePost, listAsync } from "../redux/actions/infoAction";
+import { listAllPosts, listAsync } from "../redux/actions/infoAction";
 import { auth } from "../firebase/firebaseConfig";
 import Swal from "sweetalert2";
 import Rating from "@mui/material/Rating";
@@ -28,11 +28,7 @@ export const OtherPosts = ({ userID }) => {
     const userData = listaInfo[0];
 
     useEffect(() => {
-        dispatch(listAsync());
-        const user = auth.currentUser;
-        if (user) {
-            setProfile(user);
-        }
+        dispatch(listAllPosts());
     }, [dispatch]);
 
     return (

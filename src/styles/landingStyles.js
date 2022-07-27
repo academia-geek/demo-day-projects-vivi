@@ -179,7 +179,7 @@ export const CarouselVideos = styled.main`
     margin-bottom: 20vh;
     user-select: none;
     & > h3 {
-      font-size: 4.5rem;
+      font-size: 4rem;
       text-transform: uppercase;
       text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
       color: var(--primary-color);

@@ -10,7 +10,6 @@ export const OtherUser = ({ userID }) => {
     const userData = listaInfo[0]
     const [profile, setProfile] = useState(null);
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
 
     useEffect(() => {
         dispatch(listAsync())

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { auth } from "../firebase/firebaseConfig";
-import { CONT, EditIcon, TAG, UserData, UserImg } from "../styles/globalStyles";
-import { addAge, addLike, addLiked, addPlace, deleteLike, deletePlace, deleteLiked, listAsync, updatePhoto } from "../redux/actions/infoAction";
+import { TAG, UserData, UserImg } from "../styles/globalStyles";
+import { listAsync } from "../redux/actions/infoAction";
 
 export const OtherUser = ({ userID }) => {
     const dispatch = useDispatch()

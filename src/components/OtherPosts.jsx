@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listAllPosts, listAsync } from "../redux/actions/infoAction";
+import { listAllPosts } from "../redux/actions/infoAction";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { CONT } from "../styles/globalStyles";

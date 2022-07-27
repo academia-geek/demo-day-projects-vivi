@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { auth } from "../firebase/firebaseConfig";
-import edit from "../assets/Edit.png"
 import cross from "../assets/delete.png"
 import { CONT, EditIcon, TAG, UserData, UserImg } from "../styles/globalStyles";
 import Form from 'react-bootstrap/Form';

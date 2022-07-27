@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { auth } from "../firebase/firebaseConfig";
 import { TAG, UserData, UserImg } from "../styles/globalStyles";
 import { listAsync } from "../redux/actions/infoAction";
 
@@ -8,22 +7,17 @@ export const OtherUser = ({ userID }) => {
     const dispatch = useDispatch()
     const { listaInfo } = useSelector(store => store.info)
     const userData = listaInfo[0]
-    const [profile, setProfile] = useState(null);
 
     useEffect(() => {
-        dispatch(listAsync())
-        const user = auth.currentUser;
-        if (user) {
-            setProfile(user);
-        }
+        dispatch(listAsync(userID))
     }, [dispatch]);
 
     return (
         <>
             <div className='px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex mx-auto">
-                    <UserImg src={userData?.profileImg} alt={profile?.displayName} />
-                    <h2>{profile?.displayName}</h2>
+                    <UserImg src={userData?.profileImg} alt={userData?.Posts[0].name} />
+                    <h2>{userData?.Posts[0].name}</h2>
                 </div>
                 <div>
                     <div className="d-flex justify-content-center align-items-center">

@@ -53,7 +53,7 @@ export const AdminHome = () => {
                 <CardStyled key={event.id}>
                <h6 style={{width:"90%"}}>{event.name}</h6>
                <Link to={`/detailItinerary/${event.id}`}>
-               <EditOutlined style={{color:"#ffc947", fontWeight:"900"}} Hover-Reveal/>
+               <EditOutlined style={{color:"#ffc947", fontWeight:"900"}}/>
                </Link>
                 </CardStyled>              
                 )

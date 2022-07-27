@@ -1,4 +1,4 @@
-import { Calendar, Input, Button, AutoComplete } from "antd";
+import { Calendar, Input, Button, AutoComplete, Upload } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
@@ -258,5 +258,11 @@ text-align: center;
 :hover{
   box-shadow: 1px 1px 1px 1px  #d4d4d4;
 
+}
+`
+
+export const UploadImg=styled(Upload)`
+.ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
+  color: #faad14;
 }
 `

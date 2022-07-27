@@ -13,13 +13,11 @@ export const AdminHero = () => {
             <HeroCards>
                 <Link to="/addEvent">
                     <img src={agendar} alt="Agendar" />
-                    <h2>Agregar Evento Nuevo</h2>
                 </Link>
             </HeroCards>
             <HeroCards>
                 <Link to="/detail">
                     <img src={listar} alt="Listar" />
-                    <h2>Ver Eventos Agendados</h2>
                 </Link>
             </HeroCards>
             </div>

@@ -114,6 +114,7 @@ export const addPost = (value, userID) => {
         ).catch(error => {
             console.warn(error, 'Datos no guardados')
         })
+        dispatch(listAllPosts())
     }
 }
 export const listAllPosts = () => {

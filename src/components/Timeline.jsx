@@ -5,7 +5,6 @@ import { listAllPosts } from "../redux/actions/infoAction";
 import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
-import post from "../assets/carousel2.png";
 import { Link } from "react-router-dom";
 import { CONT } from "../styles/globalStyles";
 

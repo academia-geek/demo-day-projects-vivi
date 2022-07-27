@@ -38,7 +38,7 @@ export const Userbar = styled.div`
     }
     span.time {
       font-size: 14px;
-      color: lightgray;
+      color: #8c8c8c;
     }
   }
 

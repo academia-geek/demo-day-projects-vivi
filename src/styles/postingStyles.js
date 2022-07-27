@@ -21,7 +21,6 @@ export const Userbar = styled.div`
   font-weight: 400;
   font-size: 14px;
   padding: 20px 40px;
-
   & > div {
     display: flex;
     flex-direction: column;

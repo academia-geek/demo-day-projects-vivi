@@ -5,7 +5,6 @@ import { listAllPosts } from "../redux/actions/infoAction";
 import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
-import post from "../assets/carousel2.png";
 import { Link } from "react-router-dom";
 import { CONT } from "../styles/globalStyles";
 
@@ -13,6 +12,7 @@ export const Timeline = () => {
   const dispatch = useDispatch();
   const { listaPosts } = useSelector((store) => store.posts);
   const userData = listaPosts[0];
+  console.log(userData)
 
   useEffect(() => {
     dispatch(listAllPosts());
@@ -21,9 +21,7 @@ export const Timeline = () => {
   return (
     <>
       <CONT>
-        {userData
-          ?.filter((i) => i.id)
-          .map((i) => (
+        {userData?.splice(0, 5).map((i) => (
             <DivPosting>
               <Userbar>
                 <div>

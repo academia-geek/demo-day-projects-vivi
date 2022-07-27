@@ -11,7 +11,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import useForm from "../hooks/useForm";
-import { imgUpload } from "../helpers/imgUpload";
 import { CONT } from "../styles/globalStyles";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Avatar } from "@mui/material";

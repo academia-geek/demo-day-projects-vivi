@@ -1,20 +1,23 @@
-import { Button, DatePicker, Form, message, Space, Upload,Select } from 'antd';
-import React, {  useState } from 'react';
+import { Button, DatePicker, Form, message, Space, Upload, Select } from 'antd';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { imgUpload } from '../../helpers/imgUpload';
 import { UploadOutlined } from '@ant-design/icons';
 import { addEventAsync } from '../../redux/actions/eventsAction';
-import {  InputStyled } from '../../styles/calendarStyle';
+import { InputStyled, UploadImg } from '../../styles/calendarStyle';
 import { cities } from "../../data/cities";
 import { Option } from 'antd/lib/mentions';
+import { SettingsRemote } from '@mui/icons-material';
 const { RangePicker } = DatePicker;
 const datadate = []
 
 export const EventForm = () => {
   const dispatch = useDispatch()
   const [pic, setPic] = useState("")
+ const [btnState, setBtn] = useState(true);
   const [loadings, setLoadings] = useState([]);
   const onChange = (value, dateString) => {
+    setBtn(false)
     console.log('Rango de fecha: ', dateString);
     const date1 = dateString[0]
     const date2 = dateString[1]
@@ -36,8 +39,7 @@ export const EventForm = () => {
     },
 
     onChange(info) {
-
-      imgUpload(info.file.originFileObj)
+          imgUpload(info.file.originFileObj)
         .then((resp) => {
           console.log(resp)
           setPic(resp)
@@ -46,11 +48,14 @@ export const EventForm = () => {
 
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
-      } },
+      }
+    },
   };
 
+ 
+
   const onFinish = (values) => {
-    const formValue = {
+       const formValue = {
       id: Math.random(),
       name: values.Eventname,
       description: values.Description,
@@ -59,7 +64,6 @@ export const EventForm = () => {
       date: datadate
     }
     localStorage.setItem("id", formValue.id)
-    localStorage.removeItem("location");
     dispatch(addEventAsync(formValue))
   };
 
@@ -83,7 +87,7 @@ export const EventForm = () => {
         window.location.href = "./Schedule"
         return newLoadings;
       });
-    }, 2000);
+    }, 3000);
   };
 
   return (
@@ -110,10 +114,10 @@ export const EventForm = () => {
       >
         <InputStyled placeholder="Descripcion de la festividad" allowClear />
       </Form.Item>
-     
-<Form.Item
+
+      <Form.Item
         name="cite"
-       style={{borderRadius: '10px',marginLeft: '7vw',width:'100%'}}
+        style={{ borderRadius: '10px', marginLeft: '7vw', width: '100%' }}
         rules={[
           {
             required: true,
@@ -121,15 +125,15 @@ export const EventForm = () => {
           },
         ]}
       >
-        <Select placeholder="Selecciona una ciudad " style={{borderRadius:' 10px'}}>
-        {cities.map(c=>
-          <Option value={c.name}>{c.name}</Option>
-        )} 
+        <Select placeholder="Selecciona una ciudad " style={{ borderRadius: ' 10px' }}>
+          {cities.map(c =>
+            <Option value={c.name}>{c.name}</Option>
+          )}
         </Select>
       </Form.Item>
-      <Upload {...props} style={{ marginLeft: "5vw" }} >
-        <Button icon={<UploadOutlined />}>Click para agregar imagen</Button>
-      </Upload>
+      <UploadImg {...props}  >
+        <Button style={{ marginLeft: "15vw" }} icon={<UploadOutlined />}>Click para agregar imagen</Button>
+      </UploadImg>
       <Form.Item style={{ marginTop: "10px", marginLeft: "12vw" }}>
         <Space direction="vertical" size={12}>
           <RangePicker
@@ -139,9 +143,9 @@ export const EventForm = () => {
           />
         </Space>
       </Form.Item>
-      <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit" loading={loadings[2]} onClick={() => enterLoading(2)} >
+      <Button style={{ marginLeft: "20vw", borderRadius: "10px", background: " #ffbd29" }} htmlType="submit"  disabled={btnState} loading={loadings[2]} onClick={() => enterLoading(2)} >
         Agregar </Button>
-         </Form>
+    </Form>
 
 
 

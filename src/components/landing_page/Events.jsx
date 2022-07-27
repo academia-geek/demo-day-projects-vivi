@@ -14,7 +14,7 @@ export const Events = () => {
         <TitleLanding className="left">
           <h2 className="text-uppercase">¡Echa un vistazo!</h2>
         </TitleLanding>
-        <Row>
+        <Row className="me-4 me-lg-0">
           <Col md={3} className="px-0 py-1 py-lg-0">
             <EventLanding onClick={() => navigate("/login")}>
               <div className="img-container">

@@ -60,7 +60,6 @@ export const DetailEvents = () => {
             style={{ paddingTop: "10px", width: "65vw", marginLeft: "5vw" }}
             dataSource={EventsList}
             locale={{ emptyText: 'No hay eventos que mostrar' }}
-            emptyText='no'
             renderItem={(item) => (
               <Paper elevation={5}>
                 <Card style={{ marginTop: "20px" }}>

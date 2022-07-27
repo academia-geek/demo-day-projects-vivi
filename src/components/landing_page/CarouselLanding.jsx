@@ -7,7 +7,7 @@ import colombia_4s from "../../assets/videos/colombia_4s.mp4";
 import colombia_5s from "../../assets/videos/colombia_5s.mp4";
 import colombia_6s from "../../assets/videos/colombia_6s.mp4";
 import { ButtonLanding, CarouselVideos } from "../../styles/landingStyles";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 
 export const CarouselLanding = () => {
@@ -18,78 +18,133 @@ export const CarouselLanding = () => {
     setIndex(selectedIndex);
   };
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} as={CarouselVideos} fade>
+    <Carousel
+      activeIndex={index}
+      onSelect={handleSelect}
+      as={CarouselVideos}
+      fade
+    >
       <Carousel.Item>
-        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video
+          autoPlay
+          loop
+          muted
+          className="d-block w-100"
+          loading="lazy"
+          preload="metadata"
+        >
           <source src={colombia_1s} type="video/mp4" />
         </video>
         <Carousel.Caption>
-          <h3>Comparte tu aventura</h3>
-          <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>
+          <h3>Encuentra tu evento ideal</h3>
+          <p>
+            Descubre los festivales, carnavales, ferias y fiestas de Colombia
+            que invitan a la aventura de conocer este sorprendente país
+          </p>
           <ButtonLanding onClick={() => navigate("/signin")}>
             <span>
-            ¡Únete a ViVi!
-            <ArrowForwardIcon />
+              ¡Únete a ViVi!
+              <ArrowForwardIcon />
             </span>
           </ButtonLanding>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video
+          autoPlay
+          loop
+          muted
+          className="d-block w-100"
+          loading="lazy"
+          preload="metadata"
+        >
           <source src={colombia_2s} type="video/mp4" />
         </video>
         <Carousel.Caption>
-          <h3>Comparte tu aventura</h3>
-          <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>
+          <h3>Encuentra tu evento ideal</h3>
+          <p>
+            Descubre los festivales, carnavales, ferias y fiestas de Colombia
+            que invitan a la aventura de conocer este sorprendente país
+          </p>
           <ButtonLanding onClick={() => navigate("/signin")}>
             <span>
-            ¡Únete a ViVi!
-            <ArrowForwardIcon />
+              ¡Únete a ViVi!
+              <ArrowForwardIcon />
             </span>
           </ButtonLanding>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video
+          autoPlay
+          loop
+          muted
+          className="d-block w-100"
+          loading="lazy"
+          preload="metadata"
+        >
           <source src={colombia_3s} type="video/mp4" />
         </video>
         <Carousel.Caption>
-          <h3>Comparte tu aventura</h3>
-          <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>
+          <h3>Encuentra tu evento ideal</h3>
+          <p>
+            Descubre los festivales, carnavales, ferias y fiestas de Colombia
+            que invitan a la aventura de conocer este sorprendente país
+          </p>
           <ButtonLanding onClick={() => navigate("/signin")}>
             <span>
-            ¡Únete a ViVi!
-            <ArrowForwardIcon />
+              ¡Únete a ViVi!
+              <ArrowForwardIcon />
             </span>
           </ButtonLanding>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video
+          autoPlay
+          loop
+          muted
+          className="d-block w-100"
+          loading="lazy"
+          preload="metadata"
+        >
           <source src={colombia_4s} type="video/mp4" />
         </video>
         <Carousel.Caption>
-          <h3>Comparte tu aventura</h3>
-          <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>
+          <h3>Encuentra tu evento ideal</h3>
+          <p>
+            Descubre los festivales, carnavales, ferias y fiestas de Colombia
+            que invitan a la aventura de conocer este sorprendente país
+          </p>
           <ButtonLanding onClick={() => navigate("/signin")}>
             <span>
-            ¡Únete a ViVi!
-            <ArrowForwardIcon />
+              ¡Únete a ViVi!
+              <ArrowForwardIcon />
             </span>
           </ButtonLanding>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <video autoPlay loop muted className="d-block w-100" loading="lazy" preload="metadata">
+        <video
+          autoPlay
+          loop
+          muted
+          className="d-block w-100"
+          loading="lazy"
+          preload="metadata"
+        >
           <source src={colombia_5s} type="video/mp4" />
         </video>
         <Carousel.Caption>
-          <h3>Comparte tu aventura</h3>
-          <p>Descubre nuevos lugares y crea una experiencia inolvidable</p>
+          <h3>Encuentra tu evento ideal</h3>
+          <p>
+            Descubre los festivales, carnavales, ferias y fiestas de Colombia
+            que invitan a la aventura de conocer este sorprendente país
+          </p>
           <ButtonLanding onClick={() => navigate("/signin")}>
             <span>
-            ¡Únete a ViVi!
-            <ArrowForwardIcon />
+              ¡Únete a ViVi!
+              <ArrowForwardIcon />
             </span>
           </ButtonLanding>
         </Carousel.Caption>

@@ -1,4 +1,4 @@
-import { Calendar, Input, Button, AutoComplete } from "antd";
+import { Calendar, Input, Button, AutoComplete, Upload } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
@@ -232,12 +232,14 @@ export const FontStyled = styled.div`
   background-image: url(${image});
   background-repeat: no-repeat;
   background-size: cover;
+  height: 45vw
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 65px;
+  
 `;
 export const FontStyled2 = styled.div`
   background-image: url(${image2});
@@ -260,3 +262,28 @@ text-align: center;
 
 }
 `
+
+export const UploadImg=styled(Upload)`
+.ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
+  color: #faad14;
+}
+`
+export const TitleAdmi=styled.h1`
+text-align:center;
+ padding-top:5vw;
+ font-size:80px;
+ text-shadow:1px 8px 5px white;
+ &:after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  width: 20%;
+  height: 10px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  left: 38%;
+  transform: translateX(-50%);
+ }
+`
+
+

@@ -9,7 +9,7 @@ export const RegisterAdmi = () => {
   const navigate = useNavigate()
   const onFinish = (values) => {
     console.log('Success:', values);
-    if (values.username === "administrador" && values.password == "12345678"){
+    if (values.username === "admi" && values.password == "1234"){
        navigate('/admin/home')
     }
     else{

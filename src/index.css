@@ -60,8 +60,8 @@ ul {
 }
 
 .titlleBusi {
-  color: white;
-  -webkit-text-stroke: 0.5px #000;
+  color: #212529;
+  text-shadow: 1px 1px  var(--primary-color);
   font-size: 4rem;
   font-weight: bold;
   margin-top: 20vw;

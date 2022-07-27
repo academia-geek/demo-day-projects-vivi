@@ -21,7 +21,6 @@ export const OtherPosts = ({ userID }) => {
     const [show, setShow] = useState(false);
     const [pic, setPic] = useState("");
     const [time, setTime] = useState("");
-    const [btnState, setBtn] = useState(true);
     const dispatch = useDispatch();
     const { listaPosts } = useSelector((store) => store.posts);
     const userData = listaPosts[0];

@@ -11,6 +11,7 @@ import {
 } from "../../redux/actions/favoriteAction";
 import { DivEvent, EventBottom, HeartIcon } from "../../styles/calendarStyle";
 import { ButtonLanding } from "../../styles/landingStyles";
+import { Temperature } from "./Temperature";
 
 export const CardEvent = ({ m }) => {
   const dispatch = useDispatch();
@@ -60,11 +61,13 @@ export const CardEvent = ({ m }) => {
           >
             <div className="d-flex gap-5">
               <DivEvent>
-                <h2>{item.name}</h2>
-                <article className="pb-2">{item.description}</article>
+                <h2 className="d-flex justify-content-between">
+                  {item.name}
+                  <Temperature location={item.location} />
+                </h2>
+                <article className="py-2">{item.description}</article>
                 <Link
                   to={`/map/${item.location}`}
-                  style={{ color: "rgba(255, 189, 41, 1)" }}
                 >
                   {item.location}
                 </Link>

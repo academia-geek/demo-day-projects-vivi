@@ -41,8 +41,15 @@ export const BoxStyled = styled(Box)`
 export const CarouselStyled = styled.div`
   margin-top: ${(props) => (props.marginTop ? props.marginTop : "0")};
 
+  &:hover {
+    .carousel-item > img {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+  }
+
   .carousel-item > img {
-    height: 284px;
+    height: 400px;
+    transition: all 1s ease;
   }
 
   .carousel-control-prev-icon,
@@ -110,7 +117,7 @@ export const AsideStyled2 = styled.aside`
   padding-top: 50px;
   overflow-y: scroll;
   height: 100vh;
-  
+
   &::-webkit-scrollbar {
     width: 0px;
   }
@@ -181,7 +188,6 @@ export const CardStyled = styled(Card)`
     text-align: center;
   }
 `;
-
 
 export const CalendarStyled = styled(Calendar)`
   margin-bottom: 20px;

@@ -8,7 +8,6 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import cross from "../assets/delete.png";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import useForm from "../hooks/useForm";
 import { imgUpload } from "../helpers/imgUpload";
@@ -16,6 +15,7 @@ import { CONT } from "../styles/globalStyles";
 import { DivPost, DivPosting, Userbar } from "../styles/postingStyles";
 import { Avatar } from "@mui/material";
 import { cities } from "../data/cities";
+import { ButtonLocation } from "../styles/mapStyles";
 
 export const Posts = ({ userID }) => {
   const [profile, setProfile] = useState(null);
@@ -108,7 +108,7 @@ export const Posts = ({ userID }) => {
         style={{ margin: "auto 40px" }}
       >
         <h2>Tus Publicaciones</h2>
-        <Button onClick={handleShow}>Nuevo post</Button>
+        <ButtonLocation onClick={handleShow}>Nuevo post</ButtonLocation>
       </div>
 
       <CONT>
@@ -193,15 +193,16 @@ export const Posts = ({ userID }) => {
                 onChange={handleImage}
               />
             </Form.Group>
-            <Button
-              disabled={btnState}
-              variant="success"
-              type="submit"
-              onClick={handleClose}
-              style={{ display: "flex", margin: "0 auto" }}
-            >
-              Publicar
-            </Button>
+            <div className="d-flex justify-content-center">
+              <ButtonLocation
+                disabled={btnState}
+                variant="success"
+                type="submit"
+                onClick={handleClose}
+              >
+                Publicar
+              </ButtonLocation>
+            </div>
           </Form>
         </Modal.Body>
         <Modal.Footer></Modal.Footer>

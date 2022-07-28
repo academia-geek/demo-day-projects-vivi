@@ -19,13 +19,13 @@ export const CarouselEvents = ({ marginTop }) => {
       marginTop={marginTop}
     >
       <Carousel.Item>
-        <img className="d-block w-100" src={carousel1} alt="First slide" />
+        <img className="d-block w-100" src={carousel1} alt="Comparte tu experiencia" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src={carousel2} alt="Second slide" />
+        <img className="d-block w-100" src={carousel2} alt="Comparte tu experiencia" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100" src={carousel3} alt="Third slide" />
+        <img className="d-block w-100" src={carousel3} alt="Comparte tu experiencia" />
       </Carousel.Item>
     </Carousel>
   );

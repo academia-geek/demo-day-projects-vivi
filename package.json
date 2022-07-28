@@ -25,6 +25,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.23",
@@ -38,6 +39,25 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "contributors": [
+    {
+      "name": "Kevin Brian Briceño",
+      "email": "kevinbrianbr@gmail.com",
+      "url": "https://github.com/7-18"
+    },
+    {
+      "name": "Melisa Mendoza",
+      "email": "melisamendozamogollon@gmail.com",
+      "url": "https://github.com/MeliMend"
+    },
+    {
+      "name": "Sebastian Luna",
+      "email": "sebas1997321@gmail.com",
+      "url": "https://github.com/SebastianLunar"
+    }
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/academia-geek/demo-day-projects-vivi#readme",
   "eslintConfig": {
     "extends": [
       "react-app",

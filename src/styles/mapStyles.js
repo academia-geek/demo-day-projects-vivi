@@ -53,6 +53,7 @@ export const ButtonLocation = styled.button`
   font-weight: 700;
   color: var(--primary-color);
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--primary-color);

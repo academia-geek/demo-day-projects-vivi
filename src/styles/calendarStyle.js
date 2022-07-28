@@ -1,10 +1,10 @@
-import { Calendar, Input, Button, AutoComplete, Upload} from "antd";
+import { Calendar, Input, Button, AutoComplete, Upload } from "antd";
 import styled from "styled-components";
 import Icon from "@ant-design/icons";
 import image from "../assets/prueba/image5.jpg";
 import image1 from "../assets/prueba/image7.jpg";
 import image2 from "../assets/prueba/image8.jpg";
-import {  Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export const CardStyledCalendar = styled.div`
   padding: 10px;
@@ -80,6 +80,8 @@ export const EventBottom = styled.div`
 export const LineStyle = styled.hr`
   width: 70%;
   margin: 1rem auto;
+  border-top-color: var(--secondary-color);
+  opacity: 1;
 `;
 
 export const textStyle = styled.h6`
@@ -93,7 +95,7 @@ export const SiderStyle = styled.div`
   overflow: auto;
   overflow-x: hidden;
   height: calc(100vh + 129px);
-  background: rgba(255, 189, 41, 1);
+  background: var(--primary-color);
 
   ::-webkit-scrollbar {
     display: none;
@@ -198,17 +200,15 @@ export const Siderbar = styled.div`
 export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
-  :focus{
-    border: 1px solid var(--secondary-color)!important;
+  :focus {
+    border: 1px solid var(--secondary-color) !important;
   }
-  :hover{
-    border: 1px solid var(--secondary-color)!important;
-  };
- 
+  :hover {
+    border: 1px solid var(--secondary-color) !important;
+  }
 `;
 export const AutoCompleteStyled = styled(AutoComplete)`
   border-radius: 10px;
-  
 `;
 export const ButtonAntdStyled = styled(Button)`
   border-radius: 10px;
@@ -239,17 +239,16 @@ export const FontStyled = styled.div`
   background-image: url(${image});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 45vw
+  height: 45vw;
 `;
 export const FontStyled1 = styled.div`
   background-image: url(${image1});
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 65px;
-  
 `;
 export const FontStyled2 = styled.div`
-  background-image: url(${image2}) ;
+  background-image: url(${image2});
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(2px);
@@ -258,50 +257,50 @@ export const FontStyled2 = styled.div`
   -o-filter: blur(1px);
   -ms-filter: blur(1px);
   height: 47vw;
-   
 `;
 
-export const LinkStyle= styled(Link)`
-color: #000;
-Font-weight:700;
-:hover{
-  color:var(--secondary-color) ;
-}
-`
-export const CardStyledHome=styled.div`
-text-align: center;
-:hover{
-  box-shadow: 1px 1px 1px 1px  #d4d4d4;
+export const LinkStyle = styled(Link)`
+  color: #000;
+  font-weight: 700;
+  :hover {
+    color: var(--secondary-color);
+  }
+`;
+export const CardStyledHome = styled.div`
+  text-align: center;
+  :hover {
+    box-shadow: 1px 1px 1px 1px #d4d4d4;
+  }
+`;
 
-}
-`
-
-export const UploadImg=styled(Upload)`
-.ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
-  color: blue;
-}
-`
-export const TitleAdmi=styled.h1`
-text-align:center;
- padding-top:5vw;
- font-size:80px;
- text-shadow:1px 8px 5px white;
- &:after {
-  content: "";
-  display: block;
-  margin-top: 10px;
-  width: 20%;
-  height: 10px;
-  background-color: var(--secondary-color);
-  position: absolute;
-  left: 38%;
-  transform: translateX(-50%);
- }
-`
+export const UploadImg = styled(Upload)`
+  .ant-upload-list-item-error,
+  .ant-upload-list-item-error .ant-upload-text-icon > .anticon,
+  .ant-upload-list-item-error .ant-upload-list-item-name {
+    color: blue;
+  }
+`;
+export const TitleAdmi = styled.h1`
+  text-align: center;
+  padding-top: 5vw;
+  font-size: 80px;
+  text-shadow: 1px 8px 5px white;
+  &:after {
+    content: "";
+    display: block;
+    margin-top: 10px;
+    width: 20%;
+    height: 10px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    left: 38%;
+    transform: translateX(-50%);
+  }
+`;
 export const ButtonAdmi = styled(Button)`
   outline: none;
   border: none;
-  margin-top:10px;
+  margin-top: 10px;
   background-color: var(--background-color);
   color: var(--primary-color);
   border-radius: 8px;
@@ -309,14 +308,14 @@ export const ButtonAdmi = styled(Button)`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  margin-left:-4.5%;
+  margin-left: -4.5%;
   height: 40px;
 
   & > span {
     display: flex;
     align-items: center;
-    margin-top:-5px;
-       gap: 2px;
+    margin-top: -5px;
+    gap: 2px;
   }
 
   &:hover {
@@ -325,48 +324,43 @@ export const ButtonAdmi = styled(Button)`
   }
 `;
 
-export const InputAdmi=styled(Input)`
-
+export const InputAdmi = styled(Input)`
   :hover {
     border: 1.5px solid var(--secondary-color);
-   
-  } 
+  }
   :focus {
     border: 2px solid var(--secondary-color);
-   
-  } 
-`
-export const InputAdmi1=styled(Input.Password)`
-:hover {
-  border: 1.5px solid var(--secondary-color)!important;
- 
-} 
-&:focus {
-  border: 2px solid var(--secondary-color)!important;
- 
-} 
-`
-export const TitlleEvents=styled.h3`
-{
-  color: #000;
-  -webkit-text-stroke: 0.5px #000;
-  font-size: 2, 5rem;
-  font-weight: bold;
-  padding-top: 15px;
-  width: 80vw;
-  text-align: center;
-  margin-left: 3, 5vw;
-  font-family: "Merriweather", serif;
-}
-&:after {
-  content: "";
-  display: block;
-  width: 13%;
-  height: 5px;
-  background-color: var(--secondary-color);
-  position: absolute;
-  margin-top:1%;
-  left: 38%;
-  transform: translateX(-50%);
- }
-` 
+  }
+`;
+export const InputAdmi1 = styled(Input.Password)`
+  :hover {
+    border: 1.5px solid var(--secondary-color) !important;
+  }
+  &:focus {
+    border: 2px solid var(--secondary-color) !important;
+  }
+`;
+export const TitlleEvents = styled.h3`
+   {
+    color: #000;
+    -webkit-text-stroke: 0.5px #000;
+    font-size: 2, 5rem;
+    font-weight: bold;
+    padding-top: 15px;
+    width: 80vw;
+    text-align: center;
+    margin-left: 3, 5vw;
+    font-family: "Merriweather", serif;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 13%;
+    height: 5px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    margin-top: 1%;
+    left: 38%;
+    transform: translateX(-50%);
+  }
+`;

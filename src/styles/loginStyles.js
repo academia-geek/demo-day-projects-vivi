@@ -5,7 +5,6 @@ import town_3 from "../assets/town3.png";
 
 export const DivForm = styled.div`
   display: flex;
-  flex-direction: row-reverse;
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -56,6 +55,7 @@ export const FormStyled = styled.form`
   padding: 30px;
   margin: 20px 60px 60px;
   height: fit-content;
+  width: 400px;
 
   & > h4 {
     text-align: center;

@@ -31,7 +31,7 @@ export const CalendarPage = () => {
           <div
             style={{
               height: "calc(100% - 63px)",
-              background: "var(--background-color);",
+              background: "var(--background-color)",
               marginTop: "63px",
               marginLeft: "4.9vw",
               width: "80.3%",

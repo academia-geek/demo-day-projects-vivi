@@ -27,7 +27,9 @@ export const DetailItinerary = () => {
     dispatch(listEventAsync())
     dispatch(listScheduleAsync())
   }, [dispatch])
-
+//  const handleSubmit =()=>{
+//   localStorage.setItem("id", formValue.id)
+//  }
   return (
     <div>
       <div className="d-flex">
@@ -47,6 +49,7 @@ export const DetailItinerary = () => {
       </Navbar>
           {
             data?.map(item => (
+              <div>
               <Paper elevación={12} key={item.name} style={{ display: "flex", marginTop: "90px", marginLeft: '50px' }}>
                 <img src={item.img} alt="publicidad" style={{ width: "200px", borderRadius: "10px", marginLeft: "30px" }} />
                 <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
@@ -55,11 +58,16 @@ export const DetailItinerary = () => {
                   <Link to={`/map/${item.location}`} style={{ color: "#000" }}>{item.location}</Link>
                 </div>
               </Paper>
+              <Tooltip title='Agregar actividad al itinerario ' color={'#FFBD29'}>
+              <Button onClick={()=>
+                localStorage.setItem("id", item.id)
+              
+               } href="/Schedule" style={{ fontSize: "20px", marginLeft: "65vw", marginTop: "20px", background: "rgba(255, 189, 41, 1)", border: "none" }}>Agregar</Button>
+            </Tooltip>
+            </div>
             ))
           }
-          <Tooltip title='Agregar actividad al itinerario ' color={'#FFBD29'}>
-            <Button style={{ fontSize: "20px", marginLeft: "65vw", marginTop: "20px", background: "rgba(255, 189, 41, 1)", border: "none" }}>Agregar</Button>
-          </Tooltip>
+          
           <List
             style={{ marginTop: "50px", marginLeft: "80px" }}
             itemLayout="horizontal"
@@ -75,11 +83,20 @@ export const DetailItinerary = () => {
             )}
           />
         </Col>
-        <Col sm={3}>
-          <Siderbar>
-            <TittleStyle>CONOCE COLOMBIA</TittleStyle>
-          </Siderbar>
-          <SiderCalendar />
+        <Col sm={3} className="position-fixed end-0">
+        <AsideStyled2>
+            <h4 style={{color:"white", textAlign:"center"}} >Eventos Publicados</h4>
+            {
+              EventsList.map(event=>
+                <CardStyled key={event.id}>
+               <h6 style={{width:"90%"}}>{event.name}</h6>
+               <Link to={`/detailItinerary/${event.id}`}>
+               <EditOutlined style={{color:"#ffc947", fontWeight:"900"}} Hover-Reveal/>
+               </Link>
+                </CardStyled>              
+                )
+            }
+          </AsideStyled2>
         </Col>
       </div>
     </div>

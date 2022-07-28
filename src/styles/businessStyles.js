@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import business from "../assets/fondo.jpg";
-import { Button, Card } from 'antd'
+import { Button } from 'antd'
 
 export const Div = styled.div`
   display: flex;

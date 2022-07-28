@@ -48,7 +48,7 @@ export function NavbarLanding() {
             </Nav.Link>
             <NavbarSelect onChange={handleChange} defaultValue="ES">
               <option value="EN">
-                <NavLink to="/En">EN</NavLink>
+                <NavLink to="/">EN</NavLink>
               </option>
               <option value="ES">
                 <NavLink to="/">ES</NavLink>

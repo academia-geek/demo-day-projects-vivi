@@ -20,7 +20,7 @@ export const OtherUser = ({ userID }) => {
                     <h2>{userData?.Posts[0].name}</h2>
                     <h3>Usuario de ViVi</h3>
                 </div>
-                <hr />
+                <hr className="w-75" style={{margin: "1rem auto"}} />
                 <div>
                     <div className="d-flex justify-content-center align-items-center">
                         <h2>Información</h2>

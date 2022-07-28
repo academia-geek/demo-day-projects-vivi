@@ -5,7 +5,7 @@ export const ModalConfirm = () => {
     const [isModalVisible, setIsModalVisible] = useState(true);
     const handleCancel = () => {
         setIsModalVisible(false);
-        window.location.href = "./"
+        window.location.href = "./detail"
     };
     const handleOk = () => {
         setIsModalVisible(false);

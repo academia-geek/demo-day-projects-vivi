@@ -200,6 +200,12 @@ export const Siderbar = styled.div`
 export const InputStyled = styled(Input)`
   border-radius: 10px;
   margin-left: 7vw;
+  :focus {
+    border: 1px solid var(--secondary-color) !important;
+  }
+  :hover {
+    border: 1px solid var(--secondary-color) !important;
+  }
 `;
 export const AutoCompleteStyled = styled(AutoComplete)`
   border-radius: 10px;
@@ -245,6 +251,11 @@ export const FontStyled2 = styled.div`
   background-image: url(${image2});
   background-repeat: no-repeat;
   background-size: cover;
+  filter: blur(2px);
+  -webkit-filter: blur(1.5px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
   height: 47vw;
 `;
 
@@ -266,7 +277,7 @@ export const UploadImg = styled(Upload)`
   .ant-upload-list-item-error,
   .ant-upload-list-item-error .ant-upload-text-icon > .anticon,
   .ant-upload-list-item-error .ant-upload-list-item-name {
-    color: #faad14;
+    color: blue;
   }
 `;
 export const TitleAdmi = styled.h1`
@@ -282,6 +293,73 @@ export const TitleAdmi = styled.h1`
     height: 10px;
     background-color: var(--secondary-color);
     position: absolute;
+    left: 38%;
+    transform: translateX(-50%);
+  }
+`;
+export const ButtonAdmi = styled(Button)`
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+  padding: 14px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-left: -4.5%;
+  height: 40px;
+
+  & > span {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+    gap: 2px;
+  }
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+`;
+
+export const InputAdmi = styled(Input)`
+  :hover {
+    border: 1.5px solid var(--secondary-color);
+  }
+  :focus {
+    border: 2px solid var(--secondary-color);
+  }
+`;
+export const InputAdmi1 = styled(Input.Password)`
+  :hover {
+    border: 1.5px solid var(--secondary-color) !important;
+  }
+  &:focus {
+    border: 2px solid var(--secondary-color) !important;
+  }
+`;
+export const TitlleEvents = styled.h3`
+   {
+    color: #000;
+    -webkit-text-stroke: 0.5px #000;
+    font-size: 2, 5rem;
+    font-weight: bold;
+    padding-top: 15px;
+    width: 80vw;
+    text-align: center;
+    margin-left: 3, 5vw;
+    font-family: "Merriweather", serif;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 13%;
+    height: 5px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    margin-top: 1%;
     left: 38%;
     transform: translateX(-50%);
   }

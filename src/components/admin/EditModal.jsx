@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonAdmi, InputStyled, UploadImg } from '../../styles/calendarStyle';
-import { Button, Form} from 'antd';
+import { Button, Form } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { editEventAsync } from '../../redux/actions/eventsAction';
 import { imgUpload } from '../../helpers/imgUpload';
@@ -23,10 +23,9 @@ export const Edit = ({ data }) => {
     onChange(info) {
       imgUpload(info.file.originFileObj)
         .then((resp) => {
-        setPic(resp)
+          setPic(resp)
         })
         .catch((error) => { console.warn(error) });
-      const { status } = info.file;
       SetBtn(false)
     },
   };
@@ -36,7 +35,7 @@ export const Edit = ({ data }) => {
     SetBtn(false)
   };
 
-  const dataEvent = EventsList.find(element => element.id == data)
+  const dataEvent = EventsList.find(element => element.id === data)
 
   const onFinish = (values) => {
     const formValue = {
@@ -50,7 +49,6 @@ export const Edit = ({ data }) => {
 
     dispatch(editEventAsync(formValue))
     setShow(false)
-    // window.location.reload()
   };
   const onFinishFailed = (errorInfo) => {
     alert("La Información no se gurado correctamente")

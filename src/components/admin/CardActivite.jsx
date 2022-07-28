@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import 'antd/dist/antd.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
@@ -12,18 +13,17 @@ export const CardActivite = ({ k }) => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const [modal, setModal] = useState(false)
-    const [IUD, setIud] = useState()
     const { Activities } = useSelector(store => store.schedule)
-    const dataAct = Activities.filter(m => m.id == id)
+    const dataAct = Activities.filter(m => m.id === id)
     const a = k * 1000
-    const dataFinal = dataAct.filter(m => m.dates == a)
+    const dataFinal = dataAct.filter(m => m.dates === a)
     const handleDelete = (iud) => {
         alert('vamos a eliminar la actividad', iud)
         dispatch(deleteScheduleAsync(iud))
     }
     const handleEdit = (iud) => {
         setModal(true)
-        setIud(iud)
+       
     }
     return (
         < div >
@@ -34,7 +34,7 @@ export const CardActivite = ({ k }) => {
                         <div style={{ display: "flex", marginTop: "10px" }} key={m.iud}>
                             <div style={{ display: "flex", width: "30vw" }}>
                                 <Dateg k={m.date} />
-                                <img src={image} style={{ width: "5px", marginLeft: "5px" }} />
+                                <img src={image} style={{ width: "5px", marginLeft: "5px" }} alt={m.name}/>
                                 <div style={{ display: "block", marginLeft: "10px" }}>
                                     <h3>{m.name}</h3>
                                     <h6 style={{ color: "rgba(211, 205, 208, 0.8)", marginTop: "-10px", fontSize: "13px" }}>Organiza: {m.organizer}</h6>

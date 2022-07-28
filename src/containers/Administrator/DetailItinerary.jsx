@@ -1,5 +1,5 @@
 import { Divider, List, Tooltip, } from 'antd'
-import { EditOutlined,ExportOutlined } from '@ant-design/icons';
+import { EditOutlined, ExportOutlined } from '@ant-design/icons';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/Logo.png'
@@ -20,8 +20,8 @@ export const DetailItinerary = () => {
   const { id } = useParams()
   const { EventsList } = useSelector(store => store.eventos)
   const { Activities } = useSelector(store => store.schedule)
-  const data = EventsList.filter(m => m.id == id)
-  const dataAct = Activities.filter(m => m.id == id)
+  const data = EventsList.filter(m => m.id === id)
+  const dataAct = Activities.filter(m => m.id === id)
   const [date] = data
   const dispatch = useDispatch()
 
@@ -45,8 +45,7 @@ export const DetailItinerary = () => {
                   alt="ViVi logo"
                 />
                 <Link to='/'>
-                  
-                <ExportOutlined href="/" style={{color:'white',marginLeft:"1450%"}}/>
+                  <ExportOutlined href="/" style={{ color: 'white', marginLeft: "1450%" }} />
                 </Link>
               </Navbar.Brand>
             </Container>

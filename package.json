@@ -56,8 +56,8 @@
       "url": "https://github.com/SebastianLunar"
     }
   ],
-  "license": "ISC",
-  "homepage": "https://github.com/academia-geek/demo-day-projects-vivi#readme",
+ 
+ 
   "eslintConfig": {
     "extends": [
       "react-app",

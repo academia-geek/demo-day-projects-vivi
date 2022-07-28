@@ -13,7 +13,7 @@ export const AddModal = ({ iud }) => {
     const [modal, setModal] = useState(true)
     const { Activities } = useSelector(store => store.schedule)
     const dispatch = useDispatch()
-    const dataActivity = Activities.find(element => element.iud == iud)
+    const dataActivity = Activities.find(element => element.iud === iud)
     const onFinish = (values) => {
 
         const formValue = {

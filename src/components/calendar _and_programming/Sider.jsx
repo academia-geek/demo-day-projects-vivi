@@ -21,7 +21,7 @@ export const SiderCalendar = () => {
         <div key={p.name} onClick={() => navigate(`/map/${p.name}`)}>
           <CardStyledCalendar>
             <div className="d-flex align-items-center gap-3">
-              <img src={p.image} />
+              <img src={p.image} alt={p.name} />
               <Card.Title>{p.name}</Card.Title>
             </div>
             <p>{p.description}</p>

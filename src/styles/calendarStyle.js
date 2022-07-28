@@ -278,7 +278,7 @@ text-align: center;
 
 export const UploadImg=styled(Upload)`
 .ant-upload-list-item-error, .ant-upload-list-item-error .ant-upload-text-icon > .anticon, .ant-upload-list-item-error .ant-upload-list-item-name {
-  color: #faad14;
+  color: blue;
 }
 `
 export const TitleAdmi=styled.h1`

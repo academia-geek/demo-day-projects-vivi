@@ -58,6 +58,7 @@ export const Edit = ({ data }) => {
 
     dispatch(editEventAsync(formValue))
     setShow(false)
+    location.reload ()
 
   };
   const onFinishFailed = (errorInfo) => {

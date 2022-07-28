@@ -62,6 +62,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                 </div>
+                <hr className="w-75" style={{margin: "1rem auto"}} />
             </div>
         </>
     )

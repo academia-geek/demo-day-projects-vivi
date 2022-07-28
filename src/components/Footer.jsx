@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <FOOTER>
-      <Container className="px-5 py-3 mt-lg-5 pt-lg-5">
+      <Container className="px-5 py-3  pt-lg-5">
         <Row className="gap-5 gap-lg-0 flex-column-reverse flex-lg-row">
           <Col sm={3}>
             <div className="nav-footer d-flex flex-column gap-2">

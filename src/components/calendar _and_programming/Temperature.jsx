@@ -15,7 +15,7 @@ export const Temperature = ({ location }) => {
 
   return (
     <div
-      className="d-flex align-items-center justify-content-center gap-2 user-select-none"
+      className="d-flex align-items-center  gap-2 user-select-none"
       title={`Temperatura actual en ${location}`}
     >
       <span className="text-center h6 mt-2">{temp.temp}°C</span>

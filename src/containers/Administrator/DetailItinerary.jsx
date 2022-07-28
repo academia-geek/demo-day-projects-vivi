@@ -1,5 +1,5 @@
 import { Divider, List, Tooltip, } from 'antd'
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined,ExportOutlined } from '@ant-design/icons';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/Logo.png'
@@ -44,6 +44,10 @@ export const DetailItinerary = () => {
                   className="d-inline-block align-top"
                   alt="ViVi logo"
                 />
+                <Link to='/'>
+                  
+                <ExportOutlined href="/" style={{color:'white',marginLeft:"1450%"}}/>
+                </Link>
               </Navbar.Brand>
             </Container>
           </Navbar>

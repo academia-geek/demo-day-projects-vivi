@@ -63,14 +63,17 @@ export const CardEvent = ({ m }) => {
               <DivEvent>
                 <h2 className="d-flex justify-content-between">
                   {item.name}
-                  <Temperature location={item.location} />
                 </h2>
+
                 <article className="py-2">{item.description}</article>
+                <div className="d-flex flex-column">
                 <Link
                   to={`/map/${item.location}`}
                 >
                   {item.location}
                 </Link>
+                <Temperature  location={item.location} />
+                </div>
                 <EventBottom>
                   {favoritesId?.favorites.find((fav) => fav.id === item.id) ? (
                     <HeartIcon
@@ -90,6 +93,7 @@ export const CardEvent = ({ m }) => {
                       Programación
                     </ButtonLanding>
                   </Link>
+                
                 </EventBottom>
               </DivEvent>
               <img src={item.img} alt={item.name} style={{ width: "200px" }} />

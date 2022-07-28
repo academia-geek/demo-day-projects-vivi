@@ -21,13 +21,13 @@ export const Chatbot = () => {
         setSelected1(selected)
         if (selected === "Muéstrame los eventos cercanos a la fecha") {
             setRespuesta("¡Estás de suerte! Tenemos próximos los siguientes eventos:")
-            setRuta("/calendar")
+            setRuta("/login")
         } else if (selected === "Deseo publicar un evento") {
             setRespuesta("¡Genial! Nos alegra que cuentes con nosotros... ")
-            setRuta("/addEvent")
+            setRuta("/login/company")
         } else if (selected === "¿Por dónde empiezo?") {
             setRespuesta("¿Qué tal si te unes a nuestra comunidad?... ")
-            setRuta("/register")
+            setRuta("/signin")
         }
         setShow3("block")
 
@@ -40,7 +40,7 @@ export const Chatbot = () => {
 
     return (
         <>
-            <div onHide={handleClose} style={{ display: `${show}`, position: "fixed", bottom: "4rem", right: "1rem", backgroundColor: "white", borderRadius: "10px", boxShadow: "1px 2px 15px rgb(0 0 0 / 80%)" }}>
+            <div  onHide={handleClose} style={{ display: `${show}`, position: "fixed", bottom: "4rem", right: "1rem", backgroundColor: "white", borderRadius: "10px", boxShadow: "1px 2px 15px rgb(0 0 0 / 80%)",zIndex: "999"}}>
                 <div className='d-flex justify-content-between align-items-center px-3 py-2' style={{ backgroundColor: "#FFBD29", width: "300px", borderRadius: "10px 10px 0 0" }}>
                     <div className='d-flex align-items-center'>
                         <img style={{ width: "24px", borderRadius: "100%", marginRight: "1rem" }} src="https://e7.pngegg.com/pngimages/567/860/png-clipart-woman-in-white-notched-lapel-suit-jacket-call-centre-customer-service-technical-support-customer-service-miscellaneous-microphone.png" alt="" />

@@ -30,7 +30,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Gustos:</h5>
+                        <h5 className="w-50 text-end">Gustos:</h5>
                         <UserData>{
                             userData?.Gustos.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>

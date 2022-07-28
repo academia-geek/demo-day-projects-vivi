@@ -24,7 +24,7 @@ export const OtherUser = ({ userID }) => {
                         <h2>Información</h2>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Edad:</h5>
+                        <h5 className="w-50 text-end">Edad:</h5>
                         <UserData>
                             <TAG><h6>{userData?.edad}</h6></TAG>
                         </UserData>

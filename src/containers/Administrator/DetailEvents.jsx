@@ -55,7 +55,7 @@ export const DetailEvents = () => {
           </Navbar.Brand>
         </Container>
       </Navbar>
-          <h3 className='titlleEvents '>Lista de Eventos Publicados</h3>
+          <h3 className='titlleEvents'>Lista de Eventos Publicados</h3>
           <List
             style={{ paddingTop: "10px", width: "65vw", marginLeft: "5vw" }}
             dataSource={EventsList}

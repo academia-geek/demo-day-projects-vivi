@@ -1,24 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import image from '../../assets/prueba/Line.png'
 import { EnvironmentOutlined } from '@ant-design/icons';
 import { DeleteOutlined, FormOutlined, CarryOutOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import { Button, Divider, List, Tooltip, Card, } from 'antd'
 import { Dateg } from '../calendar _and_programming/Date';
+import { deleteScheduleAsync } from '../../redux/actions/scheduleAction';
 export const CardActivite = ({ k }) => {
     const { id } = useParams()
+    const dispatch=useDispatch()
     const { Activities } = useSelector(store => store.schedule)
     const dataAct = Activities.filter(m => m.id == id)
     const a = k * 1000
     const dataFinal = dataAct.filter(m => m.dates == a)
-    const handleDelete = (id) => {
-        alert('vamos a eliminar el evento')
-        //   const filter= Activities.filter(m=>m.id == id)
-        //   filter.forEach(element => dispatch(deleteScheduleAsync(element.id)))
-       
-
+    const handleDelete = (iud) => {
+        alert('vamos a eliminar el evento',iud)
+        dispatch(deleteScheduleAsync(iud))  
     }
     const handleEdit = (id) => {
         // setDatos(id)
@@ -50,7 +48,7 @@ export const CardActivite = ({ k }) => {
                             </Tooltip>
                             <br />
                             <Tooltip title={`Eliminar ${m.name}`} color={'#FFBD29'}>
-                                <Button onClick={() => handleDelete(m.id)} style={{ border: "none" }}>
+                                <Button onClick={() => handleDelete(m.iud)} style={{ border: "none" }}>
                                     <DeleteOutlined style={{ fontSize: '20px', color: '#565252', marginTop: "10px" }} />
                                 </Button>
                             </Tooltip>

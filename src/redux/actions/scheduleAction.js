@@ -44,42 +44,42 @@ export const listScheduleSync = (activities)=>{
     }
 }
 
-export const deleteScheduleAsync = (id)=>{
+export const deleteScheduleAsync = (iud)=>{
     return async (dispatch)=>{
         const collectionEvents = collection(db, "Actividades")
-        const q = query(collectionEvents, where("id", "==", id))
+        const q = query(collectionEvents, where("iud", "==", iud))
         const datosQ = await getDocs(q)
         
 
         datosQ.forEach(docu =>{
             deleteDoc(doc(db, "Actividades", docu.id))
         })
-        dispatch(DeleteScheduleSync(id))
+        dispatch(DeleteScheduleSync(iud))
 
   
 }}
 
-export const DeleteScheduleSync = (id) => {
+export const DeleteScheduleSync = (iud) => {
     return {
         type: typesSchedule.delete_Schedule,
-        payload:id
+        payload:iud
     }
 }
 
 export const editScheduleAsync = (newActivitie)=>{
     return async (dispatch)=>{
         const collectionSchadule = collection(db, "Actividades")
-        const q = query(collectionSchadule, where("id", "==", newActivitie.id))
+        const q = query(collectionSchadule, where("iud", "==", newActivitie.iud))
         const datosQ = await getDocs(q)
-        let id = ''
+        let iud = ''
 
         datosQ.forEach(async(docu)=>{
-            id = docu.id
+            iud = docu.iud
         })
 
-        console.log(id)
+        console.log(iud)
 
-        const docRef = doc(db, "Actividades", id)
+        const docRef = doc(db, "Actividades", iud)
 
         await updateDoc(docRef, newActivitie)
         .then(resp =>{

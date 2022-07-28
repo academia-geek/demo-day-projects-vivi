@@ -6,7 +6,7 @@ import logo from '../../assets/Logo.png'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import {  Col,Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { Paper } from '@mui/material'
 import { listEventAsync } from '../../redux/actions/eventsAction';
 import { listScheduleAsync } from '../../redux/actions/scheduleAction';
@@ -60,7 +60,7 @@ export const DetailItinerary = () => {
                 </Paper>
                 <Tooltip title='Agregar actividad al itinerario ' color={'#FFBD29'}>
                   <ButtonAdmi onClick={() =>
-                    localStorage.setItem("id", item.id)} href="/Schedule" style={{ marginLeft: "84%",height:'28px' }}>Agregar</ButtonAdmi>
+                    localStorage.setItem("id", item.id)} href="/Schedule" style={{ marginLeft: "84%", height: '28px' }}>Agregar</ButtonAdmi>
                 </Tooltip>
               </div>
             ))

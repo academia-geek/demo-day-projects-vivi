@@ -17,10 +17,10 @@ export const OtherUser = ({ userID }) => {
             <div className='px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
                 <div className="d-flex flex-column align-items-center">
                     <UserImg src={userData?.profileImg} alt={userData?.Posts[0].name} />
-                    <h2>{userData?.Posts[0].name}</h2>
-                    <h3>Usuario de ViVi</h3>
+                    <h2 className="m-0">{userData?.Posts[0].name}</h2>
+                    <h3 style={{color: "#FFBD29"}}>Usuario de ViVi</h3>
                 </div>
-                <hr className="w-75" style={{margin: "1rem auto"}} />
+                <hr className="w-75" style={{ margin: "1rem auto" }} />
                 <div>
                     <div className="d-flex justify-content-center align-items-center">
                         <h2>Información</h2>
@@ -62,7 +62,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                 </div>
-                <hr className="w-75" style={{margin: "1rem auto"}} />
+                <hr className="w-75" style={{ margin: "1rem auto" }} />
             </div>
         </>
     )

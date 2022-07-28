@@ -40,7 +40,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                     <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Sitios visitados:</h5>
+                        <h5 className="w-50 text-end">Sitios visitados:</h5>
                         <UserData>{
                             userData?.Visitados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>

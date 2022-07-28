@@ -2,7 +2,7 @@
 
 <div align="center">
   <a target="_blank" href="https://vivi-b2804.web.app">
-    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658112531/vivi.re_kyiasq.png" />
+    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658981009/landing-desktop_ccxerv.png" />
   </a>
 </div>
 
@@ -98,7 +98,7 @@ npm run start
 
 <div align="center">
   <a target="_blank" href="https://vivi-b2804.web.app">
-    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658112531/vivi.cl_wexixp.png" />
+    <img alt="ViVi App" title="ViVi App" src="https://res.cloudinary.com/divjxvhtz/image/upload/v1658981009/menu_psu98n.png" />
   </a>
 </div>
 
@@ -115,7 +115,7 @@ npm run start
 
 ## Feedback 💬
 
-If you have any feedback, please reach out to us at <a href="mailto:melisamendozamogollon@gmail.com">melisamendozamogollon@gmail.com</a>
+If you have any feedback, please reach out to us at <a href="mailto:vivi.app.geek@gmail.com">vivi.app.geek@gmail.com</a>
 
 ## 🔗 Authors
 

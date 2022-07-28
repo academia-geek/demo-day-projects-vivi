@@ -111,3 +111,7 @@ ul {
   margin-left: 3, 5vw;
   font-family: "Merriweather", serif;
 }
+
+ .titlleEvents :hover{
+  color:crimson
+ }

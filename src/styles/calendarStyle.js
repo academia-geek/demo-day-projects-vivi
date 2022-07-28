@@ -346,3 +346,27 @@ export const InputAdmi1=styled(Input.Password)`
  
 } 
 `
+export const TitlleEvents=styled.h3`
+{
+  color: #000;
+  -webkit-text-stroke: 0.5px #000;
+  font-size: 2, 5rem;
+  font-weight: bold;
+  padding-top: 15px;
+  width: 80vw;
+  text-align: center;
+  margin-left: 3, 5vw;
+  font-family: "Merriweather", serif;
+}
+&:after {
+  content: "";
+  display: block;
+  width: 13%;
+  height: 5px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  margin-top:1%;
+  left: 38%;
+  transform: translateX(-50%);
+ }
+` 

@@ -6,7 +6,7 @@ import logo from '../../assets/Logo.png'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import {  Col } from "react-bootstrap";
+import {  Col,Button } from "react-bootstrap";
 import { Paper } from '@mui/material'
 import { listEventAsync } from '../../redux/actions/eventsAction';
 import { listScheduleAsync } from '../../redux/actions/scheduleAction';
@@ -14,7 +14,7 @@ import { TittleProgramming } from '../../components/calendar _and_programming/Ti
 import { CardActivite } from '../../components/admin/CardActivite';
 import { AsideStyled2, CardStyled } from '../../styles/homeStyles';
 import { Footer } from 'antd/lib/layout/layout';
-import { ButtonLanding } from '../../styles/landingStyles';
+import { ButtonAdmi } from '../../styles/calendarStyle';
 
 export const DetailItinerary = () => {
   const { id } = useParams()
@@ -59,10 +59,8 @@ export const DetailItinerary = () => {
                   </div>
                 </Paper>
                 <Tooltip title='Agregar actividad al itinerario ' color={'#FFBD29'}>
-                  <ButtonLanding onClick={() =>
-                    localStorage.setItem("id", item.id)
-
-                  } href="/Schedule" style={{ marginLeft: "84%", marginTop: "10px" }}>Agregar</ButtonLanding>
+                  <ButtonAdmi onClick={() =>
+                    localStorage.setItem("id", item.id)} href="/Schedule" style={{ marginLeft: "84%",height:'28px' }}>Agregar</ButtonAdmi>
                 </Tooltip>
               </div>
             ))

@@ -55,6 +55,7 @@ export const deleteScheduleAsync = (iud)=>{
             deleteDoc(doc(db, "Actividades", docu.id))
         })
         dispatch(DeleteScheduleSync(iud))
+        dispatch(listScheduleAsync())
 
   
 }}

@@ -1,5 +1,7 @@
 import { Divider, List, Tooltip, } from 'antd'
-import { PlusCircleOutlined } from '@ant-design/icons';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import logo from '../../assets/Logo.png'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
@@ -30,6 +32,19 @@ export const DetailItinerary = () => {
     <div>
       <div className="d-flex">
         <Col sm={9}>
+        <Navbar bg="dark" style={{margin:"0px",padding:"0px"}}>
+        <Container>
+          <Navbar.Brand href="/admin/home">
+            <img
+              src={logo}
+              width="40"
+              height="40"
+              className="d-inline-block align-top"
+              alt="ViVi logo"
+            />
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
           {
             data?.map(item => (
               <Paper elevación={12} key={item.name} style={{ display: "flex", marginTop: "90px", marginLeft: '50px' }}>

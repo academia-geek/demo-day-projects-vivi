@@ -15,10 +15,12 @@ export const OtherUser = ({ userID }) => {
     return (
         <>
             <div className='px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
-                <div className="d-flex mx-auto">
+                <div className="d-flex flex-column align-items-center">
                     <UserImg src={userData?.profileImg} alt={userData?.Posts[0].name} />
                     <h2>{userData?.Posts[0].name}</h2>
+                    <h3>Usuario de ViVi</h3>
                 </div>
+                <hr />
                 <div>
                     <div className="d-flex justify-content-center align-items-center">
                         <h2>Información</h2>

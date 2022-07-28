@@ -3,7 +3,8 @@ import React from 'react'
 import { CardsBusiness } from '../../components/CardsBusiness'
 import { Footer } from '../../components/Footer'
 import { NavbarLanding } from '../../components/Navbar'
-import {  Div } from '../../styles/businessStyles'
+import {  ButtonBusiness, Div } from '../../styles/businessStyles'
+import { ButtonLanding } from '../../styles/landingStyles'
 
 
 export const Business = () => {
@@ -13,14 +14,14 @@ export const Business = () => {
     <Div className="business">
     <div>
     <h2 className='titlleBusi'>Lo mejor de ViVi para impulsar tu región</h2>
-    <Button style={{marginLeft:"35vw"}} shape="round" href='#cardBusiness'>
+    <ButtonBusiness type="ghost" style={{marginLeft:"35vw"}} shape="round" href='#cardBusiness'>
      Conoce más
-    </Button>
+    </ButtonBusiness>
     </div>      
     </ Div>
      <h4 id='cardBusiness' className='contBusi'>Una herramienta para promocionar los festivales, ferias, fiestas, carnavales y sitios turísticos de tu región</h4>
     <CardsBusiness />
-    <Button type="ghost" href='/sign__in/Admi' style={{ color: "rgba(255, 189, 41, 1)",border:"2px solid rgba(255, 189, 41, 1)",marginLeft:"45vw",marginTop:"15px" }}>COMIENZA CON ViVi</Button>
+    <ButtonBusiness style={{marginLeft:"42%"}} type="ghost" href='/sign__in/Admi'>COMIENZA CON ViVi</ButtonBusiness>
     <Footer/>
     </>
   )

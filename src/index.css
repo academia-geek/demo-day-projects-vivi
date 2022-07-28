@@ -60,8 +60,8 @@ ul {
 }
 
 .titlleBusi {
-  color: white;
-  -webkit-text-stroke: 0.5px #000;
+  color: #212529;
+  text-shadow: 1px 1px  var(--primary-color);
   font-size: 4rem;
   font-weight: bold;
   margin-top: 20vw;
@@ -105,9 +105,13 @@ ul {
   -webkit-text-stroke: 0.5px #000;
   font-size: 2, 5rem;
   font-weight: bold;
-  padding-top: 100px;
+  padding-top: 10px;
   width: 80vw;
   text-align: center;
   margin-left: 3, 5vw;
   font-family: "Merriweather", serif;
 }
+
+ .titlleEvents :hover{
+  color:crimson
+ }

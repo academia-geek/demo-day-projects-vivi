@@ -18,6 +18,7 @@ export const CarouselLanding = () => {
     setIndex(selectedIndex);
   };
   return (
+ 
     <Carousel
       activeIndex={index}
       onSelect={handleSelect}
@@ -149,6 +150,6 @@ export const CarouselLanding = () => {
           </ButtonLanding>
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel>
+     </Carousel>
   );
 };

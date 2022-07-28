@@ -4,7 +4,6 @@ import { Login } from "../components/Login";
 import { Register } from "../components/Register";
 import { Business } from "../containers/Administrator/Business";
 import { RegisterAdmi } from "../containers/RegisterAdmi";
-import { LandingPageEn } from "../containers/LandingPageEn";
 import { LandingPage } from "../containers/LandingPage";
 import { auth } from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
@@ -82,14 +81,6 @@ export const AppRoutes = () => {
           element={
             <PublicRoutes isAuthenticated={isLogged}>
               <Register />
-            </PublicRoutes>
-          }
-        />
-        <Route
-          path="/En"
-          element={
-            <PublicRoutes isAuthenticated={isLogged}>
-              <LandingPageEn />
             </PublicRoutes>
           }
         />

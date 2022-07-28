@@ -56,8 +56,7 @@
       "url": "https://github.com/SebastianLunar"
     }
   ],
- 
- 
+
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,10 +1,9 @@
 import { Paper } from '@mui/material';
-import {  Form, Input } from 'antd';
+import {  Form } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {  ButtonAdmi, FontStyled2, InputAdmi, InputAdmi1 } from '../styles/calendarStyle';
 import logo from '../assets/Logo.png'
-import { ButtonBusiness } from '../styles/businessStyles';
 
 export const RegisterAdmi = () => {
   const navigate = useNavigate()

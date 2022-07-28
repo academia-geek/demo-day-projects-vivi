@@ -1,4 +1,5 @@
 import { Divider, List, Tooltip, } from 'antd'
+import { EditOutlined } from '@ant-design/icons';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/Logo.png'
@@ -13,6 +14,8 @@ import { TittleProgramming } from '../../components/calendar _and_programming/Ti
 import { Siderbar, TittleStyle } from '../../styles/calendarStyle';
 import { SiderCalendar } from '../../components/calendar _and_programming/Sider';
 import { CardActivite } from '../../components/admin/CardActivite';
+import { AsideStyled2, CardStyled } from '../../styles/homeStyles';
+import { Footer } from 'antd/lib/layout/layout';
 
 export const DetailItinerary = () => {
   const { id } = useParams()
@@ -99,6 +102,7 @@ export const DetailItinerary = () => {
           </AsideStyled2>
         </Col>
       </div>
+      <Footer/>
     </div>
   )
 }

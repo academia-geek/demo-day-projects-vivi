@@ -14,7 +14,7 @@ describe("Check if the data types are correct", () => {
   });
   test("Validate the types of typesInfo", () => {
     expect(typesInfo).toEqual({
-      list_info: "list",
+      list_info: '[Info]list'
     });
   });
   test("Validate the types of typesEvents", () => {

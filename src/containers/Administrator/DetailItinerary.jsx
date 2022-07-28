@@ -20,8 +20,8 @@ export const DetailItinerary = () => {
   const { id } = useParams()
   const { EventsList } = useSelector(store => store.eventos)
   const { Activities } = useSelector(store => store.schedule)
-  const data = EventsList.filter(m => m.id === id)
-  const dataAct = Activities.filter(m => m.id === id)
+  const data = EventsList.filter(m => m.id == id)
+  const dataAct = Activities.filter(m => m.id == id)
   const [date] = data
   const dispatch = useDispatch()
 

@@ -15,22 +15,24 @@ export const OtherUser = ({ userID }) => {
     return (
         <>
             <div className='px-5 justify-content-between align-items-center' style={{ paddingTop: "111px" }}>
-                <div className="d-flex mx-auto">
+                <div className="d-flex flex-column align-items-center">
                     <UserImg src={userData?.profileImg} alt={userData?.Posts[0].name} />
-                    <h2>{userData?.Posts[0].name}</h2>
+                    <h2 className="m-0">{userData?.Posts[0].name}</h2>
+                    <h4 style={{color: "#FFBD29"}}>Usuario de ViVi</h4>
                 </div>
+                <hr className="w-75" style={{ margin: "1rem auto" }} />
                 <div>
                     <div className="d-flex justify-content-center align-items-center">
                         <h2>Información</h2>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Edad:</h5>
+                    <div className="d-flex align-items-center mb-4 gap-3">
+                        <h5 className="w-50 text-end">Edad:</h5>
                         <UserData>
                             <TAG><h6>{userData?.edad}</h6></TAG>
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Gustos:</h5>
+                    <div className="d-flex align-items-center mb-4 gap-3">
+                        <h5 className="w-50 text-end">Gustos:</h5>
                         <UserData>{
                             userData?.Gustos.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
@@ -39,8 +41,8 @@ export const OtherUser = ({ userID }) => {
                             ))}
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Sitios visitados:</h5>
+                    <div className="d-flex align-items-center mb-4 gap-3">
+                        <h5 className="w-50 text-end">Sitios visitados:</h5>
                         <UserData>{
                             userData?.Visitados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
@@ -49,8 +51,8 @@ export const OtherUser = ({ userID }) => {
                             ))}
                         </UserData>
                     </div>
-                    <div className="d-flex justify-content-between align-items-center mb-4 gap-3">
-                        <h5>Sitios a los que le gustaría ir:</h5>
+                    <div className="d-flex align-items-center mb-4 gap-3">
+                        <h5 className="w-50 text-end">Sitios a los que le gustaría ir:</h5>
                         <UserData>{
                             userData?.Deseados.filter(i => i.id).map(i => (
                                 <TAG key={i.id}>
@@ -60,6 +62,7 @@ export const OtherUser = ({ userID }) => {
                         </UserData>
                     </div>
                 </div>
+                <hr className="w-75" style={{ margin: "1rem auto" }} />
             </div>
         </>
     )

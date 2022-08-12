@@ -11,6 +11,7 @@ import { Col } from "react-bootstrap";
 import { LinkStyle, TittleStyle } from '../styles/calendarStyle';
 import { SiderCalendar } from '../components/calendar _and_programming/Sider';
 import { Paper } from '@mui/material'
+import { EnvironmentOutlined } from "@ant-design/icons";
 
 export const Programming = () => {
   const { id } = useParams()
@@ -32,12 +33,15 @@ export const Programming = () => {
         <Col sm={9}>
           {
             data?.map(item => (
-              <Paper elevación={12} style={{ display: "flex", marginTop: "90px", marginLeft: '50px' }}>
-                <img src={item.img} alt="publicidad" style={{ width: "200px", borderRadius: "10px", marginLeft: "30px" }} />
-                <div style={{ textAlign: "center", marginLeft: "200px", marginTop: "20px" }}>
+              <Paper elevación={12} style={{ display: "flex", marginTop: "90px", marginLeft: '50px' }} className="py-4">
+                <img src={item.img} alt={item.name} style={{ width: "200px", borderRadius: "10px", marginLeft: "30px" }} />
+                <div style={{ marginLeft: "200px", marginTop: "20px" }} className="d-flex align-items-center flex-column gap-2">
                   <h4>{item.name}</h4>
                   <article>{item.description}</article>
-                  <LinkStyle to={`/map/${item.location}`}>{item.location}</LinkStyle>
+                  <div className='d-flex align-items-center justify-content-center gap-2'>
+                    <EnvironmentOutlined />
+                    <LinkStyle to={`/map/${item.location}`}>{item.location}</LinkStyle>
+                  </div>
                 </div>
               </Paper>
             ))
@@ -60,7 +64,7 @@ export const Programming = () => {
           <div
             style={{
               height: "calc(100% - 63px)",
-              background: " #565252",
+              background: "var(--background-color)",
               marginTop: "63px",
               marginLeft: "4.9vw",
               width: "80.3%",

@@ -216,6 +216,22 @@ export const ButtonLanding = styled.button`
     background-color: var(--primary-color);
     color: var(--secondary-color);
   }
+
+  &.programming {
+    background-color: var(--primary-color);
+    border: 1px solid #8c8c8c;
+    color: #8c8c8c;
+    font-weight: 400;
+    line-height: 0;
+    border-radius: 5px;
+    padding: 15px 10px;
+    font-size: 14px;
+
+    &:hover {
+      border-color: var(--background-color);
+      color: var(--background-color);
+    }
+  }
 `;
 
 export const BannerLanding = styled(Alert)`

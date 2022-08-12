@@ -1,15 +1,15 @@
 import { Paper } from '@mui/material';
-import { Button, Form, Input } from 'antd';
+import {  Form } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {  FontStyled2 } from '../styles/calendarStyle';
+import {  ButtonAdmi, FontStyled2, InputAdmi, InputAdmi1 } from '../styles/calendarStyle';
 import logo from '../assets/Logo.png'
 
 export const RegisterAdmi = () => {
   const navigate = useNavigate()
   const onFinish = (values) => {
     console.log('Success:', values);
-    if (values.username === "administrador" && values.password == "12345678"){
+    if (values.username === "admi" && values.password == "1234"){
        navigate('/admin/home')
     }
     else{
@@ -23,10 +23,12 @@ export const RegisterAdmi = () => {
   };
 
   return (
-    <FontStyled2>
+    <div>
+    <FontStyled2/>
       <Link to='/' >
-      <img src={logo} style={{width:"60px",color:"white"}}/>
+      <img src={logo} style={{width:"60px",color:"white",position:"absolute",transform: 'translate(5% , -1000%)'}}/>
       </Link>
+      <div style={{position:"absolute",transform: 'translate(15% , -120%)',width:"80%"}}>
     <Form
       name="basic"
       labelCol={{
@@ -56,7 +58,7 @@ export const RegisterAdmi = () => {
         ]}
       >
         <Paper>
-        <Input  />
+        <InputAdmi />
         </Paper>
        
       </Form.Item>
@@ -73,7 +75,7 @@ export const RegisterAdmi = () => {
         ]}
       >
         <Paper>
-        <Input.Password />
+        <InputAdmi1/>
         </Paper>
       </Form.Item>
       <div style={{ textAlign:'center'}}>
@@ -88,12 +90,14 @@ export const RegisterAdmi = () => {
           span: 11,
         }}
       >
-        <Button htmlType="submit">
-          Submit
-        </Button>
+        <ButtonAdmi htmlType="submit">
+          INGRESAR
+        </ButtonAdmi>
       </Form.Item>
     </Form>
-    </FontStyled2>
+    </div>
+    
+    </div>
   );
 };
 

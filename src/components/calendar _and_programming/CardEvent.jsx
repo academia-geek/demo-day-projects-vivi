@@ -4,8 +4,14 @@ import { Button, List } from "antd";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {addToFavoriteAsync, getFavoriteAsync, removeFromFavoriteAsync} from "../../redux/actions/favoriteAction";
+import {
+  addToFavoriteAsync,
+  getFavoriteAsync,
+  removeFromFavoriteAsync,
+} from "../../redux/actions/favoriteAction";
 import { DivEvent, EventBottom, HeartIcon } from "../../styles/calendarStyle";
+import { ButtonLanding } from "../../styles/landingStyles";
+import { Temperature } from "./Temperature";
 
 export const CardEvent = ({ m }) => {
   const dispatch = useDispatch();
@@ -21,12 +27,9 @@ export const CardEvent = ({ m }) => {
       })
       .includes(h / 1000);
   });
-  
-  useEffect(() => {
-    dispatch(listEventAsync());
-  }, [dispatch]);
 
   useEffect(() => {
+    dispatch(listEventAsync());
     dispatch(getFavoriteAsync());
   }, [dispatch]);
 
@@ -44,18 +47,33 @@ export const CardEvent = ({ m }) => {
           marginTop: "80px",
           marginLeft: "80px",
           border: "1px solid rgba(255, 189, 41, 1)",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         }}
         itemLayout="horizontal"
         dataSource={filtro}
         locale={{ emptyText: "No hay eventos programados para este día" }}
         emptyText="no"
         renderItem={(item) => (
-          <List.Item>
-            <div style={{ display: "flex" }}>
+          <List.Item
+            style={{ borderBottomColor: "var(--secondary-color" }}
+            className="py-3"
+          >
+            <div className="d-flex gap-5">
               <DivEvent>
-                <h2>{item.name}</h2>
-                <article>{item.description}</article>
-                <Link to={`/map/${item.location}`} style={{ color: "rgba(255, 189, 41, 1)" }}>{item.location}</Link>
+                <h2 className="d-flex justify-content-between">
+                  {item.name}
+                </h2>
+
+                <article className="py-2">{item.description}</article>
+                <div className="d-flex flex-column">
+                <Link
+                  to={`/map/${item.location}`}
+                >
+                  {item.location}
+                </Link>
+                <Temperature  location={item.location} />
+                </div>
                 <EventBottom>
                   {favoritesId?.favorites.find((fav) => fav.id === item.id) ? (
                     <HeartIcon
@@ -71,15 +89,14 @@ export const CardEvent = ({ m }) => {
                     />
                   )}
                   <Link to={`/programming/${item.id}`}>
-                    <Button>Programación</Button>
+                    <ButtonLanding className="programming">
+                      Programación
+                    </ButtonLanding>
                   </Link>
+                
                 </EventBottom>
               </DivEvent>
-              <img
-                src={item.img}
-                alt="..cargando"
-                style={{ width: "200px", marginLeft: "50px" }}
-              />
+              <img src={item.img} alt={item.name} style={{ width: "200px" }} />
             </div>
           </List.Item>
         )}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import image from "../../assets/prueba/Line.png";
 import { Dateg } from "./Date";
 import { EnvironmentOutlined } from "@ant-design/icons";
@@ -11,6 +11,7 @@ import { auth } from "../../firebase/firebaseConfig";
 import { imgUpload } from "../../helpers/imgUpload";
 import { addPost, listAsync } from "../../redux/actions/infoAction";
 import { LinkStyle } from "../../styles/calendarStyle";
+import { ButtonLanding } from "../../styles/landingStyles";
 
 export const CardActivite = ({ k, l }) => {
   const { id } = useParams()
@@ -91,40 +92,38 @@ export const CardActivite = ({ k, l }) => {
   return (
     <div>
       {dataFinal.map((m) => (
-        <div style={{ display: "flex", marginTop: "10px" }} key={m.date}>
-          <div style={{ display: "flex", width: "56vw" }}>
+        <div style={{ display: "flex", marginTop: "10px", marginBottom: "20px" }} key={m.date}>
+          <div style={{ display: "flex", width: "56vw", gap: "5px" }}>
             <Dateg k={m.date} />
             <img src={image} style={{ width: "5px", marginLeft: "5px" }} />
             <div style={{ display: "block", marginLeft: "10px" }}>
               <h3>{m.name}</h3>
               <h6
                 style={{
-                  color: "rgba(211, 205, 208, 0.8)",
+                  color: "#8c8c8c",
                   marginTop: "-10px",
                   fontSize: "13px",
                 }}
               >
                 Organiza: {m.organizer}
               </h6>
-              <div style={{ display: "flex", marginTop: "10px" }}>
+              <div style={{ display: "flex", marginTop: "10px", alignItems: "center", gap: "5px" }}>
                 <EnvironmentOutlined />
                 <LinkStyle to={`/map/${city}`}>{city}</LinkStyle>
               </div>
               <a href={m.link} target="_blank">{m.description}</a>
-
             </div>
           </div>
-          <Button
+          <ButtonLanding
             onClick={handleShow}
             style={{
               height: "40px",
-              background: "rgba(255, 189, 41, 1)",
-              border: "none",
-              marginTop: "20px",
+              lineHeight: "0px",
+              border: "2px solid var(--secondary-color)",
             }}
           >
             Comentar
-          </Button>
+          </ButtonLanding>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Post</Modal.Title>

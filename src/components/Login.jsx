@@ -30,9 +30,6 @@ export const Login = () => {
     <>
       <NavbarLanding fixed="null" />
       <DivForm className="login">
-        <h2>
-          El sitio que esperabas para planear tu próxima experiencia inolvidable
-        </h2>
         <Formik
           initialValues={{
             email: "",

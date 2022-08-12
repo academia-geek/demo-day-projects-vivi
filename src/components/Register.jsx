@@ -41,10 +41,6 @@ export const Register = () => {
       <NavbarLanding fixed="null" />
       <div>
         <DivForm className="register">
-          <h2>
-            Prepárate para conocer un mundo de fantasía en esta única tierra
-            llena de personas y paisajes inolvidables.
-          </h2>
           <Formik
             initialValues={{
               name: "",

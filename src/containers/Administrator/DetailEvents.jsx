@@ -13,6 +13,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/Logo.png'
 import { AsideStyled2, CardStyled } from "../../styles/homeStyles";
+import { TitlleEvents } from '../../styles/calendarStyle';
 
 export const DetailEvents = () => {
   const [datos, setDatos] = useState("")
@@ -55,7 +56,7 @@ export const DetailEvents = () => {
           </Navbar.Brand>
         </Container>
       </Navbar>
-          <h3 className='titlleEvents '>Lista de Eventos Publicados</h3>
+          <TitlleEvents>Lista de Eventos Publicados</TitlleEvents>
           <List
             style={{ paddingTop: "10px", width: "65vw", marginLeft: "5vw" }}
             dataSource={EventsList}

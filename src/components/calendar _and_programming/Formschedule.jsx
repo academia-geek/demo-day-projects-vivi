@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addScheduleAsync } from '../../redux/actions/scheduleAction';
 import { AutoCompleteStyled, InputStyled } from '../../styles/calendarStyle';
 import { ModalConfirm } from './Modal';
-const { RangePicker } = DatePicker;
+
 
 export const FormSchedule = () => {
   const [date, SetDate] = useState()

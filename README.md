@@ -61,10 +61,10 @@ A planned design directed towards the theory of colors, joy, adventure and the p
 
 | Color         | Hex                                                              |
 | ------------- | ---------------------------------------------------------------- |
-| Primary Color | ![#ffffff](https://via.placeholder.com/15/fff/fff.png) #ffffff |
-| Secondary Color | ![#ffbd29](https://via.placeholder.com/15/ffbd29/ffbd29.png) #ffbd29 |
-| Background Color | ![#565252](https://via.placeholder.com/15/565252/565252.png) #565252 |
-| Neutral Color | ![#022fd0](https://via.placeholder.com/15/022fd0/022fd0.png) #022fd0 |
+| Primary Color | ![#ffffff](https://img.shields.io/badge/%20-%23ffffff?style=flat-square&color=ffffff) #ffffff |
+| Secondary Color | ![#ffbd29](https://img.shields.io/badge/%20-%23ffffff?style=flat-square&color=ffbd29) #ffbd29 |
+| Background Color | ![#565252](https://img.shields.io/badge/%20-%23ffffff?style=flat-square&color=565252) #565252 |
+| Neutral Color | ![#022fd0](https://img.shields.io/badge/%20-%23ffffff?style=flat-square&color=022fd0) #022fd0 |
 
 ## 🦾 Technologies
 
